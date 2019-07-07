@@ -6,7 +6,7 @@
     <description>Recent content in orm on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/tags/orm/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,11 @@
     <item>
       <title>Simple ORM</title>
       <link>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</link>
-      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</guid>
       <description>1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
-Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.</description>
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &amp;ldquo;ích seo lừn&amp;rdquo; nhưng cũng đủ good để work production.</description>
     </item>
     
   </channel>

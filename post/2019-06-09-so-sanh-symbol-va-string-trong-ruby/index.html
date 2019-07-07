@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Symbol và String, đường ta 2 ngả - The more your try, the more your learn</title>
+  <title>Symbol và String - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,7 +39,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Symbol và String, đường ta 2 ngả" />
+<meta property="og:title" content="Symbol và String" />
 <meta property="og:description" content="Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
 Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa." />
 <meta property="og:type" content="article" />
@@ -47,7 +47,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 <meta property="article:published_time" content="2019-06-09T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-06-09T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Symbol và String, đường ta 2 ngả">
+<meta itemprop="name" content="Symbol và String">
 <meta itemprop="description" content="Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
 Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa.">
 
@@ -60,7 +60,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Symbol và String, đường ta 2 ngả"/>
+<meta name="twitter:title" content="Symbol và String"/>
 <meta name="twitter:description" content="Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
 Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa."/>
 
@@ -125,7 +125,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Symbol và String, đường ta 2 ngả</h1>
+      <h1 class="post-title">Symbol và String</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-06-09 </span>
@@ -190,8 +190,9 @@ Liệu lý giải này đã đủ? Hãy cùng tìm hiểu.</p>
 <p>Điểm cần phải nói rõ trước khi đi xuống các phần sau đó là:</p>
 
 <ol>
-<li>Symbol thực chất cũng là một String.</li>
-<li>Symbol là một <a href="https://hdchinh.com/programing/2019/04/08/immutable-va-mutable-trong-ruby.html">immutable</a>.</li>
+<li><p>Symbol thực chất cũng là một String.</p></li>
+
+<li><p>Symbol là một <a href="https://hdchinh.com/programing/2019/04/08/immutable-va-mutable-trong-ruby.html">immutable</a>.</p></li>
 </ol>
 
 <h3 id="2-mutable-và-immutable">2. Mutable và Immutable</h3>

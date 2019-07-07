@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Exception và hướng xử lý - The more your try, the more your learn</title>
+  <title>Exception trong Rails - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng. Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ngoài hành tinh bắt cóc&amp;rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
+Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ngoài hành tinh bắt cóc&amp;rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để." /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -38,15 +39,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Exception và hướng xử lý" />
-<meta property="og:description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng. Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để." />
+<meta property="og:title" content="Exception trong Rails" />
+<meta property="og:description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
+Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/" />
 <meta property="article:published_time" content="2019-06-10T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-06-10T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Exception và hướng xử lý">
-<meta itemprop="description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng. Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để.">
+<meta itemprop="name" content="Exception trong Rails">
+<meta itemprop="description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
+Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để.">
 
 
 <meta itemprop="datePublished" content="2019-06-10T00:00:00&#43;00:00" />
@@ -57,8 +60,9 @@
 
 <meta itemprop="keywords" content="rails,ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Exception và hướng xử lý"/>
-<meta name="twitter:description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng. Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để."/>
+<meta name="twitter:title" content="Exception trong Rails"/>
+<meta name="twitter:description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
+Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -121,7 +125,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Exception và hướng xử lý</h1>
+      <h1 class="post-title">Exception trong Rails</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-06-10 </span>
@@ -157,7 +161,9 @@
 
 <h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
 
-<p>Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng. Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để. Trong lập trình ta gọi những tình huống mà logic luận lý sai lệch không còn đi theo logic bình thường như này là một exception.</p>
+<p>Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.</p>
+
+<p>Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một <code>HÀNH ĐỘNG THỐNG NHẤT</code> nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để. Trong lập trình ta gọi những tình huống mà logic luận lý sai lệch không còn đi theo logic bình thường như này là một exception.</p>
 
 <p>Ví dụ như máy tính của bạn không được thiết kế để thực hiện phép chia cho số 0. Vậy khi bạn bắt nó thực hiện phép chia cho số 0, nó sẽ nghĩ &ldquo;wtf is going on?&rdquo; và đành quăng ra cho bạn một thông báo về việc bạn đã bắt nó làm một việc mà nó không được thiết kế để làm.</p>
 
@@ -170,13 +176,14 @@
 <p>Đầu tiên chúng ta phải ghi nhớ rằng khi một exception được gọi, chương trình của bạn sẽ ngừng và đoạn code phía sau không thể chạy được nữa.</p>
 
 <ol>
-<li>Tôi đến trường đón con mèo.</li>
-<li>Tôi đem con mèo đi bán vào quán tiểu hổ.</li>
+<li><p>Tôi đến trường đón con mèo.</p></li>
+
+<li><p>Tôi đem con mèo đi bán vào quán tiểu hổ.</p></li>
 </ol>
 
-<p>Nếu ở bước 1, thay vì đón thành công con mèo, mà tôi ăn một exception &ldquo;MeoMissing&rdquo; vì lý do nó bị người ngoài hành tinh bắt cóc.</p>
+<p>Nếu ở <code>bước 1</code>, thay vì đón thành công con mèo, tôi lại dính một exception &ldquo;MeoMissing&rdquo; vì lý do nó bị người ngoài hành tinh bắt cóc.</p>
 
-<p>Khi này dĩ nhiên chương trình sẽ dừng lại, vì tôi làm gì còn con mèo để mà đem nó đi bán ở bước 2.</p>
+<p>Khi này dĩ nhiên chương trình sẽ dừng lại, vì tôi làm gì còn con mèo để mà đem nó đi bán ở  <code>bước 2</code>.</p>
 
 <p>Quay về với ví dụ đơn giản là chia cho số 0:</p>
 <div class="highlight"><div class="chroma">

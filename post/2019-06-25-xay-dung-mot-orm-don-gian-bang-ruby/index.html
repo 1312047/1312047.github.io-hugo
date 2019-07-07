@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="Duy Chinh" /><meta name="description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
-Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng." /><meta name="keywords" content="Hugo, theme, even" />
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &amp;ldquo;ích seo lừn&amp;rdquo; nhưng cũng đủ good để work production." /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -41,20 +41,20 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 
 <meta property="og:title" content="Simple ORM" />
 <meta property="og:description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
-Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng." />
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &ldquo;ích seo lừn&rdquo; nhưng cũng đủ good để work production." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/" />
-<meta property="article:published_time" content="2019-05-26T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-05-26T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2019-06-26T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-06-26T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Simple ORM">
 <meta itemprop="description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
-Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.">
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &ldquo;ích seo lừn&rdquo; nhưng cũng đủ good để work production.">
 
 
-<meta itemprop="datePublished" content="2019-05-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-05-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="892">
+<meta itemprop="datePublished" content="2019-06-26T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-06-26T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="921">
 
 
 
@@ -62,7 +62,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Simple ORM"/>
 <meta name="twitter:description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
-Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng."/>
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &ldquo;ích seo lừn&rdquo; nhưng cũng đủ good để work production."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,7 +128,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
       <h1 class="post-title">Simple ORM</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2019-05-26 </span>
+        <span class="post-time"> 2019-06-26 </span>
         
         
       </div>
@@ -158,19 +158,23 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 
 <h3 id="1-đặt-vấn-đề">1. Đặt vấn đề</h3>
 
-<p>Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.</p>
+<p>Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) <code>chậm</code>, mọi thứ khác thật sự tuyệt vời.</p>
 
-<p>Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.</p>
+<p>Nếu cần phải xây dựng một ứng dụng <code>CRUD</code>, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &ldquo;ích seo lừn&rdquo; nhưng cũng đủ good để work production.</p>
 
-<p>Một trong những yếu tố làm cho Rails xây dựng các ứng dụng một cách nhanh chóng như vậy chính là gem ActiveRecord, một ORM mặc định trong Rails.</p>
+<p>Một trong những yếu tố làm cho Rails xây dựng các ứng dụng một cách nhanh chóng như vậy chính là gem <code>ActiveRecord</code>, một ORM mặc định trong Rails.</p>
 
-<p>Như nhiều người khác, khi mới tiếp cận framework này, tôi cũng sử dụng các lệnh command mà cũng không quan tâm đến cách mà nó vận hành.</p>
+<p>Như nhiều người khác, khi mới tiếp cận framework này, tôi cũng sử dụng các lệnh command, các phương thức được support mà cũng không quan tâm đến cách mà nó vận hành.</p>
 
-<p>Vậy chúng ta hãy cùng thử xây dựng một ORM rất đơn giản, để coi thử magic gì đã xảy ra sau mỗi dòng lệnh.</p>
+<p>Nhưng nghĩ đi nghĩ lại thấy cũng kì, làm mà không hiểu kì cục lắm 😄</p>
+
+<p>Vậy thôi, chúng ta hãy cùng thử xây dựng một ORM rất đơn giản, để coi thử magic gì đã xảy ra sau mỗi dòng lệnh.</p>
 
 <h3 id="2-mã-nguồn">2. Mã nguồn</h3>
 
+<blockquote>
 <p>Mã nguồn của ứng dụng nhỏ này bạn có thể tham khảo <a href="https://github.com/hdchinh/simple-orm-ruby">tại đây</a></p>
+</blockquote>
 
 <h3 id="3-giải-thích-mã-nguồn">3. Giải thích mã nguồn</h3>
 
@@ -359,10 +363,6 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 
 <p>Trên là một ví dụ đơn giản về ORM với ngôn ngữ Ruby, các ORM trong thực tế sẽ phức tạp và tinh tế hơn rất rất nhiều. Hy vọng qua bài viết sẽ giúp bạn đọc có được thêm kiến thức với ORM và cách nó vận hành trong framework như Rails.</p>
 
-<p><img src="/images/orm.png" alt="hoa" /></p>
-
-<p>Hình không liên quan, xuất hiện khi tôi google từ khoá ORM (trollface)</p>
-
     </div>
 
     <div class="post-copyright">
@@ -373,7 +373,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-05-26
+        2019-06-26
         
     </span>
   </p>
@@ -386,13 +386,9 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
           <a href="/tags/ruby/">ruby</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Tấn công SQL Injection</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/">
-            <span class="next-text nav-default">Quy tắc viết code được xem là tốt</span>
+        
+        <a class="next" href="/post/2019-06-24-simple-rack-application/">
+            <span class="next-text nav-default">Simple Rack App</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

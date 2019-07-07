@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng (một cách vô cùng chủ quan và vô trách nhiệm) Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
 Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này." /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -40,7 +40,7 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
 
 
 <meta property="og:title" content="So sánh class method và scope" />
-<meta property="og:description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng (một cách vô cùng chủ quan và vô trách nhiệm) Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
+<meta property="og:description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
 Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/" />
@@ -48,20 +48,20 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
 <meta property="article:modified_time" content="2019-06-09T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="So sánh class method và scope">
-<meta itemprop="description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng (một cách vô cùng chủ quan và vô trách nhiệm) Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
+<meta itemprop="description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
 Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này.">
 
 
 <meta itemprop="datePublished" content="2019-06-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-06-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="433">
+<meta itemprop="wordCount" content="424">
 
 
 
 <meta itemprop="keywords" content="ruby,rails," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="So sánh class method và scope"/>
-<meta name="twitter:description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng (một cách vô cùng chủ quan và vô trách nhiệm) Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
+<meta name="twitter:description" content="Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
 Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này."/>
 
 <!--[if lte IE 9]>
@@ -154,7 +154,7 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
 
 <h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
 
-<p>Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng (một cách vô cùng chủ quan và vô trách nhiệm) Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.</p>
+<p>Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.</p>
 
 <p>Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này.</p>
 
@@ -268,7 +268,7 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
 
 <p>Đây chính là điểm khác biệt quan trọng của Scopy và Class Method.</p>
 
-<p>Scope luôn luôn trả về một <code>ActiveRecord Relation</code>. Còn Class Method thì sao? Nếu bạn không cover trường hợp nil/blank thì nó sẽ văng về nil/blank như vậy không thể chạy Class Method phía sau, vì method đó không thể chạy với nil/blank.</p>
+<p>Scope luôn luôn trả về một <code>ActiveRecord Relation</code>. Còn Class Method thì sao? Nếu bạn không cover trường hợp <strong>nil/blank</strong> thì nó sẽ văng về <strong>nil/blank</strong> như vậy không thể chạy Class Method phía sau, vì method đó không thể chạy <strong>với nil/blank</strong>. 😄</p>
 
 <h2 id="kết-luận">Kết luận</h2>
 
@@ -299,11 +299,11 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
       <nav class="post-nav">
         <a class="prev" href="/post/2019-06-10-xu-ly-ngoai-le-trong-rails/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Exception và hướng xử lý</span>
+            <span class="prev-text nav-default">Exception trong Rails</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/">
-            <span class="next-text nav-default">Symbol và String, đường ta 2 ngả</span>
+            <span class="next-text nav-default">Symbol và String</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

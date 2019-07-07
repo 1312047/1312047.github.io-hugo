@@ -155,9 +155,11 @@
 
 <h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
 
-<p><code>session[:user_id] = @user.id</code>, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳn ai cũng đã từng làm qua hoặc làm gần giống như vậy, ta được dạy rằng, <code>http</code> là 1 giao thức không có trạng thái nên request thứ <code>N + 1</code> sẽ chẳng thể biết được request thứ <code>N</code> đã làm gì, vậy nếu ở lần request thứ <code>N</code> chúng ta đã thực hiện hành vi đăng nhập, và <code>http</code> thì không có lưu vết lại điều đó, hệ quả là ở lần request tiếp theo, website hiểu như bạn chưa đăng nhập, rất đáng buồn.<br />
-Cũng theo những gì được dạy, <code>session/cookies</code> được tạo ra với mục đích làm cho http request có &ldquo;trạng thái&rdquo;. Vì sao lại để từ trạng thái trong nháy kép, vì thực sự là <code>http</code> không bao giờ có trạng thái cả, mà <code>session/cookies</code> với khả năng lưu vết của mình có thể giúp website nắm được một số <strong>thông tin</strong> từ client đã request trước đó và làm chúng giống như <code>http</code> đã có trạng thái.<br />
-Quá mơ hồ? đúng vậy, khi được dạy điều này tôi cũng thấy thật mơ hồ, wth is trạng thái? phi trạng thái? lưu vết?&hellip; Hy vọng bài viết này sẽ giúp người đọc có 1 cái nhìn dễ hiểu hơn về 2 đối tượng này trong ruby on rails.</p>
+<p><code>session[:user_id] = @user.id</code>, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳn ai cũng đã từng làm qua hoặc làm gần giống như vậy, ta được dạy rằng, <code>http</code> là 1 giao thức không có trạng thái nên request thứ <code>N + 1</code> sẽ chẳng thể biết được request thứ <code>N</code> đã làm gì, vậy nếu ở lần request thứ <code>N</code> chúng ta đã thực hiện hành vi đăng nhập, và <code>http</code> thì không có lưu vết lại điều đó, hệ quả là ở lần request tiếp theo, website hiểu như bạn chưa đăng nhập, rất đáng buồn.</p>
+
+<p>Cũng theo những gì được dạy, <code>session/cookies</code> được tạo ra với mục đích làm cho http request có &ldquo;trạng thái&rdquo;. Vì sao lại để từ trạng thái trong nháy kép, vì thực sự là <code>http</code> không bao giờ có trạng thái cả, mà <code>session/cookies</code> với khả năng lưu vết của mình có thể giúp website nắm được một số <strong>thông tin</strong> từ client đã request trước đó và làm chúng giống như <code>http</code> đã có trạng thái.</p>
+
+<p>Quá mơ hồ? đúng vậy, khi được dạy điều này tôi cũng thấy thật mơ hồ, wth is trạng thái? phi trạng thái? lưu vết?&hellip; Hy vọng bài viết này sẽ giúp người đọc có 1 cái nhìn dễ hiểu hơn về 2 đối tượng này trong ruby on rails.</p>
 
 <h2 id="luận-bàn">Luận bàn</h2>
 
@@ -165,13 +167,13 @@ Quá mơ hồ? đúng vậy, khi được dạy điều này tôi cũng thấy t
 
 <p>Một cách ngắn gọn cookies sẽ được vận hành như sau:</p>
 
-<p>Step 1: Lần đầu bạn request đến web ABC.com, nhẹ nhàng tựa mây bay, bạn không mang theo thông tin gì của ABC.com cả</p>
+<p><strong>Step 1</strong>: Lần đầu bạn request đến web ABC.com, nhẹ nhàng tựa mây bay, bạn không mang theo thông tin gì của ABC.com cả</p>
 
-<p>Step 2: ABC.com nhận request của bạn, nó nhận ra bạn không mang theo cookies của website, nên nó trong response trả về nó set một hoặc một vài cookies mặc định cho bạn.</p>
+<p><strong>Step 2</strong>: ABC.com nhận request của bạn, nó nhận ra bạn không mang theo cookies của website, nên nó trong response trả về nó set một hoặc một vài cookies mặc định cho bạn.</p>
 
-<p>Step 3: Bạn nhận được response của ABC.com, rồi bạn tiếp tục request lên ABC.com lần thứ 2, lần này đi theo request của bạn là toàn bộ số cookies đã được khởi tạo ở bước 2.</p>
+<p><strong>Step 3</strong>: Bạn nhận được response của ABC.com, rồi bạn tiếp tục request lên ABC.com lần thứ 2, lần này đi theo request của bạn là toàn bộ số cookies đã được khởi tạo ở bước 2.</p>
 
-<p>Step 4: ABC.com lại nhận được request của bạn, và lần này nó đã thấy bạn mang cookies của ABC.com nên nó sẽ đọc nội dung trong cookies đó (nếu cần).</p>
+<p><strong>Step 4</strong>: ABC.com lại nhận được request của bạn, và lần này nó đã thấy bạn mang cookies của ABC.com nên nó sẽ đọc nội dung trong cookies đó (nếu cần).</p>
 
 <h3 id="2-một-vài-loại-cookies-quan-trọng-trong-rails">2. Một vài loại cookies quan trọng trong rails</h3>
 
@@ -279,7 +281,7 @@ Ngược lại, encrypted cookies là dạng cookies tốn công sức để x�
 <span class="nb">puts</span> <span class="n">verify_and_decrypt_session_cookie</span><span class="p">(</span><span class="n">cookie_session</span><span class="p">,</span> <span class="n">skb</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>Nội dung được tham khảo từ nhiều nguồn (vì không một nguồn cụ thể nào copy và chạy luôn được 😒), nhưng chủ yếu được tìm hiểu tại <a href="https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">Đây</a>, các bạn có thể vào trang này để tìm hiểu kỹ hơn.</p>
+<p>Nội dung được tham khảo từ nhiều nguồn (vì không một nguồn cụ thể nào copy và chạy luôn được 😒), nhưng chủ yếu được tìm hiểu <a href="https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">tại đây</a>, các bạn có thể vào trang này để tìm hiểu kỹ hơn.</p>
 
 <p><strong>NOTE:</strong> Một điểm hết sức cần chú ý đó là biến <code>skb</code> tôi sử dụng ở trên chính là <code>secret_key_base</code> của project mà tôi sử dụng để demo, vì đây chỉ là một project test nên tôi có thể viết dạng text vào file sau đó commit lên github như này, trong tất cả các trường hợp khác thì đây là một hành động vô cùng <strong>tồi tệ</strong>, việc bị lộ <code>secret_key_base</code> sẽ khiến ứng dụng của bạn trần trụi trước hacker. Vậy nên hãy thật cẩn thận!</p>
 
@@ -340,7 +342,9 @@ Ngược lại, encrypted cookies là dạng cookies tốn công sức để x�
 
 <h2 id="kết-luận">Kết luận</h2>
 
-<p>Để phân biệt các client khác nhau, server sẽ dựa vào <code>session_id</code> được lưu trong cookies, vì vậy nếu chiếm được cookies đăng nhập trên website ABC.com của bạn, các hacker có thể dùng nó để giả mạo bạn và request lên server, đáng buồn thay server sẽ đọc cookies được hacker request lên, sử dụng <code>secret_key_base</code> để giải mã cookies và đọc nội dung bên trong, đoạn code xử lý login lại đọc từ session[:user_id], lúc này thì cookies kia có giá trị <code>session[:user_id] = 1</code> và thế là server đã tưởng rằng hacker chính là bạn. Trong các bài tiếp theo chúng ta sẽ tìm hiểu về một số kiểu tấn công thông thường cũng như cách phòng tránh trong rails.</p>
+<p>Để phân biệt các client khác nhau, server sẽ dựa vào <code>session_id</code> được lưu trong cookies, vì vậy nếu chiếm được cookies đăng nhập trên website ABC.com của bạn, các hacker có thể dùng nó để giả mạo bạn và request lên server, đáng buồn thay server sẽ đọc cookies được hacker request lên, sử dụng <code>secret_key_base</code> để giải mã cookies và đọc nội dung bên trong, đoạn code xử lý login lại đọc từ session[:user_id], lúc này thì cookies kia có giá trị <code>session[:user_id] = 1</code> và thế là server đã tưởng rằng hacker chính là bạn.</p>
+
+<p>Trong các bài tiếp theo chúng ta sẽ tìm hiểu về một số kiểu tấn công thông thường cũng như cách phòng tránh trong rails.</p>
 
     </div>
 
@@ -371,7 +375,7 @@ Ngược lại, encrypted cookies là dạng cookies tốn công sức để x�
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2019-04-11-su-dung-carrierwave-voi-s3/">
-            <span class="next-text nav-default">Sử dụng carrierwave với S3</span>
+            <span class="next-text nav-default">#til Sử dụng carrierwave với S3</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
