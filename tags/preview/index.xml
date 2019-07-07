@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>preview on Even - A super concise theme for Hugo</title>
+    <link>https://1312047.github.io/tags/preview/</link>
+    <description>Recent content in preview on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Jul 2019 16:56:10 +0700</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/preview/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Content</title>
+      <link>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</link>
+      <pubDate>Sun, 07 Jul 2019 16:56:10 +0700</pubDate>
+      
+      <guid>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</guid>
+      <description>Đặt vấn đề Phần lớn thời gian thời đại học, tôi được học trên nền tảng window với bộ công cụ visual studio và ms sql server. Mọi thứ đều ổn cho đến khi ra trường và đi làm. Môi trường làm việc không còn là window nữa mà chuyển sang gia đình linux-unix. Rất nhiều thứ lạ lẫm, tuy nhiên, cũng như nhiều lập trình viên khác. Copy paste không có gì khó khăn với tôi.</description>
+    </item>
+    
+    <item>
+      <title>Van de N &#43; 1</title>
+      <link>https://1312047.github.io/post/van-de-n&#43;1-trong-rails/</link>
+      <pubDate>Sun, 07 Jul 2019 16:56:10 +0700</pubDate>
+      
+      <guid>https://1312047.github.io/post/van-de-n&#43;1-trong-rails/</guid>
+      <description>Đặt vấn đề Có thể bạn đã từng nghe qua về N+1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
+Luận bàn N+1 query Xét một ví dụ:
+Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,59 @@
+<?xml-stylesheet type="text/xsl" href="https://1312047.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://1312047.github.io/tags/english/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/van-de-n&#43;1-trong-rails/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/preview/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/tag-2/</loc>
+    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
