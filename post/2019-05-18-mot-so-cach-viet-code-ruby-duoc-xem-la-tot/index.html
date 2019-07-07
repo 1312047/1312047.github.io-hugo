@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Quy tắc viết code được xem là tốt - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Quy tắc viết code được xem là tốt" />
+<meta property="og:description" content="Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/" />
+<meta property="article:published_time" content="2019-05-18T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-05-18T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Quy tắc viết code được xem là tốt">
+<meta itemprop="description" content="Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy.">
+
+
+<meta itemprop="datePublished" content="2019-05-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2806">
+
+
+
+<meta itemprop="keywords" content="coding,ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Quy tắc viết code được xem là tốt"/>
+<meta name="twitter:description" content="Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Quy tắc viết code được xem là tốt</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-18 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#đặt-khoảng-trắng">Đặt khoảng trắng</a></li>
+<li><a href="#cú-pháp-syntax">Cú pháp / Syntax</a></li>
+<li><a href="#module-và-class">Module và Class</a></li>
+<li><a href="#exceptions">Exceptions</a></li>
+<li><a href="#collections">Collections</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄</p>
+
+<p>Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo <a href="https://github.com/rubocop-hq/ruby-style-guide">ruby-style-guide</a>.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="đặt-khoảng-trắng">Đặt khoảng trắng</h3>
+
+<p>Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">sum</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="k">class</span> <span class="nc">Cat</span><span class="p">;</span> <span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ngoại lệ liên quan đến các toán tử:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">M</span> <span class="o">*</span> <span class="n">c</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="c1"># good</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">M</span> <span class="o">*</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>KHÔNG DÙNG khoảng trắng sau (, [ hay trước ], ). DÙNG khoảng trắng quanh { và trước }</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">some</span><span class="p">(</span> <span class="n">arg</span> <span class="p">)</span><span class="o">.</span><span class="n">other</span>
+<span class="o">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="o">].</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">e</span><span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">some</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="o">.</span><span class="n">other</span>
+<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">e</span> <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Khi dùng để nhúng vào string, không nên dùng khoảng trắng giữa cặp ngoặc {}.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="s2">&#34;From: </span><span class="si">#{</span> <span class="n">user</span><span class="o">.</span><span class="n">first_name</span> <span class="si">}</span><span class="s2">, </span><span class="si">#{</span> <span class="n">user</span><span class="o">.</span><span class="n">last_name</span> <span class="si">}</span><span class="s2">&#34;</span>
+
+<span class="c1"># good</span>
+<span class="s2">&#34;From: </span><span class="si">#{</span><span class="n">user</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">user</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Không có khoảng trắng sau !.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="o">!</span> <span class="n">something</span>
+
+<span class="c1"># good</span>
+<span class="o">!</span><span class="n">something</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>when và case thụt đầu dòng cùng cấp.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">case</span>
+  <span class="k">when</span> <span class="n">song</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Misty&#39;</span>
+    <span class="nb">puts</span> <span class="s1">&#39;Not again!&#39;</span>
+  <span class="k">when</span> <span class="n">song</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="mi">120</span>
+    <span class="nb">puts</span> <span class="s1">&#39;Too long!&#39;</span>
+  <span class="k">when</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">&gt;</span> <span class="mi">21</span>
+    <span class="nb">puts</span> <span class="s2">&#34;It&#39;s too late&#34;</span>
+  <span class="k">else</span>
+    <span class="n">song</span><span class="o">.</span><span class="n">play</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">case</span>
+<span class="k">when</span> <span class="n">song</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Misty&#39;</span>
+  <span class="nb">puts</span> <span class="s1">&#39;Not again!&#39;</span>
+<span class="k">when</span> <span class="n">song</span><span class="o">.</span><span class="n">duration</span> <span class="o">&gt;</span> <span class="mi">120</span>
+  <span class="nb">puts</span> <span class="s1">&#39;Too long!&#39;</span>
+<span class="k">when</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">&gt;</span> <span class="mi">21</span>
+  <span class="nb">puts</span> <span class="s2">&#34;It&#39;s too late&#34;</span>
+<span class="k">else</span>
+  <span class="n">song</span><span class="o">.</span><span class="n">play</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Thêm một dòng trống giữa các phương thức, và các nhóm xử lý logic.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">some_method</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="kp">initialize</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+
+  <span class="n">data</span><span class="o">.</span><span class="n">manipulate!</span>
+
+  <span class="n">data</span><span class="o">.</span><span class="n">result</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">some_method</span>
+  <span class="n">result</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Dùng khoảng trắng quanh toán tử = khi gán giá trị mặc định:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="ss">:default</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="kp">nil</span><span class="p">,</span> <span class="n">arg3</span><span class="o">=[]</span><span class="p">)</span>
+  <span class="c1"># do something...</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">arg1</span> <span class="o">=</span> <span class="ss">:default</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">arg3</span> <span class="o">=</span> <span class="o">[]</span><span class="p">)</span>
+  <span class="c1"># do something...</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tránh dùng dấu ngắt dòng \ khi không bắt buộc. Thực tế, chỉ dùng nó khi cần ngắt dòng string thôi.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">result</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">\</span>
+         <span class="mi">2</span>
+
+<span class="c1"># good (but still ugly as hell)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">\</span>
+         <span class="o">-</span> <span class="mi">2</span>
+
+<span class="n">long_string</span> <span class="o">=</span> <span class="s1">&#39;First part of the long string&#39;</span> <span class="p">\</span>
+              <span class="s1">&#39; and second part of the long string&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Khi gọi phương thức có nhiều đối số.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># mẫu (dòng quá dài)</span>
+<span class="k">def</span> <span class="nf">send_mail</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+  <span class="no">Mailer</span><span class="o">.</span><span class="n">deliver</span><span class="p">(</span><span class="ss">to</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span> <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;us@example.com&#39;</span><span class="p">,</span> <span class="ss">subject</span><span class="p">:</span> <span class="s1">&#39;Important message&#39;</span><span class="p">,</span> <span class="ss">body</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># bad (thụt đầu dòng hai lần)</span>
+<span class="k">def</span> <span class="nf">send_mail</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+  <span class="no">Mailer</span><span class="o">.</span><span class="n">deliver</span><span class="p">(</span>
+      <span class="ss">to</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span>
+      <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;us@example.com&#39;</span><span class="p">,</span>
+      <span class="ss">subject</span><span class="p">:</span> <span class="s1">&#39;Important message&#39;</span><span class="p">,</span>
+      <span class="ss">body</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">send_mail</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+  <span class="no">Mailer</span><span class="o">.</span><span class="n">deliver</span><span class="p">(</span><span class="ss">to</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span>
+                 <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;us@example.com&#39;</span><span class="p">,</span>
+                 <span class="ss">subject</span><span class="p">:</span> <span class="s1">&#39;Important message&#39;</span><span class="p">,</span>
+                 <span class="ss">body</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># good (thụt đầu dòng bình thường)</span>
+<span class="k">def</span> <span class="nf">send_mail</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+  <span class="no">Mailer</span><span class="o">.</span><span class="n">deliver</span><span class="p">(</span>
+    <span class="ss">to</span><span class="p">:</span> <span class="s1">&#39;bob@example.com&#39;</span><span class="p">,</span>
+    <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;us@example.com&#39;</span><span class="p">,</span>
+    <span class="ss">subject</span><span class="p">:</span> <span class="s1">&#39;Important message&#39;</span><span class="p">,</span>
+    <span class="ss">body</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span>
+  <span class="p">)</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nếu mảng có nhiều phần tử.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">menu_item</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Baked beans&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="o">]</span>
+
+<span class="c1"># good</span>
+<span class="n">menu_item</span> <span class="o">=</span> <span class="o">[</span>
+  <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Baked beans&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span>
+<span class="o">]</span>
+
+<span class="c1"># good</span>
+<span class="n">menu_item</span> <span class="o">=</span>
+  <span class="o">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;Baked beans&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Spam&#39;</span><span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Với số lớn, thêm dấu gạch dưới _ cho dễ đọc.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad - có bao nhiêu số `0`?</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1000000000</span>
+
+<span class="c1"># good - dễ đọc hơn hẳn đúng không :P</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1_000_000_000</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>KHÔNG đặt khoảng trắng giữa khối comment và từ khóa def.</p>
+
+<p>Giới hạn dòng ở 80 ký tự.</p>
+
+<p>Tránh dùng khoảng trắng thừa (thường gặp ở cuối dòng).</p>
+
+<p>Cuối file nên có thêm một dòng trống.</p>
+
+<p>KHÔNG DÙNG block comments.</p>
+
+<hr />
+
+<h3 id="cú-pháp-syntax">Cú pháp / Syntax</h3>
+
+<p>KHÔNG sử dụng :: cho các lời gọi hàm thông thường.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="no">SomeClass</span><span class="o">::</span><span class="n">some_method</span>
+<span class="n">some_object</span><span class="o">::</span><span class="n">some_method</span>
+
+<span class="c1"># good</span>
+<span class="no">SomeClass</span><span class="o">.</span><span class="n">some_method</span>
+<span class="n">some_object</span><span class="o">.</span><span class="n">some_method</span>
+<span class="no">SomeModule</span><span class="o">::</span><span class="no">SomeClass</span><span class="o">::</span><span class="no">SOME_CONST</span>
+<span class="no">SomeModule</span><span class="o">::</span><span class="no">SomeClass</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Chỉ dùng () khi khai báo phương thức có tham số.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">()</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">some_method</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
+
+<span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">some_method_with_parameters</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">some_method_with_parameters</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nếu phương thức có tham số mặc định, đặt nó ở cuối cùng.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">c</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">d</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="k">end</span>
+
+<span class="n">some_method</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;1, 2, w, x&#39;</span>
+<span class="n">some_method</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;w, 2, x, y&#39;</span>
+<span class="n">some_method</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;w, x, y, z&#39;</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">a</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">b</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">c</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">d</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="k">end</span>
+
+<span class="n">some_method</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;1, 2, w, x&#39;</span>
+<span class="n">some_method</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;y, 2, w, x&#39;</span>
+<span class="n">some_method</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;y, z, w, x&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>TRÁNH khai báo biến song song.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span>
+
+<span class="c1"># good</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;baz&#39;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="s1">&#39;foobar&#39;</span>
+
+<span class="c1"># good - hoán đổi giá trị hai biến</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+<span class="nb">puts</span> <span class="n">a</span> <span class="c1"># =&gt; &#39;bar&#39;</span>
+<span class="nb">puts</span> <span class="n">b</span> <span class="c1"># =&gt; &#39;foo&#39;</span>
+
+<span class="c1"># good - method return</span>
+<span class="k">def</span> <span class="nf">multi_return</span>
+  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
+<span class="k">end</span>
+
+<span class="n">first</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="n">multi_return</span>
+
+<span class="c1"># good - dùng với splat</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">list</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="c1"># first =&gt; 1, list =&gt; [2, 3, 4]</span>
+
+<span class="n">hello_array</span> <span class="o">=</span> <span class="o">*</span><span class="s1">&#39;Hello&#39;</span> <span class="c1"># =&gt; [&#34;Hello&#34;]</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># =&gt; [1, 2, 3]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tránh dùng dấu gạch dưới thừa thãi trong khai báo song song.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="s1">&#39;one,two,three,four,five&#39;</span>
+<span class="c1"># Phép gán không cần thiết thì không cung cấp bất kỳ thông tin hữu ích nào</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># good</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="s1">&#39;one,two,three,four,five&#39;</span>
+<span class="c1"># Dấu `_` được dùng khi ta cần lấy hết ra, trừ phần tử cuối cùng.</span>
+<span class="o">*</span><span class="n">beginning</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="o">*</span><span class="n">beginning</span><span class="p">,</span> <span class="n">something</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="c1"># Việc gán cho biến không sử dụng là không cần thiết,</span>
+<span class="c1"># nhưng nó cung cấp thông tin hữu ích cho ta.</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">_second</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">_second</span><span class="p">,</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">_ending</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Đừng dùng for, trừ khi có lý do chính đáng. Thay vào đó hãy dùng vòng lặp. for là một dạng của each, nhưng for không hỗ trợ scope (each thì có) và biến trong for thì có thể truy cập từ bên ngoài block.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">arr</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+
+<span class="c1"># bad</span>
+<span class="k">for</span> <span class="n">elem</span> <span class="k">in</span> <span class="n">arr</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="n">elem</span>
+<span class="k">end</span>
+
+<span class="c1"># ra khỏi vòng `for` ta vẫn truy cập biến `elem` được</span>
+<span class="n">elem</span> <span class="c1"># =&gt; 3</span>
+
+<span class="c1"># good</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">elem</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">elem</span> <span class="p">}</span>
+
+<span class="n">elem</span> <span class="c1"># =&gt; NameError: undefined local variable or method `elem&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>NÊN dùng toán tử ba ngôi (?:)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">result</span> <span class="o">=</span> <span class="k">if</span> <span class="n">some_condition</span> <span class="k">then</span> <span class="n">something</span> <span class="k">else</span> <span class="n">something_else</span> <span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">some_condition</span> <span class="p">?</span> <span class="n">something</span> <span class="p">:</span> <span class="n">something_else</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>DÙNG ! thay cho not.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad - parentheses are required because of op precedence</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="ow">not</span> <span class="n">something</span><span class="p">)</span>
+
+<span class="c1"># good</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">!</span><span class="n">something</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>KHÔNG dùng cặp ngoặc tròn () với if/unless/while/until.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
+  <span class="c1"># body omitted</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Dùng Kernel#loop thay vì while/until khi cần lặp vô hạn.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">while</span> <span class="kp">true</span>
+  <span class="n">do_something</span>
+<span class="k">end</span>
+
+<span class="k">until</span> <span class="kp">false</span>
+  <span class="n">do_something</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="kp">loop</span> <span class="k">do</span>
+  <span class="n">do_something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Dùng Kernel#loop cùng với break thay vì begin/end/until hay begin/end/while kiểu lặp trước, kiểm tra sau.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">begin</span>
+  <span class="nb">puts</span> <span class="n">val</span>
+  <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span> <span class="k">while</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span>
+
+<span class="c1"># good</span>
+<span class="kp">loop</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="n">val</span>
+  <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">break</span> <span class="k">unless</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nếu hash đã tường minh rồi thì không cần cặp {} nữa.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">user</span><span class="o">.</span><span class="n">set</span><span class="p">({</span> <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="ss">permissions</span><span class="p">:</span> <span class="p">{</span> <span class="ss">read</span><span class="p">:</span> <span class="kp">true</span> <span class="p">}</span> <span class="p">})</span>
+
+<span class="c1"># good</span>
+<span class="n">user</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="ss">permissions</span><span class="p">:</span> <span class="p">{</span> <span class="ss">read</span><span class="p">:</span> <span class="kp">true</span> <span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nếu phương thức hệ thống thì có thể bỏ luôn cả () và {}.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="c1"># bad</span>
+  <span class="n">validates</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="p">{</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">within</span><span class="p">:</span> <span class="mi">1</span><span class="o">..</span><span class="mi">10</span> <span class="p">}</span> <span class="p">})</span>
+
+  <span class="c1"># good</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">within</span><span class="p">:</span> <span class="mi">1</span><span class="o">..</span><span class="mi">10</span> <span class="p">}</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nếu block chỉ làm một việc thì ưu tiên dùng shorthand.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">names</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">names</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ưu tiên {&hellip;} hơn do&hellip;end cho block một dòng. Tránh dùng {&hellip;} cho block nhiều dòng. Luôn dùng do&hellip;end cho khối điều khiển và khai báo phương thức.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">names</span> <span class="o">=</span> <span class="sx">%w(Bozhidar Steve Sarah)</span>
+
+<span class="c1"># bad</span>
+<span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="nb">name</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">puts</span> <span class="nb">name</span> <span class="p">}</span>
+
+<span class="c1"># bad</span>
+<span class="n">names</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+  <span class="nb">name</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+<span class="k">end</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">upcase</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">names</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="nb">name</span><span class="o">.</span><span class="n">start_with?</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span> <span class="p">}</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tránh dùng return, chỉ nên dùng trong luồng điều khiển if..else chẳng hạn.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">some_arr</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">some_arr</span><span class="o">.</span><span class="n">size</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">some_arr</span><span class="p">)</span>
+  <span class="n">some_arr</span><span class="o">.</span><span class="n">size</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Không dùng kết quả của phép gán = trong biểu thức điều kiện.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad (+ a warning)</span>
+<span class="k">if</span> <span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span>
+  <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="c1"># some code</span>
+<span class="k">end</span>
+
+<span class="c1"># good (MRI would still complain, but RuboCop won&#39;t)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">))</span>
+  <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="c1"># some code</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">v</span>
+  <span class="n">do_something</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="c1"># some code</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Dùng &amp;&amp;= để tiền xử lý biến khi nó có thể tồn tại hoặc không.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">if</span> <span class="n">something</span>
+  <span class="n">something</span> <span class="o">=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
+<span class="k">end</span>
+
+<span class="c1"># bad</span>
+<span class="n">something</span> <span class="o">=</span> <span class="n">something</span> <span class="p">?</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span> <span class="p">:</span> <span class="kp">nil</span>
+
+<span class="c1"># ok</span>
+<span class="n">something</span> <span class="o">=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span> <span class="k">if</span> <span class="n">something</span>
+
+<span class="c1"># good</span>
+<span class="n">something</span> <span class="o">=</span> <span class="n">something</span> <span class="o">&amp;&amp;</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span>
+
+<span class="c1"># better</span>
+<span class="n">something</span> <span class="o">&amp;&amp;=</span> <span class="n">something</span><span class="o">.</span><span class="n">downcase</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tránh dùng eql?, hãy dùng ==.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad - eql? is the same as == for strings</span>
+<span class="s1">&#39;ruby&#39;</span><span class="o">.</span><span class="n">eql?</span> <span class="n">some_str</span>
+
+<span class="c1"># good</span>
+<span class="s1">&#39;ruby&#39;</span> <span class="o">==</span> <span class="n">some_str</span>
+<span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">eql?</span> <span class="n">x</span> <span class="c1"># eql? makes sense here if want to differentiate between Integer and Float 1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tránh sử dụng các biến đặc biệt kiểu Perl (như $:, $;,.. ).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="vg">$:</span><span class="o">.</span><span class="n">unshift</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
+
+<span class="c1"># good</span>
+<span class="nb">require</span> <span class="s1">&#39;English&#39;</span>
+<span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">unshift</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Lambda không có tham số thì bỏ cặp ngoặc tròn đi.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">l</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">()</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">l</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ưu tiên proc hơn Proc.new.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="nb">p</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">n</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="nb">p</span> <span class="o">=</span> <span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">n</span> <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Dùng tiền tố _ cho biến không dùng trong block và biến cục bộ. Hoặc chỉ dùng _ cũng được.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">hash</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">something</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">unused_var</span><span class="p">,</span> <span class="n">used_var</span> <span class="o">=</span> <span class="n">something_else</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="c1"># some code</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">hash</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">_k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">something</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">_unused_var</span><span class="p">,</span> <span class="n">used_var</span> <span class="o">=</span> <span class="n">something_else</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="c1"># some code</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">hash</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">_</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">something</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">_</span><span class="p">,</span> <span class="n">used_var</span> <span class="o">=</span> <span class="n">something_else</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="c1"># some code</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ưu tiên dùng các phương thức có sẵn hơn là so sánh tường minh với ==.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">if</span> <span class="n">x</span> <span class="sx">% 2 </span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="sx">% 2 </span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="kp">nil</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">even?</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">odd?</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">nil?</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">zero?</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<hr />
+
+<h3 id="module-và-class">Module và Class</h3>
+
+<p>Ưu tiên dùng module_function hơn extend self.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">module</span> <span class="nn">Utilities</span>
+  <span class="kp">extend</span> <span class="nb">self</span>
+
+  <span class="k">def</span> <span class="nf">parse_something</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="c1"># do stuff here</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">other_utility_method</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+    <span class="c1"># do some more stuff</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">module</span> <span class="nn">Utilities</span>
+  <span class="kp">module_function</span>
+
+  <span class="k">def</span> <span class="nf">parse_something</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="c1"># do stuff here</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">other_utility_method</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+    <span class="c1"># do some more stuff</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Sử dụng attr.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">class</span> <span class="nc">Person</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+    <span class="vi">@last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">first_name</span>
+    <span class="vi">@first_name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">last_name</span>
+    <span class="vi">@last_name</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">class</span> <span class="nc">Person</span>
+  <span class="kp">attr_reader</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+    <span class="vi">@last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<hr />
+
+<h3 id="exceptions">Exceptions</h3>
+
+<p>Ưu tiên dùng raise hơn fail.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="nb">fail</span> <span class="no">SomeException</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span>
+
+<span class="c1"># good</span>
+<span class="k">raise</span> <span class="no">SomeException</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tránh dùng từ khoá begin nếu có thể.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">def</span> <span class="nf">foo</span>
+  <span class="k">begin</span>
+    <span class="c1"># main logic goes here</span>
+  <span class="k">rescue</span>
+    <span class="c1"># failure handling goes here</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">def</span> <span class="nf">foo</span>
+  <span class="c1"># main logic goes here</span>
+<span class="k">rescue</span>
+  <span class="c1"># failure handling goes here</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Bắt exception theo thứ tự từ thấp đến cao.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="k">begin</span>
+  <span class="c1"># some code</span>
+<span class="k">rescue</span> <span class="no">StandardError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="c1"># some handling</span>
+<span class="k">rescue</span> <span class="no">IOError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="c1"># some handling that will never be executed</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="k">begin</span>
+  <span class="c1"># some code</span>
+<span class="k">rescue</span> <span class="no">IOError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="c1"># some handling</span>
+<span class="k">rescue</span> <span class="no">StandardError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="c1"># some handling</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<hr />
+
+<h3 id="collections">Collections</h3>
+
+<p>Ưu tiên khai báo mảng hay hash bằng cặp ngoặc hơn là tạo thể hiện, bởi vì đôi khi ta phải truyền đối số.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>
+
+<span class="c1"># good</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ưu tiên dùng %W để tạo mảng. Lưu ý chỉ dùng khi mảng có vài phần tử.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="no">STATES</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;draft&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;closed&#39;</span><span class="o">]</span>
+
+<span class="c1"># good</span>
+<span class="no">STATES</span> <span class="o">=</span> <span class="sx">%w(draft open closed)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ưu tiên dùng %i nếu muốn tạo mảng các nhãn (symbol).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="no">STATES</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:draft</span><span class="p">,</span> <span class="ss">:open</span><span class="p">,</span> <span class="ss">:closed</span><span class="o">]</span>
+
+<span class="c1"># good</span>
+<span class="no">STATES</span> <span class="o">=</span> <span class="o">%</span><span class="n">i</span><span class="p">(</span><span class="n">draft</span> <span class="nb">open</span> <span class="n">closed</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Dùng Set thay vì Array khi làm việc với mảng các phần tử độc nhất.</p>
+
+<p>Khi làm việc với hash, ưu tiên dùng nhãn hơn string khi đặt key.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;one&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">two</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">three</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Dùng Hash#key? thay cho Hash#has_key?, Hash#value? thay cho Hash#has_value? và Hash#each_key thay cho Hash#keys.each, và Hash#each_value thay cho Hash#values.each.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="ss">:test</span><span class="p">)</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">has_value?</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># good</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="ss">:test</span><span class="p">)</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">value?</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># bad</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span> <span class="nb">p</span> <span class="n">k</span> <span class="p">}</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">p</span> <span class="n">v</span> <span class="p">}</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">_v</span><span class="o">|</span> <span class="nb">p</span> <span class="n">k</span> <span class="p">}</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">_k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="nb">p</span> <span class="n">v</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">each_key</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span> <span class="nb">p</span> <span class="n">k</span> <span class="p">}</span>
+<span class="nb">hash</span><span class="o">.</span><span class="n">each_value</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">p</span> <span class="n">v</span> <span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Tài liệu tham khảo:</p>
+
+<p><a href="https://github.com/rubocop-hq/ruby-style-guide">https://github.com/rubocop-hq/ruby-style-guide</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-05-18
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/coding/">coding</a>
+          <a href="/tags/ruby/">ruby</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Simple ORM</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/">
+            <span class="next-text nav-default">Tổng quan nguyên lý SOLID</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

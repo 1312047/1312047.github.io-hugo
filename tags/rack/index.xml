@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rack on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/rack/</link>
+    <description>Recent content in rack on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/rack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simple Rack App</title>
+      <link>https://1312047.github.io/post/2019-06-24-simple-rack-application/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-24-simple-rack-application/</guid>
+      <description>1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface).</description>
+    </item>
+    
+  </channel>
+</rss>

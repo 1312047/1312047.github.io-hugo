@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/database/</link>
+    <description>Recent content in database on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vấn đề N&#43;1 và cách xử lý</title>
+      <link>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</guid>
+      <description>Đặt vấn đề Có thể bạn đã từng nghe qua về N+1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
+Luận bàn N+1 query Xét một ví dụ:
+Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user.</description>
+    </item>
+    
+  </channel>
+</rss>

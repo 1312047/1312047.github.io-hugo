@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>carrierwave on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/carrierwave/</link>
+    <description>Recent content in carrierwave on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/carrierwave/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sử dụng carrierwave với S3</title>
+      <link>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</guid>
+      <description>Gemfile 1 2  gem &amp;#39;fog&amp;#39;, require: &amp;#39;fog/aws&amp;#39; gem &amp;#39;carrierwave&amp;#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &amp;#39;carrierwave/storage/fog&amp;#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&amp;gt; &amp;#39;AWS&amp;#39;, :aws_access_key_id =&amp;gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&amp;gt; Rails.application.credentials.secret_access_key, :region =&amp;gt; Rails.application.credentials.s3_region, :path_style =&amp;gt; true, :host =&amp;gt; &amp;#39;s3.us-east-2.amazonaws.com&amp;#39;, :endpoint =&amp;gt; &amp;#39;https://s3.</description>
+    </item>
+    
+  </channel>
+</rss>

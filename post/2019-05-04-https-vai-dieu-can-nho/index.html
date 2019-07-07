@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Https vài điều lưu ý - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về http và https, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của https cũng là giao thức http nhưng thêm được chữ s ứng với secure." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Https vài điều lưu ý" />
+<meta property="og:description" content="Đặt vấn đề Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về http và https, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của https cũng là giao thức http nhưng thêm được chữ s ứng với secure." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/" />
+<meta property="article:published_time" content="2019-05-04T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-05-04T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Https vài điều lưu ý">
+<meta itemprop="description" content="Đặt vấn đề Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về http và https, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của https cũng là giao thức http nhưng thêm được chữ s ứng với secure.">
+
+
+<meta itemprop="datePublished" content="2019-05-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1457">
+
+
+
+<meta itemprop="keywords" content="https,secure," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Https vài điều lưu ý"/>
+<meta name="twitter:description" content="Đặt vấn đề Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về http và https, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của https cũng là giao thức http nhưng thêm được chữ s ứng với secure."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Https vài điều lưu ý</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-04 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-http-hiểu-đơn-giản-thì-hoạt-động-thế-nào">1. Http hiểu đơn giản thì hoạt động thế nào?</a></li>
+<li><a href="#2-https-khắc-phục-vấn-đề-của-http-như-thế-nào">2. Https khắc phục vấn đề của http như thế nào?</a></li>
+<li><a href="#3-https-và-vấn-đề-mã-hoá-dữ-liệu">3. Https và vấn đề mã hoá dữ liệu</a></li>
+<li><a href="#4-áp-dụng-https-trong-dự-án-như-thế-nào">4. Áp dụng https trong dự án như thế nào?</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về <code>http</code> và <code>https</code>, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của <code>https</code> cũng là giao thức <code>http</code> nhưng thêm được chữ <code>s</code> ứng với <code>secure</code>. Nghe thôi đã thấy bảo mật rồi, <code>https</code> ra đời nhằm mục đích làm cho giao thức <code>http</code> trở nên an toàn hơn, vậy nó làm cho <code>http</code> trở nên an toàn hơn như thế nào?</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-http-hiểu-đơn-giản-thì-hoạt-động-thế-nào">1. Http hiểu đơn giản thì hoạt động thế nào?</h3>
+
+<p><img src="/images/ssl1.png" alt="hoa" /></p>
+
+<p>Mục đích cuối cùng của mớ hỗn độn rối rắm này cũng là truyền nhận thông tin, tôi có một website tôi muốn gửi nó lên mạng internet để bạn, một ai đó mà tôi không quen có thể vô tình lướt qua đọc được.
+Http là một giao thức, hiểu đơn giản là một bộ quy tắc để chung để người sử dụng dùng trình duyệt có thể truy cập tới 1 trang web, và trang web đó hiểu được yêu cầu đó rồi trả về nội dung mà trình duyệt có thể hiểu được, ví như có nhiều ngôn ngữ trên thế giới, vậy giữa 2 người có 2 tiếng nói khác nhau để giao tiếp được họ phải cùng nhau sử dụng một bộ ngôn ngữ chung mà cả hai cùng hiểu được.</p>
+
+<p>Một đặc điểm cơ bản của <code>http</code> là nó truyền nhận thông tin dưới dạng <strong>text</strong> thông thường, không hề mã hoã, điều này dẫn tới vấn đề đó là thông tin được truyền nhận nhanh chóng, nhẹ nhàng, nội dung rất thân thiện với người dùng (vì nó là text mà).</p>
+
+<p>Mọi thứ có vẻ good? không hẳn như vậy, việc dữ liệu truyền gửi được lưu dưới dạng text khiến nó quá thân thiện với người dùng, mà người dùng thì không phải ai cũng tốt 😏 . Có những người dùng mà mục đích họ tới với website của bạn là để phá hoại, họ sẽ dễ dàng tấn công bằng cách nào đó lấy được request của bạn rồi đọc được nội dung trong request đó 1 cách dễ dàng.</p>
+
+<p>Bài học: Không phải lúc nào cũng nên quá thân thiện với người dùng cuối 😟</p>
+
+<h3 id="2-https-khắc-phục-vấn-đề-của-http-như-thế-nào">2. Https khắc phục vấn đề của http như thế nào?</h3>
+
+<p>Chúng ta đã nắm được khái quát vấn đề bảo mật gặp phải khi sử dụng <code>http</code>. Với những website giải trí thuần tuý với nội dung chủ yếu là hình ảnh âm thanh và không có thông tin cần bảo mật khi không thành vấn đề khi dùng http. Nhưng nếu bạn sử dụng internet banking với http, khi bạn đăng nhập vào tài khoản của mình, gửi một gói tin lên server với username/id và mật khẩu được gửi dưới dạng text trần trụi, bạn thì lại đang truy cập 1 điểm wifi ở 1 cafe house nào đó, nếu có kẻ gian đã có tính toán bủa vây quanh bạn nơi đó, thì còn gì ngăn cản chúng có thể lấy được thông tin đăng nhập của bạn ngay sau khi chúng bắt được gói tin bạn request gửi đi? 😞</p>
+
+<p>Https giải bài toán trên bằng cách, dùng một cách nào đó mã hoá giữ liệu cần <code>gửi đi/trả về</code>. Và như vậy là xong, tên hacker xấu xa bỉ bổi vô sỉ (có thể tên là Nhật Duy) trong quán cafe kia sẽ lặng lẽ buồn rầu bỏ cuộc vì dù hắn có bắt được gói tin của bạn thì nó cũng được mã hoá, hắn gãi đầu, gãi tai làm sao để giải mã, làm sao để lấy được thông tin đăng nhập của bạn, cứ thế hắn cứ gãi cứ gãi, còn bạn thì vẫn an toàn (tạm thời).</p>
+
+<h3 id="3-https-và-vấn-đề-mã-hoá-dữ-liệu">3. Https và vấn đề mã hoá dữ liệu</h3>
+
+<p>Trước tiên phải làm rõ là:</p>
+
+<p>| https = http + ssl</p>
+
+<p>Trong đó:</p>
+
+<ol>
+<li><p>http là giao thức tryền tải.</p></li>
+
+<li><p>ssl là cơ chế bảo mật thông tin.</p></li>
+</ol>
+
+<p>Note: Sẽ là một bài vietsub rất dài nếu liệt kê mọi điều liên quan về 2 khái niệm này, thay vào đó tôi muốn một cái nhìn khái quát nhanh chóng và dễ tiếp cận. Nếu bạn cần những hiểu biết sâu sắc hơn hãy tìm đến các tài liệu chính thông được những nhà phát triển công bố.</p>
+
+<p>Hãy bắt đầu với một câu chuyện thủa học trò: Tôi là A, tôi thích B, hiện giờ đang trong giờ học môn XYZ nào đó, chúng tôi không có điện thoại, tôi sẽ lựa chọn cách thức khá sơ khai để gửi gắm tình yêu trong sáng của tôi đến B đó là viết ra giấy rồi ném cho B đọc 😘</p>
+
+<p>Với http, tôi sẽ viết ra giấy &ldquo;i love diu&rdquo; rồi ném cho B, mọi việc đều êm xuôi trừ phi cô giáo (ở đây đóng vai trò là hacker) bắt được mẩu giấy đó và đọc được nội dung, ok fine, tôi sẽ xuống đứng góc lớp mà chả thế biện bạch gì thêm 😫</p>
+
+<p>Với <strong>tư tưởng</strong> https, tôi sẽ viết ra giấy nội dung &ldquo;i love diu&rdquo; dưới dạng mã hoá, cô giáo nếu bắt được cũng chỉ nhìn đoạn chữ giun dế mà không hiểu gì, có lẽ tôi vẫn sẽ phải đứng góc lớp nhưng chắc chắn sẽ nhẹ nhàng hơn trường hợp trên 😃</p>
+
+<p>Tuy nhiên bên trên chỉ là tư tưởng của https mà thôi, thực tế thì sẽ phức tạp hơn thế.</p>
+
+<p>Các bước tối thiểu cần có như sau:</p>
+
+<ol>
+<li><p><code>client hello</code>, người dùng sử dụng browser sẽ request tới server, đây là tín hiệu để khởi tạo kết nối ssl.</p></li>
+
+<li><p><code>server hello</code>, khi mà request ở bước một đã tới nơi, server sẽ gửi trả client 2 thông tin quan trọng đó là <code>ssl certificate</code> và <code>public key</code>.</p></li>
+
+<li><p>Sau khi kết thúc 2 bước đầu mang tính xã giao để khởi tạo kết nối. Client lúc này đã nhận được dữ liệu từ server ở bước 2, browser sẽ xác minh <code>ssl certificate</code>.</p></li>
+
+<li><p>Browser sau khi xác minh thành công ở bước 3, sẽ sinh ra một <code>khoá</code>, khoá này sau đó sẽ được mã hoá tiếp bằng <code>public key</code> đã nhận được từ bước 2 (khi gửi lên server thì khoá này đang tồn tại dưới dạng được mã hoá bởi <code>public key</code>).</p></li>
+
+<li><p>Toàn bộ nội dung của request đều sẽ được mã hoá bằng <code>khoá</code> ở bước 4, kẻ gian nếu đánh cắp được gói tin này thì sẽ cần có giá trị <code>khoá</code> để giải mã, tuy nhiên đáng buồn thay là lúc này khi được gửi đi thì <code>khoá</code> đã được mã hoá bằng <code>public key</code> vì vậy không thể giải mã được nếu thiếu <code>private key</code> được lưu ở server.</p></li>
+
+<li><p>Request tới server, giá trị <code>khoá</code> sẽ được giải mã ra nhanh chóng vì server đang có <code>private key</code>. từ giá trị <code>khoá</code> này, server sẽ giải mã ra nội dung của request.</p></li>
+</ol>
+
+<p>Note: Trong nội dung trên có đề cập đến vấn đề mã hoá rất nhiều, nhưng không hề đề cập đến việc sử dụng thuật toán nào để mã hoá, tôi nghĩ rằng chúng ta nên đọc những tài liệu chính thông để có thông tin xác thực nhất, cá nhân tôi, tôi cũng chưa tìm hiểu 😘</p>
+
+<h3 id="4-áp-dụng-https-trong-dự-án-như-thế-nào">4. Áp dụng https trong dự án như thế nào?</h3>
+
+<p>Như đã trình bày ở mục số 3, https là http có thêm cơ chế ssl, cơ chế ssl bạn có thể sử dụng bởi 1 nhà cung cấp bên thứ 3 (Certificate Authority) ví dụ như GoDaddy, Comodo hay 1 dịch vụ miễn phí như Let’s Encrypt.</p>
+
+<p>Nói chung là vì sử dụng dịch vụ bên thứ 3 nên không thể miêu tả phần này được, mỗi dịch vụ sẽ có những tuỳ biến riêng, âu thì mình cứ follow theo trang chủ cho an tâm nhỉ.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Nói mới nhớ thì thấy mấy anh công ty cũ từng bảo <code>ranking</code> google giờ có ảnh hưởng bởi việc bạn sử dụng https hay không, nghe đâu thì việc sử dụng https sẽ giúp bạn có cơ hội bay cao hơn trong bảng rank website của google, có lẽ tôi cũng phải trích rút thời gian sao mà update cái blog nhỏ này lên https, với hi vọng bớt cảnh vắng tanh như chùa bà đanh 😔</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-05-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/https/">https</a>
+          <a href="/tags/secure/">secure</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Các phương thức cập nhật trong ActiveRecord</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/">
+            <span class="next-text nav-default">Cơ chế Autoloading và Reloading trong Rails</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

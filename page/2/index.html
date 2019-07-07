@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Hugo theme even example site." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/" />
+  <link href="https://1312047.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The more your try, the more your learn" />
+  <link href="https://1312047.github.io/index.xml" rel="feed" type="application/rss+xml" title="The more your try, the more your learn" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="The more your try, the more your learn" />
+<meta property="og:description" content="Hugo theme even example site." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://1312047.github.io/" />
+
+<meta property="og:updated_time" content="2019-06-24T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="The more your try, the more your learn">
+<meta itemprop="description" content="Hugo theme even example site.">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The more your try, the more your learn"/>
+<meta name="twitter:description" content="Hugo theme even example site."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/">Symbol và String, đường ta 2 ngả</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-06-09 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
+Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/">Tấn công SQL Injection</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-06-08 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Trong project của bạn, đã bao giờ bạn sử dụng câu lệnh có dạng như:
+1  Product.where(&#34;product_name = &#39;Meo con di lon ton&#39; &#34;)   Nếu có, thì bạn đã vô tình tạo một lỗ hổng về an toàn cho website của mình. Hãy cùng tìm hiểu vì sao lại như vậy.
+Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, nội dung câu lệnh này nhắm lấy ra sản phẩm có tên là Meo con di lon ton.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/">Simple ORM</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-05-26 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/">Quy tắc viết code được xem là tốt</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-05-18 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/">Tổng quan nguyên lý SOLID</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-05-17 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    </section>
+  
+  <nav class="pagination">
+    <a class="prev" href="/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    <a class="next" href="/page/3/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

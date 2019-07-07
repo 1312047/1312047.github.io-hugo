@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Cơ chế Autoloading và Reloading trong Rails - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề 1 2 3  class CatsController &amp;lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Cơ chế Autoloading và Reloading trong Rails" />
+<meta property="og:description" content="Đặt vấn đề 1 2 3  class CatsController &lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/" />
+<meta property="article:published_time" content="2019-04-17T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-17T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Cơ chế Autoloading và Reloading trong Rails">
+<meta itemprop="description" content="Đặt vấn đề 1 2 3  class CatsController &lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails.">
+
+
+<meta itemprop="datePublished" content="2019-04-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-04-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="419">
+
+
+
+<meta itemprop="keywords" content="rails," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cơ chế Autoloading và Reloading trong Rails"/>
+<meta name="twitter:description" content="Đặt vấn đề 1 2 3  class CatsController &lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Cơ chế Autoloading và Reloading trong Rails</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-17 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">CatsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># do something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<p>Như bài viết trước đã đề cập về cách mà phương thức require hoạt động:</p>
+
+<ol>
+<li><p>Tìm file được require theo các đường dẫn được lưu trong biến $LOAD_PATH (biến này là 1 mảng các đường dẫn).</p></li>
+
+<li><p>Khi tìm được file tương ứng thì dừng quá trình tìm file và bắt đầu load file tìm được vào bộ nhớ.</p></li>
+
+<li><p>Nếu tìm hết các đường dẫn và không thấy thì gọi tới LoadError.</p></li>
+</ol>
+
+<p><strong>autoload_paths</strong> là một tập hợp các thư mục được tự động load mà không cần require. Mặc định thì autoload_paths sẽ chứa các thư mục sau:</p>
+
+<ol>
+<li><p>Tất cả các thư mục con cấp 1 của thư mục app, ví dụ như app/controllers, app/views&hellip;</p></li>
+
+<li><p>Tất cả các thư mục cấp 2 tên là concerns trong app, ví dụ như app/helpers/concerns, app/lib/concerns&hellip;</p></li>
+
+<li><p>Thư mục test/mailers/previews.</p></li>
+</ol>
+
+<p>Ta có thể xem danh sách này bằng câu lệnh:</p>
+
+<p><code>bin/rails r 'puts ActiveSupport::Dependencies.autoload_paths'</code></p>
+
+<p><strong>eager_load_paths</strong> hoàn toàn giống như khái niệm về autoload_paths đã nêu ở trên. Điểm chúng ta cần lưu ý đó là:</p>
+
+<ol>
+<li><p>Những thư mục nằm trong eager_load_paths sẽ được load một lần duy nhất TRƯỚC khi ứng dụng của bạn khởi chạy.</p></li>
+
+<li><p>Những thư mục nằm trong autoload_paths sẽ được sử dụng để tìm kiếm khi chương trình ĐANG CHẠY và gặp 1 từ khoá chưa được định nghĩa trong file hiện tại.</p></li>
+</ol>
+
+<p>Ta có 2 từ in hoa, đó là phần quan trọng, để đảm bảo tính nhất quán và hoạt động một cách ổn định và chính xác, trong môi trường production ta sử dụng eager_load_paths để load toàn bộ những file cần thiết cho các hệ thống cần thì sử dụng, còn ở môi trường phát triển, để khởi chạy ứng dụng nhanh chóng hơn và dễ dàng cập nhật các thay đổi thì ta sử dụng autoload_paths.</p>
+
+<p>Việc thiết lập này phụ thuộc vào cấu hình của bạn trong thư mục <code>app/config/envirements/...</code> với 2 cấu hình là:</p>
+
+<ul>
+<li>config.cache_classes</li>
+<li>config.eager_load</li>
+</ul>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Tham khảo:</p>
+
+<ul>
+<li><a href="https://guides.rubyonrails.org/autoloading_and_reloading_constants.html">autoloading_and_reloading_constants</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/rails/">rails</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-05-04-https-vai-dieu-can-nho/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Https vài điều lưu ý</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/">
+            <span class="next-text nav-default">Session và Cookies trong Rails</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

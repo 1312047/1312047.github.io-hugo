@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>til on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/til/</link>
+    <description>Recent content in til on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/til/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sử dụng carrierwave với S3</title>
+      <link>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</guid>
+      <description>Gemfile 1 2  gem &amp;#39;fog&amp;#39;, require: &amp;#39;fog/aws&amp;#39; gem &amp;#39;carrierwave&amp;#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &amp;#39;carrierwave/storage/fog&amp;#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&amp;gt; &amp;#39;AWS&amp;#39;, :aws_access_key_id =&amp;gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&amp;gt; Rails.application.credentials.secret_access_key, :region =&amp;gt; Rails.application.credentials.s3_region, :path_style =&amp;gt; true, :host =&amp;gt; &amp;#39;s3.us-east-2.amazonaws.com&amp;#39;, :endpoint =&amp;gt; &amp;#39;https://s3.</description>
+    </item>
+    
+    <item>
+      <title>SaaS, PaaS và IaaS</title>
+      <link>https://1312047.github.io/post/2019-04-10-iaas-paas-saas/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-10-iaas-paas-saas/</guid>
+      <description>SaaS: Software as a Service
+Ví dụ như: TFS, Github.
+Mua một căn nhà và mua xong thì vào đó ở luôn chứ không cần vất vả xây dựng gì thêm.
+Ưu: Nhanh, tiện.
+Nhược: không có tính tuỳ chỉnh, vì dịch vụ sẽ phổ thông và không thể cover hết được nhu cầu của chúng ta.
+PaaS: Platform as a Service
+Ví dụ như: Heroku, AWS Elastic Beanstalk.
+Mua một căn nhà đã có một số tiện ích cơ bản để sống, mình chỉ cần dọn thêm đồ đạc của mình(source code) vào là sống được.</description>
+    </item>
+    
+    <item>
+      <title>Upload với S3 trong rails</title>
+      <link>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</guid>
+      <description>Ghi chú này được tham khảo từ bài viết Lưu trữ file trên Amazon S3 của tác giả @duyth1993 trên website viblo.com.
+Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:</description>
+    </item>
+    
+  </channel>
+</rss>

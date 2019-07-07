@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Simple Rack App - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface)." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-06-24-simple-rack-application/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Simple Rack App" />
+<meta property="og:description" content="1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-06-24-simple-rack-application/" />
+<meta property="article:published_time" content="2019-06-24T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-06-24T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Simple Rack App">
+<meta itemprop="description" content="1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface).">
+
+
+<meta itemprop="datePublished" content="2019-06-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-06-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1000">
+
+
+
+<meta itemprop="keywords" content="rack,ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Simple Rack App"/>
+<meta name="twitter:description" content="1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface)."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Simple Rack App</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-06-24 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-đặt-vấn-đề">1. Đặt vấn đề</a></li>
+<li><a href="#2-tham-khảo">2. Tham khảo?</a></li>
+<li><a href="#3-kiến-thức-cần-chuẩn-bị-trước">3. Kiến thức cần chuẩn bị trước.</a></li>
+<li><a href="#4-build-một-simple-rack-application">4. Build một simple Rack application</a></li>
+<li><a href="#5-giải-thích-nội-dung-mã-nguồn-của-app-demo">5. Giải thích nội dung mã nguồn của app demo</a></li>
+<li><a href="#6-kết-luận">6. Kết luận</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h3 id="1-đặt-vấn-đề">1. Đặt vấn đề</h3>
+
+<p>Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái <code>gem rack</code> trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface).</p>
+
+<p>Nhưng làm việc hàng ngày với nó mà không hiểu nó là gì luôn làm cho ta cảm giác bất an vô định, cập nhật CV là <code>Developer</code> mà đi phỏng vấn được hỏi rack là gì, lại trả lời &ldquo;em&hellip;em..em hông biết&rdquo; thì liệu có bị đánh xuống rank junior hay không? Thôi thì cứ tìm hiểu coi nó ra sao.</p>
+
+<p>Và thế là tôi đã đọc docs trên trang chủ của Rack, nói chung đọc qua thì có hiểu, mà cái hiểu nó mông lung như một trò đùa, chút nữa thì đành phải &ldquo;anh xin giơ tay rút lui thôi&rdquo;.</p>
+
+<p>Vậy nên tôi sẽ viết một ứng dụng Rack (chạy trên Rack) very..very simple, để tôi và có thể cả bạn có cái nhìn thoáng qua về Rack trước đã, chứ tôi thấy hiểu biết hiện tại của mình chưa đủ để chém gió hàn lâm về chủ đề này (hy vọng tương lai gần sẽ có bài chém gió hàn lâm).</p>
+
+<h3 id="2-tham-khảo">2. Tham khảo?</h3>
+
+<ol>
+<li><p>Bài viết này tôi tham khảo cách sử dụng Rack trên trang chủ của Rack <a href="https://rack.github.io/">tại đây</a> và trên mục docs của ruby <a href="https://www.rubydoc.info/github/rack/rack/">tại đây</a>.</p></li>
+
+<li><p>Ứng dụng rất thô sơ và KHÔNG sử dụng &ldquo;bét pờ rạch tít&rdquo; nào cả.</p></li>
+</ol>
+
+<h3 id="3-kiến-thức-cần-chuẩn-bị-trước">3. Kiến thức cần chuẩn bị trước.</h3>
+
+<p>Dù ít dù nhiều thì vẫn phải đánh qua lý thuyết một chút trước khi mày mò làm gì đó. Một số khái niệm/quy trình chúng ta nên nắm trước như sau:</p>
+
+<p>1) Rack là một lớp nằm giữa web/app server và ứng dụng.
+Ex: Nếu tôi sử dụng Rails với app server là Puma, web server là Nginx thì đường đi của một request sẽ như sau:</p>
+
+<p><img src="/images/rack.jpeg" alt="hoa" /></p>
+
+<p>Note: Khái niệm web server và app server chúng ta sẽ bàn tới sau.</p>
+
+<p>2) Như hình trên, ta có thể thấy Rack sẽ giao tiếp với app server, nên Rack sẽ nhận request từ app server gửi qua, với nội dung lằng nhằng rối rắm gì đó, sau đó Rack sẽ <code>làm gì đó</code> với cái request rối rắm kia để cho Rails có thể hiểu và thực thi được, sau đó Rails sẽ gửi về cho Rack kết quả cũng rối rắm không kém và nhiệm vụ của Rack lại là tiếp tục <code>làm gì đó</code> cái kết quả từ Rails, sao cho chuyển kết quả đó thành 1 thứ gì đó mà app server có thể hiểu, cuối cùng app server quăng kết quả về cho người dùng.</p>
+
+<p>Note: Vậy Rack như một phiên dịch viên để truyền đạt giữa ứng dụng và app server (Không thật sự đúng về bản chất nhưng ta cứ tạm chấp nhận so sánh này).</p>
+
+<h3 id="4-build-một-simple-rack-application">4. Build một simple Rack application</h3>
+
+<p>1) Tạo 1 Folder với 1 file tên <code>Gemfile</code> có nội dung như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+
+<span class="n">gem</span> <span class="s1">&#39;rack&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>2) Cài đặt gem vói lệnh <code>bundle install</code></p>
+
+<p>3) Tạo file <code>config.ru</code></p>
+
+<p>Note: Đây sẽ là file main để xử lý request.</p>
+
+<p>4) Chạy project với lệnh <code>bundle exec rackup</code></p>
+
+<p>| Project demo <a href="https://github.com/hdchinh/simple-rack-app">tại đây!</a></p>
+
+<h3 id="5-giải-thích-nội-dung-mã-nguồn-của-app-demo">5. Giải thích nội dung mã nguồn của app demo</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">map</span> <span class="s1">&#39;/signup_user&#39;</span> <span class="k">do</span>
+  <span class="n">run</span> <span class="no">SignUpUser</span><span class="o">.</span><span class="n">new</span>
+<span class="k">end</span>
+
+<span class="n">map</span> <span class="s1">&#39;/signup&#39;</span> <span class="k">do</span>
+  <span class="n">run</span> <span class="no">MySignUp</span><span class="o">.</span><span class="n">new</span>
+<span class="k">end</span>
+
+<span class="n">map</span> <span class="s1">&#39;/signin&#39;</span> <span class="k">do</span>
+  <span class="n">run</span> <span class="no">MySignIn</span><span class="o">.</span><span class="n">new</span>
+<span class="k">end</span>
+
+<span class="n">map</span> <span class="s1">&#39;/signin_user&#39;</span> <span class="k">do</span>
+  <span class="n">run</span> <span class="no">SignInUser</span><span class="o">.</span><span class="n">new</span>
+<span class="k">end</span>
+
+<span class="n">map</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+  <span class="n">run</span> <span class="no">HomePage</span><span class="o">.</span><span class="n">new</span>
+<span class="k">end</span>
+
+<span class="n">run</span> <span class="no">MyNotFound</span><span class="o">.</span><span class="n">new</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Chắc bạn cũng có thể đoán ra ý nghĩa của nó, nếu map chúng đường dẫn thì sẽ chạy lệnh trong đó.<br />
+Ex:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">map</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+  <span class="n">run</span> <span class="no">HomePage</span><span class="o">.</span><span class="n">new</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>=&gt; Nếu truy cập theo trang chủ thì sẽ chạy lệnh <code>run HomePage.new</code>.</p>
+
+<p>Nếu url người dùng request không trùng bất cứ trường hợp nào thì chạy lệnh <code>run MyNotFound.new</code> ở cuối.</p>
+
+<p>Một class sẽ có dạng như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SignInUser</span>
+  <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="c1"># read file data</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">)</span>
+
+    <span class="c1"># get params</span>
+    <span class="n">data</span> <span class="o">=</span>  <span class="no">Rack</span><span class="o">::</span><span class="no">Utils</span><span class="o">.</span><span class="n">parse_nested_query</span><span class="p">(</span><span class="n">env</span><span class="o">[</span><span class="s1">&#39;QUERY_STRING&#39;</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="s1">&#39;email&#39;</span><span class="o">]</span>
+    <span class="n">pass</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="s1">&#39;password&#39;</span><span class="o">]</span>
+
+    <span class="c1"># convert file data from string to hash</span>
+    <span class="n">hash_data</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="c1"># init variable for user login</span>
+    <span class="n">user_email</span> <span class="o">=</span> <span class="kp">nil</span>
+
+    <span class="c1"># loop hash to find email params</span>
+    <span class="n">hash_data</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">val</span><span class="o">|</span>
+      <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">email</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">=</span> <span class="n">pass</span>
+          <span class="n">user_email</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="k">if</span> <span class="n">user_email</span>
+      <span class="n">body</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;&lt;h1&gt;email: </span><span class="si">#{</span><span class="n">user_email</span><span class="si">}</span><span class="s2">&lt;h/1&gt;&#34;</span><span class="o">]</span>
+    <span class="k">else</span>
+      <span class="n">body</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;&lt;h1&gt;Email or Password Invalid&lt;/h1&gt;&#34;</span><span class="o">]</span>
+    <span class="k">end</span>
+
+    <span class="o">[</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text/html&#39;</span><span class="p">},</span> <span class="n">body</span><span class="o">]</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Bạn thấy phức tạp? Không sao cả, chỉ cần chú ý đến dòng cuối cùng trong method call. Ta chỉ cần nhớ:</p>
+
+<p>1) Mỗi class sử dụng method call để cài đặt (yêu cầu của Rack).
+2) Trong method này nhận vào một params, đây chính là request đi tới.
+3) Kết quả trả về của method call này là một mảng gồm 3 phần tử:<br />
+- Status code (200 là success, 404 là not found)
+- Một hash, ở đây chính là header
+- Phần tử cuối cùng là một mảng, chính là phần body của kết quả trả về.</p>
+
+<h3 id="6-kết-luận">6. Kết luận</h3>
+
+<p>Trên là một basic app xây dựng với Rack, vì định nghĩa chỉ đọc không làm sẽ rất khó hiểu, nên tôi làm demo trước, hy vọng trong thời gian tới nếu kiến thức thu lượm đủ để viết về cách vận hành của Rack một cách sâu sắc, tôi có thể tiếp tục chủ đề này.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-06-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/rack/">rack</a>
+          <a href="/tags/ruby/">ruby</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2019-06-16-tu-khoa-super-trong-ruby/">
+            <span class="next-text nav-default">Từ khoá super trong Ruby</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Các phương thức cập nhật trong ActiveRecord - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
+Luận bàn Chuẩn bị:
+ Tôi có một model Cat với 2 thuộc tính là age và name.
+ Trong model Cat tôi có 1 validation và 1 callback đơn giản." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Các phương thức cập nhật trong ActiveRecord" />
+<meta property="og:description" content="Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
+Luận bàn Chuẩn bị:
+ Tôi có một model Cat với 2 thuộc tính là age và name.
+ Trong model Cat tôi có 1 validation và 1 callback đơn giản." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/" />
+<meta property="article:published_time" content="2019-05-08T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-05-08T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Các phương thức cập nhật trong ActiveRecord">
+<meta itemprop="description" content="Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
+Luận bàn Chuẩn bị:
+ Tôi có một model Cat với 2 thuộc tính là age và name.
+ Trong model Cat tôi có 1 validation và 1 callback đơn giản.">
+
+
+<meta itemprop="datePublished" content="2019-05-08T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-08T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="812">
+
+
+
+<meta itemprop="keywords" content="activerecord,rails," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Các phương thức cập nhật trong ActiveRecord"/>
+<meta name="twitter:description" content="Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
+Luận bàn Chuẩn bị:
+ Tôi có một model Cat với 2 thuộc tính là age và name.
+ Trong model Cat tôi có 1 validation và 1 callback đơn giản."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Các phương thức cập nhật trong ActiveRecord</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-08 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-phương-thức-update">1. Phương thức update</a></li>
+<li><a href="#2-phương-thức-update-attribute-và-update-attributes">2. Phương thức update_attribute và update_attributes</a></li>
+<li><a href="#3-phương-update-column-và-update-columns">3. Phương update_column và update_columns</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Ngoài phương thức thông dụng <code>update</code> để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<p><strong>Chuẩn bị:</strong></p>
+
+<ol>
+<li><p>Tôi có một model <code>Cat</code> với 2 thuộc tính là <code>age</code> và <code>name</code>.</p></li>
+
+<li><p>Trong model Cat tôi có 1 <code>validation</code> và 1 <code>callback</code> đơn giản.</p></li>
+</ol>
+
+<p><strong>Để so sánh các phương thức chúng ta chú ý đến một số điểm sau:</strong></p>
+
+<ol>
+<li><p>Phương thức nhận một field cần update hay nhiều field?</p></li>
+
+<li><p>Phương thức update được cho một hay nhiều record?</p></li>
+
+<li><p>Validate method có chạy hay không?</p></li>
+
+<li><p>Callback có chạy hay không?</p></li>
+
+<li><p>Trường update_at có được cập nhật hay không?</p></li>
+</ol>
+
+<h3 id="1-phương-thức-update">1. Phương thức update</h3>
+
+<p><strong>Instance method:</strong></p>
+
+<p>Là phương thức được gọi thông qua một instance. Ta truyền vào field name cần cập nhật và giá trị mới sau cập nhật. Ta có thể truyền tham số dưới dạng hash.</p>
+
+<p>Ví dụ:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cat</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">first</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;change name&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nhiều tham số</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cat</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">first</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;change name&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Truyền dưới dạng hash</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cat</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">first</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;change name&#39;</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Class method</strong></p>
+
+<p>Là phương thức được gọi thông qua class model. Nhận vào 2 tham số, thứ nhất là id hoặc một mảng các id của record thuộc class cần cập nhật, thứ hai là một hash key-value các field name cần cập nhật và giá trị của chúng sau cập nhật.</p>
+
+<p>Cập nhật 1 record</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Cat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;change name&#39;</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Cập nhật nhiều record</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">Cat</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;change name&#39;</span><span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Note:</p>
+
+<ol>
+<li><p>Trường updated_at đều được cập nhật lại khi dùng 2 phương thức trên.</p></li>
+
+<li><p>Validate và callback đều được chạy.</p></li>
+
+<li><p>Class method <code>update</code> thì có thể cập nhật nhiều record một lúc.</p></li>
+</ol>
+
+<h3 id="2-phương-thức-update-attribute-và-update-attributes">2. Phương thức update_attribute và update_attributes</h3>
+
+<p>Phương thức update_attribute nhận 2 tham số truyền vào, với tham số thứ nhất là field cần cập nhật và tham số thứ 2 là giá trị cập nhật (Khác với update, thì tham số truyền vào không thể để dưới dạng hash).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cat</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">first</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update_attribute</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="s1">&#39;change name&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Phương thức update_attributes khác với update_attribute là nó nhận 1 tham số chứ không phải 2. Ta truyền tham số dưới hạng một hash cho phương này với giá trị key-value tương ứng field cần update và giá trị cần cập nhật.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cat</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">first</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update_attributes</span><span class="p">({</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;change name&#39;</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="mi">20</span> <span class="p">})</span>
+<span class="c1"># cách khác</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update_attributes</span><span class="p">({</span> <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;meo tam the 2&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">20</span> <span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Note:</p>
+
+<ol>
+<li><p>Trường updated_at có được cập nhật lại.</p></li>
+
+<li><p>Callback vẫn chạy nhưng <strong>không</strong> chạy validate.</p></li>
+
+<li><p>update_attribute dùng cho cập nhật 1 field còn update_attributes cần khi cập nhật nhiều field.</p></li>
+</ol>
+
+<h3 id="3-phương-update-column-và-update-columns">3. Phương update_column và update_columns</h3>
+
+<p>Phương thức update_column có cú pháp giống như update_attribute, còn phương thức update_columns thì có cú pháp tương tự như update_attributes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cat</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">first</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update_column</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="s1">&#39;change name&#39;</span><span class="p">)</span>
+
+<span class="c1"># với update_columns</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update_columns</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;change name&#39;</span><span class="p">,</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">update_columns</span><span class="p">(</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;change name&#39;</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tuy nhiên ta có một số điểm khác biệt cơ bản cần lưu ý với update_attribute và update_attributes cần lưu ý.</p>
+
+<p>Note: Với phương thức update_column và update_columns</p>
+
+<ol>
+<li><p>Trường updated_at không được cập nhật.</p></li>
+
+<li><p>Callback và validate đều <strong>không</strong> được chạy.</p></li>
+</ol>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Trên đây là một số nội dung cơ bản cần nắm bắt về cách cập nhật cơ sở dữ liệu với activerecord trong rails. Nhìn qua thì những phương thức này có vẻ khá giống nhau và đôi lúc bạn tự hỏi là lý do gì khiến phải sinh ra nhiều phương thức như vậy trong khi chỉ riêng phương thức <code>update</code> đã gần như làm được tất cả những gì mà chúng ta nghĩ là cần.</p>
+
+<p>Cách đây ít lâu tôi có làm 1 ứng dụng nhỏ, trong đó có một model chính gọi là X, trong model này tôi có viết một callback tên Y được thực hiện sau khi record được save (với method after_save). Trong callback Y tôi sử dụng method <code>update</code>.</p>
+
+<p>Đáng buồn thay là đoạn code của tôi không hoạt động một cách bình thường, sau khi save record thì terminal bị crash với một vòng lặp bất tận, chợt nhận ra là khi sử dụng <code>update</code> thì callback được gọi lại, vậy là nó tạo ra một vòng lặp vĩnh viễn, save record(1) -&gt; callback được gọi(2) -&gt; trong callback có phương thức update(3) -&gt; update được gọi(4) -&gt; update lại gọi lại callback(2).<br />
+Để khắc phục thì cần chuyển <code>update</code> thành <code>update_column</code> hoặc <code>update_columns</code>.</p>
+
+<p>Đây là một ví dụ nhỏ về việc cần thiết cuả những phương thức kể trên, mỗi phương thức sẽ là tốt hoặc là duy nhất có thể trong từng trường hợp. Hãy cân nhắc kỹ.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-05-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/activerecord/">activerecord</a>
+          <a href="/tags/rails/">rails</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-05-15-require-load-include-va-extend-trong-ruby/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Require và Load trong Ruby</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-05-04-https-vai-dieu-can-nho/">
+            <span class="next-text nav-default">Https vài điều lưu ý</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

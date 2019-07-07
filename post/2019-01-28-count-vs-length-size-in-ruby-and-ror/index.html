@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Tìm hiểu về length, count và size trong Ruby, Rails - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Tìm hiểu về length, count và size trong Ruby, Rails" />
+<meta property="og:description" content="Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/" />
+<meta property="article:published_time" content="2019-01-28T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-01-28T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Tìm hiểu về length, count và size trong Ruby, Rails">
+<meta itemprop="description" content="Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”.">
+
+
+<meta itemprop="datePublished" content="2019-01-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-01-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="909">
+
+
+
+<meta itemprop="keywords" content="ruby,rails," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tìm hiểu về length, count và size trong Ruby, Rails"/>
+<meta name="twitter:description" content="Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Tìm hiểu về length, count và size trong Ruby, Rails</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-01-28 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-tổng-quan">1.Tổng quan</a></li>
+<li><a href="#2-trong-ruby">2.Trong ruby</a></li>
+<li><a href="#3-trong-active-record">3.Trong Active Record</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”.
+Thời gian trôi qua, khi đã có nhiều kinh nghiệm hơn, tôi bắt đầu ngày càng hứng thú về những kiến thức nền tảng mà ngày xưa tôi chỉ từng đọc lướt qua. Trong đó có Count, Length và Size, những thứ tưởng như không có gì để nói hay tìm hiểu thêm, nhưng liệu chúng có thực sự đơn giản như vậy?</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-tổng-quan">1.Tổng quan</h3>
+
+<p>Về cơ bản, đây là ba phương thức được Ruby cung cấp, và dĩ nhiên, nó hoàn toàn có thể sử dụng trong rails. Một cách thường xuyên nhất, bạn có thể thấy người ta sử dụng những phương thức này cho một mảng dữ liệu bất kì trong Ruby hay một mảng record trong Rails. Ý nghĩa của nó là trả về kích thước của mảng/hash. Ví dụ:</p>
+
+<p>{% highlight ruby %}
+array = Array.new(3,1)
+#=&gt; Tạo 1 mảng tên array có 3 phần tử đều có giá trị là 1.
+array.size, array.length, array.count
+#=&gt; Kết quả trả về cùng là 3.
+{% endhighlight %}</p>
+
+<p>Nhưng mọi chuyện không dừng lại ở đấy, nếu chúng chỉ cùng có chung một chức năng thì không có lý do gì để chúng cùng tồn tại.</p>
+
+<h3 id="2-trong-ruby">2.Trong ruby</h3>
+
+<p>Ngoài chức năng tính kích thước của một mảng hay một hash như đã được đề cập ở trên, Size có thể được sử dụng với cả đối tượng dạng chuỗi và dạng số nguyên.
+Với chuỗi, Size sẽ trả về kết quả là số lượng ký tự của chuỗi. Còn với số nguyên, nó sẽ trả về số bite mà đối tượng đó nắm giữ trên bộ nhớ. Ví dụ:</p>
+
+<p>{% highlight ruby %}
+str_temp = &ldquo;hduychinh&rdquo;
+str_temp.size
+#=&gt; Kết quả trả về độ dài chuỗi là 9.
+int_temp = 12
+int_temp.size
+#=&gt; Kết quả trả về là 8, ứng với 8 bytes mà int_temp lưu trữ trên bộ nhớ.
+{% endhighlight %}</p>
+
+<p>Length kém hơn size một chút, Length chỉ có thể sử dụng thêm cho các đối tượng dạng chuỗi để trả về số lượng ký tự trong chuỗi, mà không thể sử dụng trên số nguyên.</p>
+
+<p>Cuối cùng là Count, nó không có chức năng gì bổ sung so với phần đã đề cập. Tuy nhiên, một điểm mạnh của Count đó là khi sử dụng với mảng/hash thì nó có thể nhận tham số chuyển vào. Ví dụ:</p>
+
+<p>{% highlight ruby %}
+c = [1, 2, 3, 3]
+c.count 3
+#=&gt; Kết quả trả về là 2.
+c.count { |i| i &gt; 1 }
+#=&gt; Kết quả trả về là 3.
+{% endhighlight %}</p>
+
+<h3 id="3-trong-active-record">3.Trong Active Record</h3>
+
+<p>Khi sử dụng Count thực chất là bạn đang sử dụng lệnh sql <code>select count(*) from table_names</code> để truy vấn ra số lượng mà chúng ta đang cần tìm hiểu. Thứ hai, Count không được lưu trữ lại, điều đó có nghĩa mỗi lần bạn chạy hàm Count thì nó sẽ truy vấn vào cơ sở dữ liệu mà không hề quan tâm là bạn có gọi lệnh Count trước đó hay không. Thứ ba, Count là lệnh duy nhất trong ba lệnh trên có thể gọi trực tiếp thông qua một model class, ví dụ như: <code>Cat.count</code>.</p>
+
+<p>Khi sử dụng Length, điều đầu tiên đó là load toàn bộ record mà bạn đang định đếm số lượng vào bộ nhớ rồi tính toán. Từ lần gọi thứ hai, nó sẽ lấy lại kết quả cũ chứ không load dữ liệu lên nữa. Đây thực sự là một điều tồi tệ nếu bạn có một cơ sở dữ liệu lớn, nó có thể load hàng triệu record vào bộ nhớ.</p>
+
+<p>{% highlight ruby %}
+Cat.all.length
+#=&gt; Cat Load (0.2ms)  SELECT &ldquo;cats&rdquo;.* FROM &ldquo;cats&rdquo;
+{% endhighlight %}</p>
+
+<p>Khi sử dụng Size, điều đầu tiên của nó là tìm xem kết quả của truy vấn đã có trong bộ nhớ hay chưa, nếu có rồi thì nó sẽ lấy ra và sử dụng, còn nếu chưa có, nó sẽ sử dụng một câu truy vấn SQL vào cơ sở dữ liệu để đếm số lượng. Điều này thật sự tuyệt vời, như một sự kết hợp giữa length và count.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Theo dữ liệu từ fast-ruby thì method length chạy gần tương đương với size và chạy nhanh hơn hẳn so với count. Điểm lợi của count là nó có thể được gọi từ 1 class Model, giúp cú pháp tường minh hơn, cũng như việc có thể truyền tham số vào hàm. Ngược lại trong các trường hợp khác, việc sử dụng size là khả dĩ hơn cả, đặc biệt với dữ liệu lớn thì nên tránh sử dụng length, vì đó có thể mang lại 1 thảm hoạ cho chương trình khi quá nhiều dữ liệu bị nạp vào bộ nhớ 1 cách vô ích.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-01-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ruby/">ruby</a>
+          <a href="/tags/rails/">rails</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-01-30-bash-file-in-macos-and-linux/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Các file hệ thống quan trọng trên Unix</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-01-23-open-command-in-macos/">
+            <span class="next-text nav-default">Lệnh open trong Unix</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Simple ORM - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Simple ORM" />
+<meta property="og:description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/" />
+<meta property="article:published_time" content="2019-05-26T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-05-26T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Simple ORM">
+<meta itemprop="description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.">
+
+
+<meta itemprop="datePublished" content="2019-05-26T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-26T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="892">
+
+
+
+<meta itemprop="keywords" content="orm,ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Simple ORM"/>
+<meta name="twitter:description" content="1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Simple ORM</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-26 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-đặt-vấn-đề">1. Đặt vấn đề</a></li>
+<li><a href="#2-mã-nguồn">2. Mã nguồn</a></li>
+<li><a href="#3-giải-thích-mã-nguồn">3. Giải thích mã nguồn</a></li>
+<li><a href="#4-kết-luận">4. Kết luận</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h3 id="1-đặt-vấn-đề">1. Đặt vấn đề</h3>
+
+<p>Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.</p>
+
+<p>Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.</p>
+
+<p>Một trong những yếu tố làm cho Rails xây dựng các ứng dụng một cách nhanh chóng như vậy chính là gem ActiveRecord, một ORM mặc định trong Rails.</p>
+
+<p>Như nhiều người khác, khi mới tiếp cận framework này, tôi cũng sử dụng các lệnh command mà cũng không quan tâm đến cách mà nó vận hành.</p>
+
+<p>Vậy chúng ta hãy cùng thử xây dựng một ORM rất đơn giản, để coi thử magic gì đã xảy ra sau mỗi dòng lệnh.</p>
+
+<h3 id="2-mã-nguồn">2. Mã nguồn</h3>
+
+<p>Mã nguồn của ứng dụng nhỏ này bạn có thể tham khảo <a href="https://github.com/hdchinh/simple-orm-ruby">tại đây</a></p>
+
+<h3 id="3-giải-thích-mã-nguồn">3. Giải thích mã nguồn</h3>
+
+<p>Note: Trước hết chúng ta nên đọc trước về định nghĩa của ORM <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">tại đây</a></p>
+
+<p>Để xây dựng 1 ORM và chạy một vài ví dụ đơn giản được thì chúng ta có 2 nhiềm vụ phải làm:</p>
+
+<p>1) Kết nối với cơ sở dữ liệu (ở đây là postgresql).</p>
+
+<p>2) Xây dựng các class bằng Ruby với các phương thức tương ứng để xử lý trên cơ sở dữ liệu đã kết nối ở bước 1.</p>
+
+<p>STEP 1: Tạo project</p>
+
+<p>Tạo một project trống với 1 file Gemfile có nội dung như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+
+<span class="n">gem</span> <span class="s1">&#39;pg&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Cài đặt gem bằng lệnh: <code>bundle install</code>.</p>
+
+<p>Nếu có lỗi xảy ra hãy tham khảo các tài liệu về cài đặt và sử dụng gem <code>bundler</code></p>
+
+<p>STEP 2: Kết nối cơ sở dữ liệu.</p>
+
+<p>Khi bắt đầu và quen thuộc với việc sử dụng command trong rails, việc duy nhất chúng ta còn thực sự sử dụng đó là sửa file <code>database.yml</code>, và đó là tất cả những gì cần thiết để đem ứng dụng của chúng ta kết nối với 1 csdl nào đó trên máy.</p>
+
+<p>Nhưng nếu không sử dụng framework rails, trong trường hợp này, tôi kết nối với postgresql thì tôi sẽ sử dụng một gem tên <code>pg</code> đã cài đặt ở bước 1, và require nó vào file <code>connection.rb</code> có tác dụng kết nối như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;pg&#39;</span>
+
+<span class="vg">$conn</span> <span class="o">=</span> <span class="no">PG</span><span class="o">::</span><span class="no">Connection</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="ss">:hostaddr</span><span class="o">=&gt;</span><span class="s2">&#34;127.0.0.1&#34;</span><span class="p">,</span> <span class="ss">:port</span><span class="o">=&gt;</span><span class="mi">5432</span><span class="p">,</span>
+  <span class="ss">:dbname</span><span class="o">=&gt;</span><span class="s2">&#34;test-psql_development&#34;</span><span class="p">,</span>
+  <span class="ss">:user</span><span class="o">=&gt;</span><span class="s2">&#34;admin&#34;</span><span class="p">,</span>
+  <span class="ss">:password</span><span class="o">=&gt;</span><span class="s1">&#39;&#39;</span>
+<span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Note: Bạn cần thay đổi các giá trị ở trên để phù hợp với database mà bạn muốn kết nối trên máy của bạn.</p>
+
+<p>Lúc này project của chúng ta có cấu trúc:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">-- simple-orm  
+  -- Gemfile  
+  -- Gemfile.lock (sinh ra sau lệnh `bundle install`)  
+  -- connection.rb  </pre></td></tr></table>
+</div>
+</div>
+<p>Note: Trong file <code>connection.rb</code> tôi khai báo biến conn dưới dạng biến toàn cục, để dễ ràng require trong các file khác trong project.</p>
+
+<p>STEP 3: Xây dựng Class chứa chức năng chính.</p>
+
+<p>Tạo file <code>mybase.rb</code> với nội dung như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">require_relative</span> <span class="s1">&#39;connection.rb&#39;</span>
+
+<span class="k">class</span> <span class="nc">MyBase</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">all</span>
+    <span class="n">term</span> <span class="o">=</span> <span class="s2">&#34;SELECT * FROM </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">downcase</span><span class="si">}</span><span class="s2">&#34;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="vg">$conn</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
+
+    <span class="n">res</span><span class="o">.</span><span class="n">each</span><span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+      <span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">row</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+    <span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">term</span> <span class="o">=</span> <span class="s2">&#34;SELECT * FROM </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">downcase</span><span class="si">}</span><span class="s2"> where id = </span><span class="si">#{</span><span class="nb">id</span><span class="si">}</span><span class="s2">&#34;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="vg">$conn</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
+
+    <span class="n">res</span><span class="o">.</span><span class="n">each</span><span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+      <span class="nb">puts</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">row</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+    <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>require file <code>connection.rb</code> vào để sử dụng biến conn.</p>
+
+<p>Trong class này xây dựng 2 class method là <code>all</code> và <code>find</code>, ứng với 2 phương thức trong ActiveRecord.</p>
+
+<p><code>all</code>: Trả về toàn bộ record trong table.<br />
+<code>find</code>: Trả về record ứng với id được truyền vào.</p>
+
+<p>STEP 4: Xây dựng class con kế thừa lớp Base ở bước 3 và sử dụng</p>
+
+<p>Trong cơ sở dữ liệu mà tôi kết nối có table tên <code>comics</code>. Tôi tạo file comics.rb có nội dung như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">require_relative</span> <span class="s1">&#39;mybase.rb&#39;</span>
+
+<span class="k">class</span> <span class="nc">Comics</span> <span class="o">&lt;</span> <span class="no">MyBase</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">&#34;All record in comics table:</span><span class="se">\n</span><span class="s2">&#34;</span>
+<span class="no">Comics</span><span class="o">.</span><span class="n">all</span>
+<span class="nb">puts</span> <span class="s2">&#34;Find record has id is 6:</span><span class="se">\n</span><span class="s2">&#34;</span>
+<span class="no">Comics</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>1) Tôi require file <code>mybase.rb</code> đã viết ở bước 3 vào file này.<br />
+2) Tạo class <code>Comics</code> và cho nó kế thừa class <code>MyBase</code><br />
+3) puts ra màn hình console các dòng lệnh đã xây dựng để xem kết quả (với lệnh <code>ruby  comics.rb</code> ta sẽ chạy file comics.rb và xuất kết quả ra màn hình console).</p>
+
+<p>Cuối cùng project của chúng ta có dạng như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">-- simple-orm  
+  -- Gemfile  
+  -- Gemfile.lock (sinh ra sau lệnh `bundle install`)  
+  -- connection.rb  
+  -- mybase.rb (main chính chứa các phương thức)  
+  -- comics.rb (class ứng với table comics trong csdl, kế thừa MyBase)  </pre></td></tr></table>
+</div>
+</div>
+<p>Chạy file <code>comics.rb</code> với lệnh chạy ruby <code>ruby comics.rb</code> ta sẽ xem được thành quả nhỏ của quá trình xây dựng kể trên.</p>
+
+<h3 id="4-kết-luận">4. Kết luận</h3>
+
+<p>Trên là một ví dụ đơn giản về ORM với ngôn ngữ Ruby, các ORM trong thực tế sẽ phức tạp và tinh tế hơn rất rất nhiều. Hy vọng qua bài viết sẽ giúp bạn đọc có được thêm kiến thức với ORM và cách nó vận hành trong framework như Rails.</p>
+
+<p><img src="/images/orm.png" alt="hoa" /></p>
+
+<p>Hình không liên quan, xuất hiện khi tôi google từ khoá ORM (trollface)</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-05-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/orm/">orm</a>
+          <a href="/tags/ruby/">ruby</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Tấn công SQL Injection</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/">
+            <span class="next-text nav-default">Quy tắc viết code được xem là tốt</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

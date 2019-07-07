@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>activerecord on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/activerecord/</link>
+    <description>Recent content in activerecord on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 08 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/activerecord/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Các phương thức cập nhật trong ActiveRecord</title>
+      <link>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</guid>
+      <description>Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
+Luận bàn Chuẩn bị:
+ Tôi có một model Cat với 2 thuộc tính là age và name.
+ Trong model Cat tôi có 1 validation và 1 callback đơn giản.</description>
+    </item>
+    
+  </channel>
+</rss>

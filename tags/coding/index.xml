@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>coding on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/coding/</link>
+    <description>Recent content in coding on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quy tắc viết code được xem là tốt</title>
+      <link>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</guid>
+      <description>Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy.</description>
+    </item>
+    
+  </channel>
+</rss>

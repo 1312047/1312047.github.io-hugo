@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vấn đề N&#43;1 và cách xử lý - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Có thể bạn đã từng nghe qua về N&#43;1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
+Luận bàn N&#43;1 query Xét một ví dụ:
+Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vấn đề N&#43;1 và cách xử lý" />
+<meta property="og:description" content="Đặt vấn đề Có thể bạn đã từng nghe qua về N&#43;1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
+Luận bàn N&#43;1 query Xét một ví dụ:
+Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/" />
+<meta property="article:published_time" content="2019-02-25T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-02-25T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Vấn đề N&#43;1 và cách xử lý">
+<meta itemprop="description" content="Đặt vấn đề Có thể bạn đã từng nghe qua về N&#43;1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
+Luận bàn N&#43;1 query Xét một ví dụ:
+Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user.">
+
+
+<meta itemprop="datePublished" content="2019-02-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-02-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1177">
+
+
+
+<meta itemprop="keywords" content="database,rails," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vấn đề N&#43;1 và cách xử lý"/>
+<meta name="twitter:description" content="Đặt vấn đề Có thể bạn đã từng nghe qua về N&#43;1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
+Luận bàn N&#43;1 query Xét một ví dụ:
+Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vấn đề N&#43;1 và cách xử lý</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-25 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#n-1-query">N+1 query</a></li>
+<li><a href="#2-giải-pháp">2. Giải pháp</a></li>
+<li><a href="#3-xử-lý-n-1-query-trong-activerecord">3. Xử lý N+1 query trong ActiveRecord</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Có thể bạn đã từng nghe qua về N+1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework <code>ActiveRecord</code></p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="n-1-query">N+1 query</h3>
+
+<p>Xét một ví dụ:</p>
+
+<p>Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user. Hãy xem đoạn mã dưới đây:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">User</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+  <span class="n">user</span><span class="o">.</span><span class="n">articles</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Đoạn code trên sẽ duyệt qua tất cả user có trong csdl rồi lấy tất cả các articles ứng với từng user. Rất tường minh và dễ hiểu.</p>
+
+<p>Tối có 5 user mẫu trong csdl nên các câu lệnh sql sinh ra sau đoạn code trên như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># câu lệnh lấy hết users lên</span>
+<span class="no">SELECT</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;users&#34;</span>
+<span class="c1"># ứng với mỗi user query lấy tất cả articles lên</span>
+<span class="no">SELECT</span>  <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="p">?</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+<span class="no">SELECT</span>  <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="p">?</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+<span class="no">SELECT</span>  <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="p">?</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+<span class="no">SELECT</span>  <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="p">?</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+<span class="no">SELECT</span>  <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="p">?</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Đây chính là ví dụ điển hình về <code>N+1</code>, <code>N</code>ở đây là 5 (số lượng user có trong csdl) và <code>1</code> chính là câu lệnh sql đầu tiên dùng để lấy tất cả user lên.</p>
+
+<p>Nhìn như vô hại, mà thực ra ở ví dụ này cũng vô hại thật vì chỉ có 5 record user, nên thời gian load cũng không thấm tháp gì, tuy nhiên trong thực tế thì dữ liệu có thể rất lớn, lên đến hàng triệu record và nếu load dữ liệu như này thì đây là một vấn đề lớn cho hiệu năng của trang web. Hãy đọc tiếp mục 2 để tìm về giải pháp cho tình huống này.</p>
+
+<h3 id="2-giải-pháp">2. Giải pháp</h3>
+
+<p>Vấn đề đã có, giờ chúng ta cần tìm một giải pháp làm sao để kết quả trả về không đổi, nhưng lượng truy vấn sql trong csdl phải nhỏ hơn.</p>
+
+<p>Các phương án:</p>
+
+<ol>
+<li><p>Sử dụng <code>select in()</code>.</p></li>
+
+<li><p>Sử dụng <code>joins</code>. Để đọc kỹ hơn về joins, thì nên xem ở <a href="https://www.w3schools.com/sql/sql_join.asp">đây</a></p></li>
+</ol>
+
+<p>Sử dụng select in() sẽ tiết kiệm truy vấn đi rất nhiều, nếu ví dụ bên trên ta sử dụng select in() thì các sql query cần thiết sẽ là như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># lấy tất cả query</span>
+<span class="no">SELECT</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;users&#34;</span>
+<span class="c1"># lấy articles ứng với từng user</span>
+<span class="no">SELECT</span>  <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="no">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tuyệt vời, từ 6(N + 1) truy vấn giờ đã trở thành còn 2.</p>
+
+<p>Với cách thứ 2 là sử dụng <code>joins</code>:</p>
+
+<p>joins hiểu đơn giản là ghép hai bảng lại với nhau (lấy một số field cần thiết ở bảng này, gộp với vài field cần thiết ở bảng kia khi mà record ở hai bên thoả mãn một điều kiện nào đó), rồi từ đó thành một bảng tạm dùng trong quá trình bạn sử dụng.</p>
+
+<p>Quay trở về ví dụ ban đầu, câu truy vấn bây giờ sẽ trở thành:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">SELECT</span> <span class="no">User</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="no">Article</span><span class="o">.</span><span class="n">title</span>
+      <span class="no">FROM</span> <span class="no">User</span>
+      <span class="no">INNER</span> <span class="no">JOIN</span> <span class="no">Article</span> <span class="no">ON</span> <span class="no">User</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="no">Article</span><span class="o">.</span><span class="n">user_id</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Lấy vài field cần thiết(name của user và title của Article).
+Bằng cách thoả mãn điều kiện nào đó(id của user bằng với user_id của article).</p>
+
+<p>Vậy từ N+1 query ban đầu, đã trở thành một query duy nhất.</p>
+
+<p>Đến lúc này đã có thể kết luận là joins tốt hơn select in() được chưa? Chưa, câu trả lời sẽ là như vậy. Sang mục 3 chúng ta sẽ tìm hiểu về cách xử lý N+1 thông qua ActiveRecord</p>
+
+<h3 id="3-xử-lý-n-1-query-trong-activerecord">3. Xử lý N+1 query trong ActiveRecord</h3>
+
+<p>Trong ActiveRecord cung cấp 3 phương thức để loại bỏ N+1,</p>
+
+<p>1) Sử dụng <code>preload</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">User</span><span class="o">.</span><span class="n">preload</span><span class="p">(</span><span class="ss">:articles</span><span class="p">)</span>
+<span class="c1"># sql sinh ra</span>
+<span class="no">User</span> <span class="no">Load</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span>  <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;users&#34;</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+<span class="no">Article</span> <span class="no">Load</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="no">IN</span> <span class="p">(</span><span class="sc">?,</span> <span class="sc">?,</span> <span class="sc">?)</span>  <span class="o">[[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="o">]]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Preload sẽ luôn sử dụng <code>select in()</code></p>
+
+<p>2) Sử dụng <code>Eagerload</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">User</span><span class="o">.</span><span class="n">eager_load</span><span class="p">(</span><span class="ss">:articles</span><span class="p">)</span>
+<span class="c1"># sql sinh ra</span>
+<span class="no">SELECT</span>  <span class="no">DISTINCT</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">FROM</span> <span class="s2">&#34;users&#34;</span> <span class="no">LEFT</span> <span class="no">OUTER</span> <span class="no">JOIN</span> <span class="s2">&#34;articles&#34;</span> <span class="no">ON</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+
+<span class="no">SELECT</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">AS</span> <span class="n">t0_r0</span><span class="p">,</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;name&#34;</span> <span class="no">AS</span> <span class="n">t0_r1</span><span class="p">,</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;created_at&#34;</span> <span class="no">AS</span> <span class="n">t0_r2</span><span class="p">,</span>
+<span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;updated_at&#34;</span> <span class="no">AS</span> <span class="n">t0_r3</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">AS</span> <span class="n">t1_r0</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;name&#34;</span> <span class="no">AS</span> <span class="n">t1_r1</span><span class="p">,</span>
+<span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="no">AS</span> <span class="n">t1_r2</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;created_at&#34;</span> <span class="no">AS</span> <span class="n">t1_r3</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;updated_at&#34;</span> <span class="no">AS</span> <span class="n">t1_r4</span>
+<span class="no">FROM</span> <span class="s2">&#34;users&#34;</span> <span class="no">LEFT</span> <span class="no">OUTER</span> <span class="no">JOIN</span> <span class="s2">&#34;articles&#34;</span> <span class="no">ON</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> 
+<span class="no">WHERE</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">IN</span> <span class="p">(</span><span class="sc">?,</span> <span class="sc">?,</span> <span class="sc">?)</span>  <span class="o">[[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="o">]]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>eager_load luôn sử dụng <code>joins</code></p>
+
+<p>3) Sử dụng <code>Inludes</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># cách 1</span>
+<span class="no">User</span><span class="o">.</span><span class="n">includes</span><span class="p">(</span><span class="ss">:articles</span><span class="p">)</span>
+<span class="c1"># sql sinh ra</span>
+<span class="no">SELECT</span>  <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;users&#34;</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+<span class="no">SELECT</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="n">*</span> <span class="no">FROM</span> <span class="s2">&#34;articles&#34;</span> <span class="no">WHERE</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="no">IN</span> <span class="p">(</span><span class="sc">?,</span> <span class="sc">?,</span> <span class="sc">?)</span>  <span class="o">[[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;user_id&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="o">]]</span>
+<span class="c1">#=&gt; giống preload</span>
+
+<span class="c1"># cách 2</span>
+<span class="no">User</span><span class="o">.</span><span class="n">includes</span><span class="p">(</span><span class="ss">:articles</span><span class="p">)</span><span class="o">.</span><span class="n">references</span><span class="p">(</span><span class="ss">:articles</span><span class="p">)</span>
+<span class="c1"># sql sinh ra</span>
+<span class="no">SELECT</span>  <span class="no">DISTINCT</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">FROM</span> <span class="s2">&#34;users&#34;</span> <span class="no">LEFT</span> <span class="no">OUTER</span> <span class="no">JOIN</span> <span class="s2">&#34;articles&#34;</span> 
+<span class="no">ON</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">LIMIT</span> <span class="p">?</span>  <span class="o">[[</span><span class="s2">&#34;LIMIT&#34;</span><span class="p">,</span> <span class="mi">11</span><span class="o">]]</span>
+<span class="no">SELECT</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">AS</span> <span class="n">t0_r0</span><span class="p">,</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;name&#34;</span> <span class="no">AS</span> <span class="n">t0_r1</span><span class="p">,</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;created_at&#34;</span> <span class="no">AS</span> <span class="n">t0_r2</span><span class="p">,</span>
+<span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;updated_at&#34;</span> <span class="no">AS</span> <span class="n">t0_r3</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">AS</span> <span class="n">t1_r0</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;name&#34;</span> <span class="no">AS</span> <span class="n">t1_r1</span><span class="p">,</span>
+<span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="no">AS</span> <span class="n">t1_r2</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;created_at&#34;</span> <span class="no">AS</span> <span class="n">t1_r3</span><span class="p">,</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;updated_at&#34;</span> <span class="no">AS</span> <span class="n">t1_r4</span>
+<span class="no">FROM</span> <span class="s2">&#34;users&#34;</span> <span class="no">LEFT</span> <span class="no">OUTER</span> <span class="no">JOIN</span> <span class="s2">&#34;articles&#34;</span> <span class="no">ON</span> <span class="s2">&#34;articles&#34;</span><span class="o">.</span><span class="s2">&#34;user_id&#34;</span> <span class="o">=</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> 
+<span class="no">WHERE</span> <span class="s2">&#34;users&#34;</span><span class="o">.</span><span class="s2">&#34;id&#34;</span> <span class="no">IN</span> <span class="p">(</span><span class="sc">?,</span> <span class="sc">?,</span> <span class="sc">?)</span>  <span class="o">[[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="o">]]</span>
+<span class="c1">#=&gt; giống eager_load</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Vậy mặc định thì <code>includes</code> sử dụng select in(), nhưng cũng có thể chuyển qua sử dụng joins nếu thêm method references phía sau.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Qua ví dụ trên, ta đã tìm hiểu được một số cách cơ bản để loại bỏ N+1, với việc sử dụng joins sẽ ít query phải thực thi nhất, nhưng điều này không đảm bảo rằng sử dụng joins là tối ưu, vì với mỗi query sql, thời gian và công sức máy tính phải dùng là khác nhau, không phải câu sql nào cũng có thời gian thực hiện ngang nhau. Sử dụng joins trong nhiều trường hợp csdl quá lớn cũng không phải là một ý hay, khi bản chất của joins là duyệt tuần tự qua hai (nhiều) bảng cần joins, để tìm những phần tử phù hợp rồi cho vào một bảng tạm. Hai vấn đề thấy ngay là việc phải duyệt tuần tự hai hay nhiều bảng là một truy vấn tốn tài nguyên, thứ hai dữ liệu được bỏ vào mảng tạm hiển nhiên ta cần một vùng nhớ để lưu cái bảng tạm này. Để đi sâu hơn về vấn đề hiệu năng, các bài tiếp sau chúng ta sẽ thảo luận về nó.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-02-25
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/database/">database</a>
+          <a href="/tags/rails/">rails</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-04-08-immutable-va-mutable-trong-ruby/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Immutable và mutable</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-02-24-ruby-method-lookup/">
+            <span class="next-text nav-default">Ruby method lookup</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

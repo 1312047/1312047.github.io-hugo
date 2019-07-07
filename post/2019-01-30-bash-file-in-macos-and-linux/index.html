@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Các file hệ thống quan trọng trên Unix - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Các file hệ thống quan trọng trên Unix" />
+<meta property="og:description" content="Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/" />
+<meta property="article:published_time" content="2019-01-30T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-01-30T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Các file hệ thống quan trọng trên Unix">
+<meta itemprop="description" content="Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux.">
+
+
+<meta itemprop="datePublished" content="2019-01-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-01-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1474">
+
+
+
+<meta itemprop="keywords" content="unix," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Các file hệ thống quan trọng trên Unix"/>
+<meta name="twitter:description" content="Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Các file hệ thống quan trọng trên Unix</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-01-30 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-một-số-khái-niệm-cơ-bản">1.Một số khái niệm cơ bản.</a></li>
+<li><a href="#2-điều-gì-xảy-ra-khi-bạn-gõ-một-lệnh-trên-terminal">2.Điều gì xảy ra khi bạn gõ một lệnh trên terminal?</a></li>
+<li><a href="#3-một-số-file-quan-trọng-trên-macos">3.Một số file quan trọng trên Macos.</a></li>
+<li><a href="#4-các-file-quan-trọng-trên-linux">4.Các file quan trọng trên Linux</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux. Việc cài đặt phần mềm trên Linux có khó khăn hơn windows một chút, đó là thay vì click chuột rồi next next next next&hellip; thì phần nhiều các phần mềm phục vụ công việc lập trình đều phải cài đặt qua dòng lệnh. Mọi thứ không có vấn đề gì cho đến khi việc copy những dòng lệnh đó rồi enter, bạn sẽ không còn nhận được một kết quả thành công mỹ mãn nữa mà thay vào đó là một đống lỗi được trả về.
+Khi làm việc với Ruby, tôi đã từng gặp những lỗi liên quan đến Rbenv và RVM. Điều đó thực sự là một cơn ác mộng khi liên tục phải google tìm kiếm câu trả lời cho vấn đề gặp phải, copy những dòng lệnh trên stackoverflow paste vào terminal và chờ đợi rằng vấn đề sẽ được giải quyết dù chẳng hiểu dòng lệnh này có nghĩa là gì. Lâu dần tôi đã tích luỹ thêm được một số hiểu biết muốn chia sẻ mà bắt đầu là các File hệt thống.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<p>Để bắt đầu chia sẻ về những file kể trên, có lẽ chúng ta sẽ phải điểm qua một số khái niệm cơ bản.</p>
+
+<h3 id="1-một-số-khái-niệm-cơ-bản">1.Một số khái niệm cơ bản.</h3>
+
+<p><code>Unix</code> là một hệ điều hành ra đời đã rất lâu, nó là tiền thân của hai nhánh hệ điều hành rất nổi tiếng khác, bản thương mại chính là <code>macOS</code> và bản mã nguồn mở chính là <code>GNU</code>. Cho đến những năm 90, có một sự kết hợp giữa các phần mềm của <code>GNU</code> và phần core của một dự án mã nguồn mở khác tên là <code>Linux</code> đã tạo thành một hệ điều hành hoàn chỉnh mang tên là <code>GNU/Linux</code>, ngày nay đa số chúng ta chỉ thường gọi tắt là <code>Linux</code></p>
+
+<p>Qua đó chúng ta có thể thấy, <code>Linux</code> và các hệ điều hành con cháu của <code>Unix</code> có rất nhiều điểm chung.</p>
+
+<p><code>Shell</code>: Đây cũng là một khái niệm quan trọng cần tìm hiểu. Trước khi đi vào chủ đề chính của bài viết, để tìm hiểu một cách sâu sắc về Shell, có lẽ sẽ cần đến một bài viết khác, nên ở đây tôi chỉ mô tả một cách bao quát về nó. <code>Shell</code> là phần nằm giữa ứng dụng và phần core của hệ điều hành. Hãy tưởng tượng chúng ta có một chồng sách gồm ba quyển với quyển trên cùng là những ứng dụng đang chạy trên máy tính của bạn vì dụ như word, excel, cuốn ở dưới cùng chính là phần nhân của hệ điều hành. Để các ứng dụng của bạn có thể sử dụng các tài nguyên của máy tính như bộ nhớ, ram, IO&hellip; điều tất yếu phải xảy ra đó là ứng dụng của bạn phải giao tiếp được với hệ điều hành. Tuy nhiên, vấn đề gặp phải đó là hệ điều hành chỉ hiểu mã máy, một thứ quá phức tạp để người dùng khi sử dụng ứng dụng có thể thao tác được. Đó là lý do ra đời của “quyển sách” ở giữa mà chúng ta gọi là <code>Shell</code>. Nhiệm vụ của nó là gì? Đó là chuyển đổi các lệnh từ “quyển sách” đầu tiên thành các lệnh mà “quyển sách” thứ ba có thể hiểu và thực hiện được (Thông dịch).</p>
+
+<p>Ví dụ terminal được xem là một <code>Shell CLI</code>, mỗi khi bạn gõ một lệnh bất kỳ trên terminal, nó sẽ chuyển đổi câu lệnh bạn viết thành một câu lệnh khác mà phần nhân hệ điều hành có thể hiểu và thực hiện được.</p>
+
+<h3 id="2-điều-gì-xảy-ra-khi-bạn-gõ-một-lệnh-trên-terminal">2.Điều gì xảy ra khi bạn gõ một lệnh trên terminal?</h3>
+
+<p>Đã bao giờ bạn tự hỏi chuyện gì sẽ xảy ra tiếp theo khi ta gõ một lệnh trong terminal? Ví dụ:</p>
+
+<p>{% highlight ruby %}
+ls -a
+#=&gt; Hiển thị tất cả file và folder nằm trong current folder.
+{% endhighlight %}</p>
+
+<p>Chúng ta sẽ thường tự an ủi bản thân rằng những câu lệnh đó đã được hệ điều hành lưu lại như một cuốn từ điển để đến khi được gọi chúng sẽ biết tìm câu trả lời ở đâu. Thực tế suy nghĩ trên không hẳn đã sai, mọi thứ trong Unix đều là file, nếu bạn gõ dòng lệnh:</p>
+
+<p>{% highlight ruby %}
+echo $PATH
+{% endhighlight %}</p>
+
+<p>Kết quả bạn nhận được chính là một danh sách các thư mục mà terminal sẽ tìm kiếm câu lệnh bạn gõ theo thứ tự từ trái qua phải. Với một hệ điều hành thuần khiết chưa cài đặt thêm các phần mềm bên ngoài thì PATH sẽ có giá trị mặc định như sau:</p>
+
+<p><code>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</code></p>
+
+<p>Còn trên máy tính của tôi thì PATH lại có giá trị là:</p>
+
+<p><code>/Users/admin/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</code></p>
+
+<p>Có một sự khác biệt nhỏ, ta có thể thấy chuỗi PATH trên máy tính của tôi có phần đầu chuỗi được thêm bởi một thư mục .rbenv nào đó. Đây chính là mấu chốt của vấn đề, lý do xuất hiện của phần mở rộng nêu trên đó là tôi đã cài đặt thêm Ruby vào máy tính của mình bằng công cụ rbenv.</p>
+
+<p>Hiển nhiên, khi hệ điều hành còn thuần khiết, nó không thể hiểu được câu lệnh <code>ruby – v</code>. Việc cài đặt Ruby vào máy tính đồng nghĩa với việc tôi đã tải các file liên quan vào một thư mục nào đó, và để chỉ cho terminal biết phải vào đâu để tìm kiếm các lệnh liên quan đến Ruby vừa cài đặt, chuỗi PATH sẽ được ghi đè bổ sung thêm đường dẫn vào thư mục chứa các file thực thi của Ruby. Từ đây, mỗi khi bạn gõ bất cứ một câu lệnh nào liên quan đến Ruby, terminal sẽ theo chuỗi PATH vào từng thư mục để tìm kiếm và thực thi câu lệnh đó.</p>
+
+<p>Suy ra, có một lỗi rất hay xảy ra cho những người mới sử dụng Ruby, đó là họ thêm và xoá Ruby khá thường xuyên dẫn đến đường dẫn bị sai và terminal không thể tìm được thư mục có thể thực thi câu lệnh một cách chính xác.</p>
+
+<p>Trong terminal, bạn có thể nối thêm một thư mục vào chuỗi PATH bằng câu lệnh sau:</p>
+
+<p><code>export PATH=&quot;$PATH:new_path&quot;</code></p>
+
+<h3 id="3-một-số-file-quan-trọng-trên-macos">3.Một số file quan trọng trên Macos.</h3>
+
+<p>Khi quá trình làm việc với terminal nhiều hơn và chúng ta cần cài đặt một số thứ cần thiết trong quá trình làm việc, chúng ta sử dụng các <code>dot file</code>. Nội dung của các <code>dot file</code> này là các câu lệnh shell script (chức năng của câu lệnh này có thể chúng ta sẽ tìm hiểu sau).</p>
+
+<p>Khi bạn mở một terminal mà nó đòi hỏi bạn phải login (ví dụ như khi bạn remote access vào một máy tính khác thông qua SSH, bạn cần nhập tên đăng nhập và mật khẩu) thì đó là một <code>Login Shell</code>.
+Với trường hợp Login Shell thì <code>dot file</code> được load lên là file <code>.bash_profile</code>.
+Trong một trường hợp khác, bạn mở một terminal mà không cần đăng nhập thì <code>dot file</code> được load là  <code>bashrc</code>.</p>
+
+<p>Note: Khác với những người anh em khác, terminal trên Macos sẽ chạy <code>dot file</code> <code>.bash_profile</code> khi bạn mở một cửa sổ mới nên tôi thường đặt những cấu hình cần thiết vào một file duy nhất đó là <code>.bash_profile</code>. Tất nhiên, từ <code>.bash_profile</code> ta có thể load các <code>dot file</code> khác nếu cần thiết (chúng ta sẽ bàn về nó trong tương lai).</p>
+
+<p>Thứ tự các <code>dot file</code> được khởi chạy trên macOS:</p>
+
+<p>{% highlight ruby %}
+#=&gt; etc/profile
+#=&gt; etc/bashrc
+#=&gt; ~/.bash_profile
+#=&gt; ~/.bash_login (nếu ~/.bash_profile không tồn tại).
+#=&gt; ~/.profile (nếu ~/.bash_profile và ~/.bash_login đều không tồn tại).
+{% endhighlight %}</p>
+
+<h3 id="4-các-file-quan-trọng-trên-linux">4.Các file quan trọng trên Linux</h3>
+
+<p>Như đã trình bày ở trên, có một sự giống nhau đáng kể giữa <code>macOS</code> và <code>Linux</code>. Vì vậy, tôi chỉ có một số điều bổ sung như sau: Trên Linux, thông thường chúng ta sẽ có các <code>dot file</code> sau đây:</p>
+
+<p>{% highlight ruby %}
+#=&gt; ~/.bash_login (chạy khi login shell)
+#=&gt; ~/.bashrc (chạy khi không login)
+#=&gt; ~/.bash_logout (chạy khi logout shell)
+#=&gt; ~/bash_history (lịch sử trên shell)
+{% endhighlight %}</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Còn rất nhiều điều cần nói và bàn luận thêm trong các bài viết tiếp theo.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-01-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/unix/">unix</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-02-05-root-sudo-and-package-management-system/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Root, sudo và package management</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/">
+            <span class="next-text nav-default">Tìm hiểu về length, count và size trong Ruby, Rails</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

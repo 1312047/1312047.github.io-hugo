@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Immutable và mutable - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
+Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Immutable và mutable" />
+<meta property="og:description" content="Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
+Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/" />
+<meta property="article:published_time" content="2019-04-08T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-08T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Immutable và mutable">
+<meta itemprop="description" content="Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
+Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó.">
+
+
+<meta itemprop="datePublished" content="2019-04-08T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-04-08T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1476">
+
+
+
+<meta itemprop="keywords" content="ruby,programming," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Immutable và mutable"/>
+<meta name="twitter:description" content="Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
+Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Immutable và mutable</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-08 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-khái-niệm-mutable-immutable-và-ruby">1. Khái niệm mutable, immutable và ruby</a></li>
+<li><a href="#2-liệu-đây-có-phải-là-một-kiến-thức-cần-thiết">2. Liệu đây có phải là một kiến thức cần thiết?</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-khái-niệm-mutable-immutable-và-ruby">1. Khái niệm mutable, immutable và ruby</h3>
+
+<p>Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: <code>mutable</code>, <code>immutable</code> và cách ruby xử lý hai khái niệm đó. Trước hết nếu bạn đã quên, thì tôi xin được nhắc lại định nghĩa của chúng.</p>
+
+<p>Xin trích dẫn <a href="https://en.wikipedia.org/wiki/Immutable_object">wiki</a>:</p>
+
+<p>| In object-oriented and functional programming, an immutable object (unchangeable[1] object) is an object whose state cannot be modified after it is created.[2] This is in contrast to a mutable object (changeable object), which can be modified after it is created.</p>
+
+<p>Translate:</p>
+
+<p>| Trong lập trình hướng đối tượng và lập trình hàm, một đối tượng được coi immutable, là một đối tượng <strong>không thể thay đổi</strong> trạng thái sau khi nó được tạo lần đầu, ngược lại với một đối tượng được coi là mutable nó có thể <strong>thay đổi</strong> trạng thái sau khi được khởi tạo lần đầu.</p>
+
+<p>Dùng từ quá khó hiểu, what the hell is &ldquo;trạng thái&rdquo;? Theo một cách hàn lâm và đầy đủ, trạng thái của một đối tượng ngoài đời thật được thiết lập bởi tất cả những gì tạo nên chúng.</p>
+
+<p>Tương tự, các trạng thái của một đối tượng trong lập trình cũng được thiết lập bằng tất cả những gì tạo nên chúng. Ví dụ:</p>
+
+<p>Với 1 biến integer cơ bản <code>x = 10</code> thì trạng thái của nó được tạo ra bởi tên biến và giá trị, ở đây tên biến là <code>x</code> và giá trị là <code>10</code>, đâu đó trong vùng nhớ (Ram) của bạn sẽ lưu trữ cái chữ <code>x</code> kèm số <code>10</code> này.</p>
+
+<p>Đồng nghĩa với đó nếu tôi thay đổi được giá trị 10 của biến x thì x là một đối tượng mutable và ngược lại nó là một đối tượng immutable.</p>
+
+<p>Tôi gán <code>x = 11</code> và thành công</p>
+
+<p>Từ đó có thể đưa ra kết luận x là một mutable?</p>
+
+<p>Câu trả lời là không, một số khái niệm rối rắm làm khó ta lúc đầu. Như đã biết, thứ mà CPU làm việc là địa chỉ vùng nhớ và chỉ địa chỉ vùng nhớ mà thôi. Những thứ khác nó không quan tâm.</p>
+
+<p>Với câu lệnh gán <code>x = 10</code>. Nó được hệ điều hành phiên dịch thành &ldquo;có một biến tên <code>x</code> được gán giá trị bằng <code>10</code>, Ram, mày hãy bố trí thêm hai slot để lưu trữ <code>x</code> và <code>10</code>&rdquo;. Vậy lúc đó:</p>
+
+<p><code>x</code>(tên biến) được lưu ở vị trí AAA
+<code>10</code>(giá trị) được lưu ở vị trí BBB</p>
+
+<p>Với lệnh gán tiếp theo <code>x = 11</code>:</p>
+
+<p><code>x</code> vẫn yên vị nằm ở vị trí AAA
+<code>10</code> cũng vẫn yên trí nằm ở vị trí BBB
+<code>11</code> giá trị mới gán cho biến x thì lúc này nằm ở vị trí CCC</p>
+
+<p>Vậy khi chạy một lệnh gán mới thì biến x đã được gán bằng giá trị trên một vùng nhớ khác, còn vùng nhớ ban đầu <strong>không thay đổi giá trị</strong> nên ta có thể kết luận x là một immutable.</p>
+
+<p>Chứng minh bằng ví dụ sau trong ruby, chú ý là ruby là một ngôn ngữ script, với trình thông dịch VM bên dưới để xử lý của nó được viết bằng C, nên ở lớp cơ sở của ruby ta không thể truy xuất vị trí vùng nhớ đến từng thanh ghi như trong C được (việc đó được làm ở lớp core YARV). Tuy nhiên, ta có thể kiếm tra được vị trí tượng trưng trên bộ nhớ của nó thông qua <code>object_id</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span><span class="o">.</span><span class="n">object_id</span> 
+<span class="c1">#=&gt; 21</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">x</span><span class="o">.</span><span class="n">object_id</span>
+<span class="c1">#=&gt; 23</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Note: Nếu bạn gán tiếp x = 12 và kiểm tra lại object_id, lúc này bạn sẽ thấy nó bằng 25. Giá trị 10, 11, 12 tương đương với object_id là 21, 23, 25. Liệu có một quy luật nào ở đây? Câu trả lời là có, nhưng vấn đề này sẽ được đề cập đến trong một bài viết tiếp theo.</p>
+
+<p>Từ ví dụ trên bạn đã hiểu về immutable, vậy còn mutable? Đơn giản nhất là hãy hiểu ngược lại với immutable, nêu gán x = 11 và x có object_id không đổi thì x chính là mutable.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Tất cả các loại dữ liệu nguyên thuỷ trong ruby đều là immutable.</pre></td></tr></table>
+</div>
+</div>
+<p>Integer, float, string, boolean chúng đều là immutable.</p>
+
+<h3 id="2-liệu-đây-có-phải-là-một-kiến-thức-cần-thiết">2. Liệu đây có phải là một kiến thức cần thiết?</h3>
+
+<p>Chắc chắn là có.</p>
+
+<p>Thứ nhất: Nếu trong công việc bạn không bao giờ phải dùng đến nó, bạn có thể nói về nó như một kiến thức hàn lâm để thể hiện khả năng với sếp và yêu cầu tăng lương 😟</p>
+
+<p>Thứ hai: Xét ví dụ sau</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">str</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+<span class="o">[</span><span class="s2">&#34;Hoang&#34;</span><span class="p">,</span> <span class="s2">&#34;Duy&#34;</span><span class="p">,</span> <span class="s2">&#34;Chinh&#34;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="n">str</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tư tưởng của đoạn mã này là cộng tất cả các phần tử trong một mảng string và cho ra kết quả cuối cùng là một chuỗi tổng hợp tất cả các phần tử.
+Có điều gì bất thường trong đoạn mã này không nhỉ? Câu trả lời là có. Như những gì chúng ta đã nói ở trên có hai điều cần lưu ý:</p>
+
+<p>| 1. Các kiểu dữ liệu nguyên thuỷ trong ruby đều là immutable và hiển nhiên string không ngoại lệ.</p>
+
+<p>| 2. Khi một object là immutable, thì việc bạn gán nó bằng một giá trị khác đồng nghĩa với việc vùng nhớ cũ sẽ không được dùng đến, mà nó sẽ ra một vùng nhớ mới rồi ghi kết quả mới lên đó, cứ lặp lại như vậy mãi mãi.</p>
+
+<p>Từ hai điều trên ta rút ra được kết luận:</p>
+
+<ol>
+<li>Trong lần gán đầu tiên str có giá trị là chuỗi rỗng và được khởi tạo tại ví trí A1</li>
+<li>Trong lần lặp <code>each</code> đầu tiên, str có giá trị là &ldquo;Hoang&rdquo; và nó lưu ở vị trí A2</li>
+<li>Trong lần lặp <code>each</code> thứ hai, str có giá trị mới là &ldquo;HoangDuy&rdquo; và nó lưu ở vị trí mới là A3</li>
+<li>Trong lần lặp cuối cùng thì str có giá trị chúng ta mong đợi là &ldquo;HoangDuyChinh&rdquo; và nó lưu ở vị trí A4</li>
+</ol>
+
+<p>Chứng minh:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">str</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+<span class="nb">puts</span> <span class="s2">&#34;First location: </span><span class="si">#{</span><span class="n">str</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="o">[</span><span class="s2">&#34;Hoang&#34;</span><span class="p">,</span> <span class="s2">&#34;Duy&#34;</span><span class="p">,</span> <span class="s2">&#34;Chinh&#34;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="n">str</span> <span class="o">+=</span> <span class="n">i</span>  
+  <span class="nb">puts</span> <span class="s2">&#34;value: </span><span class="si">#{</span><span class="n">str</span><span class="si">}</span><span class="s2"> | location: </span><span class="si">#{</span><span class="n">str</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="k">end</span>     
+
+<span class="nb">puts</span> <span class="s2">&#34;Final value: </span><span class="si">#{</span><span class="n">str</span><span class="si">}</span><span class="s2"> | location: </span><span class="si">#{</span><span class="n">str</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">First location: 47434608564740
+value: Hoang | location: 47434608564520
+value: HoangDuy | location: 47434608564440
+value: HoangDuyChinh | location: 47434608564360
+Final value: HoangDuyChinh | location: 47434608564360</pre></td></tr></table>
+</div>
+</div>
+<p>Và thứ chúng ta quan tâm từ đó về sau là vị trí A4 này. Vậy còn A1, A2, A3 cũng đang mang giá trị? Chúng đi đâu về đâu? Chính xác, nó trở thành một vùng nhớ rác và sẽ được GC dọn dẹp nhưng không phải ngay lập tức, vậy trong khoảng thời gian đó nó vẫn nắm giữ các vùng nhớ của chúng ta. Đó cũng là một trong các lý do việc bạn muốn chạy ruby on rails trên một chiếc máy tính sinh viên 2GB là vô cùng khó khăn. Ruby ăn Ram như uống nước lã vậy.</p>
+
+<p>Ví dụ trên mảng ta có ba phần tử và ta có 3 giá trị rác trên bộ nhớ, hãy tưởng tượng bạn có một mảng một triệu phần tử 😟</p>
+
+<p>Giải pháp trong trường hợp này là gì? Đó là duyệt mảng như một <code>object reference</code> chứ không phải một biến giá trị</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">str</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+<span class="o">[</span><span class="s2">&#34;Hoang&#34;</span><span class="p">,</span> <span class="s2">&#34;Duy&#34;</span><span class="p">,</span> <span class="s2">&#34;Chinh&#34;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+  <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">i</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Như vậy str sẽ ở đúng một vùng nhớ và ta không có một đống biến rác không mong đợi.</p>
+
+<p>Chứng minh:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">str</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+<span class="nb">puts</span> <span class="s2">&#34;First location: </span><span class="si">#{</span><span class="n">str</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="o">[</span><span class="s2">&#34;Hoang&#34;</span><span class="p">,</span> <span class="s2">&#34;Duy&#34;</span><span class="p">,</span> <span class="s2">&#34;Chinh&#34;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> 
+  <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">i</span>
+  <span class="nb">puts</span> <span class="s2">&#34;value: </span><span class="si">#{</span><span class="n">str</span><span class="si">}</span><span class="s2"> | location: </span><span class="si">#{</span><span class="n">str</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">&#34;</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">&#34;Final value: </span><span class="si">#{</span><span class="n">str</span><span class="si">}</span><span class="s2"> | location: </span><span class="si">#{</span><span class="n">str</span><span class="o">.</span><span class="n">object_id</span><span class="si">}</span><span class="s2">&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">First location: 47196120971580
+value: Hoang | location: 47196120971580
+value: HoangDuy | location: 47196120971580
+value: HoangDuyChinh | location: 47196120971580
+Final value: HoangDuyChinh | location: 47196120971580</pre></td></tr></table>
+</div>
+</div>
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Trong bài viết có đề cập đến <code>object_id</code> và <code>GC</code>, đây là hai vấn đề nền tảng trong ruby, hy vọng sẽ có khả năng viết các bài khác về hai chủ đề này, nếu có thắc mắc hay đóng góp cho thiếu xót của tác giả, hãy để lại bình luận bên dưới (bow).</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ruby/">ruby</a>
+          <a href="/tags/programming/">programming</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Upload với S3 trong rails</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-02-25-van-de-n&#43;1-trong-rails/">
+            <span class="next-text nav-default">Vấn đề N&#43;1 và cách xử lý</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

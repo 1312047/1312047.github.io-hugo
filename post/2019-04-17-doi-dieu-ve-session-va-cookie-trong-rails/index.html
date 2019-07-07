@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Session và Cookies trong Rails - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Session và Cookies trong Rails" />
+<meta property="og:description" content="Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/" />
+<meta property="article:published_time" content="2019-04-17T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-17T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Session và Cookies trong Rails">
+<meta itemprop="description" content="Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ">
+
+
+<meta itemprop="datePublished" content="2019-04-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-04-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4402">
+
+
+
+<meta itemprop="keywords" content="rails,secure," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Session và Cookies trong Rails"/>
+<meta name="twitter:description" content="Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Session và Cookies trong Rails</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-17 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-flow-hoạt-động">1. Flow hoạt động</a></li>
+<li><a href="#2-một-vài-loại-cookies-quan-trọng-trong-rails">2. Một vài loại cookies quan trọng trong rails</a></li>
+<li><a href="#3-giải-mã-cookies-và-tìm-hiểu-về-session-trong-rails">3. Giải mã cookies và tìm hiểu về session trong rails</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p><code>session[:user_id] = @user.id</code>, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳn ai cũng đã từng làm qua hoặc làm gần giống như vậy, ta được dạy rằng, <code>http</code> là 1 giao thức không có trạng thái nên request thứ <code>N + 1</code> sẽ chẳng thể biết được request thứ <code>N</code> đã làm gì, vậy nếu ở lần request thứ <code>N</code> chúng ta đã thực hiện hành vi đăng nhập, và <code>http</code> thì không có lưu vết lại điều đó, hệ quả là ở lần request tiếp theo, website hiểu như bạn chưa đăng nhập, rất đáng buồn.<br />
+Cũng theo những gì được dạy, <code>session/cookies</code> được tạo ra với mục đích làm cho http request có &ldquo;trạng thái&rdquo;. Vì sao lại để từ trạng thái trong nháy kép, vì thực sự là <code>http</code> không bao giờ có trạng thái cả, mà <code>session/cookies</code> với khả năng lưu vết của mình có thể giúp website nắm được một số <strong>thông tin</strong> từ client đã request trước đó và làm chúng giống như <code>http</code> đã có trạng thái.<br />
+Quá mơ hồ? đúng vậy, khi được dạy điều này tôi cũng thấy thật mơ hồ, wth is trạng thái? phi trạng thái? lưu vết?&hellip; Hy vọng bài viết này sẽ giúp người đọc có 1 cái nhìn dễ hiểu hơn về 2 đối tượng này trong ruby on rails.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-flow-hoạt-động">1. Flow hoạt động</h3>
+
+<p>Một cách ngắn gọn cookies sẽ được vận hành như sau:</p>
+
+<p>Step 1: Lần đầu bạn request đến web ABC.com, nhẹ nhàng tựa mây bay, bạn không mang theo thông tin gì của ABC.com cả</p>
+
+<p>Step 2: ABC.com nhận request của bạn, nó nhận ra bạn không mang theo cookies của website, nên nó trong response trả về nó set một hoặc một vài cookies mặc định cho bạn.</p>
+
+<p>Step 3: Bạn nhận được response của ABC.com, rồi bạn tiếp tục request lên ABC.com lần thứ 2, lần này đi theo request của bạn là toàn bộ số cookies đã được khởi tạo ở bước 2.</p>
+
+<p>Step 4: ABC.com lại nhận được request của bạn, và lần này nó đã thấy bạn mang cookies của ABC.com nên nó sẽ đọc nội dung trong cookies đó (nếu cần).</p>
+
+<h3 id="2-một-vài-loại-cookies-quan-trọng-trong-rails">2. Một vài loại cookies quan trọng trong rails</h3>
+
+<ol>
+<li><p><code>Normal cookies</code>: Một dạng cookie mà dữ liệu được lưu trữ dưới dạng text.</p></li>
+
+<li><p><code>Signed cookies</code>: Một dạng cookie mà dữ liệu lưu trữ sẽ được &ldquo;ký&rdquo; bởi 1 <code>digest</code>, và <code>digest</code> này được tạo ra bởi <code>secret_key_base</code> trong app của bạn, sau đó nó sẽ được chuyển sang dạng <code>base64</code> code. Điều này có nghĩa là nếu ai đó có được <code>signed cookies</code> của bạn, thì họ hoàn toàn có thể đọc được nội dung bên trong (decode base64 là có thể đọc được). Tuy nhiên nếu họ sửa lại nội dung của cookies đó và gửi lên server thì lúc này, cookies này trở thành 1 cookies không hợp lệ, vì sao? Vì như đã trình bày, nó được ký bởi 1 digest sinh ra qua <code>secret_key_base</code>, vậy nên cookies loại này nếu bị sửa đổi nội dung ở client thì khi kiểm tra tính toàn vẹn trên server thông qua digest sẽ không còn đúng nữa. Và nó trở thành 1 cookies không hợp lệ.</p></li>
+
+<li><p><code>Encrypted cookies</code>: Một dạng cookies mà dữ liệu được mã hóa qua một quá trình mã hóa với 1 khóa quan trọng là <code>secret_key_base</code>, một cách đơn giản nhất để hiểu là không có <code>secret_key_base</code> thì ta không thể nào <strong>đọc</strong> hay sửa đổi dữ liệu của cookies này được.</p></li>
+</ol>
+
+<p>Ví dụ:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">cookies</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:signed</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Duy Chinh&#34;</span>
+<span class="n">cookies</span><span class="o">.</span><span class="n">encrypted</span><span class="o">[</span><span class="ss">:encrypted</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Duy Chinh&#34;</span>
+<span class="n">cookies</span><span class="o">[</span><span class="ss">:normal</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&#34;Duy Chinh&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Tôi đã tạo 3 cookies ứng với 3 dạng cookies nêu ở trên, giá trị của chúng đều giống nhau (đều được gán bằng &ldquo;Duy Chinh&rdquo;).</p>
+
+<p>Hãy xem giá trị ở client nhận được:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">normal</span> <span class="o">=</span> <span class="s2">&#34;Duy+Chinh&#34;</span>
+<span class="n">signed</span> <span class="o">=</span> <span class="s2">&#34;IkR1eSBDaGluaCI%3D--a3af2bfd61abcd20cc3b8ac714968d0aaf578fe5&#34;</span>
+<span class="n">encrypted</span> <span class="o">=</span> <span class="s2">&#34;%2BVulShtBgFR2I18%3D--zQP8FmCAW4%2FZUwar--CQ%2FH6HFHSVlox5H8QC4CTg%3D%3D&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nhận xét:</p>
+
+<ol>
+<li><p>Kiểu cookies thông thường, dữ liệu lưu dạng text nên ở client ta dễ dàng đọc được nội dung cũng như sửa đổi dữ liệu của chúng.</p></li>
+
+<li><p>Nhìn signed cookies và encrypted cookies đều không thân thiện với người dùng cuối, vì chúng gồm những ký tự không có ngữ nghĩa với end user.</p></li>
+
+<li><p>Nếu decode <code>base64</code> ta thu được giá trị của signed cookies ở trên là: <code>&quot;Duy Chinh&quot;7횿f߷횭Ƕч7oƜ뇴i繯Ǟ䀀</code>, dù một số ký tự phía sau không thể hiểu được, tuy nhiên không quan trọng vì nội dung cookies vẫn được giải mã (đúng với tính chất, có thể đọc nhưng không thể sửa đổi).</p></li>
+
+<li><p>Việc decode encrypted cookies là vô vọng khi không có <code>secret_key_base</code>.</p></li>
+</ol>
+
+<p><strong>NOTE:</strong></p>
+
+<p>Việc sử dụng loại cookies nào sẽ đúng trong những trường hợp cụ thể, với những dữ liệu vô hại và không hề quan trọng thì sử dụng cookies thông thường và lưu mọi thứ dưới dạng text là khả dĩ hơn cả. Bỏ qua các bước mã hóa giúp nó hoạt động với performance tốt hơn hẳn 2 dạng cookies còn lại.<br />
+Ngược lại, encrypted cookies là dạng cookies tốn công sức để xử lý nhất, vì vậy hãy chỉ sử dụng nó cho những thông tin thực sự quan trọng và không thể để lộ (những thông tin bớt quan trọng hơn và chỉ cần đảm bảo tính toàn vẹn của dữ liệu chứ không cần bảo mật thông tin thì hãy dùng signed cookies).</p>
+
+<h3 id="3-giải-mã-cookies-và-tìm-hiểu-về-session-trong-rails">3. Giải mã cookies và tìm hiểu về session trong rails</h3>
+
+<p>Sau khá nhiều công sức tìm kiếm, tôi đã tìm ra cách để giải mã cookies trong rails 5.2, nội dung đơn giản như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;cgi&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;active_support&#39;</span>
+
+<span class="k">def</span> <span class="nf">verify_and_decrypt_session_cookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">,</span> <span class="n">secret_key_base</span><span class="p">)</span>
+  <span class="n">cookie</span>                  <span class="o">=</span> <span class="no">CGI</span><span class="o">::</span><span class="n">unescape</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+  <span class="n">salt</span>                    <span class="o">=</span> <span class="s1">&#39;authenticated encrypted cookie&#39;</span>
+  <span class="n">encrypted_cookie_cipher</span> <span class="o">=</span> <span class="s1">&#39;aes-256-gcm&#39;</span>
+  <span class="n">serializer</span>              <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">MessageEncryptor</span><span class="o">::</span><span class="no">NullSerializer</span>
+
+  <span class="n">key_generator</span>           <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">KeyGenerator</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret_key_base</span><span class="p">,</span> <span class="ss">iterations</span><span class="p">:</span> <span class="mi">1000</span><span class="p">)</span>
+  <span class="n">key_len</span>                 <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">MessageEncryptor</span><span class="o">.</span><span class="n">key_len</span><span class="p">(</span><span class="n">encrypted_cookie_cipher</span><span class="p">)</span>
+  <span class="n">secret</span>                  <span class="o">=</span> <span class="n">key_generator</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="n">salt</span><span class="p">,</span> <span class="n">key_len</span><span class="p">)</span>
+  <span class="n">encryptor</span>               <span class="o">=</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">MessageEncryptor</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="ss">cipher</span><span class="p">:</span> <span class="n">encrypted_cookie_cipher</span><span class="p">,</span> <span class="ss">serializer</span><span class="p">:</span> <span class="n">serializer</span><span class="p">)</span>
+
+  <span class="n">encryptor</span><span class="o">.</span><span class="n">decrypt_and_verify</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">cookie</span>         <span class="o">=</span> <span class="s2">&#34;QkS0eMMxz8z0Kso%3D--4opNQwT5tGUsnn90--5fXye0VQJX%2BXMVkUmK69gw%3D%3D&#34;</span>
+<span class="n">skb</span>            <span class="o">=</span> <span class="s2">&#34;2fc48081a207cbe98379b2ed33b5072125d6f80a55997494b021bde37cec4d9c8f17f90357d6ade926b02a3bc271ccecaf6894af1410d6ef8f6c9b3b0d871fba&#34;</span>
+<span class="n">cookie_session</span> <span class="o">=</span> <span class="s2">&#34;ahp9AcIyl%2BhLvQW695lhNUCnI7bF2iNZY8e4bM%2B2Lrx%2FlnbVXkYF3nL493dMM7eslFJKAyBNJKZlY5ugZpUuznCxO%2BpNXudnOdQVuDyvVBLxA8gQ4t48Gs%2BqOS7e%2FlSjBedhFKAaoBRdVI06QL8%3D--enarz3Hu%2FZ2n1Ys%2B--YdTghGWd4ZFef9Lf7WM%2FMQ%3D%3D&#34;</span>
+<span class="nb">puts</span> <span class="n">verify_and_decrypt_session_cookie</span><span class="p">(</span><span class="n">cookie_session</span><span class="p">,</span> <span class="n">skb</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Nội dung được tham khảo từ nhiều nguồn (vì không một nguồn cụ thể nào copy và chạy luôn được 😒), nhưng chủ yếu được tìm hiểu tại <a href="https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">Đây</a>, các bạn có thể vào trang này để tìm hiểu kỹ hơn.</p>
+
+<p><strong>NOTE:</strong> Một điểm hết sức cần chú ý đó là biến <code>skb</code> tôi sử dụng ở trên chính là <code>secret_key_base</code> của project mà tôi sử dụng để demo, vì đây chỉ là một project test nên tôi có thể viết dạng text vào file sau đó commit lên github như này, trong tất cả các trường hợp khác thì đây là một hành động vô cùng <strong>tồi tệ</strong>, việc bị lộ <code>secret_key_base</code> sẽ khiến ứng dụng của bạn trần trụi trước hacker. Vậy nên hãy thật cẩn thận!</p>
+
+<p>Đoạn mã trên work tốt trên rails 5.2, chú ý là cách mã hóa ở các phiên bản rails khác nhau hoàn toàn có khả năng khác nhau, nên nếu đoạn mã này không thể chạy được với rails 4 chẳng hạn thì đó là điều hết sức bình thường.</p>
+
+<p>Trở lại vấn đề chính, nếu bạn để ý thì trong lần đầu tiên request khi bạn chưa hề làm gì và code trên server của bạn cũng chưa hề set bất kỳ giá trị cookies nào thì trong response trả về vẫn sẽ có một cookies (mà tôi đã nói ở trên, trong lần đầu request server sẽ khởi tạo và gửi về cho bạn một hoặc một vài cookies).</p>
+
+<p>Trong trường hợp này là một, cookies đó có thể có tên dạng <code>_app_name_session</code>. Nội dung của cookies này cũng được mã hóa, thử decode bằng <code>base64</code> không được ta có thể hiểu đây là 1 cookies đã được encrypted.</p>
+
+<p>Giá trị của cookies này trong trường hợp tôi test là:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&#34;aW2fSskgCyZ20Fi6E68xRGl0%2FR%2FzeFWoWU5YdhgkVhB%2FMtWSsX0rf3JuRgsfPPgQXjYYNygaRSxRjXAmOcsjohN28JQJnjej0Grfpwx52cZ5qjIRdMfOS9aXdTmedpuJ7T99aObbv75D3dsPtdQ%3D--FW10HzOu9FIoKK%2B8--9sMKANggTvi%2BlBjFwpIHEg%3D%3D&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>Sử dụng đoạn mã ta đã viết ở trên, ta giải mã ra được giá trị của cookies này là:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
+  <span class="s2">&#34;session_id&#34;</span><span class="ss">:&#34;52cc440e209ad03d306e550c2ca2dd78&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;_csrf_token&#34;</span><span class="ss">:&#34;rD35dsIoJyf5MIRA54/ARQNMBAN0yKvfMU4RjCc9WD8=&#34;</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Vậy trong lần đầu request tới 1 website ruby on rails, nó sẽ tạo ra cho chúng ta 1 session, session lúc khởi tạo không có giá trị gì ngoài <code>session_id</code> và <code>_csrf_token</code>.</p>
+
+<p><strong>Ủa sai sai, tôi nhớ là ngày xưa đi học được dạy rằng điểm khác biệt của session và cookies là session được lưu ở server còn cookies được lưu ở client cơ mà</strong></p>
+
+<p>Đúng, tôi cũng được học như vậy, nhưng đó không phải là cách mà rails xử lý, <code>Rails được config mặc định là lưu session bằng cookies</code>, nếu không muốn ta có thể lưu trên <code>redis</code>, <code>database</code>&hellip; Tuy nhiên nếu không thấy ngại vì giới hạn không quá <code>4KB</code> của cookies thì tôi không thấy lý do gì để chuyển vị trí lưu trữ của session đi cả. 😃</p>
+
+<p>Bây giờ tôi add thêm 1 giá trị vào session với câu lệnh <code>session[:user_id] = 1</code>, lúc này giá trị của cookies cũng thay đổi theo, lại decrypt ta thu được:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
+  <span class="s2">&#34;session_id&#34;</span><span class="ss">:&#34;52cc440e209ad03d306e550c2ca2dd78&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;_csrf_token&#34;</span><span class="ss">:&#34;rD35dsIoJyf5MIRA54/ARQNMBAN0yKvfMU4RjCc9WD8=&#34;</span><span class="p">,</span>	
+  <span class="s2">&#34;user_id&#34;</span><span class="p">:</span><span class="mi">1</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Session bây giờ đã có thêm một key mới là <code>user_id</code> với giá trị là <code>1</code>. À vậy cuối cùng thì session cũng là 1 <code>hash</code> thôi nhỉ.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Để phân biệt các client khác nhau, server sẽ dựa vào <code>session_id</code> được lưu trong cookies, vì vậy nếu chiếm được cookies đăng nhập trên website ABC.com của bạn, các hacker có thể dùng nó để giả mạo bạn và request lên server, đáng buồn thay server sẽ đọc cookies được hacker request lên, sử dụng <code>secret_key_base</code> để giải mã cookies và đọc nội dung bên trong, đoạn code xử lý login lại đọc từ session[:user_id], lúc này thì cookies kia có giá trị <code>session[:user_id] = 1</code> và thế là server đã tưởng rằng hacker chính là bạn. Trong các bài tiếp theo chúng ta sẽ tìm hiểu về một số kiểu tấn công thông thường cũng như cách phòng tránh trong rails.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/rails/">rails</a>
+          <a href="/tags/secure/">secure</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Cơ chế Autoloading và Reloading trong Rails</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-04-11-su-dung-carrierwave-voi-s3/">
+            <span class="next-text nav-default">Sử dụng carrierwave với S3</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

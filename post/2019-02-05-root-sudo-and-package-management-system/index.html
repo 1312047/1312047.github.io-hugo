@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Root, sudo và package management - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
+Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Root, sudo và package management" />
+<meta property="og:description" content="Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
+Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/" />
+<meta property="article:published_time" content="2019-02-05T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-02-05T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Root, sudo và package management">
+<meta itemprop="description" content="Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
+Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn.">
+
+
+<meta itemprop="datePublished" content="2019-02-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-02-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1532">
+
+
+
+<meta itemprop="keywords" content="unix," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Root, sudo và package management"/>
+<meta name="twitter:description" content="Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
+Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Root, sudo và package management</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-05 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-root">1.Root</a></li>
+<li><a href="#2-sudo">2.Sudo</a></li>
+<li><a href="#3-package-management-system">3.Package management system</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là <code>root</code>. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là <code>sudo</code> và <code>Package Management System</code>.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-root">1.Root</h3>
+
+<p>Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn. Nhưng vợ chồng bạn không phải là những người sở hữu tối thượng của mảnh đất kể trên, mà quyền lực to lớn này thuộc về nhà nước, “người” thực ra là đang cho bạn thuê đất có thời hạn. Tương tự trọng Unix/Linux, sẽ có những user (như tài khoản bạn sử dụng để đăng nhập, hoặc tài khoản khách…).</p>
+
+<p>Việc những tài khoản này có thể đăng nhập vào hệ thống nhưng đặc quyền của chúng bị giới hạn. Khi login vào hệ thống, bạn có thể làm một số tác vụ nhất định chứ không thể thích làm gì thì làm, trong hệ thống của bạn chỉ có một user duy nhất được quyền làm bất cứ điều gì, đó là một super user.</p>
+
+<p>Trên windows, ta gọi đó là <code>administrator</code> (có lẽ quá quen thuộc, bạn còn nhớ những lúc cài phần mềm, bạn click vào file exe nhưng chương trình không chịu cài đặt, google một lát, bạn nhận được một hướng dẫn hãy click phải vào file exe đó và chọn <code>run as administrator</code>, đó chính là sức mạnh của super user trên windows), còn trên macOS hay Ubuntu(1 đại diện của Linux), nó được gọi là <code>root</code> (cuối cùng cũng chỉ là một cái tên gọi, nó có thể được đặt tên là mèo, là chó, nó có thể được đặt tên là bất cứ thứ gì, chúng ta không cần quan tâm, điều duy nhất chúng ta cần biết đó là trên các hệ điều hành con cháu của Unix sẽ luôn có một super user quyền lực như vậy).</p>
+
+<p>Đến lúc này, bạn sẽ tự hỏi tại sao phải thiết kế hệ thống phức tạp như vậy? Tại sao không chỉ dung duy nhất một loại user?
+Câu trả lời rất đơn giản, không phải ai sử dụng máy tính cũng là những người dung có hiểu biết sâu sắc về hệ điều hành. Vì vậy, nếu trao cho họ những quyền lực quá lớn, họ có thể vô tình gây ra những huỷ hoại nghiêm trọng cho hệ thống (quyền lực càng lớn thì trách nhiệm càng lớn).</p>
+
+<p>Một vấn đề phát sinh nếu việc sử dụng Root mang tính rủi ro quá cao nhưng những user bình thường lại không có các quyền để cài đặt một số phần mềm nâng cao thì phải làm sao? Vấn đề này sẽ được giải thích ở mục số 2.</p>
+
+<p>Note: Trên macOS và Ubuntu, <code>root</code> mặc định sẽ được disable, chúng có thể sẽ được enable trở lại và re-disable. Cách thực hiện thì có lẽ bạn nên tìm kiếm hướng dẫn từ trang chủ của những hệ điều hành này để câu lệnh của bạn đảm bảo chính xác và không bị lỗi thời.</p>
+
+<h3 id="2-sudo">2.Sudo</h3>
+
+<p>Như vấn đề tôi đã nêu ở cuối mục 1, bây giờ tôi muốn cài đặt một số phần mềm đòi hỏi quyền của super user, về lý thuyết tôi đứng giữa hai lựa chọn hoặc chuyển sang <code>root</code> và cài đặt phần mềm bình thường (rất rủi ro), phương án 2 là tôi vẫn sử dụng user thường và nói lời tạm biệt với những phần mềm kể trên.</p>
+
+<p>Quá tệ, cả hai giải pháp trên đều không ổn, thật may, các nhà phát triển hệ thống đã cung cấp cho chúng ta một lựa chọn số 3, đó là bạn vẫn sử dụng user thường nhưng có thể triệu hồi quyền lực của super user để thực hiện những lệnh nào đó.</p>
+
+<p>Cách sử dụng đó là bạn thêm câu lệnh <code>sudo</code> vào phía trước câu lệnh cần sử dụng quyền của super user. Ví dụ:</p>
+
+<p><code>sudo apt-get update</code></p>
+
+<p>Một nhầm lẫn thường xuyên với cả với tôi ngày mới tìm hiểu, đó là sau khi gõ những câu lệnh có <code>sudo</code>, hệ thống yêu cầu tôi nhập mật khẩu và tôi đã từng nghĩ đó là mật khẩu của <code>root</code> (nghe cũng hợp lý đấy chứ, ta mượn quyền của <code>root</code> thì phải sử dụng mật khẩu của <code>root</code> chứ nhỉ? Giống như khi tôi mượn nhà của bạn thì tôi phải có chìa khoá của bạn). Nhưng không phải như vậy, mật khẩu bạn nhập vào đơn thuần là chính mật khẩu của user thường bạn đang login trên máy.</p>
+
+<p>Phần đa các trường hợp khi bạn thêm <code>sudo</code>, các câu lệnh sẽ chạy một cách hoàn hảo. Tuy nhiên, cũng có những khi bạn không nhận được kết quả như mong đợi và lý do chính là không phải user nào cũng có thể triệu hồi quyền lực của super user. Điều bạn cần làm khi đó là &ldquo;nói&rdquo; với hệ điều hành rằng hãy cho user của tôi đang sử dụng được quyền triệu hồi sức mạnh của super user. Hãy xem ví dụ dưới đây:</p>
+
+<p>{% highlight ruby %}
+#=&gt; /etc/sudoers (lưu trữ các user được quyền thực hiện đặc quyền của super user)
+#=&gt; Ví dụ
+root ALL=(ALL:ALL) ALL
+#=&gt; user đang xét quyền tên là root
+#=&gt; Chữ all đầu tiên chỉ ra rằng rule này được áp dụng cho tất cả các host
+#=&gt; Chữ all thứ hai chỉ ra, account root có thể chạy lệnh với quyền của bất kỳ user nào.
+#=&gt; Chữ all thứ ba chỉ ra, account root có thể chạy lệnh với quyền của bất kỳ group nào.
+#=&gt; Chữ all cuối cùng chỉ ra, account root có thể chạy bất kỳ command nào.
+{% endhighlight %}</p>
+
+<p>Note: Kể từ khi bạn nhập mật khẩu sau khi gõ lệnh <code>sudo</code> lần đầu, thời gian có hiệu lực của mật khẩu này sẽ là 15 phút. Trong khoảng thời gian đó bạn có thể chạy các lệnh <code>sudo</code> khác mà hệ điều hành không yêu cầu bạn nhập lại mật khẩu.</p>
+
+<h3 id="3-package-management-system">3.Package management system</h3>
+
+<p>Khi sử dụng macOS, để cài đặt thêm các phần mềm phục vụ công việc (mà chúng không được support trên appstore), tôi sử dụng <code>homebrew</code>, một phần mềm giúp quản lý các phần mềm khác rất hiệu quả.</p>
+
+<p>Vậy còn trên Linux chúng ta có gì?</p>
+
+<p>Trước hết cần phải làm rõ: Package management system là một công cụ hoặc một hệ thống các công cụ được sử dụng để handle các package.
+1.  Handle là quản lý với đầy đủ các chức năng như thêm mới, gỡ bỏ, nâng cấp, tìm kiếm..v..v…
+2.  Package là một tiện ích hoặc những phần bổ trợ cho một tiện ích nào đó (thực sự cuối cùng nó cũng chỉ là tập hợp của các file).</p>
+
+<p>Một <code>Package Management System</code> nổi tiếng trên Linux đó là <code>DPKG</code>, nó là một công cụ để cài đặt các package có đuôi .deb (các package dành cho các hệ điều hành thuộc dòng debian).
+Nhiệm vụ của <code>DPKG</code> là install hoặc remove một package (với điều kiện các file cần thiết đã có trên local).</p>
+
+<p>Đến đây nhiều bạn có thể thắc mắc rằng từ trước đến giờ bạn chưa hề sử dụng các dòng lệnh liên quan đến <code>DPKG</code>, vậy tại sao tôi lại bảo là nó rất phổ biến? Câu trả lời đó là bạn đang sử dụng các phần mềm package management system khác được xây dựng dựa trên phần core là <code>DPKG</code>, một trong số đó là <code>APT–GET/APT</code>.</p>
+
+<p>Ưu điểm lớn nhất của <code>APT</code> so với <code>DPKG</code> đó là <code>DPKG</code> chỉ có thể cài đặt file khi mà file đó đã có trên local (tức là bằng cách nào đó bạn phải download hoặc copy file đó về máy của bạn). Còn với <code>APT</code>, nó sẽ tìm kiếm các package đó từ <code>remote repositories</code>, sau đó download chúng về máy.</p>
+
+<p>Điểm mạnh thứ hai của <code>APT</code> so với <code>DPKG</code> đó là nó giải quyết được bài toán dependencies. Nếu package bạn cần cài đặt phụ thuộc vào một vài package khác, nếu sử dụng <code>DPKG</code> thì bạn sẽ phải cài đặt tất cả các package kể trên một cách thủ công.
+Còn với <code>APT</code>, nó sẽ tự hiểu được package đó cần thêm những phụ trợ nào và tự động cài đặt phần phụ trợ.</p>
+
+<p>Điều thật sự diễn ra đó là trong <code>APT</code>, <code>DPKG</code> vẫn tồn tại. Nó tồn tại ở một cấp thấp hơn và thực hiện các chỉ thị của <code>APT</code>.</p>
+
+<p>Note: Các <code>remote repositories</code> để phần mềm package management của bạn tìm kiếm sẽ được lưu trữ trong file <code>/etc/apt/sources.list</code> (đa số là như vậy).</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Còn rất nhiều điều cần nói và bàn luận thêm trong các bài viết tiếp theo.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-02-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/unix/">unix</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Giải thuật, bằng cấp và thái độ</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-01-30-bash-file-in-macos-and-linux/">
+            <span class="next-text nav-default">Các file hệ thống quan trọng trên Unix</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/programming/</link>
+    <description>Recent content in programming on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 08 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Immutable và mutable</title>
+      <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</guid>
+      <description>Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
+Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó.</description>
+    </item>
+    
+    <item>
+      <title>Tham trị và tham chiếu và mối quan hệ trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</guid>
+      <description>Đặt vấn đề Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục.</description>
+    </item>
+    
+  </channel>
+</rss>

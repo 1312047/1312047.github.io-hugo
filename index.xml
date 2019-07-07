@@ -1,44 +1,326 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Even - A super concise theme for Hugo</title>
+    <title>The more your try, the more your learn</title>
     <link>https://1312047.github.io/</link>
-    <description>Recent content on Even - A super concise theme for Hugo</description>
+    <description>Recent content on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Jul 2019 16:56:10 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Linux Content</title>
-      <link>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</link>
-      <pubDate>Sun, 07 Jul 2019 16:56:10 +0700</pubDate>
+      <title>Simple Rack App</title>
+      <link>https://1312047.github.io/post/2019-06-24-simple-rack-application/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</guid>
-      <description>Đặt vấn đề Phần lớn thời gian thời đại học, tôi được học trên nền tảng window với bộ công cụ visual studio và ms sql server. Mọi thứ đều ổn cho đến khi ra trường và đi làm. Môi trường làm việc không còn là window nữa mà chuyển sang gia đình linux-unix. Rất nhiều thứ lạ lẫm, tuy nhiên, cũng như nhiều lập trình viên khác. Copy paste không có gì khó khăn với tôi.</description>
+      <guid>https://1312047.github.io/post/2019-06-24-simple-rack-application/</guid>
+      <description>1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface).</description>
     </item>
     
     <item>
-      <title>Van de N &#43; 1</title>
-      <link>https://1312047.github.io/post/van-de-n&#43;1-trong-rails/</link>
-      <pubDate>Sun, 07 Jul 2019 16:56:10 +0700</pubDate>
+      <title>Từ khoá super trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://1312047.github.io/post/van-de-n&#43;1-trong-rails/</guid>
+      <guid>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</guid>
+      <description>Đặt vấn đề Kế thừa là một 1 trong 4 yếu tố cốt lõi tạo nên đặc tính hướng đối tượng của một ngôn ngữ (như những gì chúng ta đã được dạy ở trường). Riêng điều đó thôi đã đủ để thể hiện tầm quan trọng của nó.
+Trong ngôn ngữ ruby có một từ khoá thường xuyên xuất hiện khi cần kế thừa hay override lại phương thức lớp cha đó là super.</description>
+    </item>
+    
+    <item>
+      <title>Public, private và protected</title>
+      <link>https://1312047.github.io/post/2019-06-11-public-private-va-protected-method-trong-ruby/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-11-public-private-va-protected-method-trong-ruby/</guid>
+      <description>Đặt vấn đề Khi còn học đại học, chúng ta được học về tầm vực của các phương thức như sau:
+ Public phương thức, gọi ở đâu cũng được chỉ cần đảm bảo đã include cái class khai báo phương thức đó là được.
+ Protected phương thức, gọi ở chính class khai báo nó, ngoài ra còn có thẻ gọi ở các lớp kế thừa class khai báo phương thức này.</description>
+    </item>
+    
+    <item>
+      <title>Exception và hướng xử lý</title>
+      <link>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</guid>
+      <description>Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng. Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ngoài hành tinh bắt cóc&amp;rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để.</description>
+    </item>
+    
+    <item>
+      <title>So sánh class method và scope</title>
+      <link>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</guid>
+      <description>Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng (một cách vô cùng chủ quan và vô trách nhiệm) Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
+Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này.</description>
+    </item>
+    
+    <item>
+      <title>Symbol và String, đường ta 2 ngả</title>
+      <link>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</guid>
+      <description>Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
+Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa.</description>
+    </item>
+    
+    <item>
+      <title>Tấn công SQL Injection</title>
+      <link>https://1312047.github.io/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/</link>
+      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/</guid>
+      <description>Đặt vấn đề Trong project của bạn, đã bao giờ bạn sử dụng câu lệnh có dạng như:
+1  Product.where(&amp;#34;product_name = &amp;#39;Meo con di lon ton&amp;#39; &amp;#34;)   Nếu có, thì bạn đã vô tình tạo một lỗ hổng về an toàn cho website của mình. Hãy cùng tìm hiểu vì sao lại như vậy.
+Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, nội dung câu lệnh này nhắm lấy ra sản phẩm có tên là Meo con di lon ton.</description>
+    </item>
+    
+    <item>
+      <title>Simple ORM</title>
+      <link>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</guid>
+      <description>1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.</description>
+    </item>
+    
+    <item>
+      <title>Quy tắc viết code được xem là tốt</title>
+      <link>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</guid>
+      <description>Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy.</description>
+    </item>
+    
+    <item>
+      <title>Tổng quan nguyên lý SOLID</title>
+      <link>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</guid>
+      <description>Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn.</description>
+    </item>
+    
+    <item>
+      <title>Require và Load trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/</guid>
+      <description>Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &amp;ldquo;gọi&amp;rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
+1 2 3 4 5 6 7  require &amp;#39;animal&amp;#39; class Cat &amp;lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau.</description>
+    </item>
+    
+    <item>
+      <title>Các phương thức cập nhật trong ActiveRecord</title>
+      <link>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</guid>
+      <description>Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
+Luận bàn Chuẩn bị:
+ Tôi có một model Cat với 2 thuộc tính là age và name.
+ Trong model Cat tôi có 1 validation và 1 callback đơn giản.</description>
+    </item>
+    
+    <item>
+      <title>Https vài điều lưu ý</title>
+      <link>https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/</link>
+      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/</guid>
+      <description>Đặt vấn đề Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về http và https, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của https cũng là giao thức http nhưng thêm được chữ s ứng với secure.</description>
+    </item>
+    
+    <item>
+      <title>Cơ chế Autoloading và Reloading trong Rails</title>
+      <link>https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/</guid>
+      <description>Đặt vấn đề 1 2 3  class CatsController &amp;lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails.</description>
+    </item>
+    
+    <item>
+      <title>Session và Cookies trong Rails</title>
+      <link>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</guid>
+      <description>Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ</description>
+    </item>
+    
+    <item>
+      <title>Sử dụng carrierwave với S3</title>
+      <link>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</guid>
+      <description>Gemfile 1 2  gem &amp;#39;fog&amp;#39;, require: &amp;#39;fog/aws&amp;#39; gem &amp;#39;carrierwave&amp;#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &amp;#39;carrierwave/storage/fog&amp;#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&amp;gt; &amp;#39;AWS&amp;#39;, :aws_access_key_id =&amp;gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&amp;gt; Rails.application.credentials.secret_access_key, :region =&amp;gt; Rails.application.credentials.s3_region, :path_style =&amp;gt; true, :host =&amp;gt; &amp;#39;s3.us-east-2.amazonaws.com&amp;#39;, :endpoint =&amp;gt; &amp;#39;https://s3.</description>
+    </item>
+    
+    <item>
+      <title>SaaS, PaaS và IaaS</title>
+      <link>https://1312047.github.io/post/2019-04-10-iaas-paas-saas/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-10-iaas-paas-saas/</guid>
+      <description>SaaS: Software as a Service
+Ví dụ như: TFS, Github.
+Mua một căn nhà và mua xong thì vào đó ở luôn chứ không cần vất vả xây dựng gì thêm.
+Ưu: Nhanh, tiện.
+Nhược: không có tính tuỳ chỉnh, vì dịch vụ sẽ phổ thông và không thể cover hết được nhu cầu của chúng ta.
+PaaS: Platform as a Service
+Ví dụ như: Heroku, AWS Elastic Beanstalk.
+Mua một căn nhà đã có một số tiện ích cơ bản để sống, mình chỉ cần dọn thêm đồ đạc của mình(source code) vào là sống được.</description>
+    </item>
+    
+    <item>
+      <title>Upload với S3 trong rails</title>
+      <link>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</guid>
+      <description>Ghi chú này được tham khảo từ bài viết Lưu trữ file trên Amazon S3 của tác giả @duyth1993 trên website viblo.com.
+Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:</description>
+    </item>
+    
+    <item>
+      <title>Immutable và mutable</title>
+      <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</guid>
+      <description>Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
+Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó.</description>
+    </item>
+    
+    <item>
+      <title>Vấn đề N&#43;1 và cách xử lý</title>
+      <link>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</guid>
       <description>Đặt vấn đề Có thể bạn đã từng nghe qua về N+1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
 Luận bàn N+1 query Xét một ví dụ:
 Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user.</description>
     </item>
     
     <item>
-      <title>nguyen ly solid</title>
-      <link>https://1312047.github.io/post/tong-quan-ve-nguyen-ly-solid/</link>
-      <pubDate>Sun, 07 Jul 2019 16:56:10 +0700</pubDate>
+      <title>Ruby method lookup</title>
+      <link>https://1312047.github.io/post/2019-02-24-ruby-method-lookup/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://1312047.github.io/post/tong-quan-ve-nguyen-ly-solid/</guid>
-      <description>Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
-Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn.</description>
+      <guid>https://1312047.github.io/post/2019-02-24-ruby-method-lookup/</guid>
+      <description>Đặt vấn đề Cũng như nhiều ngôn ngữ khác, trong ruby, khi làm việc với một đối tượng thì có hai thứ ta phải quan tâm chính đó là thuộc tính của đối tượng và phương thức mà đối tượng có thể sử dụng (à mà gần như mọi thứ trong ruby đều là object nên đây là một kiến thức cơ bản nhưng cũng rất quan trọng cần phải nắm rõ).</description>
+    </item>
+    
+    <item>
+      <title>Quy luật 80/20</title>
+      <link>https://1312047.github.io/post/2019-02-22-quy-luat-80-20/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-22-quy-luat-80-20/</guid>
+      <description>Mọi người hầu như ai cũng biết quy luật 80&amp;frasl;20.
+Và cũng nhiều người ứng dụng triệt để. Họ cố gắng dùng 20% công sức của mình để đạt được 80% giá trị, và tự hào vì sự hiệu quả của mình.
+Nhưng họ quên một điều.
+Đúng là 20% công sức đầu tiên tạo nên 80% giá trị, nhưng là 80% giá trị phổ thông.
+Chính 20% giá trị còn lại mới tạo nên 80% khác biệt.</description>
+    </item>
+    
+    <item>
+      <title>Xử lý thông tin bảo mật trong Rails</title>
+      <link>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</guid>
+      <description>Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng.</description>
+    </item>
+    
+    <item>
+      <title>Các trình thông dịch trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</guid>
+      <description>Đặt vấn đề Đây lại là một bài viết về chủ đề core, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.
+Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn.</description>
+    </item>
+    
+    <item>
+      <title>Tham trị và tham chiếu và mối quan hệ trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</guid>
+      <description>Đặt vấn đề Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục.</description>
+    </item>
+    
+    <item>
+      <title>Giải thuật, bằng cấp và thái độ</title>
+      <link>https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/</guid>
+      <description>Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&amp;hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?</description>
+    </item>
+    
+    <item>
+      <title>Root, sudo và package management</title>
+      <link>https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/</guid>
+      <description>Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
+Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn.</description>
+    </item>
+    
+    <item>
+      <title>Các file hệ thống quan trọng trên Unix</title>
+      <link>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</guid>
+      <description>Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux.</description>
+    </item>
+    
+    <item>
+      <title>Tìm hiểu về length, count và size trong Ruby, Rails</title>
+      <link>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</guid>
+      <description>Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”.</description>
+    </item>
+    
+    <item>
+      <title>Lệnh open trong Unix</title>
+      <link>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</link>
+      <pubDate>Wed, 23 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</guid>
+      <description>Đặt vấn đề Chắc hẳn không chỉ tôi mà nhiều người dùng MacOS khác đã quen thuộc với câu lệnh open trên terminal. Hiểu một cách cơ bản nhất câu lệnh này giúp chúng ta mở thư mục hiện tại trong cửa sổ Finder. Tuy nhiên, câu lệnh này còn có thể làm được nhiều điều hơn chúng ta tưởng.
+Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đang làm việc, nó có thể mở được các thư mục khác trong máy tính của bạn chỉ bằng việc bạn cung cấp đường dẫn phía sau câu lệnh open thay vì dấu chấm như chúng ta đã làm ở trên.</description>
+    </item>
+    
+    <item>
+      <title>File permission trong Unix</title>
+      <link>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</guid>
+      <description>Đặt vấn đề Phần lớn thời gian thời đại học, tôi được học trên nền tảng window với bộ công cụ visual studio và ms sql server. Mọi thứ đều ổn cho đến khi ra trường và đi làm. Môi trường làm việc không còn là window nữa mà chuyển sang gia đình linux-unix. Rất nhiều thứ lạ lẫm, tuy nhiên, cũng như nhiều lập trình viên khác. Copy paste không có gì khó khăn với tôi.</description>
     </item>
     
   </channel>

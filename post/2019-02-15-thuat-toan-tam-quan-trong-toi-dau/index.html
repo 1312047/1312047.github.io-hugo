@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Giải thuật, bằng cấp và thái độ - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&amp;hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Giải thuật, bằng cấp và thái độ" />
+<meta property="og:description" content="Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/" />
+<meta property="article:published_time" content="2019-02-15T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-02-15T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Giải thuật, bằng cấp và thái độ">
+<meta itemprop="description" content="Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?">
+
+
+<meta itemprop="datePublished" content="2019-02-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-02-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1462">
+
+
+
+<meta itemprop="keywords" content="random," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Giải thuật, bằng cấp và thái độ"/>
+<meta name="twitter:description" content="Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Giải thuật, bằng cấp và thái độ</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<p>Diễn giải chi tiết câu chuyện thêm 1 chút nữa, có một số ý kiến đại diện cho 1 số nhóm lập trình viên mà tôi đã từng gặp như sau:</p>
+
+<ol>
+<li><p>Nhóm số một - Người đề cao bằng cấp, họ luôn nỗ lực để đạt được những tước vị cao, trong thời đại này, khi bằng đại học đã khá phổ cập thì nhóm người này sẽ đặt mục tiêu cho những tấm bằng giá trị hơn, chẳng hạn như bằng thạc sĩ hay các chứng chỉ từ các tổ chức uy tín khác.</p></li>
+
+<li><p>Nhóm số hai - Người đề cao việc tự học. Ngược lại với nhóm số một, đây là nhóm người không hề coi trọng bằng cấp, thậm chí đôi lúc họ coi thường nó, họ coi những kinh nghiệm họ tự học, tự tìm hiểu và tích luỹ có giá trị thực tế hơn nhiều là những tờ giấy. Nhóm người này có khả năng tự học vô cùng tốt, bên cạnh đó là việc nắm bắt công nghệ mới một cách nhanh chóng của họ luôn là thứ khiến tôi nể phục.</p></li>
+
+<li><p>Nhóm số ba, đây chính là những người như tôi đã đề cập ở đầu bài viết, đó là nhóm người cuồng giải thuật. Nhóm người này đề cao những thuật toán phức tạp, họ coi đó là chân lý sống cho lý tưởng phải vượt lên trên người khác, họ thường thấy giải thuật phức tạp chính là điểm có thể tạo khác biệt gần như là duy nhất trong một thị trường đang ngày càng nhiều lao động như IT.</p></li>
+</ol>
+
+<p>Trên đây là những nhóm chính trong cái hình hài muôn màu muôn vẻ của giới coding, ngoài ra còn có nhóm nhỏ những người &ldquo;chém gió&rdquo; trong CV, nổ kinh nghiệm, hay nhóm chỉ chăm chú chuẩn bị các câu hỏi về lương lậu và khoe bảng thành tích exp dài như sông Hồng 😟 !!!</p>
+
+<p>Không luận bàn đến việc nhà tuyển dụng thực sự cần gì, và chiến thuật của họ khi phỏng vấn ứng viên sẽ phù hợp với nhóm người nào. Đây không phải phạm trù mà ta có thể thảo luận, đơn giản vì con người là động vật cảm tính, tò mò và cũng đầy sáng tạo, vì thế sẽ chẳng bao giờ có một khuôn mẫu nào để ta tìm hiểu về cách tuyển chọn nhân tài của những con người mà chúng ta thậm chí còn chẳng quen biết.</p>
+
+<p>Cố gắng không lan man và tập trung vào chủ đề chính, những nhóm lập trình viên được đề cập ở trên là bạn bè ta, là đồng nghiệp của ta và là đại diện cho suy nghĩ của phần lớn anh em trong giới coding. Vậy ai đúng ai sai? Dưới góc nhìn của tôi, thì ai cũng đúng, nhưng chỉ là chưa đủ.</p>
+
+<p>Dù bạn thuộc nhóm nào kể trên, thì tôi tin tưởng rằng chắc chắn bạn đã có niềm tin vững chắc vào phán đoán và lựa chọn của mình, tự tin cao vào thứ bạn theo đuổi, niềm tin đó sẽ còn đến cả khi bạn trở thành người đặt câu hỏi cho ứng viên.</p>
+
+<p>Túm cái quần lại, mọi việc chỉ có thể đúng hoặc sai khi đặt trong 1 hoàn cảnh cụ thể.</p>
+
+<p>Nhiều người có thể coi thường bằng cấp, nhưng hãy nhớ rằng, bằng cấp có thể không chứng tỏ bạn là một siêu nhân trong dự án, nhưng nó đảm bảo cho công ty không thuê phải một thằng ngu giỏi nổ CV.</p>
+
+<p>Nhiều người có thể coi thường nhóm người không học hành bài bản mà chỉ biết outsourcing, coi đó là thấp kém, thế nhưng những công việc được xem là &ldquo;thấp kém&rdquo; đó đang đảm bảo sự hoạt động của đa phần những ứng dụng đang phục vụ cho cuộc sống của chúng ta. Những thứ cao siêu bạn đề cao như 4.0, 5.0 hay 10.0 thì đang ở đâu trong cái cuộc sống của người thân và gia đình bạn? Hay chỉ có trong những bài viết/bản tin mang đậm chất tuyên giáo?</p>
+
+<p>Nhiều người sẽ nghĩ rằng nhóm người đề cao thuật toán chỉ là làm màu, vì tôi cũng như bạn, nếu chúng ta đều đã đi làm thì bạn biết đấy, bạn đã bao giờ phải code 1 cây nhị phân trong công việc hàng ngày chưa? Nói cũng phải, nhưng giải thuật là cuộc chơi đầu óc, những người thực sự giỏi thuật toán họ đủ khả năng để tư duy tốt khi vào những vấn đề khó khăn thực sự.</p>
+
+<p>Vậy như thế nào là đủ? Với cá nhân tôi, tôi không sùng bái thuật toán, cũng không đề cao bằng cấp. Cái tôi thích là mầm non từ người khác. Đó chính là <code>Thái độ</code>, với tôi đây là thứ quan trọng hơn cả.</p>
+
+<p>Vì sao ư? vì bằng cấp có thể học (cũng có thể mua). Giải thuật tuy khó, nhưng phần lớn đều có dạng, có mẫu bài nhất định, luyện nhiều sẽ giỏi. Công nghệ mới hay cũ học đi học lại rồi cũng làm một số chức năng outsoure nhất định.</p>
+
+<p>Tất cả đó chỉ chứng minh được năng lực <code>hiện tại</code> của chúng ta, không cho thấy <code>tiềm năng</code> trong tương lai của chúng ta. Tôi không phải là người hời hợt, nên tôi không thích những giá trị hời hợt. Ngẫm nghĩ lại cuối cùng thứ gì có thể thứ giúp chúng ta tiến bộ? Thứ gì có thể giúp chúng ta thay đổi bản thân. Mọi thứ đều bắt đầu từ <code>Thái độ</code>.</p>
+
+<p>Thế nên thứ đầu tiên mà tôi chuẩn bị mỗi khi cần interview là thái độ.</p>
+
+<ol>
+<li><p>Thái độ cầu tiến: Tìm hiểu trước yêu cầu phỏng vấn (để xem công ty này muốn mạnh công nghệ và bay vào outsourcing ngay hay họ muốn optimize đến từng dòng code).</p></li>
+
+<li><p>Thái độ lịch sự: Tôi chưa từng trễ giờ, và sẽ cố gắng không bao giờ trễ, gặp mặt người phỏng vấn bằng 1 nụ cười và 1 cái cúi đầu nhẹ thể hiện sự tôn trọng cho họ và cũng không quên tự tin vào bản thân, đi tìm việc chứ không phải &ldquo;xin&rdquo; việc.</p></li>
+
+<li><p>Thái độ thành thật: Có lần phỏng vấn lúc mới ra trường, sau một thời gian dài chỉ toàn đi chơi với người yêu, tôi đã quên bay quên biến nhiều kiến thức thuật toán hàn lâm, nhận được câu hỏi về thuật toán như sấm đánh ngang tại. Nghe mang máng có là từng làm rồi mà phút này đây tim đập chân run không thể nhớ được, lúc đó tôi đã nói thẳng với người phỏng vấn rằng tôi không ôn algo, và tiện thể nêu ý kiến rằng những bài phỏng vấn giải thuật mà theo loại bài như vậy thì chỉ cần từng ôn là trúng tủ và có thể trả lời trôi chảy, không cần suy nghĩ. Tuy nhiên, những bài toán dạng như vậy không thể chứng minh được năng lực thực sự của ứng viên, nó chỉ chứng minh là ứng viên đã chuẩn bị đầy đủ khi đi phỏng vấn mà thôi.</p></li>
+</ol>
+
+<p>Còn rất nhiều ví dụ khác, nhưng nếu nói về chủ đề này thì có thể nói rất lâu rất lâu cũng không hết.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Cuối cùng thì việc bạn có bằng cấp, giỏi giải thuật hay làm gì đi chăng nữa, thì kỹ năng của bạn phải đáp ứng được cho nhà tuyển dụng mà bạn nhắm tới, nếu không mọi thứ sẽ trở thành vô nghĩa, việc bạn có khả năng code cây đỏ đen trên giấy? Nó chả giúp ích được gì khi chờ đợi bạn đang là những dự án outsourcing dạng maintain đơn giản cả. Cũng với điều đó, việc bạn biết một trăm hay hai ba trăm công nghệ, cũng không giúp đời bạn bớt khổ khi phải code AI hay machine learning đâu. Nên hãy chọn cho mình 1 lựa chọn, yên tâm là đi sai thì đi lại, khi còn trẻ chúng ta còn 1 thứ, đó là thời gian.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-02-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/random/">random</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Tham trị và tham chiếu và mối quan hệ trong Ruby</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-02-05-root-sudo-and-package-management-system/">
+            <span class="next-text nav-default">Root, sudo và package management</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

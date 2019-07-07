@@ -2,60 +2,334 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://1312047.github.io/tags/english/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <loc>https://1312047.github.io/post/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-24-simple-rack-application/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://1312047.github.io/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/rack/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/ruby/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-11-public-private-va-protected-method-trong-ruby/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</loc>
+    <lastmod>2019-06-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/rails/</loc>
+    <lastmod>2019-06-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</loc>
+    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</loc>
+    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/</loc>
+    <lastmod>2019-06-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/secure/</loc>
+    <lastmod>2019-06-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/orm/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</loc>
+    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/coding/</loc>
+    <lastmod>2019-05-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</loc>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/solid/</loc>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/</loc>
+    <lastmod>2019-05-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</loc>
+    <lastmod>2019-05-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/activerecord/</loc>
+    <lastmod>2019-05-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/</loc>
+    <lastmod>2019-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/https/</loc>
+    <lastmod>2019-05-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</loc>
+    <lastmod>2019-04-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/aws/</loc>
+    <lastmod>2019-04-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/carrierwave/</loc>
+    <lastmod>2019-04-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/til/</loc>
+    <lastmod>2019-04-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-04-10-iaas-paas-saas/</loc>
+    <lastmod>2019-04-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</loc>
+    <lastmod>2019-04-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/programming/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</loc>
+    <lastmod>2019-02-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/database/</loc>
+    <lastmod>2019-02-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-24-ruby-method-lookup/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-22-quy-luat-80-20/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/random/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/</loc>
+    <lastmod>2019-02-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/unix/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</loc>
+    <lastmod>2019-01-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</loc>
+    <lastmod>2019-01-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</loc>
+    <lastmod>2019-01-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/post/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/tags/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/post/van-de-n&#43;1-trong-rails/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/post/tong-quan-ve-nguyen-ly-solid/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/tags/preview/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/tags/tag-2/</loc>
-    <lastmod>2019-07-07T16:56:10+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

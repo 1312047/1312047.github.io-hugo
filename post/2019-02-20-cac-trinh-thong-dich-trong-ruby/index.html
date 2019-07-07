@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Các trình thông dịch trong Ruby - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Đây lại là một bài viết về chủ đề core, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.
+Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Các trình thông dịch trong Ruby" />
+<meta property="og:description" content="Đặt vấn đề Đây lại là một bài viết về chủ đề core, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.
+Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/" />
+<meta property="article:published_time" content="2019-02-20T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-02-20T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Các trình thông dịch trong Ruby">
+<meta itemprop="description" content="Đặt vấn đề Đây lại là một bài viết về chủ đề core, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.
+Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn.">
+
+
+<meta itemprop="datePublished" content="2019-02-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-02-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="794">
+
+
+
+<meta itemprop="keywords" content="ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Các trình thông dịch trong Ruby"/>
+<meta name="twitter:description" content="Đặt vấn đề Đây lại là một bài viết về chủ đề core, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.
+Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Các trình thông dịch trong Ruby</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-20 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-ruby-chạy-code-của-bạn-như-nào">1. Ruby chạy code của bạn như nào?</a></li>
+<li><a href="#2-cruby-mri-yarv-kri">2. CRuby, MRI, YARV, KRI</a></li>
+<li><a href="#3-jruby">3. JRuby</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Đây lại là một bài viết về chủ đề <code>core</code>, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-ruby-chạy-code-của-bạn-như-nào">1. Ruby chạy code của bạn như nào?</h3>
+
+<p>Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn.
+Với bất cứ đoạn mã ruby nào, mã nguồn bạn viết sẽ trải qua các bước sau để có thể tới được trình thông dịch (chủ đề mà ta đang tìm hiểu).</p>
+
+<p><code>Token</code>: Chuyển đổi mã nguồn ruby thành một dạng keyword. Hiểu đơn giản, ruby sẽ quét qua mã nguồn bạn viết và so sánh với một symbol table nào đó (giả dụ như vậy), để xác định xem trong mã nguồn bạn viết gồm những thành phần nào (để xác định đâu là biến, đâu là keyword, đâu là từ khoá). Ví dụ việc từ <code>do</code> xuất hiện trong mã nguồn, có thể nó là một biến local, hoặc nó là một keyword trong một <code>block</code>, <code>Token</code> sẽ quét mã nguồn và đảm bảo xác định đúng <code>type</code> của từng thành phần trong code của bạn, chú ý là <code>type</code> nhé, ở bước này ruby chỉ quan tâm đến xác định <code>type</code>.</p>
+
+<p><code>Parse</code>: Qua bước đầu tiên, ta đã có một token, đến bước thứ hai nó sẽ chuyển đổi token đó thành một AST (Abstract Syntax Tree).</p>
+
+<p><code>Compile</code>: Đến bước này, ruby sẽ biên dịch kết quả ở bước 2 thành <code>bytecode</code> và truyền kết quả biên dịch được sang cho máy ảo ruby (là phần mà chúng ta đang tìm hiểu trong bài viết).</p>
+
+<h3 id="2-cruby-mri-yarv-kri">2. CRuby, MRI, YARV, KRI</h3>
+
+<p>Để kiểm tra xem ruby trên máy tính của bạn đang sử dụng trình thông dịch nào, hãy mở <code>irb</code> và sử dụng lệnh sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="no">RbConfig</span><span class="o">::</span><span class="no">CONFIG</span><span class="o">[</span><span class="s2">&#34;RUBY_INSTALL_NAME&#34;</span><span class="o">]</span>
+<span class="c1">#=&gt; kết quả trả về trên máy của tôi là: ruby</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Điều này có nghĩa tôi đang sử dụng trình thông dịch mặc định trong ruby. Được gọi là <code>MRI</code>/<code>CRuby</code> hay phiên bản nâng cấp sau này là <code>YARV</code>/<code>KRI</code>. Giải thích về việc có nhiều tên gọi như trên, tôi xin trích dẫn các thông tin trên wiki và trình thông dịch này:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Matz&#39;s Ruby Interpreter or Ruby MRI (also called CRuby)
+was the reference implementation of the Ruby programming language 
+named after Ruby creator Yukihiro Matsumoto (&#34;Matz&#34;)</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">YARV (Yet another Ruby VM) is a bytecode interpreter that 
+was developed for the Ruby programming language by Koichi Sasada.
+The goal of the project was to greatly reduce the execution time of Ruby programs.</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Since YARV has become the official Ruby interpreter for Ruby 1.9, 
+it is also named KRI (Koichi&#39;s Ruby Interpreter), 
+in the same vein as the original Ruby MRI, 
+named for Ruby&#39;s creator Yukihiro Matsumoto.</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">YARV was merged into the Ruby Subversion repository on January 1, 2007.
+It was released as part of Ruby 1.9.0 on December 26, 2007, replacing Ruby MRI.</pre></td></tr></table>
+</div>
+</div>
+<p>Qua vài trích dẫn kể trên, bạn có thể thấy đơn giản những khái niệm <code>CRuby</code>, <code>YARV</code>, <code>MRI</code>, <code>KRI</code> đều nhằm mô tả về một trình thông dịch được sử dụng mặc định cho ruby (tuỳ phiên bản sẽ có khác nhau, hiểu theo nghĩa là một sự update thay vì là thay thế).</p>
+
+<h3 id="3-jruby">3. JRuby</h3>
+
+<p>Còn một vài trình thông dịch khác mà tôi đã đọc được, nhưng <code>JRuby</code> là phần cuối mà chúng ta sẽ tìm hiểu, vì những những trình thông dịch còn lại không được phổ biến cho lắm.</p>
+
+<p><code>JRuby</code> = <code>Java</code> + <code>Ruby</code></p>
+
+<p>Tức là dùng phần java làm core để chạy máy ảo xử lý code ruby. Sự khác biệt với mục 2,chính là ở mục 2, dù dưới tên gọi hay phiên bản nào, thì những trình thông dịch đó đều sử dụng <code>C</code> làm ngôn ngữ xây dựng.</p>
+
+<p>Một số ý kiến xoay quanh <code>JRuby</code></p>
+
+<p>| 1: JRuby nhanh hơn đáng kể với trình thông dịch mặc định trong ruby, có lợi thế mạnh mẽ khi xử lý đa luồng.</p>
+
+<p>| 2: Tuy nhiên đồng nghĩa với điều đó là việc <code>JRuby</code> chiếm dụng bộ nhớ nhiều hơn và mất thời gian hơn để khởi động.</p>
+
+<p>Vậy sẽ là một thảm hoạ nếu sử dụng <code>JRuby</code> để làm trình thông dịch cho ruby trong những ứng dụng nhỏ, hoạt động đơn giản và không cần tốc độ quá cao.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Trên đây là một số khái quát về lịch sử và hành trình của các trình thông dịch Ruby. Nếu có sai xót, xin hãy để lại bình luận ở dưới bài viết.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-02-20
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ruby/">ruby</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Xử lý thông tin bảo mật trong Rails</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/">
+            <span class="next-text nav-default">Tham trị và tham chiếu và mối quan hệ trong Ruby</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>solid on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/solid/</link>
+    <description>Recent content in solid on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/solid/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tổng quan nguyên lý SOLID</title>
+      <link>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</guid>
+      <description>Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn.</description>
+    </item>
+    
+  </channel>
+</rss>

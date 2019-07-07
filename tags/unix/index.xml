@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>unix on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/unix/</link>
+    <description>Recent content in unix on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Root, sudo và package management</title>
+      <link>https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/</guid>
+      <description>Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
+Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn.</description>
+    </item>
+    
+    <item>
+      <title>Các file hệ thống quan trọng trên Unix</title>
+      <link>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</guid>
+      <description>Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux.</description>
+    </item>
+    
+    <item>
+      <title>Lệnh open trong Unix</title>
+      <link>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</link>
+      <pubDate>Wed, 23 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</guid>
+      <description>Đặt vấn đề Chắc hẳn không chỉ tôi mà nhiều người dùng MacOS khác đã quen thuộc với câu lệnh open trên terminal. Hiểu một cách cơ bản nhất câu lệnh này giúp chúng ta mở thư mục hiện tại trong cửa sổ Finder. Tuy nhiên, câu lệnh này còn có thể làm được nhiều điều hơn chúng ta tưởng.
+Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đang làm việc, nó có thể mở được các thư mục khác trong máy tính của bạn chỉ bằng việc bạn cung cấp đường dẫn phía sau câu lệnh open thay vì dấu chấm như chúng ta đã làm ở trên.</description>
+    </item>
+    
+    <item>
+      <title>File permission trong Unix</title>
+      <link>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</guid>
+      <description>Đặt vấn đề Phần lớn thời gian thời đại học, tôi được học trên nền tảng window với bộ công cụ visual studio và ms sql server. Mọi thứ đều ổn cho đến khi ra trường và đi làm. Môi trường làm việc không còn là window nữa mà chuyển sang gia đình linux-unix. Rất nhiều thứ lạ lẫm, tuy nhiên, cũng như nhiều lập trình viên khác. Copy paste không có gì khó khăn với tôi.</description>
+    </item>
+    
+  </channel>
+</rss>

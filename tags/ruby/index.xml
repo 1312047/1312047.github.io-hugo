@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/tags/ruby/</link>
+    <description>Recent content in ruby on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simple Rack App</title>
+      <link>https://1312047.github.io/post/2019-06-24-simple-rack-application/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-24-simple-rack-application/</guid>
+      <description>1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó (trollface).</description>
+    </item>
+    
+    <item>
+      <title>Từ khoá super trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</guid>
+      <description>Đặt vấn đề Kế thừa là một 1 trong 4 yếu tố cốt lõi tạo nên đặc tính hướng đối tượng của một ngôn ngữ (như những gì chúng ta đã được dạy ở trường). Riêng điều đó thôi đã đủ để thể hiện tầm quan trọng của nó.
+Trong ngôn ngữ ruby có một từ khoá thường xuyên xuất hiện khi cần kế thừa hay override lại phương thức lớp cha đó là super.</description>
+    </item>
+    
+    <item>
+      <title>Public, private và protected</title>
+      <link>https://1312047.github.io/post/2019-06-11-public-private-va-protected-method-trong-ruby/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-11-public-private-va-protected-method-trong-ruby/</guid>
+      <description>Đặt vấn đề Khi còn học đại học, chúng ta được học về tầm vực của các phương thức như sau:
+ Public phương thức, gọi ở đâu cũng được chỉ cần đảm bảo đã include cái class khai báo phương thức đó là được.
+ Protected phương thức, gọi ở chính class khai báo nó, ngoài ra còn có thẻ gọi ở các lớp kế thừa class khai báo phương thức này.</description>
+    </item>
+    
+    <item>
+      <title>Exception và hướng xử lý</title>
+      <link>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</guid>
+      <description>Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng. Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ngoài hành tinh bắt cóc&amp;rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để.</description>
+    </item>
+    
+    <item>
+      <title>So sánh class method và scope</title>
+      <link>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</guid>
+      <description>Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng (một cách vô cùng chủ quan và vô trách nhiệm) Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
+Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này.</description>
+    </item>
+    
+    <item>
+      <title>Symbol và String, đường ta 2 ngả</title>
+      <link>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</guid>
+      <description>Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
+Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa.</description>
+    </item>
+    
+    <item>
+      <title>Simple ORM</title>
+      <link>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</guid>
+      <description>1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn tuyệt vời, vì thời gian xây dựng nhanh chóng.</description>
+    </item>
+    
+    <item>
+      <title>Quy tắc viết code được xem là tốt</title>
+      <link>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</guid>
+      <description>Đặt vấn đề Nội dung bài viết là hệ thống lại mốt số cách viết code ruby tốt, phục vụ cho nhu cầu ôn tập của tác giả là chính 😄
+Vì vậy đây chỉ là một tổng hợp tiếng việt được tham khảo nội dung một cách sâu sắc từ repo ruby-style-guide.
+Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau toán tử , sau dấu phẩy, dấu hai chấm và dấu chấm phẩy.</description>
+    </item>
+    
+    <item>
+      <title>Tổng quan nguyên lý SOLID</title>
+      <link>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</guid>
+      <description>Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn.</description>
+    </item>
+    
+    <item>
+      <title>Require và Load trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/</guid>
+      <description>Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &amp;ldquo;gọi&amp;rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
+1 2 3 4 5 6 7  require &amp;#39;animal&amp;#39; class Cat &amp;lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau.</description>
+    </item>
+    
+    <item>
+      <title>Immutable và mutable</title>
+      <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</guid>
+      <description>Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
+Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó.</description>
+    </item>
+    
+    <item>
+      <title>Ruby method lookup</title>
+      <link>https://1312047.github.io/post/2019-02-24-ruby-method-lookup/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-24-ruby-method-lookup/</guid>
+      <description>Đặt vấn đề Cũng như nhiều ngôn ngữ khác, trong ruby, khi làm việc với một đối tượng thì có hai thứ ta phải quan tâm chính đó là thuộc tính của đối tượng và phương thức mà đối tượng có thể sử dụng (à mà gần như mọi thứ trong ruby đều là object nên đây là một kiến thức cơ bản nhưng cũng rất quan trọng cần phải nắm rõ).</description>
+    </item>
+    
+    <item>
+      <title>Các trình thông dịch trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</guid>
+      <description>Đặt vấn đề Đây lại là một bài viết về chủ đề core, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.
+Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn.</description>
+    </item>
+    
+    <item>
+      <title>Tham trị và tham chiếu và mối quan hệ trong Ruby</title>
+      <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</guid>
+      <description>Đặt vấn đề Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục.</description>
+    </item>
+    
+    <item>
+      <title>Tìm hiểu về length, count và size trong Ruby, Rails</title>
+      <link>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</guid>
+      <description>Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”.</description>
+    </item>
+    
+  </channel>
+</rss>

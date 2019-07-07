@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Require và Load trong Ruby - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &amp;ldquo;gọi&amp;rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
+1 2 3 4 5 6 7  require &amp;#39;animal&amp;#39; class Cat &amp;lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Require và Load trong Ruby" />
+<meta property="og:description" content="Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
+1 2 3 4 5 6 7  require &#39;animal&#39; class Cat &lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/" />
+<meta property="article:published_time" content="2019-05-15T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-05-15T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Require và Load trong Ruby">
+<meta itemprop="description" content="Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
+1 2 3 4 5 6 7  require &#39;animal&#39; class Cat &lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau.">
+
+
+<meta itemprop="datePublished" content="2019-05-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="966">
+
+
+
+<meta itemprop="keywords" content="ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Require và Load trong Ruby"/>
+<meta name="twitter:description" content="Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
+1 2 3 4 5 6 7  require &#39;animal&#39; class Cat &lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Require và Load trong Ruby</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-so-sánh-require-và-require-relative">1. So sánh require và require_relative</a></li>
+<li><a href="#2-so-sánh-require-và-load">2. So sánh require và load</a></li>
+<li><a href="#3-so-sánh-include-và-extend">3. So sánh include và extend</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method <code>require</code> hoặc <code>load</code>. Ví dụ:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;animal&#39;</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="k">def</span> <span class="nf">hello</span>
+    <span class="vi">@cat</span> <span class="o">=</span> <span class="no">Animal</span><span class="o">.</span><span class="n">new</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là <code>mixin</code> để có thể sử dụng các phương thức trong nhiều <code>moudle</code> khác nhau. Ta sử dụng 2 method là <code>include</code> và <code>extend</code> để hiện thực hoá điều này.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-so-sánh-require-và-require-relative">1. So sánh require và require_relative</h3>
+
+<p>Trong tiêu đề bài viết không hề đề cập đến <code>require_relative</code> vậy sao giờ phải tìm hiểu về nó? Câu trả lời nằm ở cách mà phương thức <code>require</code> hoạt động.</p>
+
+<p>Trở lại ví dụ trong mục đặt vấn đề, giả sử cả 2 file <code>cat.rb</code> và <code>animal.rb</code> nằm trong cùng một thư mục:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">- app
+  - cat.rb
+  - animal.rb</pre></td></tr></table>
+</div>
+</div>
+<p>Câu hỏi đặt ra là liệu đoạn mã trong phần đặt vấn đề có work với cấu trúc file như này hay không? Có hoặc không, đó là câu trả lời.</p>
+
+<p>Khác với mường tượng ban đầu rằng phương thức require cũng sẽ bắt đầu tìm file từ thư mục gốc (thư mục chứa file gọi method) thì thực tế reuire tìm kiếm file bằng một cách khác.</p>
+
+<p>Nó sẽ tìm đến biến global <code>$LOAD_PATH</code>, biến này là một đường dẫn, phương thức require sẽ tìm đến đường dẫn này và coi thư mục đó là gốc, nó sẽ tìm kiếm những file được requỉe bắt đầu từ thư mục đó. Trong lần đầu tiên nó tìm thấy thì ruby sẽ dừng chương trình ở đây và load file vừa tìm được lên. Nếu tìm hết các đường dẫn trong $LOAD_PATH và vẫn không thấy thì <code>LoadError</code> sẽ được gọi tới.</p>
+
+<p>Trở về với câu hỏi bên trên, đoạn code của chúng ta work khi biến <code>$LOAD_PATH</code> được định nghĩa, và nó là đường dẫn tới thư mục đang làm việc (chính là folder app).</p>
+
+<p>Trong tất cả các trường hợp còn lại, như khi biến này chưa được định nghĩa hay nó lại lại một đường dẫn đến một folder khác, thì đoạn mã khi đầu của chúng ta không thể chạy (vì require không tìm được file tương ứng theo yêu cầu).</p>
+
+<p>Thứ bạn nhận được khi này chỉ là một thông báo lỗi <code>cannot load such file -- animal.rb (LoadError)</code>.</p>
+
+<p><strong>Giải quyết vấn đề trên bằng cách nào?</strong></p>
+
+<p>Ta sẽ có thể dùng 2 cách:</p>
+
+<p>Cách 1: Điền thêm thư mục đang làm việc vào giá trị của biến <code>$LOAD_PATH</code>, khi này thì đoạn mã chúng ta sẽ sửa lại như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># nối thêm đường dẫn thư mục hiện tại vào giá trị hiện tại của biến $LOAD_PATH</span>
+<span class="vg">$LOAD_PATH</span> <span class="o">&lt;&lt;</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
+<span class="nb">require</span> <span class="s1">&#39;animal&#39;</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="k">def</span> <span class="nf">hello</span>
+    <span class="vi">@cat</span> <span class="o">=</span> <span class="no">Animal</span><span class="o">.</span><span class="n">new</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Cách 2: Sử dụng <code>require_relative</code> thay thế cho require, sửa lại đoạn mã như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">require_relative</span> <span class="s1">&#39;animal&#39;</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="k">def</span> <span class="nf">hello</span>
+    <span class="vi">@cat</span> <span class="o">=</span> <span class="no">Animal</span><span class="o">.</span><span class="n">new</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Cả hai phương pháp trên đều hoạt động bình thường.</p>
+
+<p><strong>til: $: là một cách viết tắt cho $LOAD_PATH</strong></p>
+
+<h3 id="2-so-sánh-require-và-load">2. So sánh require và load</h3>
+
+<p>Như trong mục 1 đã nói vể require, thực chất load có cách hoạt động và mục đích sử dụng rất giống với require. Cả 2 đều được dùng đê &ldquo;gọi&rdquo; những đoạn mã cần thiết vào file hiện tại đang làm việc, như việc bạn muốn import thêm một file js vào file html đang làm việc nào đó.</p>
+
+<p>Tuy nhiên giữa chúng có một điểm khác nhau cơ bản, mà từ đó đã dẫn tới một lời khuyên về việc sử dụng chúng như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Moreover, Kernel#require loads files once, but development is much more smooth 
+if code gets refreshed when it changes without restarting the server.
+It would be nice to be able to use Kernel#load in development, 
+and Kernel#require in production.</pre></td></tr></table>
+</div>
+</div>
+<p>&ndash; trích dẫn guides.rubyonrails &ndash;</p>
+
+<p>Điều rút ra ở đây là:</p>
+
+<ol>
+<li><p>require sẽ đọc và load file được gọi một lần duy nhất.</p></li>
+
+<li><p>load sẽ đọc và load file được gọi mỗi khi file đó được chạy.</p></li>
+</ol>
+
+<p>Từ đó dẫn đến việc là load sẽ hữu dụng khi làm việc tại môi trường development hơn, nơi mà thay đổi diễn ra liên tục, còn require thích hợp khi triển khai lên production.</p>
+
+<p>Note: Sau khi bạn chạy tới method require, nó sẽ đọc file bạn require và lưu tại bộ nhớ, những lần tiếp theo khi bạn chạy tới file đó, nó sẽ đọc nội dung từ bộ nhớ (mà nó đã lưu lại tại lần load đầu tiên), điều này giúp tăng performance vì không phải lood lại file lần nữa, nhưng đồng nghĩa với đó là những thay đổi sau đó tại file require sẽ không được load khi chạy.</p>
+
+<h3 id="3-so-sánh-include-và-extend">3. So sánh include và extend</h3>
+
+<p>Không có nhiều liên hệ với hai mục đầu, 2 phương thức được đề cập trong mục 3 để giải quyết bài tóan mixin trong ruby, như đã có lần tôi trình bày khái quát <a href="https://hdchinh.com/ruby/2019/02/24/ruby-method-lookup.html">tại đây</a>.</p>
+
+<p>Có vẻ vì cao hứng chém gió title quá, mà tôi quên mất đã viết về hai phương thức này một lần, và hiện tại vẫn chưa có gì để bổ sung thêm, nếu cần hãy đọc lại bài viết tham khảo bên trên nhé.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Tham khảo:</p>
+
+<ul>
+<li><a href="https://guides.rubyonrails.org/autoloading_and_reloading_constants.html">autoloading_and_reloading_constants</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-05-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ruby/">ruby</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Tổng quan nguyên lý SOLID</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/">
+            <span class="next-text nav-default">Các phương thức cập nhật trong ActiveRecord</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
