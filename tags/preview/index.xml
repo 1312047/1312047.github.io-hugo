@@ -31,5 +31,15 @@ Luận bàn N+1 query Xét một ví dụ:
 Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user.</description>
     </item>
     
+    <item>
+      <title>nguyen ly solid</title>
+      <link>https://1312047.github.io/post/tong-quan-ve-nguyen-ly-solid/</link>
+      <pubDate>Sun, 07 Jul 2019 16:56:10 +0700</pubDate>
+      
+      <guid>https://1312047.github.io/post/tong-quan-ve-nguyen-ly-solid/</guid>
+      <description>Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn.</description>
+    </item>
+    
   </channel>
 </rss>

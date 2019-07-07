@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>nguyen ly solid - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/tong-quan-ve-nguyen-ly-solid/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="nguyen ly solid" />
+<meta property="og:description" content="Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/tong-quan-ve-nguyen-ly-solid/" />
+<meta property="article:published_time" content="2019-07-07T16:56:10&#43;07:00"/>
+<meta property="article:modified_time" content="2019-07-07T16:56:10&#43;07:00"/>
+
+<meta itemprop="name" content="nguyen ly solid">
+<meta itemprop="description" content="Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn.">
+
+
+<meta itemprop="datePublished" content="2019-07-07T16:56:10&#43;07:00" />
+<meta itemprop="dateModified" content="2019-07-07T16:56:10&#43;07:00" />
+<meta itemprop="wordCount" content="3221">
+
+
+
+<meta itemprop="keywords" content="preview,English,tag-2," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="nguyen ly solid"/>
+<meta name="twitter:description" content="Đặt vấn đề Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.
+Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">nguyen ly solid</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-07 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
+<li><a href="#luận-bàn">Luận bàn</a>
+<ul>
+<li><a href="#1-định-nghĩa-và-mục-tiêu-sử-dụng">1. Định nghĩa và mục tiêu sử dụng</a></li>
+<li><a href="#2-s-ingle-responsibility-principle">2. <strong>S</strong>ingle Responsibility Principle</a></li>
+<li><a href="#3-o-pen-closed-principle">3. <strong>O</strong>pen/Closed Principle</a></li>
+<li><a href="#4-l-iskov-substitution-principle">4. <strong>L</strong>iskov Substitution Principle</a></li>
+<li><a href="#5-i-nterface-segregation-principle">5. <strong>I</strong>nterface Segregation Principle</a></li>
+<li><a href="#6-d-ependency-inversion-principle">6. <strong>D</strong>ependency Inversion Principle</a></li>
+</ul></li>
+<li><a href="#kết-luận">Kết luận</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+
+<p>Cách đây một thời gian, tôi có làm một ứng dụng nhỏ với vỏn vẹn tổng cộng tầm 500 dòng code. Khi bắt đầu tôi đã mường tượng rằng đây chỉ là một chương trình đơn giản nên không cần phân chia gì cho tốn công sức màu mè. Vì vậy tôi chỉ code trên vài file nhất định.</p>
+
+<p>Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, rất tệ là lúc này tôi đã gần như quên luôn các logic mình đã làm trong đống code cũ, cắn răng đọc lại từng dòng, từng dòng, và tốn thời gian gấp 3 gấp 4 lần để hệ thống lại cho dễ hiểu hơn. Một bài học không phải cay đắng lắm cho tôi, nó chỉ tôi hiểu rằng việc cấu trúc và cách tiếp cận khi lập trình quan trọng đến thế nào.</p>
+
+<p>Phần lớn thời gian một ứng dụng trên tay dev là để maintain, vậy nên việc ngày hôm nay bạn làm nó ra sao ảnh hưởng rất lớn đến sau này. Đó là một phần lý do mà tôi phải tìm đường cách mạng qua SOLID và những mẫu design pattern, những thứ văn vở mà ngày xưa tôi rất ghét và thấy thừa thãi, nhưng giờ đây nó như một bầu trời chân lý sáng chói loé qua tim.</p>
+
+<h2 id="luận-bàn">Luận bàn</h2>
+
+<h3 id="1-định-nghĩa-và-mục-tiêu-sử-dụng">1. Định nghĩa và mục tiêu sử dụng</h3>
+
+<p><img src="/images/solid.png" alt="hoa" /></p>
+
+<p>Trước tiên, hãy xem SOLID là viết tắt của những cụm từ gì.</p>
+
+<ol>
+<li><p><strong>S</strong>ingle Responsibility Principle</p></li>
+
+<li><p><strong>O</strong>pen/Closed Principle</p></li>
+
+<li><p><strong>L</strong>iskov Substitution Principle</p></li>
+
+<li><p><strong>I</strong>nterface Segregation Principle</p></li>
+
+<li><p><strong>D</strong>ependency Inversion Principle</p></li>
+</ol>
+
+<p>Hàn lâm là vậy nhưng để dễ nhớ thì tôi gọi chúng ngắn gọn là: <strong>S</strong>ingle, <strong>O</strong>pen, <strong>L</strong>iskov, <strong>I</strong>nterface và <strong>D</strong>ependency.</p>
+
+<p>Về mục tiêu để cái nguyên lý này có mặt trên cõi đời, âu cũng là xuất phát từ nhu cầu làm ít hơn của con người, việc code không có hệ thống khiến các nhà phát triển tốn nhiều thời gian bảo trì và dễ phát sinh lỗi trong quá trình sử dụng.<br />
+Để giảm bớt gánh nặng này các nhà phát triển đã cô đọng lại một số khuôn khổ, cách thức lập trình mà dưới góc nhìn và kinh nghiệm của nhiều người, các khuôn khổ cách thức đó giúp cho việc bảo trì trở nên dễ dàng hơn, hệ thống ít phát sinh lỗi ngoài ý muốn hơn. Một trong số đó là hệ thống các nguyên tắc trong SOLID.</p>
+
+<p>Giả sử tôi phải xử lý một bài toán tính promotion cho một ứng dụng thương mại điện tử. Đây sẽ là ví dụ ta dùng đến trong các phần phía dưới. Giả sử cấu trúc dự án hiện tại như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">- app
+  - signin.rb
+  - signup.rb
+  - checkout.rb</pre></td></tr></table>
+</div>
+</div>
+<p>Trong đó signin chứa mã nguồn thực hiện chức năng đăng nhập, signup chứa mã thực hiện chức năng đăng ký và checkout chứa mã thực hiện chức năng thanh toán.</p>
+
+<h3 id="2-s-ingle-responsibility-principle">2. <strong>S</strong>ingle Responsibility Principle</h3>
+
+<p><img src="/images/srp.jpg" alt="hoa" /></p>
+
+<p>Nguyên lý này được phát biểu như sau:</p>
+
+<blockquote>
+<p>Every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class.</p>
+</blockquote>
+
+<p>Điều cần quan tâm ở đây là single responsibility có thể hiểu là gì? Nghĩa của responsibility là &lsquo;trách nhiệm&rsquo;, vậy &lsquo;trách nhiệm&rsquo; trong code là gì?</p>
+
+<p>Ta có thể hiểu nó đồng nghĩa với &lsquo;chức năng&rsquo; hay không? Cứ giả sử như ta có thể hiểu nó là &lsquo;chức năng&rsquo; vậy khi đó thì nguyên lý này có thể phát biểu lại thành như sau:</p>
+
+<blockquote>
+<p>Mỗi class nên chỉ mang một chức năng nhất định, và chức năng đó phải được đóng gói trong class này.</p>
+</blockquote>
+
+<p>Bây giờ thì đã dễ hiểu hơn nhiều, quay trở về ví dụ, chúng ta cần viết một chức năng tính promotion. Ta có thể  viết chức năng này vào đâu?</p>
+
+<p>Câu trả lời đơn giản nhất là chúng ta viết chức năng này luôn vào file checkout.rb, khi thực hiện chức năng thanh toán thì sử dụng luôn các method tính promotion trong đó. Mọi chuyện thật đơn giản phải không? Điều này có vi phạm nguyên tắc SRP không?</p>
+
+<p>Nếu tôi nói là không vi phạm? Diễn giải của tôi như sau: Trách nhiệm của cái module/class Checkout là thanh toán những mặt hàng bạn đã bỏ vào cart, vậy promotion cũng chỉ một step trong quá trình thanh toán, nên nếu tôi viết code promotion trong module/class Checkout thì tôi vi phạm nguyên tắc SRP chỗ nào?  Checkout vẫn đang làm đúng và duy nhất một &lsquo;trách nhiệm&rsquo; đó là giúp thanh toán đơn hàng và promotion chỉ là phần phụ trợ cho quá trình đó hay nói cách khác promotion chỉ là một bước trong nhiều bước của quá trình thanh toán.</p>
+
+<p>Vậy tôi có sai khi nói vậy không? Bạn có thể chứng minh là tôi sai nguyên lý SRP được hay không?</p>
+
+<hr />
+
+<ol>
+<li><p>Tôi nghe nhiều người nói đây là nguyên tắc dễ nhất trong SOLID, theo tôi nó chỉ là nguyên tắc mà định nghĩa dễ học thuộc nhất mà thôi.</p></li>
+
+<li><p>Responsibility thì hãy hiểu nó là responsibility (hay hiểu nó là đúng ngữ nghĩa là trách nhiệm). Không đánh đồng responsibility thành &lsquo;chức năng&rsquo; như trên.</p></li>
+
+<li><p>Nội dung nguyên lý chỉ có tính tương đối, nó phụ thuộc hoàn toàn vào cái mà bạn xem là một responsibility.</p></li>
+</ol>
+
+<p>Để đánh giá đâu, cái gì là một responsibility thì có lẽ điều kiện cần là phải có đủ kinh nghiệm. Trở lại ví dụ, tôi có thể coi promotion là một responsibility riêng rẽ với chức năng thanh toán. Khi đó tổ chức code của tôi như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">- app
+  - signin.rb
+  - signup.rb
+  - checkout.rb
+  - promotion.rb</pre></td></tr></table>
+</div>
+</div>
+<p>Như này đã phải là cách tốt nhất? Câu trả lời là tuỳ ngữ điệu hoàn cảnh, giả sử nếu chức năng promotion có nhiều rule khác nhau thì việc bỏ tất cả function tính promotion vào 1 file promotion.rb có vẻ không phải là một cách hay. Khi đó ta tổ chức lại như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">- app
+  - signin.rb
+  - signup.rb
+  - checkout.rb
+  - promotion
+    - promotion_type_a.rb
+    - promotion_type_b.rb
+    - promotion_type_c.rb</pre></td></tr></table>
+</div>
+</div>
+<p>Cách tổ chức này đã là tốt nhất hay chưa? câu trả lời là chưa chắc, mọi thứ lại phụ thuộc vào ngữ cảnh.<br />
+Nguyên lý SRP có thể sai hay đúng trong một số trường hợp là rất mập mờ, tuỳ theo cái mà nhà phát triển định nghĩa cho responsibility mà họ xây dựng.</p>
+
+<p>Note: Nhưng cuối cùng nguyên lý SRP cũng chỉ có một mục đích duy nhất để cấu trúc dự án dễ sửa đổi và bảo trì, vì vậy trong từng tình huống sẽ có những cách khác nhau để phân chia tổ chức mã nguồn, dựa vào chức năng, dựa vào yêu cầu khách hàng, dựa vào tiềm năng phát triển dự án&hellip;</p>
+
+<h3 id="3-o-pen-closed-principle">3. <strong>O</strong>pen/Closed Principle</h3>
+
+<p><img src="/images/ocp.jpg" alt="hoa" /></p>
+
+<p>Nguyên lý này được phát biểu như sau:</p>
+
+<blockquote>
+<p>One software entity (class/module) must be open for extension but closed for modification.</p>
+</blockquote>
+
+<p>Hiểu đơn giản:</p>
+
+<blockquote>
+<p>Một class/module cần phải có thể mở rộng, nhưng không/không nên sửa đổi nó.</p>
+</blockquote>
+
+<p>Vì sao nguyên lý này lại yêu cầu như vậy? việc tôi muốn mở rộng hay tôi sửa đổi một cái class thì có ảnh hưởng gì đâu mà căng nhỉ?</p>
+
+<p>Đúng là như vậy, trong phần lớn quá trình phát triển những ứng dụng cá nhân đơn giản thì việc chúng ta có thêm, xoá, sửa hay mở rộng một class/module đa phần đều không mang lại hậu quả gì ngoài ý muốn.</p>
+
+<p>Nhưng ngữ cảnh mà nguyên lý này hướng tới là những ứng dụng thực sự trong cuộc sống, ở đó những ứng dụng này sẽ lớn, rối rắm và có business không hề đơn giản. Một điểm nữa là dự án đó khi tới tay bạn đã có thể trải qua 5, 7 lần đổi team phát triển và những gì bạn thấy là thành quả của cả một quá trình phát triển tính năng và maintain trong đơn vị tính bằng năm.</p>
+
+<p>Liệu bạn có nắm hết được flow hoạt động của từng đoạn mã, từng file từng class hay không? Nhất định là không rồi.</p>
+
+<p>Đó chính là lý do mà nguyên lý OCP ra đời, khi hệ thống phức tạp và bạn không nắm được hết tất cả những gì sẽ xảy ra sau khi bạn thay đổi mã nguồn tại một class/module. Hãy đừng thay đổi, để tránh làm ảnh hưởng đến một phần logic tiềm tàng nào đó. Thay vào đó hãy mở rộng class/module đó, mở rộng để bổ sung tính năng bạn cần mà còn giúp không ảnh hưởng đến những phần code cũ không sai lệch về logic luận lý (Vì nó có thể vẫn đang sử dụng chức năng cũ, liệu bạn có cover được hết để sửa đổi tất cả các trường hợp có thể xảy ra hay không?).</p>
+
+<blockquote>
+<p>Vì vậy hãy ưu tiên mở rộng một class/module khi cần phát triển thêm hay thay đổi tính năng, hạn chế và hãy thật cẩn thận khi cần sửa đổi mã nguồn có sẵn (chính là sửa đổi class/module).</p>
+</blockquote>
+
+<p>Mục tiêu của nguyên lý là vậy, rất dễ hiểu, hãy cùng thảo luận về một ví dụ trước khi sang phần tiếp theo:</p>
+
+<p>Lại quay trở lại ví dụ về bài toán promotion, giả sử tôi lự chọn cấu trúc chương trình như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">- app
+  - signin.rb
+  - signup.rb
+  - checkout.rb
+  - promotion.rb</pre></td></tr></table>
+</div>
+</div>
+<p>Như đã trình bày ở trên, cấu trúc như này về lý thuyết thì cũng chả ai bảo là tôi vi phạm nguyên tắc số 1 SRP được. Giả sử nội dung của file promotion.rb như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Promotion</span>
+  <span class="k">def</span> <span class="nf">promotion_type_a</span>
+    <span class="c1"># implement rule promotion type a</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">promotion_type_b</span>
+    <span class="c1"># implement rule promotion type b</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Vậy bây giờ khi tôi muốn thêm một rule tính promotion mới, thì tôi sẽ phải sửa đổi file promotion.rb này, về nguyên tắc nó đã vi phạm nguyên lý số 2 OCP (mở để mở rộng chứ không phải để sửa đổi).</p>
+
+<p>Để khắc phục ta có thể cấu trúc lại mã nguồn như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">- app
+  - signin.rb
+  - signup.rb
+  - checkout.rb
+  - promotion
+    - promotion.rb
+    - promotion_type_a.rb
+    - promotion_type_b.rb
+    - promotion_type_c.rb</pre></td></tr></table>
+</div>
+</div>
+<p>Và khi này, khi tôi cần thêm mới 1 rule promotion, tôi sẽ tạo một file mới trong thư mục promotion, với nội dung kế thừa từ class Promotion.</p>
+
+<p>Ví dụ bổ sung thêm rule promotion_type_x.rb với nội dung:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">PromotionTypeX</span> <span class="o">&lt;</span> <span class="no">Promotion</span>
+  <span class="c1"># do something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="4-l-iskov-substitution-principle">4. <strong>L</strong>iskov Substitution Principle</h3>
+
+<p><img src="/images/lsp.jpg" alt="hoa" /></p>
+
+<p>Nguyên lý này được phát biểu như sau:</p>
+
+<blockquote>
+<p>If S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., objects of type S may substitute objects of type T) without altering any of the desirable properties of that program (correctness, task performed, etc.).</p>
+</blockquote>
+
+<p>Hiểu đơn giản là:</p>
+
+<blockquote>
+<p>Bạn có class A là con của class B, thì instance của class A phải thay thế được cho instance của class B trong mã nguồn mà không gây ra sai xót nào (không lỗi và không sai ngữ nghĩa).</p>
+</blockquote>
+
+<p>Một ví dụ đơn giản như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Animal</span>
+  <span class="k">def</span> <span class="nf">animal_hello</span>
+    <span class="nb">puts</span> <span class="s2">&#34;Animal say hello&#34;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="k">def</span> <span class="nf">cat_hello</span>
+    <span class="nb">puts</span> <span class="s2">&#34;Cat say hello&#34;</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Đoạn mã trên là một đoạn mã hợp lệ với nguyên lý Liskov vì:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">temp</span> <span class="o">=</span> <span class="no">Animal</span><span class="o">.</span><span class="n">new</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">animal_hello</span>
+<span class="c1"># kết quả trả về là: &#34;Animal say hello&#34;</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">new</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">animal_hello</span>
+<span class="c1"># kết quả trả về vẫn là: &#34;Animal say hello&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Như bạn thấy, kết quả trả về không thay đổi khi ta dùng instance của class Cat thay cho instance class cha của nó là Animal, và vậy là nguyên lý Liskov được bảo toàn tính đúng đắn của nó.</p>
+
+<p>Hãy thử một đoạn mã nguồn khác như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Animal</span>
+  <span class="k">def</span> <span class="nf">animal_hello</span>
+    <span class="nb">puts</span> <span class="s2">&#34;Animal say hello&#34;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Animal</span>
+  <span class="k">def</span> <span class="nf">animal_hello</span>
+    <span class="nb">puts</span> <span class="s2">&#34;Cat say hello&#34;</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Đây là đoạn mã vi phạm nguyên tắc của Liskov, khi này ta có:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">temp</span> <span class="o">=</span> <span class="no">Animal</span><span class="o">.</span><span class="n">new</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">animal_hello</span>
+<span class="c1"># kết quả trả về là: &#34;Animal say hello&#34;</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="no">Cat</span><span class="o">.</span><span class="n">new</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">animal_hello</span>
+<span class="c1"># kết quả trả về là: &#34;Cat say hello&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ta có thể thấy, instance của class Cat khi gọi tới method animal_hello đã không còn trả về kết quả tương tự như một instance Animal nữa rồi, vì lý do ở class Cat, class này đã override lại phương thức animal_hello, và từ đó dẫn tới vi phạm nguyên tắc Liskov.</p>
+
+<h3 id="5-i-nterface-segregation-principle">5. <strong>I</strong>nterface Segregation Principle</h3>
+
+<p><img src="/images/isp.png" alt="hoa" /></p>
+
+<p>Nguyên lý này được phát biểu như sau:</p>
+
+<blockquote>
+<p>No client should be forced to depend on methods it does not use.</p>
+</blockquote>
+
+<p>Hiểu đơn giản là:</p>
+
+<blockquote>
+<p>Nếu bạn là một đối tượng nào đó trong mã nguồn, hãy đảm bảo là bạn phải/chỉ làm những công việc mà bạn phải/có thể làm. Không trao cho bạn những khả năng mà bạn không cần.</p>
+</blockquote>
+
+<p>Thử một ví dụ đơn giản, bạn là một học sinh được giao nhiệm vụ trực nhật lớp, cô giáo bạn phải đảm bảo rằng bạn chỉ được trao chìa khoá mở cửa phòng học của bạn, chứ không trao cho bạn những chìa khoá khác (như chìa khoá các lớp học khác, phòng tin học, phòng giáo viên&hellip;), đấy là những công việc của những cá nhân khác.</p>
+
+<p>Nếu bạn được trao những công việc của người khác, có thể bạn sẽ tạo ra những sai lầm không thể sửa đổi được. Vì vậy hãy làm đúng công việc của mình.</p>
+
+<p>Hãy bắt đầu với một ví dụ:</p>
+
+<p>Ta có một class Animal.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Animal</span>
+  <span class="kp">include</span> <span class="no">AnimalHelper</span>
+  <span class="c1"># do something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Class Animal bên trên include module dưới đây.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">AnimalHelper</span>
+  <span class="k">def</span> <span class="nf">animal_helper_a</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">animal_helper_b</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">animal_helper_c</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Mọi chuyện ổn chứ? Rất ổn, 3 method hiện có trong module AnimalHelper là 3 method hỗ trợ cho class Animal.</p>
+
+<p>Vậy bây giờ tôi có thêm một class nữa như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">YellowCat</span>
+  <span class="c1"># do something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Class này cần một phương thức support tên là <code>yellow_cat_helper</code>, tôi sẽ viết thêm method này vào module AnimalHelper và include module AnimalHelper vào class YellowCat vậy là đúng và đủ yêu cầu. Khi này module AnimalHelper và class YellowCat sẽ trở thành như sau:</p>
+
+<p>Class YellowCat</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">YellowCat</span>
+  <span class="kp">include</span> <span class="no">AnimalHelper</span>
+  <span class="c1"># do something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Module AnimalHelper</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">AnimalHelper</span>
+  <span class="k">def</span> <span class="nf">animal_helper_a</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">animal_helper_b</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">animal_helper_c</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="c1"># add new method for YellowCat</span>
+  <span class="k">def</span> <span class="nf">yellow_cat_helper</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Mọi chuyện giờ vẫn ổn chứ? Không, bây giờ thì không ổn nữa rồi nó đã vi phạm nguyên tắc SOLID thứ 4, chữ &ldquo;I&rdquo; mà chúng ta đang xét.</p>
+
+<p>Vì sao?</p>
+
+<p>Vì class Animal đâu có cần method <code>yellow_cat_helper</code>, còn class YellowCat đâu có cần 3 method <code>animal_helper_a</code>, <code>animal_helper_b</code>, <code>animal_helper_c</code> này đâu?</p>
+
+<p>Vậy mà chúng vẫn có thể sử dụng những method mà chúng vốn không cần, vì lý do ta viết chung tất cả method vào một module và include module vào từng class.</p>
+
+<p>Y như ví dụ bên trên: Bạn cần trực nhật lớp 1A thôi mà, cô giáo bạn đưa cho bạn trùm chìa khoá của cả trường làm gì? Cầm thì nặng, mà nhỡ đâu bạn <del>tắt mắt</del> nghịch dại thì hậu quả khôn lường.</p>
+
+<hr />
+
+<p>Vậy để không vi phạm nguyên tắc này ta có thể sửa lại mã nguồn như sau:</p>
+
+<p>Class Animal</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Animal</span>
+  <span class="kp">include</span> <span class="no">AnimalHelper</span>
+  <span class="c1"># do something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Module Animal</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">AnimalHelper</span>
+  <span class="k">def</span> <span class="nf">animal_helper_a</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">animal_helper_b</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">animal_helper_c</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Class YellowCat</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">YellowCat</span>
+  <span class="kp">include</span> <span class="no">YellowCatHelper</span>
+  <span class="c1"># do something</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Và giờ ta tạo một module mới để YellowCat include</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">YellowCatHelper</span>
+  <span class="k">def</span> <span class="nf">yellow_cat_helper</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Ok, vậy là look good rồi 😄 Lúc này class Animal chỉ được include những method mà nó cần và class YellowCat cũng vậy.</p>
+
+<h3 id="6-d-ependency-inversion-principle">6. <strong>D</strong>ependency Inversion Principle</h3>
+
+<p><img src="/images/dip.jpg" alt="hoa" /></p>
+
+<p>Nguyên lý này được phát biểu như sau:</p>
+
+<blockquote>
+<ol>
+<li>High-level modules should not depend on low-level modules. Both should depend on abstractions.</li>
+<li>Abstractions should not depend upon details. Details should depend upon abstractions.</li>
+</ol>
+</blockquote>
+
+<p>Dịch sát nghĩa sẽ là:</p>
+
+<blockquote>
+<ol>
+<li>Module cấp cao không nên phụ thuộc vào module cấp thấp hơn. Cả hai nên phụ thuộc vào abstractions.</li>
+<li>Abstractions không nên phụ thuộc vào details. Details nên phụ thuộc vào abstractions</li>
+</ol>
+</blockquote>
+
+<p>Quay trở lại ví dụ promotion ban đầu, giả sử ta viết mã nguồn như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># app/checkout.rb</span>
+<span class="k">class</span> <span class="nc">Checkout</span>
+  <span class="k">def</span> <span class="nf">get_bill</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+    <span class="no">PromotionTypeA</span><span class="o">.</span><span class="n">promotion_type_a</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># app/promotion/promotion_type_a.rb</span>
+<span class="k">class</span> <span class="nc">PromotionTypeA</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">promotion_type_a</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Trong đoạn mã nguồn trên đây, method get_bill trong class Checkout phụ thuộc vào class PromotionTypeA. Rõ ràng là như vậy, câu hỏi là nếu ta có PromotionTypeB, PromotionTypeC&hellip; Thì phải làm sao?</p>
+
+<p>Chúng ta sẽ phải viết 3 method get_bill ứng với PromotionTypeA, PromotionTypeB và PromotionTypeC hay sao?</p>
+
+<p>Đó cũng là một cách, nhưng đó là cách đã vi phạm nguyên lý DIP, khi mà các module phụ thuộc lẫn nhau.</p>
+
+<p>Để giải quyết vấn đề này ta có thể viết lại mã nguồn như sau:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># app/checkout.rb</span>
+<span class="k">class</span> <span class="nc">Checkout</span>
+  <span class="k">def</span> <span class="nf">get_bill</span><span class="p">(</span><span class="n">cart</span><span class="p">,</span> <span class="no">PromotionType</span><span class="p">)</span>
+    <span class="no">PromotionType</span><span class="o">.</span><span class="n">get_promotion</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># app/promotion/promotion_type_a.rb</span>
+<span class="k">class</span> <span class="nc">PromotionTypeA</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">get_promotion</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># get_bill với PromotionTypeA</span>
+<span class="no">Checkout</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">get_bill</span><span class="p">(</span><span class="n">cart</span><span class="p">,</span> <span class="no">PromotionTypeA</span><span class="p">)</span>
+
+<span class="c1"># để viết thêm PromotionTypeB, ta viết thêm một class PromotionTypeB và truyền PromotionTypeB vào get_bill method.</span>
+
+<span class="c1"># app/promotion/promotion_type_a.rb</span>
+<span class="k">class</span> <span class="nc">PromotionTypeB</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">get_promotion</span><span class="p">(</span><span class="n">cart</span><span class="p">)</span>
+    <span class="c1"># do something</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Checkout</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">get_bill</span><span class="p">(</span><span class="n">cart</span><span class="p">,</span> <span class="no">PromotionTypeB</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Trên đây là 1 cái nhìn tổng quan về hệ thống nguyên lý SOLID nổi tiếng, việc áp dụng nguyên lý này sẽ không chắc giúp mã nguồn bạn thành công, nhưng nó sẽ giảm thiểu rủi ro hơn là khi code bất chấp, lý thuyết chỉ là một phần nhỏ, nắm lý thuyết giúp chúng ta có cái nhìn tổng quát, trích rút lại thì thứ làm cho nguyên lý này có giá trị nằm ở kinh nghiệm sử dụng của nhà phát triển, không phải luôn luôn tuân thủ mọi quy tắc đã là tốt trong mọi trường hợp.</p>
+
+<p>Nguồn tham khảo:</p>
+
+<p><a href="https://en.wikipedia.org/wiki/SOLID">https://en.wikipedia.org/wiki/SOLID</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Duy Chinh</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-07-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/english/">English</a>
+          <a href="/tags/tag-2/">tag-2</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/van-de-n&#43;1-trong-rails/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Van de N &#43; 1</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
