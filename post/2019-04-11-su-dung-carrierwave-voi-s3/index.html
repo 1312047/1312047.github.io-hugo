@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>#til Sử dụng carrierwave với S3 - The more your try, the more your learn</title>
+  <title>Sử dụng carrierwave với S3 - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Duy Chinh" /><meta name="description" content="Gemfile 1 2  gem &amp;#39;fog&amp;#39;, require: &amp;#39;fog/aws&amp;#39; gem &amp;#39;carrierwave&amp;#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &amp;#39;carrierwave/storage/fog&amp;#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&amp;gt; &amp;#39;AWS&amp;#39;, :aws_access_key_id =&amp;gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&amp;gt; Rails.application.credentials.secret_access_key, :region =&amp;gt; Rails.application.credentials.s3_region, :path_style =&amp;gt; true, :host =&amp;gt; &amp;#39;s3.us-east-2.amazonaws.com&amp;#39;, :endpoint =&amp;gt; &amp;#39;https://s3." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Gemfile 1 2  gem &amp;#39;fog&amp;#39;, require: &amp;#39;fog/aws&amp;#39; gem &amp;#39;carrierwave&amp;#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &amp;#39;carrierwave/storage/fog&amp;#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&amp;gt; &amp;#39;AWS&amp;#39;, :aws_access_key_id =&amp;gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&amp;gt; Rails.application.credentials.secret_access_key, :region =&amp;gt; Rails.application.credentials.s3_region, :path_style =&amp;gt; true, :host =&amp;gt; &amp;#39;s3.us-east-2.amazonaws.com&amp;#39;, :endpoint =&amp;gt; &amp;#39;https://s3." /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
 
 
 
@@ -38,14 +38,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="#til Sử dụng carrierwave với S3" />
+<meta property="og:title" content="Sử dụng carrierwave với S3" />
 <meta property="og:description" content="Gemfile 1 2  gem &#39;fog&#39;, require: &#39;fog/aws&#39; gem &#39;carrierwave&#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &#39;carrierwave/storage/fog&#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&gt; &#39;AWS&#39;, :aws_access_key_id =&gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&gt; Rails.application.credentials.secret_access_key, :region =&gt; Rails.application.credentials.s3_region, :path_style =&gt; true, :host =&gt; &#39;s3.us-east-2.amazonaws.com&#39;, :endpoint =&gt; &#39;https://s3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/" />
 <meta property="article:published_time" content="2019-04-11T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-04-11T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="#til Sử dụng carrierwave với S3">
+<meta itemprop="name" content="Sử dụng carrierwave với S3">
 <meta itemprop="description" content="Gemfile 1 2  gem &#39;fog&#39;, require: &#39;fog/aws&#39; gem &#39;carrierwave&#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &#39;carrierwave/storage/fog&#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&gt; &#39;AWS&#39;, :aws_access_key_id =&gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&gt; Rails.application.credentials.secret_access_key, :region =&gt; Rails.application.credentials.s3_region, :path_style =&gt; true, :host =&gt; &#39;s3.us-east-2.amazonaws.com&#39;, :endpoint =&gt; &#39;https://s3.">
 
 
@@ -57,7 +57,7 @@
 
 <meta itemprop="keywords" content="rails,aws,carrierwave,til," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="#til Sử dụng carrierwave với S3"/>
+<meta name="twitter:title" content="Sử dụng carrierwave với S3"/>
 <meta name="twitter:description" content="Gemfile 1 2  gem &#39;fog&#39;, require: &#39;fog/aws&#39; gem &#39;carrierwave&#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &#39;carrierwave/storage/fog&#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&gt; &#39;AWS&#39;, :aws_access_key_id =&gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&gt; Rails.application.credentials.secret_access_key, :region =&gt; Rails.application.credentials.s3_region, :path_style =&gt; true, :host =&gt; &#39;s3.us-east-2.amazonaws.com&#39;, :endpoint =&gt; &#39;https://s3."/>
 
 <!--[if lte IE 9]>
@@ -121,11 +121,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">#til Sử dụng carrierwave với S3</h1>
+      <h1 class="post-title">Sử dụng carrierwave với S3</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-04-11 </span>
         
+          <span class="more-meta"> 97 words </span>
+          <span class="more-meta"> 1 min read </span>
         
       </div>
     </header>
@@ -255,7 +257,7 @@
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2019-04-10-iaas-paas-saas/">
-            <span class="next-text nav-default">#til SaaS, PaaS và IaaS</span>
+            <span class="next-text nav-default">SaaS, PaaS và IaaS</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -274,7 +276,7 @@
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="mailto:hduychinh@gmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
       <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
   <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
@@ -294,7 +296,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2018 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>

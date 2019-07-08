@@ -22,7 +22,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ng
     </item>
     
     <item>
-      <title>So sánh class method và scope</title>
+      <title>So sánh Class method và Scope</title>
       <link>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -32,7 +32,7 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
     </item>
     
     <item>
-      <title>Tấn công SQL Injection</title>
+      <title>Tấn công SQL injection</title>
       <link>https://1312047.github.io/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -73,7 +73,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>#til Sử dụng carrierwave với S3</title>
+      <title>Sử dụng carrierwave với S3</title>
       <link>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -82,7 +82,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>#til Upload với S3 trong rails</title>
+      <title>Upload với S3 trong rails</title>
       <link>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       

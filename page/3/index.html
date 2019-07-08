@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Duy Chinh" /><meta name="description" content="Hugo theme even example site." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Kien thuc lap trinh web voi ruby, ruby on rails, mysql, postgresql, javascript" /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
 
 
 
@@ -41,18 +41,18 @@
 
 
 <meta property="og:title" content="The more your try, the more your learn" />
-<meta property="og:description" content="Hugo theme even example site." />
+<meta property="og:description" content="Kien thuc lap trinh web voi ruby, ruby on rails, mysql, postgresql, javascript" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://1312047.github.io/" />
 
 <meta property="og:updated_time" content="2019-06-26T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="The more your try, the more your learn">
-<meta itemprop="description" content="Hugo theme even example site.">
+<meta itemprop="description" content="Kien thuc lap trinh web voi ruby, ruby on rails, mysql, postgresql, javascript">
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="The more your try, the more your learn"/>
-<meta name="twitter:description" content="Hugo theme even example site."/>
+<meta name="twitter:description" content="Kien thuc lap trinh web voi ruby, ruby on rails, mysql, postgresql, javascript"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -115,99 +115,217 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-05-15-require-load-include-va-extend-trong-ruby/">Require và Load trong Ruby</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2019-02-24-ruby-method-lookup/">Ruby method lookup</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2019-05-15 </span>
+      <span class="post-time"> 2019-02-24 </span>
       
+        <span class="more-meta"> 875 words </span>
+        <span class="more-meta"> 5 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
-1 2 3 4 5 6 7  require &#39;animal&#39; class Cat &lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau.
+      Đặt vấn đề Cũng như nhiều ngôn ngữ khác, trong ruby, khi làm việc với một đối tượng thì có hai thứ ta phải quan tâm chính đó là thuộc tính của đối tượng và phương thức mà đối tượng có thể sử dụng (à mà gần như mọi thứ trong ruby đều là object nên đây là một kiến thức cơ bản nhưng cũng rất quan trọng cần phải nắm rõ).
     </div>
     <div class="read-more">
-      <a href="/post/2019-05-15-require-load-include-va-extend-trong-ruby/" class="read-more-link">Read more..</a>
+      <a href="/post/2019-02-24-ruby-method-lookup/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/">Các phương thức cập nhật trong ActiveRecord</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2019-02-22-quy-luat-80-20/">Quy luật 80/20</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2019-05-08 </span>
+      <span class="post-time"> 2019-02-22 </span>
       
+        <span class="more-meta"> 254 words </span>
+        <span class="more-meta"> 2 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
-Luận bàn Chuẩn bị:
- Tôi có một model Cat với 2 thuộc tính là age và name.
- Trong model Cat tôi có 1 validation và 1 callback đơn giản.
+      Mọi người hầu như ai cũng biết quy luật 80&frasl;20.
+Và cũng nhiều người ứng dụng triệt để. Họ cố gắng dùng 20% công sức của mình để đạt được 80% giá trị, và tự hào vì sự hiệu quả của mình.
+Nhưng họ quên một điều.
+Đúng là 20% công sức đầu tiên tạo nên 80% giá trị, nhưng là 80% giá trị phổ thông.
+Chính 20% giá trị còn lại mới tạo nên 80% khác biệt.
     </div>
     <div class="read-more">
-      <a href="/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/" class="read-more-link">Read more..</a>
+      <a href="/post/2019-02-22-quy-luat-80-20/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-05-04-https-vai-dieu-can-nho/">Https vài điều lưu ý</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/">Xử lý thông tin bảo mật trong Rails</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2019-05-04 </span>
+      <span class="post-time"> 2019-02-22 </span>
       
+        <span class="more-meta"> 1444 words </span>
+        <span class="more-meta"> 7 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Đặt vấn đề Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về http và https, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của https cũng là giao thức http nhưng thêm được chữ s ứng với secure.
+      Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng.
     </div>
     <div class="read-more">
-      <a href="/post/2019-05-04-https-vai-dieu-can-nho/" class="read-more-link">Read more..</a>
+      <a href="/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/">Cơ chế Autoloading và Reloading trong Rails</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/">Các trình thông dịch trong Ruby</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2019-04-17 </span>
+      <span class="post-time"> 2019-02-20 </span>
       
+        <span class="more-meta"> 794 words </span>
+        <span class="more-meta"> 4 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Đặt vấn đề 1 2 3  class CatsController &lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails.
+      Đặt vấn đề Đây lại là một bài viết về chủ đề core, phức tạp hoá những thứ mà bình thường đi làm coder ta đa phần là không cần dùng đến. Hôm nay sẽ là các trình thông dịch trong ruby.
+Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về các trình thông dịch, tôi xin nêu khái quát về quá trình ruby thực thi mã code của bạn.
     </div>
     <div class="read-more">
-      <a href="/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/" class="read-more-link">Read more..</a>
+      <a href="/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/">Session và Cookies trong Rails</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/">Tham trị và tham chiếu và mối quan hệ trong Ruby</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2019-04-17 </span>
+      <span class="post-time"> 2019-02-19 </span>
       
+        <span class="more-meta"> 890 words </span>
+        <span class="more-meta"> 5 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ
+      Đặt vấn đề Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục.
     </div>
     <div class="read-more">
-      <a href="/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/" class="read-more-link">Read more..</a>
+      <a href="/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/">Giải thuật, bằng cấp và thái độ</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-02-15 </span>
+      
+        <span class="more-meta"> 1462 words </span>
+        <span class="more-meta"> 7 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-02-05-root-sudo-and-package-management-system/">Root, sudo và package management</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-02-05 </span>
+      
+        <span class="more-meta"> 1532 words </span>
+        <span class="more-meta"> 8 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
+Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-02-05-root-sudo-and-package-management-system/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-01-30-bash-file-in-macos-and-linux/">Các file hệ thống quan trọng trên Unix</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-01-30 </span>
+      
+        <span class="more-meta"> 1474 words </span>
+        <span class="more-meta"> 7 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-01-30-bash-file-in-macos-and-linux/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/">Tìm hiểu về length, count và size trong Ruby, Rails</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-01-28 </span>
+      
+        <span class="more-meta"> 909 words </span>
+        <span class="more-meta"> 5 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2019-01-23-open-command-in-macos/">Lệnh open trong Unix</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-01-23 </span>
+      
+        <span class="more-meta"> 356 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Đặt vấn đề Chắc hẳn không chỉ tôi mà nhiều người dùng MacOS khác đã quen thuộc với câu lệnh open trên terminal. Hiểu một cách cơ bản nhất câu lệnh này giúp chúng ta mở thư mục hiện tại trong cửa sổ Finder. Tuy nhiên, câu lệnh này còn có thể làm được nhiều điều hơn chúng ta tưởng.
+Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đang làm việc, nó có thể mở được các thư mục khác trong máy tính của bạn chỉ bằng việc bạn cung cấp đường dẫn phía sau câu lệnh open thay vì dấu chấm như chúng ta đã làm ở trên.
+    </div>
+    <div class="read-more">
+      <a href="/post/2019-01-23-open-command-in-macos/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
@@ -232,7 +350,7 @@ Luận bàn Chuẩn bị:
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="mailto:hduychinh@gmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
       <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
   <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
@@ -252,7 +370,7 @@ Luận bàn Chuẩn bị:
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2018 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>

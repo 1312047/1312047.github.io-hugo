@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>#til Upload với S3 trong rails - The more your try, the more your learn</title>
+  <title>Upload với S3 trong rails - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="Duy Chinh" /><meta name="description" content="Ghi chú này được tham khảo từ bài viết Lưu trữ file trên Amazon S3 của tác giả @duyth1993 trên website viblo.com.
-Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:" /><meta name="keywords" content="Hugo, theme, even" />
+Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:" /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
 
 
 
@@ -39,7 +39,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="#til Upload với S3 trong rails" />
+<meta property="og:title" content="Upload với S3 trong rails" />
 <meta property="og:description" content="Ghi chú này được tham khảo từ bài viết Lưu trữ file trên Amazon S3 của tác giả @duyth1993 trên website viblo.com.
 Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:" />
 <meta property="og:type" content="article" />
@@ -47,7 +47,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
 <meta property="article:published_time" content="2019-04-10T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-04-10T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="#til Upload với S3 trong rails">
+<meta itemprop="name" content="Upload với S3 trong rails">
 <meta itemprop="description" content="Ghi chú này được tham khảo từ bài viết Lưu trữ file trên Amazon S3 của tác giả @duyth1993 trên website viblo.com.
 Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:">
 
@@ -60,7 +60,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
 
 <meta itemprop="keywords" content="aws,rails,til," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="#til Upload với S3 trong rails"/>
+<meta name="twitter:title" content="Upload với S3 trong rails"/>
 <meta name="twitter:description" content="Ghi chú này được tham khảo từ bài viết Lưu trữ file trên Amazon S3 của tác giả @duyth1993 trên website viblo.com.
 Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:"/>
 
@@ -125,11 +125,13 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">#til Upload với S3 trong rails</h1>
+      <h1 class="post-title">Upload với S3 trong rails</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-04-10 </span>
         
+          <span class="more-meta"> 294 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
@@ -183,7 +185,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
       <nav class="post-nav">
         <a class="prev" href="/post/2019-04-10-iaas-paas-saas/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">#til SaaS, PaaS và IaaS</span>
+            <span class="prev-text nav-default">SaaS, PaaS và IaaS</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2019-04-08-immutable-va-mutable-trong-ruby/">
@@ -206,7 +208,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:hduychinh@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="mailto:hduychinh@gmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
       <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
   <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
@@ -226,7 +228,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2018 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
