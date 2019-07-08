@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rails notes on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/categories/rails-notes/</link>
+    <description>Recent content in rails notes on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/categories/rails-notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Simple ORM</title>
+      <link>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</guid>
+      <description>1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &amp;ldquo;ích seo lừn&amp;rdquo; nhưng cũng đủ good để work production.</description>
+    </item>
+    
+    <item>
+      <title>A Simple Rack Application</title>
+      <link>https://1312047.github.io/post/2019-06-24-simple-rack-application/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-24-simple-rack-application/</guid>
+      <description>1. Đặt vấn đề Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái gem rack trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó 👽.</description>
+    </item>
+    
+    <item>
+      <title>Exception trong Rails</title>
+      <link>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</guid>
+      <description>Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
+Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ngoài hành tinh bắt cóc&amp;rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để.</description>
+    </item>
+    
+    <item>
+      <title>So sánh Class Method và Scope</title>
+      <link>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</guid>
+      <description>Đặt vấn đề Trong một thời gian rất lâu, từ khi mới học đến khi làm những ứng dụng đầu tiên. Tôi luôn cho rằng Scope và và Class Method hoàn toàn giống nhau. Và lý do Scope xuất hiện là để giúp mã nguồn ngắn gọn hơn.
+Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là điểm cần chú ý về 2 phương thức này.</description>
+    </item>
+    
+    <item>
+      <title>Tấn công SQL injection</title>
+      <link>https://1312047.github.io/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/</link>
+      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/</guid>
+      <description>Đặt vấn đề Trong project của bạn, đã bao giờ bạn sử dụng câu lệnh có dạng như:
+1  Product.where(&amp;#34;product_name = &amp;#39;Meo con di lon ton&amp;#39; &amp;#34;)   Nếu có, thì bạn đã vô tình tạo một lỗ hổng về an toàn cho website của mình. Hãy cùng tìm hiểu vì sao lại như vậy.
+Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, nội dung câu lệnh này nhắm lấy ra sản phẩm có tên là Meo con di lon ton.</description>
+    </item>
+    
+    <item>
+      <title>Cập nhật dữ liệu với ActiveRecord</title>
+      <link>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</link>
+      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</guid>
+      <description>Đặt vấn đề Ngoài phương thức thông dụng update để cập nhật dữ liệu. Rails nói chung hay Activerecord nói riêng còn cung cấp 1 số phương thức khác để thay đổi dữ liệu hiện có, hãy cùng tìm hiểu về chúng.
+Luận bàn Chuẩn bị:
+ Tôi có một model Cat với 2 thuộc tính là age và name.
+ Trong model Cat tôi có 1 validation và 1 callback đơn giản.</description>
+    </item>
+    
+    <item>
+      <title>Tìm hiểu về chữ S trong https</title>
+      <link>https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/</link>
+      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/</guid>
+      <description>Đặt vấn đề Đi luôn vào chủ đề, khi mới bắt đầu với môn mạng máy tính ở trường đại học, sự mập mờ khi còn ngồi trên ghế nhà trường khiến chúng ta đôi khi đã nhầm lẫn về http và https, nhớ ngày đó tôi đã từng nghĩ chúng là 2 giao thức khác nhau, à mà ngày đó tôi có hiểu giao thức là gì không nhỉ 😨 thôi dẹp qua một bên, bản chất của https cũng là giao thức http nhưng thêm được chữ s ứng với secure.</description>
+    </item>
+    
+    <item>
+      <title>Cơ chế Autoloading và Reloading</title>
+      <link>https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/</guid>
+      <description>Đặt vấn đề 1 2 3  class CatsController &amp;lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails.</description>
+    </item>
+    
+    <item>
+      <title>Session vs Cookies trong Rails</title>
+      <link>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</guid>
+      <description>Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ</description>
+    </item>
+    
+    <item>
+      <title>Sử dụng carrierwave với S3</title>
+      <link>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</guid>
+      <description>Gemfile 1 2  gem &amp;#39;fog&amp;#39;, require: &amp;#39;fog/aws&amp;#39; gem &amp;#39;carrierwave&amp;#39;   Class Uploader 1  storage :fog   File cấu hình config/initializers/carrierwave.rb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  require &amp;#39;carrierwave/storage/fog&amp;#39; CarrierWave.configure do |config| config.fog_credentials = { :provider =&amp;gt; &amp;#39;AWS&amp;#39;, :aws_access_key_id =&amp;gt; Rails.application.credentials.access_key_id, :aws_secret_access_key =&amp;gt; Rails.application.credentials.secret_access_key, :region =&amp;gt; Rails.application.credentials.s3_region, :path_style =&amp;gt; true, :host =&amp;gt; &amp;#39;s3.us-east-2.amazonaws.com&amp;#39;, :endpoint =&amp;gt; &amp;#39;https://s3.</description>
+    </item>
+    
+    <item>
+      <title>SaaS, PaaS và IaaS</title>
+      <link>https://1312047.github.io/post/2019-04-10-iaas-paas-saas/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-10-iaas-paas-saas/</guid>
+      <description>SaaS: Software as a Service
+Ví dụ như: TFS, Github.
+Mua một căn nhà và mua xong thì vào đó ở luôn chứ không cần vất vả xây dựng gì thêm.
+Ưu: Nhanh, tiện.
+Nhược: không có tính tuỳ chỉnh, vì dịch vụ sẽ phổ thông và không thể cover hết được nhu cầu của chúng ta.
+PaaS: Platform as a Service
+Ví dụ như: Heroku, AWS Elastic Beanstalk.
+Mua một căn nhà đã có một số tiện ích cơ bản để sống, mình chỉ cần dọn thêm đồ đạc của mình(source code) vào là sống được.</description>
+    </item>
+    
+    <item>
+      <title>Upload với S3 trong rails</title>
+      <link>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</guid>
+      <description>Ghi chú này được tham khảo từ bài viết Lưu trữ file trên Amazon S3 của tác giả @duyth1993 trên website viblo.com.
+Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file, trước giờ tôi không sử dụng vì chưa có nhu cầu. Tìm kiếm một lúc thì tôi quyết định sử dụng S3 vì sẵn cũng đang còn tài khoản free của của AWS, tham khảo bài viết bên trên một số lưu ý khi sử dụng này mà tôi rút ra như sau:</description>
+    </item>
+    
+    <item>
+      <title>Cục nợ N &#43; 1 và hướng xử lý</title>
+      <link>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</guid>
+      <description>Đặt vấn đề Có thể bạn đã từng nghe qua về N+1, đây là một chủ để cơ bản trong vấn đề quản lý csdl trong code, bài viết này sẽ trình bày về nó dưới góc độ sử dụng trong ruby on rails với framework ActiveRecord
+Luận bàn N+1 query Xét một ví dụ:
+Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nhất là bảng users, bảng thứ hai là bảng articles, một user có thể có nhiều articles nhưng một article chỉ thuộc về user.</description>
+    </item>
+    
+    <item>
+      <title>Thông tin bảo mật trong Rails nên lưu trữ thế nào?</title>
+      <link>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</guid>
+      <description>Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng.</description>
+    </item>
+    
+  </channel>
+</rss>

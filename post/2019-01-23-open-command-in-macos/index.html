@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Lệnh open trong Unix - The more your try, the more your learn</title>
+  <title>Lệnh open trên Unix, hữu dụng hơn bạn nghĩ - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,28 +39,28 @@ Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đa
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Lệnh open trong Unix" />
+<meta property="og:title" content="Lệnh open trên Unix, hữu dụng hơn bạn nghĩ" />
 <meta property="og:description" content="Đặt vấn đề Chắc hẳn không chỉ tôi mà nhiều người dùng MacOS khác đã quen thuộc với câu lệnh open trên terminal. Hiểu một cách cơ bản nhất câu lệnh này giúp chúng ta mở thư mục hiện tại trong cửa sổ Finder. Tuy nhiên, câu lệnh này còn có thể làm được nhiều điều hơn chúng ta tưởng.
 Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đang làm việc, nó có thể mở được các thư mục khác trong máy tính của bạn chỉ bằng việc bạn cung cấp đường dẫn phía sau câu lệnh open thay vì dấu chấm như chúng ta đã làm ở trên." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-01-23-open-command-in-macos/" />
-<meta property="article:published_time" content="2019-01-23T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-01-23T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-01-23T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-01-23T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Lệnh open trong Unix">
+<meta itemprop="name" content="Lệnh open trên Unix, hữu dụng hơn bạn nghĩ">
 <meta itemprop="description" content="Đặt vấn đề Chắc hẳn không chỉ tôi mà nhiều người dùng MacOS khác đã quen thuộc với câu lệnh open trên terminal. Hiểu một cách cơ bản nhất câu lệnh này giúp chúng ta mở thư mục hiện tại trong cửa sổ Finder. Tuy nhiên, câu lệnh này còn có thể làm được nhiều điều hơn chúng ta tưởng.
 Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đang làm việc, nó có thể mở được các thư mục khác trong máy tính của bạn chỉ bằng việc bạn cung cấp đường dẫn phía sau câu lệnh open thay vì dấu chấm như chúng ta đã làm ở trên.">
 
 
-<meta itemprop="datePublished" content="2019-01-23T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-01-23T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2018-01-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-01-23T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="356">
 
 
 
 <meta itemprop="keywords" content="unix," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Lệnh open trong Unix"/>
+<meta name="twitter:title" content="Lệnh open trên Unix, hữu dụng hơn bạn nghĩ"/>
 <meta name="twitter:description" content="Đặt vấn đề Chắc hẳn không chỉ tôi mà nhiều người dùng MacOS khác đã quen thuộc với câu lệnh open trên terminal. Hiểu một cách cơ bản nhất câu lệnh này giúp chúng ta mở thư mục hiện tại trong cửa sổ Finder. Tuy nhiên, câu lệnh này còn có thể làm được nhiều điều hơn chúng ta tưởng.
 Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đang làm việc, nó có thể mở được các thư mục khác trong máy tính của bạn chỉ bằng việc bạn cung cấp đường dẫn phía sau câu lệnh open thay vì dấu chấm như chúng ta đã làm ở trên."/>
 
@@ -125,11 +125,13 @@ Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đa
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Lệnh open trong Unix</h1>
+      <h1 class="post-title">Lệnh open trên Unix, hữu dụng hơn bạn nghĩ</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2019-01-23 </span>
-        
+        <span class="post-time"> 2018-01-23 </span>
+        <div class="post-category">
+            <a href="/categories/h%E1%BB%87-%C4%91i%E1%BB%81u-h%C3%A0nh/"> hệ điều hành </a>
+            </div>
           <span class="more-meta"> 356 words </span>
           <span class="more-meta"> 2 mins read </span>
         
@@ -218,7 +220,7 @@ Dưới đây là một vài ví dụ cho những gì chúng ta đã thảo lu�
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-01-23
+        2018-01-23
         
     </span>
   </p>
@@ -232,11 +234,11 @@ Dưới đây là một vài ví dụ cho những gì chúng ta đã thảo lu�
       <nav class="post-nav">
         <a class="prev" href="/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Tìm hiểu về length, count và size trong Ruby, Rails</span>
+            <span class="prev-text nav-default">Length, Count và Size</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2018-01-01-file-permission-in-linux/">
-            <span class="next-text nav-default">File permission trong Unix</span>
+            <span class="next-text nav-default">File permission trong Unix là gì?</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

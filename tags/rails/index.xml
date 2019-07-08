@@ -22,7 +22,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ng
     </item>
     
     <item>
-      <title>So sánh Class method và Scope</title>
+      <title>So sánh Class Method và Scope</title>
       <link>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -43,7 +43,7 @@ Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, n�
     </item>
     
     <item>
-      <title>Các phương thức cập nhật trong ActiveRecord</title>
+      <title>Cập nhật dữ liệu với ActiveRecord</title>
       <link>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</link>
       <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
       
@@ -55,7 +55,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>Cơ chế Autoloading và Reloading trong Rails</title>
+      <title>Cơ chế Autoloading và Reloading</title>
       <link>https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -64,7 +64,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>Session và Cookies trong Rails</title>
+      <title>Session vs Cookies trong Rails</title>
       <link>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -92,7 +92,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
     </item>
     
     <item>
-      <title>Cục nợ N &#43; 1 và cách xử lý</title>
+      <title>Cục nợ N &#43; 1 và hướng xử lý</title>
       <link>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -103,7 +103,7 @@ Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nh
     </item>
     
     <item>
-      <title>Xử lý thông tin bảo mật trong Rails</title>
+      <title>Thông tin bảo mật trong Rails nên lưu trữ thế nào?</title>
       <link>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -112,9 +112,9 @@ Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nh
     </item>
     
     <item>
-      <title>Tìm hiểu về length, count và size trong Ruby, Rails</title>
+      <title>Length, Count và Size</title>
       <link>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</link>
-      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</guid>
       <description>Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”.</description>

@@ -6,9 +6,55 @@
     <description>Recent content in Categories on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rails notes</title>
+      <link>https://1312047.github.io/categories/rails-notes/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/categories/rails-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby notes</title>
+      <link>https://1312047.github.io/categories/ruby-notes/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/categories/ruby-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://1312047.github.io/categories/programming/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quan điểm của tôi</title>
+      <link>https://1312047.github.io/categories/quan-%C4%91i%E1%BB%83m-c%E1%BB%A7a-t%C3%B4i/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/categories/quan-%C4%91i%E1%BB%83m-c%E1%BB%A7a-t%C3%B4i/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hệ điều hành</title>
+      <link>https://1312047.github.io/categories/h%E1%BB%87-%C4%91i%E1%BB%81u-h%C3%A0nh/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/categories/h%E1%BB%87-%C4%91i%E1%BB%81u-h%C3%A0nh/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

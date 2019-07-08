@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Xử lý thông tin bảo mật trong Rails - The more your try, the more your learn</title>
+  <title>Thông tin bảo mật trong Rails nên lưu trữ thế nào? - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -38,14 +38,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Xử lý thông tin bảo mật trong Rails" />
+<meta property="og:title" content="Thông tin bảo mật trong Rails nên lưu trữ thế nào?" />
 <meta property="og:description" content="Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/" />
 <meta property="article:published_time" content="2019-02-22T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-02-22T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Xử lý thông tin bảo mật trong Rails">
+<meta itemprop="name" content="Thông tin bảo mật trong Rails nên lưu trữ thế nào?">
 <meta itemprop="description" content="Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng.">
 
 
@@ -57,7 +57,7 @@
 
 <meta itemprop="keywords" content="secure,rails," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Xử lý thông tin bảo mật trong Rails"/>
+<meta name="twitter:title" content="Thông tin bảo mật trong Rails nên lưu trữ thế nào?"/>
 <meta name="twitter:description" content="Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng."/>
 
 <!--[if lte IE 9]>
@@ -121,11 +121,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Xử lý thông tin bảo mật trong Rails</h1>
+      <h1 class="post-title">Thông tin bảo mật trong Rails nên lưu trữ thế nào?</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-02-22 </span>
-        
+        <div class="post-category">
+            <a href="/categories/rails-notes/"> rails notes </a>
+            </div>
           <span class="more-meta"> 1444 words </span>
           <span class="more-meta"> 7 mins read </span>
         
@@ -309,7 +311,7 @@ Cách chúng hoạt động như sau:</p>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/">
-            <span class="next-text nav-default">Các trình thông dịch trong Ruby</span>
+            <span class="next-text nav-default">Vài trình thông dịch cho Ruby</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

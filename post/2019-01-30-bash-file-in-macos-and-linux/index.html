@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Các file hệ thống quan trọng trên Unix - The more your try, the more your learn</title>
+  <title>Bash file trên Unix - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -38,26 +38,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Các file hệ thống quan trọng trên Unix" />
+<meta property="og:title" content="Bash file trên Unix" />
 <meta property="og:description" content="Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/" />
-<meta property="article:published_time" content="2019-01-30T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-01-30T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2018-12-30T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-12-30T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Các file hệ thống quan trọng trên Unix">
+<meta itemprop="name" content="Bash file trên Unix">
 <meta itemprop="description" content="Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux.">
 
 
-<meta itemprop="datePublished" content="2019-01-30T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-01-30T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2018-12-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-12-30T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="1474">
 
 
 
 <meta itemprop="keywords" content="unix," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Các file hệ thống quan trọng trên Unix"/>
+<meta name="twitter:title" content="Bash file trên Unix"/>
 <meta name="twitter:description" content="Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux."/>
 
 <!--[if lte IE 9]>
@@ -121,11 +121,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Các file hệ thống quan trọng trên Unix</h1>
+      <h1 class="post-title">Bash file trên Unix</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2019-01-30 </span>
-        
+        <span class="post-time"> 2018-12-30 </span>
+        <div class="post-category">
+            <a href="/categories/h%E1%BB%87-%C4%91i%E1%BB%81u-h%C3%A0nh/"> hệ điều hành </a>
+            </div>
           <span class="more-meta"> 1474 words </span>
           <span class="more-meta"> 7 mins read </span>
         
@@ -253,7 +255,7 @@ Trong một trường hợp khác, bạn mở một terminal mà không cần đ
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-01-30
+        2018-12-30
         
     </span>
   </p>
@@ -271,7 +273,7 @@ Trong một trường hợp khác, bạn mở một terminal mà không cần đ
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/">
-            <span class="next-text nav-default">Tìm hiểu về length, count và size trong Ruby, Rails</span>
+            <span class="next-text nav-default">Length, Count và Size</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

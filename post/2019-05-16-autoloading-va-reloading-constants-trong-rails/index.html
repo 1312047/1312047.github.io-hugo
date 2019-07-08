@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Cơ chế Autoloading và Reloading trong Rails - The more your try, the more your learn</title>
+  <title>Cơ chế Autoloading và Reloading - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -38,14 +38,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Cơ chế Autoloading và Reloading trong Rails" />
+<meta property="og:title" content="Cơ chế Autoloading và Reloading" />
 <meta property="og:description" content="Đặt vấn đề 1 2 3  class CatsController &lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/" />
 <meta property="article:published_time" content="2019-04-17T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-04-17T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Cơ chế Autoloading và Reloading trong Rails">
+<meta itemprop="name" content="Cơ chế Autoloading và Reloading">
 <meta itemprop="description" content="Đặt vấn đề 1 2 3  class CatsController &lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails.">
 
 
@@ -57,7 +57,7 @@
 
 <meta itemprop="keywords" content="rails," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cơ chế Autoloading và Reloading trong Rails"/>
+<meta name="twitter:title" content="Cơ chế Autoloading và Reloading"/>
 <meta name="twitter:description" content="Đặt vấn đề 1 2 3  class CatsController &lt; ApplicationController # do something end   Đoạn mã trên là một đoạn mã rất quen thuộc khi sử dụng rails framework, một câu hỏi đó là tại sao trong class CatsController không require file chưa class ApplicationController nhưng ta vẫn có thể sử dụng. Câu trả lời nằm ở việc rails có cơ chế autoloading một số folder nhất định để support cho việc coding và vận hành, bài viết này sẽ nêu một cách khái quát về giải pháp này trong rails."/>
 
 <!--[if lte IE 9]>
@@ -121,11 +121,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Cơ chế Autoloading và Reloading trong Rails</h1>
+      <h1 class="post-title">Cơ chế Autoloading và Reloading</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-04-17 </span>
-        
+        <div class="post-category">
+            <a href="/categories/rails-notes/"> rails notes </a>
+            </div>
           <span class="more-meta"> 419 words </span>
           <span class="more-meta"> 2 mins read </span>
         
@@ -241,11 +243,11 @@
       <nav class="post-nav">
         <a class="prev" href="/post/2019-05-04-https-vai-dieu-can-nho/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Https vài điều lưu ý</span>
+            <span class="prev-text nav-default">Tìm hiểu về chữ S trong https</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/">
-            <span class="next-text nav-default">Session và Cookies trong Rails</span>
+            <span class="next-text nav-default">Session vs Cookies trong Rails</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

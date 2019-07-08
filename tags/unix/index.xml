@@ -22,18 +22,18 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
     </item>
     
     <item>
-      <title>Các file hệ thống quan trọng trên Unix</title>
+      <title>Bash file trên Unix</title>
       <link>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</link>
-      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</guid>
       <description>Đặt vấn đề Đây lại là một bài viết tiếp theo về chủ đề liên quan đến các hệ điều hành và dòng lệnh. Khi mới tiếp xúc với máy tính, OS mà tôi sử dụng là windows, đến khi lên đại học, phần lớn thời gian học tập vẫn gắn liền với windows, còn phần nhỏ thời gian còn lại là làm quen với một hệ điều hành lạ lẫm mang tên Linux.</description>
     </item>
     
     <item>
-      <title>Lệnh open trong Unix</title>
+      <title>Lệnh open trên Unix, hữu dụng hơn bạn nghĩ</title>
       <link>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</link>
-      <pubDate>Wed, 23 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</guid>
       <description>Đặt vấn đề Chắc hẳn không chỉ tôi mà nhiều người dùng MacOS khác đã quen thuộc với câu lệnh open trên terminal. Hiểu một cách cơ bản nhất câu lệnh này giúp chúng ta mở thư mục hiện tại trong cửa sổ Finder. Tuy nhiên, câu lệnh này còn có thể làm được nhiều điều hơn chúng ta tưởng.
@@ -41,7 +41,7 @@ Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đa
     </item>
     
     <item>
-      <title>File permission trong Unix</title>
+      <title>File permission trong Unix là gì?</title>
       <link>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       

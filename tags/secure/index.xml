@@ -23,7 +23,7 @@ Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, n�
     </item>
     
     <item>
-      <title>Https vài điều lưu ý</title>
+      <title>Tìm hiểu về chữ S trong https</title>
       <link>https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/</link>
       <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
       
@@ -32,7 +32,7 @@ Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, n�
     </item>
     
     <item>
-      <title>Session và Cookies trong Rails</title>
+      <title>Session vs Cookies trong Rails</title>
       <link>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -41,7 +41,7 @@ Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, n�
     </item>
     
     <item>
-      <title>Xử lý thông tin bảo mật trong Rails</title>
+      <title>Thông tin bảo mật trong Rails nên lưu trữ thế nào?</title>
       <link>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       

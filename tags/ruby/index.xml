@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Simple ORM</title>
+      <title>A Simple ORM</title>
       <link>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
     </item>
     
     <item>
-      <title>Simple Rack App</title>
+      <title>A Simple Rack Application</title>
       <link>https://1312047.github.io/post/2019-06-24-simple-rack-application/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -31,7 +31,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
     </item>
     
     <item>
-      <title>Từ khoá super trong Ruby</title>
+      <title>Từ khoá super trong ruby là gì?</title>
       <link>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -62,7 +62,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ng
     </item>
     
     <item>
-      <title>So sánh Class method và Scope</title>
+      <title>So sánh Class Method và Scope</title>
       <link>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -72,7 +72,7 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
     </item>
     
     <item>
-      <title>Symbol và String</title>
+      <title>Symbol và String trong Ruby</title>
       <link>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -82,7 +82,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
     </item>
     
     <item>
-      <title>Quy tắc viết code Ruby (Maybe good)</title>
+      <title>Quy tắc viết code Ruby có thể tốt!</title>
       <link>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</link>
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
@@ -113,7 +113,7 @@ Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, r
     </item>
     
     <item>
-      <title>Immutable và mutable</title>
+      <title>Immutable vs Mutable</title>
       <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -132,7 +132,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     </item>
     
     <item>
-      <title>Các trình thông dịch trong Ruby</title>
+      <title>Vài trình thông dịch cho Ruby</title>
       <link>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -142,7 +142,7 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
     </item>
     
     <item>
-      <title>Tham trị và tham chiếu và mối quan hệ trong Ruby</title>
+      <title>Tham trị, tham chiếu và mối quan hệ trong Ruby</title>
       <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -151,9 +151,9 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
     </item>
     
     <item>
-      <title>Tìm hiểu về length, count và size trong Ruby, Rails</title>
+      <title>Length, Count và Size</title>
       <link>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</link>
-      <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-01-28-count-vs-length-size-in-ruby-and-ror/</guid>
       <description>Đặt vấn đề Khoảng 1 năm trước, khi tôi bắt đầu học về Ruby on Rails, giống như nhiều developers khác, tôi chủ yếu tập trung vào cách để có thể xây dựng một ứng dụng ruby on rails chạy được mà không tập trung nhiều vào kiến thức Ruby nền tảng. Có lẽ đấy cũng là lựa chọn duy nhất vào thời điểm đó với một cậu sinh viên mới ra trường như tôi, khi mà có quá nhiều khái niệm, quá nhiều thứ phải học mà sếp của tôi cũng như sếp của bạn sẽ không trả lương cho chúng ta lên công ty để “học”.</description>

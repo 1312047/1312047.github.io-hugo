@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Immutable và mutable</title>
+      <title>Immutable vs Mutable</title>
       <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     </item>
     
     <item>
-      <title>Tham trị và tham chiếu và mối quan hệ trong Ruby</title>
+      <title>Tham trị, tham chiếu và mối quan hệ trong Ruby</title>
       <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
