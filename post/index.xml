@@ -22,6 +22,16 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
     </item>
     
     <item>
+      <title>[NEW] Thay đổi đổi Platform</title>
+      <link>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</guid>
+      <description> Hiện mình đã chuyển sự lựa chọn, từ Jekyll sang Hugo trong vai trò làm platform chính để viết blog. Trang cũ vẫn được host tại địa chỉ hdchinh.github.io. Many thanks!
+ </description>
+    </item>
+    
+    <item>
       <title>A Simple Rack Application</title>
       <link>https://1312047.github.io/post/2019-06-24-simple-rack-application/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
@@ -228,7 +238,16 @@ Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nh
     </item>
     
     <item>
-      <title>Quy luật 80/20</title>
+      <title>Lưu trữ thông tin bảo mật?</title>
+      <link>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</guid>
+      <description>Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng.</description>
+    </item>
+    
+    <item>
+      <title>[TIL] Quy luật 80/20</title>
       <link>https://1312047.github.io/post/2019-02-22-quy-luat-80-20/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -238,15 +257,6 @@ Và cũng nhiều người ứng dụng triệt để. Họ cố gắng dùng 20
 Nhưng họ quên một điều.
 Đúng là 20% công sức đầu tiên tạo nên 80% giá trị, nhưng là 80% giá trị phổ thông.
 Chính 20% giá trị còn lại mới tạo nên 80% khác biệt.</description>
-    </item>
-    
-    <item>
-      <title>Thông tin bảo mật trong Rails nên lưu trữ thế nào?</title>
-      <link>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</guid>
-      <description>Đặt vấn đề Khi còn Interns tại Framgia, trong một sản phẩm bắt buộc của chương trình thực tập, tôi còn nhớ, mentor đã yêu cầu tôi làm chức năng gửi mail cho ứng dụng rails. Đây thực sự là một task khó với một người non nớt kinh nghiệm như tôi khi đấy, mà ráng google một lát cũng tìm ra cách làm và áp dụng thành công, tạo PR lòng hân hoan, nào ngờ ngay sau đó tôi đã bị mentor mạt sát một trận kinh hoàng.</description>
     </item>
     
     <item>
@@ -260,7 +270,7 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
     </item>
     
     <item>
-      <title>Tham trị, tham chiếu và mối quan hệ trong Ruby</title>
+      <title>Pass Reference vs Pass Value, Ruby!</title>
       <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
