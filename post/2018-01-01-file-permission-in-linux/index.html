@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="820">
+<meta itemprop="wordCount" content="821">
 
 
 
@@ -128,7 +128,7 @@
         <div class="post-category">
             <a href="/categories/h%E1%BB%87-%C4%91i%E1%BB%81u-h%C3%A0nh/"> hệ điều hành </a>
             </div>
-          <span class="more-meta"> 820 words </span>
+          <span class="more-meta"> 821 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -181,19 +181,19 @@
 
 <p>Trong unix có 3 quyền sử dụng:</p>
 
-<ul>
+<ol>
 <li>Quyền đọc.</li>
 <li>Quyền ghi.</li>
 <li>Quyền thực thi.</li>
-</ul>
+</ol>
 
 <h3 id="3-các-loại-người-dùng">3.Các loại người dùng.</h3>
 
-<ul>
+<ol>
 <li>Owner (người sở hữu file đó - người tạo ra file đó).</li>
 <li>Group (nhóm sở hữu file).</li>
 <li>Other (phần còn lại của hệ thống có thể là guest).</li>
-</ul>
+</ol>
 
 <p>| Ngoài ra trên unix thì còn 1 người dùng thứ 4 gọi là root. Đây là người dùng siêu quyền lực và không thể bị ảnh hưởng bởi mấy lệnh phân quyền của bạn</p>
 
@@ -213,15 +213,18 @@
 -xyz là 3 số nguyên liền nhau( giá trị của ba số này có thể là 0,1,2,3,4,5,6,7).
 Với x ứng với quyền phân cho owner, y ứng với quyền phân cho group và z là cho everyone.</p>
 
-<p>0: không có quyền gì cả.
-1: quyền thực thi tập tin.
-2: quyền write only.
-4: quyền read only.</p>
+<p>0️⃣ không có quyền gì cả.</p>
+
+<p>1️⃣ quyền thực thi tập tin.</p>
+
+<p>2️⃣ quyền write only.</p>
+
+<p>4️⃣ quyền read only.</p>
 
 <p>Với 4 số trên ta có thể cộng lại và ra 1 số mới với permission được cộng dồn.
-Ví dụ: 7 = 4 + 2 + 1 =&gt; tất cả các quyền. Tương tự với cả tổ hợp khác.
-Suy ra với lệnh chmod 777 file_name
-=&gt; Ta đã gán tất cả quyền cho cả 3 loại user(như liệt kê ở mục 3).</p>
+Ví dụ: 7 = 4 + 2 + 1 =&gt; tất cả các quyền. Tương tự với cả tổ hợp khác.</p>
+
+<p>Suy ra với lệnh <code>chmod 777 file_name</code> &ndash;&gt; Ta đã gán tất cả quyền cho cả 3 loại user(như liệt kê ở mục 3).</p>
 
 <p>Hình ảnh minh hoạ:</p>
 
@@ -232,7 +235,7 @@ vào phía trước. Trong các bài tiếp theo sẽ giải thích về ý ngh�
 
 <h3 id="5-tham-khảo">5.Tham khảo</h3>
 
-<p><a href="https://www.guru99.com/file-permissions.html">guru99</a></p>
+<p>[1] <a href="https://www.guru99.com/file-permissions.html">guru99</a></p>
 
 <h2 id="kết-luận">Kết luận</h2>
 

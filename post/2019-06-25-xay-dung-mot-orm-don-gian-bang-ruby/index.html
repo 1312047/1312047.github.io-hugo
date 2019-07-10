@@ -54,7 +54,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 
 <meta itemprop="datePublished" content="2019-06-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-06-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="921">
+<meta itemprop="wordCount" content="922">
 
 
 
@@ -132,7 +132,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
         <div class="post-category">
             <a href="/categories/rails-notes/"> rails notes </a>
             </div>
-          <span class="more-meta"> 921 words </span>
+          <span class="more-meta"> 922 words </span>
           <span class="more-meta"> 5 mins read </span>
         
       </div>
@@ -186,9 +186,9 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 
 <p>Để xây dựng 1 ORM và chạy một vài ví dụ đơn giản được thì chúng ta có 2 nhiềm vụ phải làm:</p>
 
-<p>1) Kết nối với cơ sở dữ liệu (ở đây là postgresql).</p>
+<p>1️⃣ Kết nối với cơ sở dữ liệu (ở đây là postgresql).</p>
 
-<p>2) Xây dựng các class bằng Ruby với các phương thức tương ứng để xử lý trên cơ sở dữ liệu đã kết nối ở bước 1.</p>
+<p>2️⃣ Xây dựng các class bằng Ruby với các phương thức tương ứng để xử lý trên cơ sở dữ liệu đã kết nối ở bước 1.</p>
 
 <p>STEP 1: Tạo project</p>
 
@@ -338,11 +338,13 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 <span class="no">Comics</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>1) Tôi require file <code>mybase.rb</code> đã viết ở bước 3 vào file này.<br />
-2) Tạo class <code>Comics</code> và cho nó kế thừa class <code>MyBase</code><br />
-3) puts ra màn hình console các dòng lệnh đã xây dựng để xem kết quả (với lệnh <code>ruby  comics.rb</code> ta sẽ chạy file comics.rb và xuất kết quả ra màn hình console).</p>
+<p>1️⃣ Tôi require file <code>mybase.rb</code> đã viết ở bước 3 vào file này.</p>
 
-<p>Cuối cùng project của chúng ta có dạng như sau:</p>
+<p>2️⃣ Tạo class <code>Comics</code> và cho nó kế thừa class <code>MyBase</code></p>
+
+<p>3️⃣ In ra màn hình console các dòng lệnh đã xây dựng để xem kết quả (với lệnh <code>ruby  comics.rb</code> ta sẽ chạy file comics.rb và xuất kết quả ra màn hình console).</p>
+
+<p>➡️ Cuối cùng project của chúng ta có dạng như sau:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -390,9 +392,13 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
           <a href="/tags/ruby/">ruby</a>
           </div>
       <nav class="post-nav">
-        
-        <a class="next" href="/post/2019-07-09-thong-bao-ve-thay-doi-blog/">
-            <span class="next-text nav-default">[NEW] Thay đổi đổi Platform</span>
+        <a class="prev" href="/post/2019-07-09-thong-bao-ve-thay-doi-blog/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">[NEW] Thay đổi đổi Platform</span>
+            <span class="prev-text nav-mobile">Bài trước</span>
+          </a>
+        <a class="next" href="/post/2019-06-24-simple-rack-application/">
+            <span class="next-text nav-default">A Simple Rack Application</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

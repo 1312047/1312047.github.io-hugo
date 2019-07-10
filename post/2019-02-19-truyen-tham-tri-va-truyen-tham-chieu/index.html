@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-02-19T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-02-19T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="890">
+<meta itemprop="wordCount" content="896">
 
 
 
@@ -129,7 +129,7 @@
             <a href="/categories/ruby-notes/"> ruby notes </a>
             <a href="/categories/programming/"> programming </a>
             </div>
-          <span class="more-meta"> 890 words </span>
+          <span class="more-meta"> 896 words </span>
           <span class="more-meta"> 5 mins read </span>
         
       </div>
@@ -189,37 +189,61 @@ Passing a pointer as a parameter does not mean pass-by-reference.</pre></td></tr
 <p>| Qua thời gian tìm hiểu thì tôi nhận thấy rằng trong ruby không hề có khái niệm rõ ràng về reference hay value, nên mọi kết luận ở đây chỉ là mang tính quy chiếu dựa vào những ý chúng ta đã nói trong mục 1.</p>
 
 <p>Xem ví dụ sau đây:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">xinchao</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Nguyen Van A&#34;</span>
+<span class="k">end</span>
 
-<p>{% highlight ruby %}
-def xinchao(a)
-  a = &ldquo;Nguyen Van A&rdquo;
-end</p>
+<span class="n">temp</span> <span class="o">=</span> <span class="s2">&#34;Nguyen Van B&#34;</span>
 
-<p>temp = &ldquo;Nguyen Van B&rdquo;</p>
+<span class="nb">puts</span> <span class="s2">&#34;Kq: Xin Chao </span><span class="si">#{</span><span class="n">xinchao</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span>
 
-<p>puts &ldquo;Kq: Xin Chao #{xinchao(temp)}&rdquo;</p>
-
-<p>#=&gt; &ldquo;Kq: Xin Chao Nguyen Van A&rdquo;
-{% endhighlight %}</p>
-
+<span class="c1">#=&gt; &#34;Kq: Xin Chao Nguyen Van A&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Từ ví dụ trên ta có thể rút ra kết luận là ruby <code>Pass reference</code>? Vì như bạn đã thấy kết quả là &ldquo;Nguyen Van A&rdquo;, giá trị mà chúng ta gán trong hàm <code>xinchao</code>.</p>
 
 <p>Câu trả lời là không, đây là một ví dụ cạm bẫy nếu ta không cẩn thận, khác với một số ngôn ngữ khác bắt buộc phải sử dụng <code>return</code> để trả về kết quả trong function, ruby cho phép ta sử dụng giá trị cuối cùng bạn viết ra trong function đó. Tức kết quả trả về trên đơn giản là kết quả thực hiện của function xinchao, chứ còn việc biến temp có thay đổi giá trị hay không thì chúng ta phải thay thế lại một chút như dưới đây để kiểm chứng:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">xinchao</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="s2">&#34;Nguyen Van A&#34;</span>
+<span class="k">end</span>
 
-<p>{% highlight ruby %}
-def xinchao(a)
-  a = &ldquo;Nguyen Van A&rdquo;
-end</p>
+<span class="n">temp</span> <span class="o">=</span> <span class="s2">&#34;Nguyen Van B&#34;</span>
 
-<p>temp = &ldquo;Nguyen Van B&rdquo;</p>
+<span class="n">xinchao</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
 
-<p>xinchao(temp)</p>
+<span class="nb">puts</span> <span class="s2">&#34;Kq: Xin Chao </span><span class="si">#{</span><span class="n">temp</span><span class="si">}</span><span class="s2">&#34;</span>
 
-<p>puts &ldquo;Kq: Xin Chao #{temp}&rdquo;</p>
-
-<p>#=&gt; &ldquo;Kq: Xin Chao Nguyen Van B&rdquo;
-{% endhighlight %}</p>
-
+<span class="c1">#=&gt; &#34;Kq: Xin Chao Nguyen Van B&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Oh, vậy ruby là <code>Pass by value</code>? Đúng, như đã từng đề cập, ruby không có 1 định nghĩa thuần tuý nào về hai khái niệm mà chúng ta đang thảo luận, nên dựa trên những ý chính mà chúng ta đã thống nhất trong mục 1, ta có thể gọi Ruby là 1 một ngôn ngữ <code>Pass by value</code>.</p>
 
 <p>Vậy có trường hợp ngoại lệ nào không? Như C++ có cả <code>Pass by value</code> và <code>Pass by reference</code> đó thôi? Câu trả lời vẫn lại là không, thật tiếc, đó đơn giản là sự định hướng của cha đẻ của từng loại ngôn ngữ.</p>

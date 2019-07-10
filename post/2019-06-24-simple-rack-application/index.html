@@ -194,7 +194,7 @@
 
 <h3 id="4-build-một-simple-rack-application">4. Build một simple Rack application</h3>
 
-<p>1) Tạo 1 Folder với 1 file tên <code>Gemfile</code> có nội dung như sau:</p>
+<p>1️⃣ Tạo 1 Folder với 1 file tên <code>Gemfile</code> có nội dung như sau:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
@@ -207,13 +207,13 @@
 <span class="n">gem</span> <span class="s1">&#39;rack&#39;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>2) Cài đặt gem vói lệnh <code>bundle install</code></p>
+<p>2️⃣ Cài đặt gem vói lệnh <code>bundle install</code></p>
 
-<p>3) Tạo file <code>config.ru</code>.</p>
+<p>3️⃣ Tạo file <code>config.ru</code>.</p>
 
 <p>Note: Đây sẽ là file main để xử lý request.</p>
 
-<p>4) Chạy project với lệnh <code>bundle exec rackup</code></p>
+<p>4️⃣ Chạy project với lệnh <code>bundle exec rackup</code></p>
 
 <blockquote>
 <p>Project demo <a href="https://github.com/hdchinh/simple-rack-app">tại đây!</a></p>
@@ -283,7 +283,7 @@
 <span class="k">end</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>&ndash;&gt; Nếu truy cập theo trang chủ thì sẽ chạy lệnh <code>run HomePage.new</code>.</p>
+<p>➡️ Nếu truy cập theo trang chủ thì sẽ chạy lệnh <code>run HomePage.new</code>.</p>
 
 <p>Nếu url người dùng request không trùng bất cứ trường hợp nào thì chạy lệnh <code>run MyNotFound.new</code> ở cuối.</p>
 
@@ -362,11 +362,11 @@
 </div>
 <p>Bạn thấy phức tạp? Không sao cả, chỉ cần chú ý đến dòng cuối cùng trong method call. Ta chỉ cần nhớ:</p>
 
-<p>1) Mỗi class sử dụng method call để cài đặt (yêu cầu của Rack).</p>
+<p>1️⃣ Mỗi class sử dụng method call để cài đặt (yêu cầu của Rack).</p>
 
-<p>2) Trong method này nhận vào một params, đây chính là request đi tới.</p>
+<p>2️⃣ Trong method này nhận vào một params, đây chính là request đi tới.</p>
 
-<p>3) Kết quả trả về của method call này là một mảng gồm 3 phần tử:</p>
+<p>3️⃣ Kết quả trả về của method call này là một mảng gồm 3 phần tử:</p>
 
 <ul>
 <li>Status code (Ví dụ như: 200 -&gt; success, 404 -&gt; not found).<br /></li>
@@ -401,9 +401,9 @@
           <a href="/tags/ruby/">ruby</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/2019-07-09-thong-bao-ve-thay-doi-blog/">
+        <a class="prev" href="/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">[NEW] Thay đổi đổi Platform</span>
+            <span class="prev-text nav-default">A Simple ORM</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-06-16-tu-khoa-super-trong-ruby/">

@@ -6,10 +6,20 @@
     <description>Recent content on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[NEW] Thay đổi đổi Platform</title>
+      <link>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</guid>
+      <description> Hiện mình đã chuyển sự lựa chọn, từ Jekyll sang Hugo trong vai trò làm platform chính để viết blog. Trang cũ vẫn được host tại địa chỉ hdchinh.github.io. Many thanks!
+ </description>
+    </item>
     
     <item>
       <title>A Simple ORM</title>
@@ -19,16 +29,6 @@
       <guid>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</guid>
       <description>1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
 Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &amp;ldquo;ích seo lừn&amp;rdquo; nhưng cũng đủ good để work production.</description>
-    </item>
-    
-    <item>
-      <title>[NEW] Thay đổi đổi Platform</title>
-      <link>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</guid>
-      <description> Hiện mình đã chuyển sự lựa chọn, từ Jekyll sang Hugo trong vai trò làm platform chính để viết blog. Trang cũ vẫn được host tại địa chỉ hdchinh.github.io. Many thanks!
- </description>
     </item>
     
     <item>
@@ -284,7 +284,7 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
       <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/</guid>
-      <description>Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&amp;hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?</description>
+      <description>Đặt vấn đề Có một chủ đề rất đỗi quen thuộc, nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan niệm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&amp;hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?</description>
     </item>
     
     <item>

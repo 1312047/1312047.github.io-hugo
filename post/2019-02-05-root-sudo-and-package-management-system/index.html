@@ -54,7 +54,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
 
 <meta itemprop="datePublished" content="2019-02-05T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-02-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1532">
+<meta itemprop="wordCount" content="1533">
 
 
 
@@ -132,7 +132,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
         <div class="post-category">
             <a href="/categories/h%E1%BB%87-%C4%91i%E1%BB%81u-h%C3%A0nh/"> hệ điều hành </a>
             </div>
-          <span class="more-meta"> 1532 words </span>
+          <span class="more-meta"> 1533 words </span>
           <span class="more-meta"> 8 mins read </span>
         
       </div>
@@ -195,18 +195,28 @@ Câu trả lời rất đơn giản, không phải ai sử dụng máy tính cũ
 <p>Một nhầm lẫn thường xuyên với cả với tôi ngày mới tìm hiểu, đó là sau khi gõ những câu lệnh có <code>sudo</code>, hệ thống yêu cầu tôi nhập mật khẩu và tôi đã từng nghĩ đó là mật khẩu của <code>root</code> (nghe cũng hợp lý đấy chứ, ta mượn quyền của <code>root</code> thì phải sử dụng mật khẩu của <code>root</code> chứ nhỉ? Giống như khi tôi mượn nhà của bạn thì tôi phải có chìa khoá của bạn). Nhưng không phải như vậy, mật khẩu bạn nhập vào đơn thuần là chính mật khẩu của user thường bạn đang login trên máy.</p>
 
 <p>Phần đa các trường hợp khi bạn thêm <code>sudo</code>, các câu lệnh sẽ chạy một cách hoàn hảo. Tuy nhiên, cũng có những khi bạn không nhận được kết quả như mong đợi và lý do chính là không phải user nào cũng có thể triệu hồi quyền lực của super user. Điều bạn cần làm khi đó là &ldquo;nói&rdquo; với hệ điều hành rằng hãy cho user của tôi đang sử dụng được quyền triệu hồi sức mạnh của super user. Hãy xem ví dụ dưới đây:</p>
-
-<p>{% highlight ruby %}
-#=&gt; /etc/sudoers (lưu trữ các user được quyền thực hiện đặc quyền của super user)
-#=&gt; Ví dụ
-root ALL=(ALL:ALL) ALL
-#=&gt; user đang xét quyền tên là root
-#=&gt; Chữ all đầu tiên chỉ ra rằng rule này được áp dụng cho tất cả các host
-#=&gt; Chữ all thứ hai chỉ ra, account root có thể chạy lệnh với quyền của bất kỳ user nào.
-#=&gt; Chữ all thứ ba chỉ ra, account root có thể chạy lệnh với quyền của bất kỳ group nào.
-#=&gt; Chữ all cuối cùng chỉ ra, account root có thể chạy bất kỳ command nào.
-{% endhighlight %}</p>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1">#=&gt; /etc/sudoers (lưu trữ các user được quyền thực hiện đặc quyền của super user)</span>
+<span class="c1">#=&gt; Ví dụ</span>
+<span class="n">root</span> <span class="no">ALL</span><span class="o">=</span><span class="p">(</span><span class="ss">ALL</span><span class="p">:</span><span class="no">ALL</span><span class="p">)</span> <span class="no">ALL</span>
+<span class="c1">#=&gt; user đang xét quyền tên là root</span>
+<span class="c1">#=&gt; Chữ all đầu tiên chỉ ra rằng rule này được áp dụng cho tất cả các host</span>
+<span class="c1">#=&gt; Chữ all thứ hai chỉ ra, account root có thể chạy lệnh với quyền của bất kỳ user nào.</span>
+<span class="c1">#=&gt; Chữ all thứ ba chỉ ra, account root có thể chạy lệnh với quyền của bất kỳ group nào.</span>
+<span class="c1">#=&gt; Chữ all cuối cùng chỉ ra, account root có thể chạy bất kỳ command nào.</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Note: Kể từ khi bạn nhập mật khẩu sau khi gõ lệnh <code>sudo</code> lần đầu, thời gian có hiệu lực của mật khẩu này sẽ là 15 phút. Trong khoảng thời gian đó bạn có thể chạy các lệnh <code>sudo</code> khác mà hệ điều hành không yêu cầu bạn nhập lại mật khẩu.</p>
 
 <h3 id="3-package-management-system">3.Package management system</h3>

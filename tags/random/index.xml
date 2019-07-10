@@ -6,7 +6,7 @@
     <description>Recent content in random on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/tags/random/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>[NEW] Thay đổi đổi Platform</title>
       <link>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</guid>
       <description> Hiện mình đã chuyển sự lựa chọn, từ Jekyll sang Hugo trong vai trò làm platform chính để viết blog. Trang cũ vẫn được host tại địa chỉ hdchinh.github.io. Many thanks!
@@ -40,7 +40,7 @@ Chính 20% giá trị còn lại mới tạo nên 80% khác biệt.</description
       <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/</guid>
-      <description>Đặt vấn đề Có một chủ đề rất đỗi quen thuộc nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan điểm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&amp;hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?</description>
+      <description>Đặt vấn đề Có một chủ đề rất đỗi quen thuộc, nhưng cũng rất dễ gây tranh cãi trong giới coding của chúng ta, đó là interview. Chín người thì mười ý, có người quan niệm rằng bằng cấp là thứ tối thượng, nhưng cũng có người dương dương tự đắc rằng chỉ có mỗi giải thuật mới là thứ trường tồn vĩnh cửu&amp;hellip; Không thể thoát khỏi guồng quay đó, tôi cũng đã từng lăn tăn rất nhiều, điều gì mới là thứ thực sự quan trọng?</description>
     </item>
     
   </channel>
