@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algo on The more your try, the more your learn</title>
+    <link>https://1312047.github.io/categories/algo/</link>
+    <description>Recent content in algo on The more your try, the more your learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://1312047.github.io/categories/algo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bài toán brackets</title>
+      <link>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</guid>
+      <description>Yêu cầu Input Đầu vào là 1 chuỗi chỉ chứa các ký tự nằm trong mảng sau:
+1  [&amp;#39;{&amp;#39;, &amp;#39;}&amp;#39;, &amp;#39;[&amp;#39;, &amp;#39;]&amp;#39;, &amp;#39;(&amp;#39;, &amp;#39;)&amp;#39;]   Ex: &amp;quot;{{}}&amp;quot;, &amp;quot;[(})&amp;quot; &amp;hellip;
+Output Trả về kết quả liệu chuỗi đầu vào có phải là một brackets hợp lệ hay không.
+➡️ Một chuỗi hợp lệ là một chuỗi dấu ngoặc có thể sử dụng trong một phép toán hợp lệ.</description>
+    </item>
+    
+  </channel>
+</rss>
