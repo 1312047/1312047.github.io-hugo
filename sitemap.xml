@@ -21,12 +21,6 @@
   </url>
   
   <url>
-    <loc>https://1312047.github.io/tags/programming/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://1312047.github.io/tags/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -40,6 +34,12 @@
   
   <url>
     <loc>https://1312047.github.io/categories/algo/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/programming/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -287,13 +287,6 @@
   </url>
   
   <url>
-    <loc>https://1312047.github.io/hire-me/</loc>
-    <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</loc>
     <lastmod>2019-02-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -391,6 +384,13 @@
   <url>
     <loc>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/hire-me/</loc>
+    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
