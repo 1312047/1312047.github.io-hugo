@@ -193,7 +193,7 @@ Output Trả về kết quả liệu chuỗi đầu vào có phải là một br
 
 <h3 id="ý-tưởng">Ý tưởng</h3>
 
-<p>Xây dựng giải pháp trên cơ chế <code>queue</code>. Nếu gặp ký tự mở (<code>{</code>, <code>[</code>, <code>(</code>) thì bỏ vào queue, nếu gặp ký tự đóng (<code>}</code>, <code>]</code>, <code>)</code>) thì pop phần tử trong queue ra so sánh. Nếu phần tử được pop từ queue với ký tự đang so sánh tạo thành được 1 cặp dấu hợp lệ (<code>()</code>, <code>[]</code>, <code>{}</code>) thì duyệt tiếp, nếu không tạo thành cặp dấu hợp lệ thì trả về false, vì đây không phải chuỗi brackets valid.</p>
+<p>Xây dựng giải pháp trên cơ chế <code>stack</code>. Nếu gặp ký tự mở (<code>{</code>, <code>[</code>, <code>(</code>) thì bỏ vào stack, nếu gặp ký tự đóng (<code>}</code>, <code>]</code>, <code>)</code>) thì pop phần tử trong stack ra so sánh. Nếu phần tử được pop từ stack với ký tự đang so sánh tạo thành được 1 cặp dấu hợp lệ (<code>()</code>, <code>[]</code>, <code>{}</code>) thì duyệt tiếp, nếu không tạo thành cặp dấu hợp lệ thì trả về false, vì đây không phải chuỗi brackets valid.</p>
 
 <h3 id="implement">Implement</h3>
 <div class="highlight"><div class="chroma">
