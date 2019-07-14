@@ -53,7 +53,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
     </item>
     
     <item>
-      <title>Từ khoá super trong ruby là gì?</title>
+      <title>Từ khoá super trong Ruby là gì?</title>
       <link>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -344,17 +344,6 @@ Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đa
       
       <guid>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</guid>
       <description>Đặt vấn đề Phần lớn thời gian thời đại học, tôi được học trên nền tảng window với bộ công cụ visual studio và ms sql server. Mọi thứ đều ổn cho đến khi ra trường và đi làm. Môi trường làm việc không còn là window nữa mà chuyển sang gia đình linux-unix. Rất nhiều thứ lạ lẫm, tuy nhiên, cũng như nhiều lập trình viên khác. Copy paste không có gì khó khăn với tôi.</description>
-    </item>
-    
-    <item>
-      <title>Hire me</title>
-      <link>https://1312047.github.io/hire-me/</link>
-      <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/hire-me/</guid>
-      <description>About me  My name is Hoàng Duy Chinh. I’m 24 years old, currently, I have more than 2 years of programming experience. I like working with ruby, ruby ​​on rails or other backend languages. If you want to contact me, please look down at the information below.
- Education 🎯 Bachelor of Science Computer Software Engineering at VNUHCM - University of Science. (2013 - 2017)
-🎯 GPA: 7.4 / 10</description>
     </item>
     
   </channel>
