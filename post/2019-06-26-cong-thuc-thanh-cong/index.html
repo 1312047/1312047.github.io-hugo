@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Bài toán brackets - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="1. Định nghĩa Bạn có mong muốn đạt được thành công trong cuộc sống hay không?
+Chắc hẳn là có 😌
+Cũng dễ hiểu nhỉ, bạn hãy thử nhìn xuống dưới, đến cả cái hình, tôi search vu vơ trên google với từ khoá &amp;ldquo;thành công&amp;rdquo;, cũng sáng lung linh, huyền ảo. Vậy thì ai mà chả thích 😄
+Nhưng đầu tiên, thành công là như thế nào? hay như thế nào được gọi là thành công?" /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-06-26-cong-thuc-thanh-cong/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Bài toán brackets" />
+<meta property="og:description" content="1. Định nghĩa Bạn có mong muốn đạt được thành công trong cuộc sống hay không?
+Chắc hẳn là có 😌
+Cũng dễ hiểu nhỉ, bạn hãy thử nhìn xuống dưới, đến cả cái hình, tôi search vu vơ trên google với từ khoá &ldquo;thành công&rdquo;, cũng sáng lung linh, huyền ảo. Vậy thì ai mà chả thích 😄
+Nhưng đầu tiên, thành công là như thế nào? hay như thế nào được gọi là thành công?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-06-26-cong-thuc-thanh-cong/" />
+<meta property="article:published_time" content="2019-07-11T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-07-11T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Bài toán brackets">
+<meta itemprop="description" content="1. Định nghĩa Bạn có mong muốn đạt được thành công trong cuộc sống hay không?
+Chắc hẳn là có 😌
+Cũng dễ hiểu nhỉ, bạn hãy thử nhìn xuống dưới, đến cả cái hình, tôi search vu vơ trên google với từ khoá &ldquo;thành công&rdquo;, cũng sáng lung linh, huyền ảo. Vậy thì ai mà chả thích 😄
+Nhưng đầu tiên, thành công là như thế nào? hay như thế nào được gọi là thành công?">
+
+
+<meta itemprop="datePublished" content="2019-07-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1577">
+
+
+
+<meta itemprop="keywords" content="random," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bài toán brackets"/>
+<meta name="twitter:description" content="1. Định nghĩa Bạn có mong muốn đạt được thành công trong cuộc sống hay không?
+Chắc hẳn là có 😌
+Cũng dễ hiểu nhỉ, bạn hãy thử nhìn xuống dưới, đến cả cái hình, tôi search vu vơ trên google với từ khoá &ldquo;thành công&rdquo;, cũng sáng lung linh, huyền ảo. Vậy thì ai mà chả thích 😄
+Nhưng đầu tiên, thành công là như thế nào? hay như thế nào được gọi là thành công?"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about-me/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Bài toán brackets</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-11 </span>
+        <div class="post-category">
+            <a href="/categories/random/"> random </a>
+            </div>
+          <span class="more-meta"> 1577 words </span>
+          <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 8 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-định-nghĩa">1. Định nghĩa</a></li>
+<li><a href="#2-công-thức">2. Công thức</a></li>
+<li><a href="#3-góc-nhìn">3. Góc nhìn</a></li>
+<li><a href="#4-về-bản-thân">4. Về bản thân</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h3 id="1-định-nghĩa">1. Định nghĩa</h3>
+
+<p>Bạn có mong muốn đạt được thành công trong cuộc sống hay không?</p>
+
+<p>Chắc hẳn là có 😌</p>
+
+<p>Cũng dễ hiểu nhỉ, bạn hãy thử nhìn xuống dưới, đến cả cái hình, tôi search vu vơ trên google với từ khoá &ldquo;thành công&rdquo;, cũng sáng lung linh, huyền ảo. Vậy thì ai mà chả thích 😄</p>
+
+<p><img src="/images/thanhcong.jpg" alt="hoa" /></p>
+
+<p>Nhưng đầu tiên, thành công là như thế nào? hay như thế nào được gọi là thành công? hay đơn giản hơn, định nghĩa của thành công là gì?</p>
+
+<p>Tuỳ từng người, định nghĩa về sự thành công sẽ khác nhau. Nó bị ảnh hưởng bởi thế giới quan quanh họ, hoặc ảnh hưởng từ nhận thức hệ xã hội của họ&hellip;vân vân và mây mây.</p>
+
+<p>Với nhiều người thành công là phải ở nhà lâu, đi ô tô, cưới vợ đẹp. Với một số khác, thành công giản dị hơn, đơn giản là là sự duy trì nòi giống chẳng hạn 😘</p>
+
+<p>Uhm, có vẻ mênh mông, cơ mà nếu để ý, ta sẽ nhận ra bản chất của nhu cầu (ham muốn) có được thành công, chính là nhu cầu (ham muốn) cải thiện cuộc sống của bản thân, gia đình hoặc là nhu cầu (ham muốn) vượt trội đồng loại về một hoặc nhiều mặt nào đó.</p>
+
+<p>Ví dụ:</p>
+
+<p>1) Mèo tam thể muốn xây một cái ổ lớn hơn, để các con mèo con của mèo tam thể có thể chạy nhảy tung tăng hơn (ham muốn xuất phát từ nhu cầu cải thiện cuộc sống hiện tại).</p>
+
+<p>2) Mèo vàng muốn ~ngực bực~ chân dài hơn để thành một con mèo sexy hơn (ham muốn xuất phát từ nhu cầu vượt trội đồng loại, ở đây là sexy hơn những con mèo khác).</p>
+
+<p><img src="/images/sexymeo.jpg" alt="hoa" /></p>
+
+<h3 id="2-công-thức">2. Công thức</h3>
+
+<p>Qua phần chém gió lan man ở mục 1, có lẽ bạn đã nhận ra ham muốn thành công ở con người, cũng là một bản năng rất con người, xuất phát từ những nhu cầu rất con người&hellip;Nên không có gì đáng xấu hổ khi bạn ham muốn thành công cả.</p>
+
+<p>Rồi bây giờ chúng ta sẽ nói về chủ đề chính, công thức của thành công chính là&hellip;.. À mà nói chung, tôi cũng không biết, tôi có thành công đâu, nên làm sao mà biết được công thức 😓</p>
+
+<p>Tuy nhiên, đừng vội thất vọng, tôi vẫn có thể giúp bạn, từ kinh nghiệm bà tám và hóng chuyện của mình tôi có thể chia sẻ cho bạn vài lời khuyên như sau:</p>
+
+<p>Number 1: Bạn nên học dốt. Vâng, không hề đùa nhé, càng dốt càng tốt, dốt để lưu ban, để học lại, để bị đuổi học lại càng hay. Bạn đã bao giờ nghe hoặc đọc những câu kiểu như:</p>
+
+<ul>
+<li>&ldquo;Mấy thằng học giỏi sau này toàn đi làm thuê cho mấy thằng học dở&rdquo;</li>
+<li>&ldquo;Bọn học dở thì làm chủ còn đám học giỏi toàn đi làm thuê&rdquo;</li>
+<li>&hellip; Còn rất nhiều nhưng thôi cái này ai chả nghe rồi, ghi ra làm gì cho đầy chữ.</li>
+</ul>
+
+<p>Bạn thấy đó? kinh nghiệm từ rất nhiều người đã đúc kết ra rồi thì còn học làm gì?</p>
+
+<p>Number 2: Đây là kinh nghiệm đúc kết ra từ cha ông ta xưa, bạn phải có mắt sáng, mũi to, trán rộng (hói), mặt chữ điền (mặt hình vuông đấy), nhân trung sâu (cái khoảng lõm giữa 2 mép trên môi), tai to&hellip;</p>
+
+<p>Về mặt cá nhân, tôi rất buồn vì không biết đến những bí quyết này sớm hơn, vì tôi đã không còn kịp học dốt nữa rồi, tôi học khá suốt 16 năm 😐 . Còn về No.2 thì lại càng không có cơ hội, theo tướng số học thì để có cái hình thể con trời, con đất, bạn sẽ phải có cái ngoại hình mà coi chừng, theo như miêu tả sẽ xấu vcl (vô cùng luôn). Tôi thì tuy không được đẹp, cơ mà lại không thể xấu đến mức nhân tướng học như vậy được 😖</p>
+
+<h3 id="3-góc-nhìn">3. Góc nhìn</h3>
+
+<p>Có lẽ bạn cũng nhận ra, mục số 2 chỉ là châm biếm. Trong hôm nay, tôi có nhận được một câu hỏi từ 1 đứa cháu học cấp 2, nó hỏi tôi làm sao để thành công.</p>
+
+<p>Tôi trả lời là &ldquo;tao không biết, tao có thành công đâu mà biết, mày cứ cố gắng chăm học đã đi&rdquo;. Đứa cháu trả lời, &ldquo;con nghe nhiều người nói là toàn đứa học dở sau này thành công, còn học giỏi đi học đại học toàn thất nghiệp&rdquo; 😀</p>
+
+<p>Thoáng chốc, trong đầu tôi không đồng tình với nó, mà cũng không phản biện được 😓</p>
+
+<p>Mình không hề thành công, cũng chả có thành tựu và càng không vượt trội so với bạn bè cùng lứa thì lấy gì mà chém gió cho một đứa trẻ phục đây.</p>
+
+<p>Bỏ thời gian ra làm ly ~bò cụng~ cafe, nghiền ngẫm sự đời 😎 , tôi rút ra được một vài góc nhìn chủ quan về vấn đề này như sau:</p>
+
+<p>1) Cuộc sống không khác gì một game sinh tồn, bạn có càng nhiều nguồn lực trong tay thì xác suất bạn tồn tại và vươn lên càng cao.</p>
+
+<p>Ex: Ví dụ bố bạn là ~Chủ tịch xã~ một bác sĩ thành đạt, bạn có lợi thế hơn rất nhiều so với một cậu boy có gia đình thâm niên làm nông nhiều thế hệ (như tôi 😫). Vì bố của bạn có thể chỉ bạn kinh nghiệm sống, dạy bạn bản lĩnh trước bão tố cuốc đời hay chắp nối mối quan hệ cho bạn trong tương lai, đây là những điều mà một gia đình nông nghiệp không thể cho con cái. À quên, bố bạn còn có thể cho bạn tiền nữa =))</p>
+
+<p>2) Những bước nhảy vọt về trí tuệ, kinh tế hay học thức là những thứ vô cùng khó xảy ra trong cuộc sống thực (có lẽ chúng ta nên bật máy tính lên, truy cập vào 1 web phim rồi tìm vài bộ drama hàn quốc, ở đó sự nhảy vọt mới hiện hữu và dễ thực hiện. Kiểu anh xxx có cha mẹ bị tù oan, rồi sau đó anh cố gắng, piu piu, 5 năm trôi qua xxx đã trở thành chủ tịch tập đoàn yyy để báo thù cho cha mẹ).</p>
+
+<p>3) Những đứa trẻ học tệ, trưởng thành với ít sự kỳ vọng của cha mẹ, điều đó bỗng nhiên lại trở thành một lợi thế cho chúng, thủa sức ~múa~ tung hoành. Nói đúng hơn, những đứa trẻ đó bạo gan hơn và dễ có khả năng vượt ra khỏi vùng an toàn hơn là những đứa trẻ luôn có mác là &ldquo;con ngoan, trò giỏi, cháu ngoan bác hồ&rdquo;.</p>
+
+<p>4) Chính vì học tốt, luôn là tấm gương trong gia đình, xã hội và cả chủ đề chính của mấy cô gì chú bác ngoài chợ, những đứa trẻ học giỏi sẽ có nguy cơ ít quyết đoán hơn trước những tình huống nhạy cảm trong cuộc đời, vì chúng sợ mất những cái mà chúng đang có.</p>
+
+<p>5) Một phần trong số những đứa trẻ học giỏi, thực ra lại không giỏi, vì về bản chất chúng học giỏi những môn học trên trường, nhưng lại thiếu sự nhạy bén trong tư duy hay kỹ năng phản biện. Chính vì vậy chúng có thể lựa chọn thi đại học một cách gượng ép theo nguyện vọng của cha mẹ (xã hội), trong khi không hề tìm hiểu trước nhu cầu thị trường hay thậm chí chả thèm tìm hiểu coi bản thân mình thích gì.</p>
+
+<p>6) Những đứa trẻ học tệ, liệu có thực sự tệ? Tương tự như ý số 5, một phần đám trẻ học tệ, thực chất lại là tệ ở mấy môn bài vở, những tư duy và bãn lĩnh sống của chúng thì lại không hề tệ chút nào, cộng với việc xuất phát điểm không cao khiến chúng thủa sức vẫy vùng mà không sợ mất mát điều gì.</p>
+
+<p>Ủa vậy là cái No.1 ở mục 3 là đúng sau? Kể ra thì hình như tôi cũng gặp vài trường hợp như vậy rồi. Nhưng có lẽ nên sửa lại thành:</p>
+
+<p>&ldquo;Mấy đứa xưa học dốt nhưng chăm chỉ cần cù siêng năng tìm tòi giờ làm chủ, còn mấy đứa học giỏi mỗi bài vở thì giờ đang đi làm thuê&rdquo;.</p>
+
+<p>Đó, như vậy thuận mắt hơn rồi, bản chất là sự nỗ lực vươn lên, bài vở chỉ là 1 phần nhỏ trong cuộc đời, bạn có thể không học giỏi bài vở hàn lâm và bạn vẫn có thể thành công. <strong>Nhưng nếu bạn không chịu học (học bất kể thứ gì, học để cải thiện bản thân&hellip;) thì tôi không tin bạn có thể thành công được</strong>. À quên, bố bạn giàu thì thôi game over 😬</p>
+
+<h3 id="4-về-bản-thân">4. Về bản thân</h3>
+
+<p>Tôi là một <code>average joe</code> từ bao giờ không hay, nỗ lực vươn lên của tôi nhỏ nhoi đến mức hiển vi, bản tính háo thắng hay mơ ước cao sang lại càng không có, tôi chấp nhận và còn cảm thấy happy khi ở 1 căn nhà trọ 10m vuông, ngày đi làm, tối về xem diu tút, thi thoảng viết blog chém gió (chủ yếu cho bạn bè đọc) 😪</p>
+
+    </div>
+
+    
+    
+
+
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+position: relative;
+text-align: left; 
+height: 36px; 
+width: 32px; 
+float: left; 
+text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/1312047.github.io\/post\/2019-06-26-cong-thuc-thanh-cong\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/1312047.github.io\/post\/2019-06-26-cong-thuc-thanh-cong\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/1312047.github.io\/post\/2019-06-26-cong-thuc-thanh-cong\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/1312047.github.io\/post\/2019-06-26-cong-thuc-thanh-cong\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/1312047.github.io\/post\/2019-06-26-cong-thuc-thanh-cong\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/random/">random</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2019-07-15-bai-toan-brackets/">
+            <span class="next-text nav-default">Bài toán brackets</span>
+            <span class="next-text nav-mobile">Bài sau</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = '1312047-github-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+      Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    </span>
+    <span class="division">|</span>
+    <span class="theme-info">
+      Theme - 
+      <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+    </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-141114443-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
