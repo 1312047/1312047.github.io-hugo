@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://1312047.github.io/post/2019-06-26-cong-thuc-thanh-cong/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -19,6 +12,13 @@
     <loc>https://1312047.github.io/categories/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-06-26-cong-thuc-thanh-cong/</loc>
+    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
