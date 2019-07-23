@@ -15,20 +15,13 @@
   </url>
   
   <url>
-    <loc>https://1312047.github.io/post/2019-06-26-cong-thuc-thanh-cong/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://1312047.github.io/post/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://1312047.github.io/categories/random/</loc>
+    <loc>https://1312047.github.io/tags/programming/</loc>
     <lastmod>2019-07-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -52,14 +45,8 @@
   </url>
   
   <url>
-    <loc>https://1312047.github.io/tags/programming/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/tags/random/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
+    <loc>https://1312047.github.io/categories/random/</loc>
+    <lastmod>2019-07-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -68,6 +55,12 @@
     <lastmod>2019-07-08T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/random/</loc>
+    <lastmod>2019-07-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
