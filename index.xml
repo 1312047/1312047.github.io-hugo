@@ -6,10 +6,25 @@
     <description>Recent content on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Show branch and use sublime command in Terminal</title>
+      <link>https://1312047.github.io/post/2019-08-05-setup-terminal-macos/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-08-05-setup-terminal-macos/</guid>
+      <description>1️⃣ Config to show branch in Terminal
+Open .bash_profile file then add:
+1 2 3 4 5  parse_git_branch() { git branch 2&amp;gt; /dev/null | sed -e &amp;#39;/^[^*]/d&amp;#39; -e &amp;#39;s/* \(.*\)/ (\1)/&amp;#39; } export PS1=&amp;#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&amp;#34;   2️⃣ Setup to use subl command in macOS
+Run:
+1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   References:
+[1]https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal
+[2]https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/</description>
+    </item>
     
     <item>
       <title>Bài toán brackets</title>
