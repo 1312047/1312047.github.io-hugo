@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-06-24T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-06-24T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1010">
+<meta itemprop="wordCount" content="1002">
 
 
 
@@ -88,7 +88,7 @@
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -100,7 +100,7 @@
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -111,14 +111,14 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">A Simple Rack Application</h1>
+      <h1 class="post-title" style="font-size: 33px;">A Simple Rack Application</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-06-24 </span>
         <div class="post-category">
             <a href="/categories/rails-notes/"> rails notes </a>
             </div>
-          <span class="more-meta"> 1010 words </span>
+          <span class="more-meta"> 1002 words </span>
           <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 5 mins read </span>
         
       </div>
@@ -129,18 +129,12 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li>
-<ul>
 <li><a href="#1-đặt-vấn-đề">1. Đặt vấn đề</a></li>
 <li><a href="#2-tham-khảo">2. Tham khảo?</a></li>
 <li><a href="#3-kiến-thức-cần-chuẩn-bị-trước">3. Kiến thức cần chuẩn bị trước.</a></li>
 <li><a href="#4-build-một-simple-rack-application">4. Build một simple Rack application</a></li>
 <li><a href="#5-giải-thích-nội-dung-mã-nguồn-của-app-demo">5. Giải thích nội dung mã nguồn của app demo</a></li>
 <li><a href="#6-kết-luận">6. Kết luận</a></li>
-</ul></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -148,17 +142,17 @@
     <div class="post-content">
       
 
-<h3 id="1-đặt-vấn-đề">1. Đặt vấn đề</h3>
+<h1 id="1-đặt-vấn-đề">1. Đặt vấn đề</h1>
 
 <p>Có lẽ cũng như tôi, khi mới tiếp cận với một framework ruby như Rails chẳng hạn, bạn đã nghe về Rack? hoặc ít ra cũng từng thấy cái <code>gem rack</code> trong Gemfile. Nhưng có khi nào bạn dùng đến chúng? Không ư? Tôi cũng nghĩ vậy, tôi cũng kệ, tôi cũng chả quan tâm, cuộc sống không đủ high hay sao mà lại đâm đầu vào cái khó 👽.</p>
 
-<p>Nhưng làm việc hàng ngày với nó mà không hiểu nó là gì luôn làm cho ta cảm giác bất an vô định, cập nhật CV là <code>Developer</code> mà đi phỏng vấn được hỏi rack là gì, lại trả lời &ldquo;em&hellip;em..em hông biết&rdquo; thì liệu có bị đánh xuống rank junior hay không? Thôi thì cứ tìm hiểu coi nó ra sao.</p>
+<p>Nhưng làm việc hàng ngày với nó mà không hiểu nó là gì luôn làm cho ta cảm giác bất an vô định, cập nhật CV là Developer mà đi phỏng vấn được hỏi rack là gì, lại trả lời &ldquo;em&hellip;em..em hông biết&rdquo; thì liệu có bị đánh xuống rank junior hay không? Thôi thì cứ tìm hiểu coi nó ra sao.</p>
 
 <p>Và thế là tôi đã đọc docs trên trang chủ của Rack, nói chung đọc qua thì có hiểu, mà cái hiểu nó mông lung như một trò đùa, chút nữa thì đành phải &ldquo;anh xin giơ tay rút lui thôi&rdquo;.</p>
 
 <p>Vậy nên tôi sẽ viết một ứng dụng Rack (chạy trên Rack) very..very simple, để tôi và có thể cả bạn có cái nhìn thoáng qua về Rack trước đã, chứ tôi thấy hiểu biết hiện tại của mình chưa đủ để chém gió hàn lâm về chủ đề này (hy vọng tương lai gần sẽ có bài chém gió hàn lâm).</p>
 
-<h3 id="2-tham-khảo">2. Tham khảo?</h3>
+<h1 id="2-tham-khảo">2. Tham khảo?</h1>
 
 <ol>
 <li><p>Bài viết này tôi tham khảo cách sử dụng Rack trên trang chủ của Rack <a href="https://rack.github.io/">tại đây</a> và trên mục docs của ruby <a href="https://www.rubydoc.info/github/rack/rack/">tại đây</a>.</p></li>
@@ -166,7 +160,7 @@
 <li><p>Ứng dụng rất thô sơ và KHÔNG sử dụng &ldquo;bét pờ rạch tít&rdquo; nào cả.</p></li>
 </ol>
 
-<h3 id="3-kiến-thức-cần-chuẩn-bị-trước">3. Kiến thức cần chuẩn bị trước.</h3>
+<h1 id="3-kiến-thức-cần-chuẩn-bị-trước">3. Kiến thức cần chuẩn bị trước.</h1>
 
 <p>Dù ít dù nhiều thì vẫn phải đánh qua lý thuyết một chút trước khi mày mò làm gì đó. Một số khái niệm/quy trình chúng ta nên nắm trước như sau:</p>
 
@@ -182,9 +176,11 @@
 
 <p>Note: Vậy Rack như một phiên dịch viên để truyền đạt giữa ứng dụng và app server (Không thật sự đúng về bản chất nhưng ta cứ tạm chấp nhận liên tưởng này).</p>
 
-<h3 id="4-build-một-simple-rack-application">4. Build một simple Rack application</h3>
+<h1 id="4-build-một-simple-rack-application">4. Build một simple Rack application</h1>
 
-<p>1️⃣ Tạo 1 Folder với 1 file tên <code>Gemfile</code> có nội dung như sau:</p>
+<ul>
+<li>Tạo 1 Folder với 1 file tên <code>Gemfile</code> có nội dung như sau:<br /></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
@@ -197,19 +193,23 @@
 <span class="n">gem</span> <span class="s1">&#39;rack&#39;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>2️⃣ Cài đặt gem vói lệnh <code>bundle install</code></p>
+<ul>
+<li><p>Cài đặt gem vói lệnh <code>bundle install</code></p></li>
 
-<p>3️⃣ Tạo file <code>config.ru</code>.</p>
+<li><p>Tạo file <code>config.ru</code>.</p></li>
+</ul>
 
 <p>Note: Đây sẽ là file main để xử lý request.</p>
 
-<p>4️⃣ Chạy project với lệnh <code>bundle exec rackup</code></p>
+<ul>
+<li>Chạy project với lệnh <code>bundle exec rackup</code></li>
+</ul>
 
 <blockquote>
 <p>Project demo <a href="https://github.com/hdchinh/simple-rack-app">tại đây!</a></p>
 </blockquote>
 
-<h3 id="5-giải-thích-nội-dung-mã-nguồn-của-app-demo">5. Giải thích nội dung mã nguồn của app demo</h3>
+<h1 id="5-giải-thích-nội-dung-mã-nguồn-của-app-demo">5. Giải thích nội dung mã nguồn của app demo</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
@@ -273,7 +273,7 @@
 <span class="k">end</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>➡️ Nếu truy cập theo trang chủ thì sẽ chạy lệnh <code>run HomePage.new</code>.</p>
+<p>Nếu truy cập theo trang chủ thì sẽ chạy lệnh <code>run HomePage.new</code>.</p>
 
 <p>Nếu url người dùng request không trùng bất cứ trường hợp nào thì chạy lệnh <code>run MyNotFound.new</code> ở cuối.</p>
 
@@ -352,19 +352,21 @@
 </div>
 <p>Bạn thấy phức tạp? Không sao cả, chỉ cần chú ý đến dòng cuối cùng trong method call. Ta chỉ cần nhớ:</p>
 
-<p>1️⃣ Mỗi class sử dụng method call để cài đặt (yêu cầu của Rack).</p>
-
-<p>2️⃣ Trong method này nhận vào một params, đây chính là request đi tới.</p>
-
-<p>3️⃣ Kết quả trả về của method call này là một mảng gồm 3 phần tử:</p>
-
 <ul>
+<li><p>Mỗi class sử dụng method call để cài đặt (yêu cầu của Rack).</p></li>
+
+<li><p>Trong method này nhận vào một params, đây chính là request đi tới.</p></li>
+
+<li><p>Kết quả trả về của method call này là một mảng gồm 3 phần tử:</p>
+
+<ol>
 <li>Status code (Ví dụ như: 200 -&gt; success, 404 -&gt; not found).<br /></li>
 <li>Một hash, ở đây chính là header, chứa những thông tin mà trình duyệt cần.<br /></li>
 <li>Phần tử cuối cùng là một mảng, chính là phần body của kết quả trả về.</li>
+</ol></li>
 </ul>
 
-<h3 id="6-kết-luận">6. Kết luận</h3>
+<h1 id="6-kết-luận">6. Kết luận</h1>
 
 <p>Trên là một basic app xây dựng với Rack, vì định nghĩa chỉ đọc không làm sẽ rất khó hiểu, nên tôi làm demo trước, hy vọng trong thời gian tới nếu kiến thức thu lượm đủ để viết về cách vận hành của Rack một cách sâu sắc, tôi có thể tiếp tục chủ đề này.</p>
 
@@ -426,7 +428,7 @@ text-align: center;
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-06-16-tu-khoa-super-trong-ruby/">
-            <span class="next-text nav-default">Từ khoá super trong Ruby là gì?</span>
+            <span class="next-text nav-default">Từ Khoá Super Trong Ruby?</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

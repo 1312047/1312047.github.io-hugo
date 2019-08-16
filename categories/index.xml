@@ -21,24 +21,6 @@
     </item>
     
     <item>
-      <title>algo</title>
-      <link>https://1312047.github.io/categories/algo/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/categories/algo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Random</title>
-      <link>https://1312047.github.io/categories/random/</link>
-      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/categories/random/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>rails notes</title>
       <link>https://1312047.github.io/categories/rails-notes/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
@@ -62,6 +44,15 @@
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random</title>
+      <link>https://1312047.github.io/categories/random/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/categories/random/</guid>
       <description></description>
     </item>
     

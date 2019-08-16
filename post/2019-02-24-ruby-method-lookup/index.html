@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Ruby method lookup - The more your try, the more your learn</title>
+  <title>Ruby Method Lookup - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -38,14 +38,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Ruby method lookup" />
+<meta property="og:title" content="Ruby Method Lookup" />
 <meta property="og:description" content="Đặt vấn đề Cũng như nhiều ngôn ngữ khác, trong ruby, khi làm việc với một đối tượng thì có hai thứ ta phải quan tâm chính đó là thuộc tính của đối tượng và phương thức mà đối tượng có thể sử dụng (à mà gần như mọi thứ trong ruby đều là object nên đây là một kiến thức cơ bản nhưng cũng rất quan trọng cần phải nắm rõ)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-02-24-ruby-method-lookup/" />
 <meta property="article:published_time" content="2019-02-24T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-02-24T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Ruby method lookup">
+<meta itemprop="name" content="Ruby Method Lookup">
 <meta itemprop="description" content="Đặt vấn đề Cũng như nhiều ngôn ngữ khác, trong ruby, khi làm việc với một đối tượng thì có hai thứ ta phải quan tâm chính đó là thuộc tính của đối tượng và phương thức mà đối tượng có thể sử dụng (à mà gần như mọi thứ trong ruby đều là object nên đây là một kiến thức cơ bản nhưng cũng rất quan trọng cần phải nắm rõ).">
 
 
@@ -57,7 +57,7 @@
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ruby method lookup"/>
+<meta name="twitter:title" content="Ruby Method Lookup"/>
 <meta name="twitter:description" content="Đặt vấn đề Cũng như nhiều ngôn ngữ khác, trong ruby, khi làm việc với một đối tượng thì có hai thứ ta phải quan tâm chính đó là thuộc tính của đối tượng và phương thức mà đối tượng có thể sử dụng (à mà gần như mọi thứ trong ruby đều là object nên đây là một kiến thức cơ bản nhưng cũng rất quan trọng cần phải nắm rõ)."/>
 
 <!--[if lte IE 9]>
@@ -88,7 +88,7 @@
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -100,7 +100,7 @@
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -111,7 +111,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Ruby method lookup</h1>
+      <h1 class="post-title" style="font-size: 33px;">Ruby Method Lookup</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-02-24 </span>
@@ -129,16 +129,11 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-method-lookup">1. Method Lookup</a></li>
 <li><a href="#2-extend-include-trong-ruby">2. Extend, Include trong Ruby</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -146,13 +141,13 @@
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Cũng như nhiều ngôn ngữ khác, trong ruby, khi làm việc với một đối tượng thì có hai thứ ta phải quan tâm chính đó là thuộc tính của đối tượng và phương thức mà đối tượng có thể sử dụng (à mà gần như mọi thứ trong ruby đều là <code>object</code> nên đây là một kiến thức cơ bản nhưng cũng rất quan trọng cần phải nắm rõ). Việc ta có thể sử dụng phương thức của đối tượng thông qua dấu <code>.</code> không phải là gì mới mẻ, nhưng có một số điều đáng ghi nhớ về cách mà ruby tìm kiếm phương thức.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-method-lookup">1. Method Lookup</h3>
+<h1 id="1-method-lookup">1. Method Lookup</h1>
 
 <p>Đã khi nào bạn tự hỏi, giả sử nếu bạn có một class A, và class này include thêm hai module vào nữa, nếu trong hai module đó cùng định nghĩa một phương thức, vậy khi instance của A gọi đến phương thức đó, điều gì sẽ xảy ra? Phương thức trong module nào được chạy?</p>
 
@@ -331,7 +326,7 @@
 </div>
 <p>Nếu bạn đang còn một chút bối rối vì những từ khoá và cách sử dụng <code>extend</code> và <code>include</code> hãy đọc tiếp mục dưới.</p>
 
-<h3 id="2-extend-include-trong-ruby">2. Extend, Include trong Ruby</h3>
+<h1 id="2-extend-include-trong-ruby">2. Extend, Include trong Ruby</h1>
 
 <p>Trong ruby không có đa kế thừa, thay vào đó ruby sử dụng <code>mixin</code>.</p>
 
@@ -341,7 +336,7 @@
 
 <p><code>extend:</code> đúng với ngữ nghĩa của nó, <code>mở rộng</code>, <code>extend</code> có thể dùng để mở rộng một class hoặc cũng có thể dùng để mở rộng một instance.  Trong ví dụ trên mục 1, tôi <code>extend</code> object <code>m</code>, từ đó giúp m được mở rộng thêm các phương thức ứng với tất cả các <code>instance method</code> trong module nó extend (đây là &ldquo;mở rộng&rdquo; cho một đối tượng). Nếu tôi muốn mở rộng cho một class, tôi sẽ extend moudle trong class đó, và sau đó tất cả các <code>instance method</code> trong module sẽ trở thành như các <code>class method</code> cho class (đây là sự &ldquo;mở rộng&rdquo; cho một lớp). Vậy còn <code>module method</code> trong moudle thì sao?Câu trả lời vẫn như trên, những phương thức module thì để module đó sử dụng.</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Mixin là một chức năng mạnh mẽ trong ruby, nó giúp ta mở rộng class/object bằng các method mới. Tuy nhiên, hãy cẩn thận để đảm bảo bạn gọi đúng được method mà bạn cần.</p>
 
@@ -398,11 +393,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-02-25-van-de-n&#43;1-trong-rails/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Cục nợ N &#43; 1 và hướng xử lý</span>
+            <span class="prev-text nav-default">Cục Nợ N &#43; 1 Và Hướng Xử Lý</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/">
-            <span class="next-text nav-default">Lưu trữ thông tin bảo mật?</span>
+            <span class="next-text nav-default">Lưu Trữ Thông Tin Bảo Mật?</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

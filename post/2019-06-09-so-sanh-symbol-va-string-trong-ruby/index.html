@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Symbol và String trong Ruby - The more your try, the more your learn</title>
+  <title>Symbol Và String Trong Ruby - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,7 +39,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Symbol và String trong Ruby" />
+<meta property="og:title" content="Symbol Và String Trong Ruby" />
 <meta property="og:description" content="Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
 Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa." />
 <meta property="og:type" content="article" />
@@ -47,7 +47,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 <meta property="article:published_time" content="2019-06-09T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-06-09T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Symbol và String trong Ruby">
+<meta itemprop="name" content="Symbol Và String Trong Ruby">
 <meta itemprop="description" content="Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
 Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa.">
 
@@ -60,7 +60,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Symbol và String trong Ruby"/>
+<meta name="twitter:title" content="Symbol Và String Trong Ruby"/>
 <meta name="twitter:description" content="Đặt vấn đề Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.
 Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về việc nên sử dụng symbol nhưng chưa từng được nghe 1 lý giải đủ rõ ràng về việc vì sao nên sử dụng nó, mà có lẽ tôi cũng không thích nó, sự xuất hiện của symbol làm cú pháp trong rails không thống nhất khi có thể viết nhiều kiểu để biểu hiện cùng một ý nghĩa."/>
 
@@ -92,7 +92,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -104,7 +104,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -115,7 +115,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Symbol và String trong Ruby</h1>
+      <h1 class="post-title" style="font-size: 33px;">Symbol Và String Trong Ruby</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-06-09 </span>
@@ -133,19 +133,14 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-khai-báo-và-tư-tưởng">1. Khai báo và tư tưởng</a></li>
 <li><a href="#2-mutable-và-immutable">2. Mutable và Immutable</a></li>
 <li><a href="#3-symbol-và-string-được-lưu-trữ-như-nào">3. Symbol và String được lưu trữ như nào.</a></li>
 <li><a href="#4-về-tốc-độ-thực-thi">4. Về tốc độ thực thi</a></li>
 <li><a href="#5-điểm-yếu-của-symbol">5. Điểm yếu của Symbol</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -153,7 +148,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Symbol là khái niệm rất quen tai và quen tay với lập trình viên ruby, ắt hẳn ai cũng đã từng nghe không ít thì nhiều, bản thân symbol cũng xuất hiện rất thường xuyên trong rails framework.</p>
 
@@ -162,9 +157,9 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
 <p>Có một lý giải đơn giản và dễ nhớ để phân biệt giữa 2 đối tượng này đó là: Symbol mà giá trị giống nhau thì có cùng object_id, còn String thì dù giá trị giống nhau, mỗi chuỗi vẫn sẽ có một object_id khác nhau.<br />
 Liệu lý giải này đã đủ? Hãy cùng tìm hiểu.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-khai-báo-và-tư-tưởng">1. Khai báo và tư tưởng</h3>
+<h1 id="1-khai-báo-và-tư-tưởng">1. Khai báo và tư tưởng</h1>
 
 <p>Để khai báo một symbol bạn thêm dấu <code>:</code> đằng trước.</p>
 <div class="highlight"><div class="chroma">
@@ -189,7 +184,7 @@ Liệu lý giải này đã đủ? Hãy cùng tìm hiểu.</p>
 <li><p>Symbol là một <a href="https://hdchinh.com/programing/2019/04/08/immutable-va-mutable-trong-ruby.html">immutable</a>.</p></li>
 </ol>
 
-<h3 id="2-mutable-và-immutable">2. Mutable và Immutable</h3>
+<h1 id="2-mutable-và-immutable">2. Mutable và Immutable</h1>
 
 <p>Tôi đã từng trình bày một bài viết về chủ đề này. Các bạn có thể tham khảo tại <a href="https://hdchinh.com/programing/2019/04/08/immutable-va-mutable-trong-ruby.html">đây</a>.</p>
 
@@ -249,7 +244,7 @@ Liệu lý giải này đã đủ? Hãy cùng tìm hiểu.</p>
 </div>
 <p>Thật tuyệt, vậy là bằng một cách nào đó, khi sử dụng symbol, ruby biết được symbol này đã tồn tại hay chưa, nếu tồn tại rồi thì khi được gọi chúng sẽ dùng lại đối tượng đã có chứ không tạo thêm vùng nhớ mới.</p>
 
-<h3 id="3-symbol-và-string-được-lưu-trữ-như-nào">3. Symbol và String được lưu trữ như nào.</h3>
+<h1 id="3-symbol-và-string-được-lưu-trữ-như-nào">3. Symbol và String được lưu trữ như nào.</h1>
 
 <p>Một tiêu đề có vẻ buồn cười, vì cái đối tượng trong ruby tất nhiên được lưu ở bộ nhớ trong với phân vùng gọi là heap.</p>
 
@@ -281,7 +276,7 @@ Liệu lý giải này đã đủ? Hãy cùng tìm hiểu.</p>
 <span class="nb">puts</span> <span class="no">Symbol</span><span class="o">.</span><span class="n">all_symbols</span><span class="o">.</span><span class="n">size</span></code></pre></td></tr></table>
 </div>
 </div>
-<h3 id="4-về-tốc-độ-thực-thi">4. Về tốc độ thực thi</h3>
+<h1 id="4-về-tốc-độ-thực-thi">4. Về tốc độ thực thi</h1>
 
 <p>Qua những gì để phân tích. Ta rút ra một kết luận là Symbol thì tiết kiệm vùng nhớ một cách đáng kể so với String (xem lại cơ chế lưu vào table bên trên).</p>
 
@@ -309,7 +304,7 @@ Liệu lý giải này đã đủ? Hãy cùng tìm hiểu.</p>
 
 <p>Để thử nghiệm bạn có thể sử dụng thư viện benchmark để kiểm nghiệm kết luận.</p>
 
-<h3 id="5-điểm-yếu-của-symbol">5. Điểm yếu của Symbol</h3>
+<h1 id="5-điểm-yếu-của-symbol">5. Điểm yếu của Symbol</h1>
 
 <p>Nếu Symbol toàn năng, toàn thiện thì đã không có lý do gì nó không thay thế luôn String. Bản chất của điểm yếu của Symbol cũng chính là điểm mạnh của nó.</p>
 
@@ -321,7 +316,7 @@ Liệu lý giải này đã đủ? Hãy cùng tìm hiểu.</p>
 
 <p>Trong trường hợp này rõ ràng sử dụng String là điều hiển nhiên.</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Nếu có nhận xét hoặc phản hồi hãy để lại phản hồi bên dưới nhé.</p>
 
@@ -378,11 +373,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">So sánh Class Method và Scope</span>
+            <span class="prev-text nav-default">So Sánh Class Method Và Scope</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/">
-            <span class="next-text nav-default">Tấn công SQL injection</span>
+            <span class="next-text nav-default">Tấn Công SQL Jnjection</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

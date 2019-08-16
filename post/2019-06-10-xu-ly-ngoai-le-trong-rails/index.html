@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Exception trong Rails - The more your try, the more your learn</title>
+  <title>Exception Trong Rails - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,7 +39,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ng
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Exception trong Rails" />
+<meta property="og:title" content="Exception Trong Rails" />
 <meta property="og:description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
 Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để." />
 <meta property="og:type" content="article" />
@@ -47,7 +47,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 <meta property="article:published_time" content="2019-06-10T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-06-10T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Exception trong Rails">
+<meta itemprop="name" content="Exception Trong Rails">
 <meta itemprop="description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
 Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để.">
 
@@ -60,7 +60,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 
 <meta itemprop="keywords" content="rails,ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Exception trong Rails"/>
+<meta name="twitter:title" content="Exception Trong Rails"/>
 <meta name="twitter:description" content="Đặt vấn đề Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.
 Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài hành tinh bắt cóc&rdquo;, wtf?. Đây là một tình huống không bình thường và tôi không có một HÀNH ĐỘNG THỐNG NHẤT nào để đối phó với 1 tình huống như vậy, tôi có thể khóc, có thể báo công an, nhưng chắc chắn không thể có một cách giải quyết triệt để."/>
 
@@ -92,7 +92,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -104,7 +104,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -115,7 +115,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Exception trong Rails</h1>
+      <h1 class="post-title" style="font-size: 33px;">Exception Trong Rails</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-06-10 </span>
@@ -133,19 +133,14 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-tìm-hiểu-về-exception">1. Tìm hiểu về Exception</a></li>
 <li><a href="#2-làm-sao-để-lấy-về-đối-tượng-exception">2. Làm sao để lấy về đối tượng Exception</a></li>
 <li><a href="#3-xây-dựng-một-class-exception">3. Xây dựng một class Exception</a></li>
 <li><a href="#4-các-lớp-exception-có-sẵn-trong-ruby">4. Các lớp Exception có sẵn trong Ruby</a></li>
 <li><a href="#5-cách-bắt-exception-hợp-lý">5. Cách bắt Exception hợp lý</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -153,7 +148,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Tôi có một số tình huống diễn ra hàng ngày về con mèo của tôi. Nếu nó đói tôi cho nó ăn, nếu nó đi vs lung tung tôi sẽ dọn dẹp chúng.</p>
 
@@ -163,9 +158,9 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 
 <p>Trong bài viết này chúng ta sẽ tìm hiểu về exception trong ruby.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-tìm-hiểu-về-exception">1. Tìm hiểu về Exception</h3>
+<h1 id="1-tìm-hiểu-về-exception">1. Tìm hiểu về Exception</h1>
 
 <p>Đầu tiên chúng ta phải ghi nhớ rằng khi một exception được gọi, chương trình của bạn sẽ ngừng và đoạn code phía sau không thể chạy được nữa.</p>
 
@@ -213,7 +208,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 </div>
 <p>Flow logic đơn giản về exception như trên.</p>
 
-<h3 id="2-làm-sao-để-lấy-về-đối-tượng-exception">2. Làm sao để lấy về đối tượng Exception</h3>
+<h1 id="2-làm-sao-để-lấy-về-đối-tượng-exception">2. Làm sao để lấy về đối tượng Exception</h1>
 
 <p>Như chúng ta đã biết, gần như mọi thứ trong ruby đều là object(Ngoại trừ method và block). Vậy nên Exception cũng là một đối tượng.</p>
 
@@ -246,7 +241,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 
 <p>Tôi có thể dùng e để xuất ra các thông tin mà tôi cần như class name hay message thông báo lỗi.</p>
 
-<h3 id="3-xây-dựng-một-class-exception">3. Xây dựng một class Exception</h3>
+<h1 id="3-xây-dựng-một-class-exception">3. Xây dựng một class Exception</h1>
 
 <p>Một sự thật hiển nhiên là những thiết kế có sẵn không bao giờ có thể cover cho tất cả các trường hợp có thể xảy ra trong thực tiễn. Đôi lúc bạn muốn thêm một exception để cover cho trường hợp của riêng dự án của bạn thì sao?</p>
 
@@ -270,13 +265,13 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 </div>
 <p>Vậy trong class class <code>MeoException</code> ta sẽ thiết kế những gì? 😄 Tôi cũng chưa tìm hiểu.</p>
 
-<h3 id="4-các-lớp-exception-có-sẵn-trong-ruby">4. Các lớp Exception có sẵn trong Ruby</h3>
+<h1 id="4-các-lớp-exception-có-sẵn-trong-ruby">4. Các lớp Exception có sẵn trong Ruby</h1>
 
 <p><img src="/images/ruby-exception.jpg" alt="hoa" /></p>
 
 <p>Đây là sơ đồ về các lớp exception trong ruby, nếu ta rescue một exception X, X lại có dăm 3 exception con, thì chỉ cần chương trình của bạn phát sinh vấn đề và trả ra một exception con nào đó thì X được gọi.</p>
 
-<h3 id="5-cách-bắt-exception-hợp-lý">5. Cách bắt Exception hợp lý</h3>
+<h1 id="5-cách-bắt-exception-hợp-lý">5. Cách bắt Exception hợp lý</h1>
 
 <p><strong>Cách 1:</strong></p>
 <div class="highlight"><div class="chroma">
@@ -335,7 +330,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &ldquo;người ngoài
 </div>
 <p>Đây là cách tốt nhất, ta goi trực tiếp đến trường hợp ngoại lệ mà ta cần bắt lấy và xử lý.</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Nếu có phản hồi hãy để lại bình luận bên dưới bài viết.</p>
 
@@ -393,11 +388,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-06-11-public-private-va-protected-method-trong-ruby/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Public, private và protected</span>
+            <span class="prev-text nav-default">Public, Private Và Protected</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/">
-            <span class="next-text nav-default">So sánh Class Method và Scope</span>
+            <span class="next-text nav-default">So Sánh Class Method Và Scope</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

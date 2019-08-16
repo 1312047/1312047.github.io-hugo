@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Immutable vs Mutable - The more your try, the more your learn</title>
+  <title>Immutable Vs Mutable - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,7 +39,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Immutable vs Mutable" />
+<meta property="og:title" content="Immutable Vs Mutable" />
 <meta property="og:description" content="Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
 Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó." />
 <meta property="og:type" content="article" />
@@ -47,7 +47,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
 <meta property="article:published_time" content="2019-04-08T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-04-08T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Immutable vs Mutable">
+<meta itemprop="name" content="Immutable Vs Mutable">
 <meta itemprop="description" content="Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
 Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó.">
 
@@ -60,7 +60,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
 
 <meta itemprop="keywords" content="ruby,programming," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Immutable vs Mutable"/>
+<meta name="twitter:title" content="Immutable Vs Mutable"/>
 <meta name="twitter:description" content="Đặt vấn đề Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.
 Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: mutable, immutable và cách ruby xử lý hai khái niệm đó."/>
 
@@ -92,7 +92,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -104,7 +104,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -115,7 +115,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Immutable vs Mutable</h1>
+      <h1 class="post-title" style="font-size: 33px;">Immutable Vs Mutable</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-04-08 </span>
@@ -134,16 +134,11 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-khái-niệm-mutable-immutable-và-ruby">1. Khái niệm mutable, immutable và ruby</a></li>
 <li><a href="#2-liệu-đây-có-phải-là-một-kiến-thức-cần-thiết">2. Liệu đây có phải là một kiến thức cần thiết?</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -151,13 +146,13 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Vấn đề ở đây là tôi không có vấn đề gì để đặt cả, bài viết nằm trong mớ kiến thức rối bòng bong của tôi, và giờ tôi cần viết lại như một cách để ôn tập, hy vọng nó có thể giúp được ai đó.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-khái-niệm-mutable-immutable-và-ruby">1. Khái niệm mutable, immutable và ruby</h3>
+<h1 id="1-khái-niệm-mutable-immutable-và-ruby">1. Khái niệm mutable, immutable và ruby</h1>
 
 <p>Đi thẳng vào vấn đề, chúng ta cần đề cập đến ba vấn đề: <code>mutable</code>, <code>immutable</code> và cách ruby xử lý hai khái niệm đó. Trước hết nếu bạn đã quên, thì tôi xin được nhắc lại định nghĩa của chúng.</p>
 
@@ -232,7 +227,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
 </div>
 <p>Integer, float, string, boolean chúng đều là immutable.</p>
 
-<h3 id="2-liệu-đây-có-phải-là-một-kiến-thức-cần-thiết">2. Liệu đây có phải là một kiến thức cần thiết?</h3>
+<h1 id="2-liệu-đây-có-phải-là-một-kiến-thức-cần-thiết">2. Liệu đây có phải là một kiến thức cần thiết?</h1>
 
 <p>Chắc chắn là có.</p>
 
@@ -374,7 +369,7 @@ value: HoangDuyChinh | location: 47196120971580
 Final value: HoangDuyChinh | location: 47196120971580</pre></td></tr></table>
 </div>
 </div>
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Trong bài viết có đề cập đến <code>object_id</code> và <code>GC</code>, đây là hai vấn đề nền tảng trong ruby, hy vọng sẽ có khả năng viết các bài khác về hai chủ đề này, nếu có thắc mắc hay đóng góp cho thiếu xót của tác giả, hãy để lại bình luận bên dưới 😄.</p>
 
@@ -432,11 +427,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Upload với S3 trong rails</span>
+            <span class="prev-text nav-default">Upload Với S3 Trong Rails</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-02-25-van-de-n&#43;1-trong-rails/">
-            <span class="next-text nav-default">Cục nợ N &#43; 1 và hướng xử lý</span>
+            <span class="next-text nav-default">Cục Nợ N &#43; 1 Và Hướng Xử Lý</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

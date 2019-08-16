@@ -14,12 +14,6 @@
   </url>
   
   <url>
-    <loc>https://1312047.github.io/tags/til/</loc>
-    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://1312047.github.io/tags/</loc>
     <lastmod>2019-08-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -45,40 +39,8 @@
   </url>
   
   <url>
-    <loc>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/categories/algo/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/tags/programming/</loc>
-    <lastmod>2019-07-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/categories/random/</loc>
-    <lastmod>2019-07-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</loc>
-    <lastmod>2019-07-08T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/tags/random/</loc>
-    <lastmod>2019-07-08T00:00:00+00:00</lastmod>
+    <loc>https://1312047.github.io/tags/til/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -300,6 +262,12 @@
   </url>
   
   <url>
+    <loc>https://1312047.github.io/tags/programming/</loc>
+    <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</loc>
     <lastmod>2019-02-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -331,6 +299,18 @@
     <lastmod>2019-02-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/categories/random/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/tags/random/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>

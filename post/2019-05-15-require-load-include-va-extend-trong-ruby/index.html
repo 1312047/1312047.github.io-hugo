@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Require và Load trong Ruby - The more your try, the more your learn</title>
+  <title>Require Và Load Trong Ruby - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Require và Load trong Ruby" />
+<meta property="og:title" content="Require Và Load Trong Ruby" />
 <meta property="og:description" content="Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
 1 2 3 4 5 6 7  require &#39;animal&#39; class Cat &lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau." />
 <meta property="og:type" content="article" />
@@ -47,7 +47,7 @@
 <meta property="article:published_time" content="2019-05-15T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-05-15T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Require và Load trong Ruby">
+<meta itemprop="name" content="Require Và Load Trong Ruby">
 <meta itemprop="description" content="Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
 1 2 3 4 5 6 7  require &#39;animal&#39; class Cat &lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau.">
 
@@ -60,7 +60,7 @@
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Require và Load trong Ruby"/>
+<meta name="twitter:title" content="Require Và Load Trong Ruby"/>
 <meta name="twitter:description" content="Đặt vấn đề Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method require hoặc load. Ví dụ:
 1 2 3 4 5 6 7  require &#39;animal&#39; class Cat &lt; Animal def hello @cat = Animal.new end end   Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là mixin để có thể sử dụng các phương thức trong nhiều moudle khác nhau."/>
 
@@ -92,7 +92,7 @@
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -104,7 +104,7 @@
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -115,7 +115,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Require và Load trong Ruby</h1>
+      <h1 class="post-title" style="font-size: 33px;">Require Và Load Trong Ruby</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-05-15 </span>
@@ -133,17 +133,12 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-so-sánh-require-và-require-relative">1. So sánh require và require_relative</a></li>
 <li><a href="#2-so-sánh-require-và-load">2. So sánh require và load</a></li>
 <li><a href="#3-so-sánh-include-và-extend">3. So sánh include và extend</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -151,7 +146,7 @@
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Khác với rails, một framework đã có hỗ trợ autoloading, một chương trình ruby đơn thuần không có cơ chế đó. Để sử dụng những mã nguồn phụ thuộc ta phải &ldquo;gọi&rdquo; chúng tại file hiện tại bằng method <code>require</code> hoặc <code>load</code>. Ví dụ:</p>
 <div class="highlight"><div class="chroma">
@@ -176,9 +171,9 @@
 </div>
 <p>Ở một vấn đề khác trong ruby, đó là ngôn ngữ này không hỗ trợ đa kế thừa, thay vào đó chúng có 1 cơ chế gọi là <code>mixin</code> để có thể sử dụng các phương thức trong nhiều <code>moudle</code> khác nhau. Ta sử dụng 2 method là <code>include</code> và <code>extend</code> để hiện thực hoá điều này.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-so-sánh-require-và-require-relative">1. So sánh require và require_relative</h3>
+<h1 id="1-so-sánh-require-và-require-relative">1. So sánh require và require_relative</h1>
 
 <p>Trong tiêu đề bài viết không hề đề cập đến <code>require_relative</code> vậy sao giờ phải tìm hiểu về nó? Câu trả lời nằm ở cách mà phương thức <code>require</code> hoạt động.</p>
 
@@ -263,7 +258,7 @@
 <p>$: là một cách viết tắt cho $LOAD_PATH</p>
 </blockquote>
 
-<h3 id="2-so-sánh-require-và-load">2. So sánh require và load</h3>
+<h1 id="2-so-sánh-require-và-load">2. So sánh require và load</h1>
 
 <p>Như trong mục 1 đã nói vể require, thực chất load có cách hoạt động và mục đích sử dụng rất giống với require. Cả 2 đều được dùng đê &ldquo;gọi&rdquo; những đoạn mã cần thiết vào file hiện tại đang làm việc, như việc bạn muốn import thêm một file js vào file html đang làm việc nào đó.</p>
 
@@ -294,13 +289,13 @@ and Kernel#require in production.</pre></td></tr></table>
 
 <p>Note: Sau khi bạn chạy tới method require, nó sẽ đọc file bạn require và lưu tại bộ nhớ, những lần tiếp theo khi bạn chạy tới file đó, nó sẽ đọc nội dung từ bộ nhớ (mà nó đã lưu lại tại lần load đầu tiên), điều này giúp tăng performance vì không phải lood lại file lần nữa, nhưng đồng nghĩa với đó là những thay đổi sau đó tại file require sẽ không được load khi chạy.</p>
 
-<h3 id="3-so-sánh-include-và-extend">3. So sánh include và extend</h3>
+<h1 id="3-so-sánh-include-và-extend">3. So sánh include và extend</h1>
 
 <p>Không có nhiều liên hệ với hai mục đầu, 2 phương thức được đề cập trong mục 3 để giải quyết bài tóan mixin trong ruby, như đã có lần tôi trình bày khái quát <a href="https://hdchinh.com/post/2019-02-24-ruby-method-lookup/">tại đây</a>.</p>
 
 <p>Có vẻ vì cao hứng chém gió title quá, mà tôi quên mất đã viết về hai phương thức này một lần, và hiện tại vẫn chưa có gì để bổ sung thêm, nếu cần hãy đọc lại bài viết tham khảo bên trên nhé.</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Tham khảo:</p>
 
@@ -359,11 +354,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Tổng quan nguyên lý SOLID</span>
+            <span class="prev-text nav-default">Tổng Quan Nguyên Lý SOLID</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/">
-            <span class="next-text nav-default">Cập nhật dữ liệu với ActiveRecord</span>
+            <span class="next-text nav-default">Cập Nhật Dữ Liệu Với ActiveRecord</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

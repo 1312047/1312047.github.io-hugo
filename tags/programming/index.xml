@@ -6,25 +6,13 @@
     <description>Recent content in programming on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bài toán brackets</title>
-      <link>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</guid>
-      <description>Yêu cầu Input Đầu vào là 1 chuỗi chỉ chứa các ký tự nằm trong mảng sau:
-1  [&amp;#39;{&amp;#39;, &amp;#39;}&amp;#39;, &amp;#39;[&amp;#39;, &amp;#39;]&amp;#39;, &amp;#39;(&amp;#39;, &amp;#39;)&amp;#39;]   Ex: &amp;quot;{{}}&amp;quot;, &amp;quot;[(})&amp;quot; &amp;hellip;
-Output Trả về kết quả liệu chuỗi đầu vào có phải là một brackets hợp lệ hay không.
-➡️ Một chuỗi hợp lệ là một chuỗi dấu ngoặc có thể sử dụng trong một phép toán hợp lệ.</description>
-    </item>
-    
-    <item>
-      <title>Immutable vs Mutable</title>
+      <title>Immutable Vs Mutable</title>
       <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -34,7 +22,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     </item>
     
     <item>
-      <title>Pass Reference vs Pass Value, Ruby!</title>
+      <title>Pass Reference Vs Pass Value, Ruby!</title>
       <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       

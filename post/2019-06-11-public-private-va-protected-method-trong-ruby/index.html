@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Public, private và protected - The more your try, the more your learn</title>
+  <title>Public, Private Và Protected - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Public, private và protected" />
+<meta property="og:title" content="Public, Private Và Protected" />
 <meta property="og:description" content="Đặt vấn đề Khi còn học đại học, chúng ta được học về tầm vực của các phương thức như sau:
  Public phương thức, gọi ở đâu cũng được chỉ cần đảm bảo đã include cái class khai báo phương thức đó là được.
  Protected phương thức, gọi ở chính class khai báo nó, ngoài ra còn có thẻ gọi ở các lớp kế thừa class khai báo phương thức này." />
@@ -49,7 +49,7 @@
 <meta property="article:published_time" content="2019-06-11T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-06-11T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Public, private và protected">
+<meta itemprop="name" content="Public, Private Và Protected">
 <meta itemprop="description" content="Đặt vấn đề Khi còn học đại học, chúng ta được học về tầm vực của các phương thức như sau:
  Public phương thức, gọi ở đâu cũng được chỉ cần đảm bảo đã include cái class khai báo phương thức đó là được.
  Protected phương thức, gọi ở chính class khai báo nó, ngoài ra còn có thẻ gọi ở các lớp kế thừa class khai báo phương thức này.">
@@ -63,7 +63,7 @@
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Public, private và protected"/>
+<meta name="twitter:title" content="Public, Private Và Protected"/>
 <meta name="twitter:description" content="Đặt vấn đề Khi còn học đại học, chúng ta được học về tầm vực của các phương thức như sau:
  Public phương thức, gọi ở đâu cũng được chỉ cần đảm bảo đã include cái class khai báo phương thức đó là được.
  Protected phương thức, gọi ở chính class khai báo nó, ngoài ra còn có thẻ gọi ở các lớp kế thừa class khai báo phương thức này."/>
@@ -96,7 +96,7 @@
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -108,7 +108,7 @@
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -119,7 +119,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Public, private và protected</h1>
+      <h1 class="post-title" style="font-size: 33px;">Public, Private Và Protected</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-06-11 </span>
@@ -137,18 +137,13 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#lấy-một-ví-dụ">Lấy một ví dụ</a></li>
 <li><a href="#thêm-một-class-con-kế-thừa">Thêm một class con kế thừa</a></li>
 <li><a href="#gọi-3-phương-thức-cat-trong-một-method-thuộc-yellowcat">Gọi 3 phương thức Cat trong một method thuộc YellowCat</a></li>
 <li><a href="#trong-phương-thức-yellow-cat-khai-báo-một-đối-tượng-cat-và-gọi-tới-3-phương-thức">Trong phương thức yellow_cat khai báo một đối tượng Cat và gọi tới 3 phương thức</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -156,7 +151,7 @@
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Khi còn học đại học, chúng ta được học về tầm vực của các phương thức như sau:</p>
 
@@ -170,7 +165,7 @@
 
 <p>Những trích rút trên dựa theo ngôn ngữ mà chúng ta cùng theo đuổi ngày đại học C++. Vậy với Ruby? Liệu những phát biểu trên liệu còn đúng?</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
 <p>Không, những trích rút trên không còn đúng đắn hoàn toàn với ngôn ngữ Ruby. Có một số khác biệt. Trong bài viết này chúng ta sẽ đi sơ qua về nó.</p>
 
@@ -178,7 +173,7 @@
 
 <p>=&gt; Vì đây không phải kiến thức cao siêu gì cả, có vô vàn tài liệu anh ngữ đề cập đến nó rồi và tôi không thấy cái lý do gì để cố đọc tài liệu thật nhiều, translate thật đã tay, rồi vietsub ra một bài viết dài như sông Hồng để nói về một chủ đề vô cùng normal để thể hiện bản thân cả 😄</p>
 
-<h3 id="lấy-một-ví-dụ">Lấy một ví dụ</h3>
+<h1 id="lấy-một-ví-dụ">Lấy một ví dụ</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
@@ -242,7 +237,7 @@
 </div>
 <p><strong>Note:</strong> public có thể gọi ngoài tầm vực của một class, những method còn lại thì không. Đồng nghĩa với việc bạn chỉ cần đảm bảo ref được file chưa class có phương thức public đó thì bạn có thể thoải mái gọi phương thức này.</p>
 
-<h3 id="thêm-một-class-con-kế-thừa">Thêm một class con kế thừa</h3>
+<h1 id="thêm-một-class-con-kế-thừa">Thêm một class con kế thừa</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
@@ -264,7 +259,7 @@
 </div>
 <p><strong>Note:</strong> Phương thức public có thể được gọi công khai bởi class kế thừa của class chưa phương thức đó.</p>
 
-<h3 id="gọi-3-phương-thức-cat-trong-một-method-thuộc-yellowcat">Gọi 3 phương thức Cat trong một method thuộc YellowCat</h3>
+<h1 id="gọi-3-phương-thức-cat-trong-một-method-thuộc-yellowcat">Gọi 3 phương thức Cat trong một method thuộc YellowCat</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
@@ -302,7 +297,7 @@
 </div>
 <p><strong>Note:</strong> Cả 3 dạng phương thức đều có thể được gọi trong lớp con (Trong lớp con nhé).</p>
 
-<h3 id="trong-phương-thức-yellow-cat-khai-báo-một-đối-tượng-cat-và-gọi-tới-3-phương-thức">Trong phương thức yellow_cat khai báo một đối tượng Cat và gọi tới 3 phương thức</h3>
+<h1 id="trong-phương-thức-yellow-cat-khai-báo-một-đối-tượng-cat-và-gọi-tới-3-phương-thức">Trong phương thức yellow_cat khai báo một đối tượng Cat và gọi tới 3 phương thức</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
@@ -346,7 +341,7 @@
 
 <p>2️⃣ <strong>Explicit receiver</strong>: Chỉ định rõ ràng đối tượng sẽ thực hiện phương thức.</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Nếu có đóng góp về bài viết hoặc ghét thái độ tác giả viết bài sơ sài hời hợt thì hãy để lại bình luận nhé.</p>
 
@@ -403,11 +398,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-06-16-tu-khoa-super-trong-ruby/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Từ khoá super trong Ruby là gì?</span>
+            <span class="prev-text nav-default">Từ Khoá Super Trong Ruby?</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-06-10-xu-ly-ngoai-le-trong-rails/">
-            <span class="next-text nav-default">Exception trong Rails</span>
+            <span class="next-text nav-default">Exception Trong Rails</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

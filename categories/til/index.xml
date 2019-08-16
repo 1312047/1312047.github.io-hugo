@@ -12,18 +12,14 @@
     
     
     <item>
-      <title>Terminal macOS tricks</title>
+      <title>Terminal macOS Tricks</title>
       <link>https://1312047.github.io/post/2019-08-05-setup-terminal-macos/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-08-05-setup-terminal-macos/</guid>
-      <description>1️⃣ Config to show branch in Terminal
-Open .bash_profile file then add:
-1 2 3 4 5  parse_git_branch() { git branch 2&amp;gt; /dev/null | sed -e &amp;#39;/^[^*]/d&amp;#39; -e &amp;#39;s/* \(.*\)/ (\1)/&amp;#39; } export PS1=&amp;#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&amp;#34;   2️⃣ Setup to use subl command in macOS
-Run:
-1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   References:
-[1]https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal
-[2]https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/</description>
+      <description>1. Config to show branch in Terminal Open .bash_profile file then add:
+1 2 3 4 5  parse_git_branch() { git branch 2&amp;gt; /dev/null | sed -e &amp;#39;/^[^*]/d&amp;#39; -e &amp;#39;s/* \(.*\)/ (\1)/&amp;#39; } export PS1=&amp;#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&amp;#34;   2. Setup to use subl command in macOS Run:
+1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   3. Setup to use code command in macOS In VSCode Window, press command + shift + P to open package install.</description>
     </item>
     
   </channel>

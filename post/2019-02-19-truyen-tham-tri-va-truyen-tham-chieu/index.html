@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Pass Reference vs Pass Value, Ruby! - The more your try, the more your learn</title>
+  <title>Pass Reference Vs Pass Value, Ruby! - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -38,14 +38,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Pass Reference vs Pass Value, Ruby!" />
+<meta property="og:title" content="Pass Reference Vs Pass Value, Ruby!" />
 <meta property="og:description" content="Đặt vấn đề Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/" />
 <meta property="article:published_time" content="2019-02-19T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-02-19T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Pass Reference vs Pass Value, Ruby!">
+<meta itemprop="name" content="Pass Reference Vs Pass Value, Ruby!">
 <meta itemprop="description" content="Đặt vấn đề Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục.">
 
 
@@ -57,7 +57,7 @@
 
 <meta itemprop="keywords" content="programming,ruby," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pass Reference vs Pass Value, Ruby!"/>
+<meta name="twitter:title" content="Pass Reference Vs Pass Value, Ruby!"/>
 <meta name="twitter:description" content="Đặt vấn đề Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục."/>
 
 <!--[if lte IE 9]>
@@ -88,7 +88,7 @@
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -100,7 +100,7 @@
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -111,7 +111,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Pass Reference vs Pass Value, Ruby!</h1>
+      <h1 class="post-title" style="font-size: 33px;">Pass Reference Vs Pass Value, Ruby!</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-02-19 </span>
@@ -130,16 +130,11 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-một-số-ý-mà-tôi-có-thể-chắc-chắn-mà-chúng-ta-phải-làm-rõ-như-sau">1. Một số ý mà tôi có thể chắc chắn mà chúng ta phải làm rõ như sau:</a></li>
 <li><a href="#2-pass-value-và-reference-trong-ruby">2. Pass value và reference trong ruby</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -147,13 +142,13 @@
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Chủ đề bài viết ngày hôm nay vốn đã được khơi gợi mơ hồ trong tôi từ rất lâu, nhớ không nhầm thì đó là từ ngày học môn nhập môn lập trình tại trường KHTN, giảng viên có nói lướt qua về khái niệm này, đơn thuần chỉ là lướt qua thôi,vì dù rằng có đi sâu vào hơn nữa thì sinh viên cũng chỉ tổ ngủ gục. Thoáng cái đã 5,6 năm trôi qua, giờ ngồi đây khi đang chuẩn bị thất nghiệp, tôi có hứng thú tìm lại cảm giác thanh xuân nơi giảng đường bằng cách mò mẫm lại cái chủ đề mà ngày xưa tôi từng học (mà hiểu chưa tinh tường), rồi cũng từng trả lời khi đi phỏng vấn (mà người phỏng vấn cũng chỉ hỏi qua). Ôi chao! sao đau đầu đến thế nhỉ? Định làm một bài viết đầy đủ, tường minh mà có quá nhiều thứ cần phải nghiềm ngẫm lại, đặt phím gõ rồi bỏ thì không nỡ, mà viết thì cũng chưa an tâm cái mình nói là đúng, vậy tôi lựa chọn cách đơn giản hơn, đó là viết một số hiểu biết ban đầu, nhẹ nhàng vào du dương, còn hardcore xin hẹn 1 ngày khác.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-một-số-ý-mà-tôi-có-thể-chắc-chắn-mà-chúng-ta-phải-làm-rõ-như-sau">1. Một số ý mà tôi có thể chắc chắn mà chúng ta phải làm rõ như sau:</h3>
+<h1 id="1-một-số-ý-mà-tôi-có-thể-chắc-chắn-mà-chúng-ta-phải-làm-rõ-như-sau">1. Một số ý mà tôi có thể chắc chắn mà chúng ta phải làm rõ như sau:</h1>
 
 <ol>
 <li><p>Không có một định nghĩa chung nào về <code>pass by value</code> và <code>pass by reference</code>, tuỳ thuộc vào từng ngôn ngữ, chúng lại có cách xử lý và những định nghĩa khác nhau về cách xử lý biến và vùng nhớ.</p></li>
@@ -174,7 +169,7 @@
 Passing a pointer as a parameter does not mean pass-by-reference.</pre></td></tr></table>
 </div>
 </div>
-<h3 id="2-pass-value-và-reference-trong-ruby">2. Pass value và reference trong ruby</h3>
+<h1 id="2-pass-value-và-reference-trong-ruby">2. Pass value và reference trong ruby</h1>
 
 <p>| Qua thời gian tìm hiểu thì tôi nhận thấy rằng trong ruby không hề có khái niệm rõ ràng về reference hay value, nên mọi kết luận ở đây chỉ là mang tính quy chiếu dựa vào những ý chúng ta đã nói trong mục 1.</p>
 
@@ -238,7 +233,7 @@ Passing a pointer as a parameter does not mean pass-by-reference.</pre></td></tr
 
 <p>Vậy có trường hợp ngoại lệ nào không? Như C++ có cả <code>Pass by value</code> và <code>Pass by reference</code> đó thôi? Câu trả lời vẫn lại là không, thật tiếc, đó đơn giản là sự định hướng của cha đẻ của từng loại ngôn ngữ.</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Điều cần nhớ sau bài viết này chính là việc hiểu khái quát về <code>Pass by value</code> và <code>Pass by reference</code>, một cách tổng quát, còn chi tiết bên trong phải cần nhiều bài nữa mới có thể làm rõ được vấn đề.</p>
 
@@ -296,11 +291,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Vài trình thông dịch cho Ruby</span>
+            <span class="prev-text nav-default">Vài Trình Thông Dịch Cho Ruby</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/">
-            <span class="next-text nav-default">Giải thuật, bằng cấp và thái độ</span>
+            <span class="next-text nav-default">Giải Thuật, Bằng Cấp Và Thái Độ</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

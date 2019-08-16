@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Root, sudo và package management - The more your try, the more your learn</title>
+  <title>Root, Sudo Và Package Management - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,7 +39,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Root, sudo và package management" />
+<meta property="og:title" content="Root, Sudo Và Package Management" />
 <meta property="og:description" content="Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
 Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn." />
 <meta property="og:type" content="article" />
@@ -47,7 +47,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
 <meta property="article:published_time" content="2019-02-05T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-02-05T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Root, sudo và package management">
+<meta itemprop="name" content="Root, Sudo Và Package Management">
 <meta itemprop="description" content="Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
 Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn.">
 
@@ -60,7 +60,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
 
 <meta itemprop="keywords" content="unix," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Root, sudo và package management"/>
+<meta name="twitter:title" content="Root, Sudo Và Package Management"/>
 <meta name="twitter:description" content="Đặt vấn đề Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là root. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là sudo và Package Management System.
 Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn."/>
 
@@ -92,7 +92,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -104,7 +104,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -115,7 +115,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Root, sudo và package management</h1>
+      <h1 class="post-title" style="font-size: 33px;">Root, Sudo Và Package Management</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-02-05 </span>
@@ -133,17 +133,12 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-root">1.Root</a></li>
 <li><a href="#2-sudo">2.Sudo</a></li>
 <li><a href="#3-package-management-system">3.Package management system</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -151,13 +146,13 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p>Trong một bài viết gần đây về chủ đề file permission trên Unix/Linux, tôi có đề cập đến một người dùng quyền lực trên các hệ thống kể trên có tên gọi là <code>root</code>. Bài viết này sẽ khái quát về người dùng này kèm theo hai khái niệm có liên quan là <code>sudo</code> và <code>Package Management System</code>.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-root">1.Root</h3>
+<h1 id="1-root">1.Root</h1>
 
 <p>Xin được nhắc lại một câu chuyện cũ tôi đã kể trong bài viết trước với ví dụ về mảnh đất nhà bạn, bạn sở hữu mảnh đất đó, vợ bạn sở hữu mảnh đất đó chung với bạn. Nhưng vợ chồng bạn không phải là những người sở hữu tối thượng của mảnh đất kể trên, mà quyền lực to lớn này thuộc về nhà nước, “người” thực ra là đang cho bạn thuê đất có thời hạn. Tương tự trọng Unix/Linux, sẽ có những user (như tài khoản bạn sử dụng để đăng nhập, hoặc tài khoản khách…).</p>
 
@@ -172,7 +167,7 @@ Câu trả lời rất đơn giản, không phải ai sử dụng máy tính cũ
 
 <p>Note: Trên macOS và Ubuntu, <code>root</code> mặc định sẽ được disable, chúng có thể sẽ được enable trở lại và re-disable. Cách thực hiện thì có lẽ bạn nên tìm kiếm hướng dẫn từ trang chủ của những hệ điều hành này để câu lệnh của bạn đảm bảo chính xác và không bị lỗi thời.</p>
 
-<h3 id="2-sudo">2.Sudo</h3>
+<h1 id="2-sudo">2.Sudo</h1>
 
 <p>Như vấn đề tôi đã nêu ở cuối mục 1, bây giờ tôi muốn cài đặt một số phần mềm đòi hỏi quyền của super user, về lý thuyết tôi đứng giữa hai lựa chọn hoặc chuyển sang <code>root</code> và cài đặt phần mềm bình thường (rất rủi ro), phương án 2 là tôi vẫn sử dụng user thường và nói lời tạm biệt với những phần mềm kể trên.</p>
 
@@ -209,7 +204,7 @@ Câu trả lời rất đơn giản, không phải ai sử dụng máy tính cũ
 </div>
 <p>Note: Kể từ khi bạn nhập mật khẩu sau khi gõ lệnh <code>sudo</code> lần đầu, thời gian có hiệu lực của mật khẩu này sẽ là 15 phút. Trong khoảng thời gian đó bạn có thể chạy các lệnh <code>sudo</code> khác mà hệ điều hành không yêu cầu bạn nhập lại mật khẩu.</p>
 
-<h3 id="3-package-management-system">3.Package management system</h3>
+<h1 id="3-package-management-system">3.Package management system</h1>
 
 <p>Khi sử dụng macOS, để cài đặt thêm các phần mềm phục vụ công việc (mà chúng không được support trên appstore), tôi sử dụng <code>homebrew</code>, một phần mềm giúp quản lý các phần mềm khác rất hiệu quả.</p>
 
@@ -233,7 +228,7 @@ Còn với <code>APT</code>, nó sẽ tự hiểu được package đó cần th
 
 <p>Note: Các <code>remote repositories</code> để phần mềm package management của bạn tìm kiếm sẽ được lưu trữ trong file <code>/etc/apt/sources.list</code> (đa số là như vậy).</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Còn rất nhiều điều cần nói và bàn luận thêm trong các bài viết tiếp theo.</p>
 
@@ -290,11 +285,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Giải thuật, bằng cấp và thái độ</span>
+            <span class="prev-text nav-default">Giải Thuật, Bằng Cấp Và Thái Độ</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-01-30-bash-file-in-macos-and-linux/">
-            <span class="next-text nav-default">Bash file trên Unix</span>
+            <span class="next-text nav-default">Bash File Trên Unix</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

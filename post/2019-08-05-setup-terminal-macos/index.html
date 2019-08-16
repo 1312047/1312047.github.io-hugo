@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Terminal macOS tricks - The more your try, the more your learn</title>
+  <title>Terminal macOS Tricks - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,13 +16,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Duy Chinh" /><meta name="description" content="1️⃣ Config to show branch in Terminal
-Open .bash_profile file then add:
-1 2 3 4 5  parse_git_branch() { git branch 2&amp;gt; /dev/null | sed -e &amp;#39;/^[^*]/d&amp;#39; -e &amp;#39;s/* \(.*\)/ (\1)/&amp;#39; } export PS1=&amp;#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&amp;#34;   2️⃣ Setup to use subl command in macOS
-Run:
-1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   References:
-[1]https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal
-[2]https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
+<meta name="author" content="Duy Chinh" /><meta name="description" content="1. Config to show branch in Terminal Open .bash_profile file then add:
+1 2 3 4 5  parse_git_branch() { git branch 2&amp;gt; /dev/null | sed -e &amp;#39;/^[^*]/d&amp;#39; -e &amp;#39;s/* \(.*\)/ (\1)/&amp;#39; } export PS1=&amp;#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&amp;#34;   2. Setup to use subl command in macOS Run:
+1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   3. Setup to use code command in macOS In VSCode Window, press command &#43; shift &#43; P to open package install." /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
 
 
 
@@ -44,45 +40,33 @@ Run:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Terminal macOS tricks" />
-<meta property="og:description" content="1️⃣ Config to show branch in Terminal
-Open .bash_profile file then add:
-1 2 3 4 5  parse_git_branch() { git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/ (\1)/&#39; } export PS1=&#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&#34;   2️⃣ Setup to use subl command in macOS
-Run:
-1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   References:
-[1]https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal
-[2]https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" />
+<meta property="og:title" content="Terminal macOS Tricks" />
+<meta property="og:description" content="1. Config to show branch in Terminal Open .bash_profile file then add:
+1 2 3 4 5  parse_git_branch() { git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/ (\1)/&#39; } export PS1=&#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&#34;   2. Setup to use subl command in macOS Run:
+1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   3. Setup to use code command in macOS In VSCode Window, press command &#43; shift &#43; P to open package install." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-08-05-setup-terminal-macos/" />
 <meta property="article:published_time" content="2019-08-05T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-08-05T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Terminal macOS tricks">
-<meta itemprop="description" content="1️⃣ Config to show branch in Terminal
-Open .bash_profile file then add:
-1 2 3 4 5  parse_git_branch() { git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/ (\1)/&#39; } export PS1=&#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&#34;   2️⃣ Setup to use subl command in macOS
-Run:
-1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   References:
-[1]https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal
-[2]https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/">
+<meta itemprop="name" content="Terminal macOS Tricks">
+<meta itemprop="description" content="1. Config to show branch in Terminal Open .bash_profile file then add:
+1 2 3 4 5  parse_git_branch() { git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/ (\1)/&#39; } export PS1=&#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&#34;   2. Setup to use subl command in macOS Run:
+1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   3. Setup to use code command in macOS In VSCode Window, press command &#43; shift &#43; P to open package install.">
 
 
 <meta itemprop="datePublished" content="2019-08-05T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-08-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="57">
+<meta itemprop="wordCount" content="93">
 
 
 
 <meta itemprop="keywords" content="TIl," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Terminal macOS tricks"/>
-<meta name="twitter:description" content="1️⃣ Config to show branch in Terminal
-Open .bash_profile file then add:
-1 2 3 4 5  parse_git_branch() { git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/ (\1)/&#39; } export PS1=&#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&#34;   2️⃣ Setup to use subl command in macOS
-Run:
-1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   References:
-[1]https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal
-[2]https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/"/>
+<meta name="twitter:title" content="Terminal macOS Tricks"/>
+<meta name="twitter:description" content="1. Config to show branch in Terminal Open .bash_profile file then add:
+1 2 3 4 5  parse_git_branch() { git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/ (\1)/&#39; } export PS1=&#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&#34;   2. Setup to use subl command in macOS Run:
+1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   3. Setup to use code command in macOS In VSCode Window, press command &#43; shift &#43; P to open package install."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -112,7 +96,7 @@ Run:
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -124,7 +108,7 @@ Run:
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -135,14 +119,14 @@ Run:
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Terminal macOS tricks</h1>
+      <h1 class="post-title" style="font-size: 33px;">Terminal macOS Tricks</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-08-05 </span>
         <div class="post-category">
             <a href="/categories/til/"> til </a>
             </div>
-          <span class="more-meta"> 57 words </span>
+          <span class="more-meta"> 93 words </span>
           <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 1 min read </span>
         
       </div>
@@ -151,11 +135,19 @@ Run:
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-config-to-show-branch-in-terminal">1. Config to show branch in Terminal</a></li>
+<li><a href="#2-setup-to-use-subl-command-in-macos">2. Setup to use <code>subl</code> command in macOS</a></li>
+<li><a href="#3-setup-to-use-code-command-in-macos">3. Setup to use <code>code</code> command in macOS</a></li>
+</ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <p>1️⃣ Config to show branch in Terminal</p>
+      
+
+<h1 id="1-config-to-show-branch-in-terminal">1. Config to show branch in Terminal</h1>
 
 <p>Open <code>.bash_profile</code> file then add:</p>
 <div class="highlight"><div class="chroma">
@@ -174,7 +166,7 @@ Run:
 <span class="nb">export</span> <span class="nv">PS1</span><span class="o">=</span><span class="s2">&#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] </span>$<span class="s2"> &#34;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>2️⃣ Setup to use <code>subl</code> command in macOS</p>
+<h1 id="2-setup-to-use-subl-command-in-macos">2. Setup to use <code>subl</code> command in macOS</h1>
 
 <p>Run:</p>
 <div class="highlight"><div class="chroma">
@@ -185,6 +177,10 @@ Run:
 <pre class="chroma">sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl</pre></td></tr></table>
 </div>
 </div>
+<h1 id="3-setup-to-use-code-command-in-macos">3. Setup to use <code>code</code> command in macOS</h1>
+
+<p>In VSCode Window, press <code>command</code> + <code>shift</code> + <code>P</code> to open package install. Type <code>shell</code> to find package <code>Shell Command : Install code in PATH</code>, install and done.</p>
+
 <p>References:</p>
 
 <p>[1]<a href="https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal">https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal</a></p>
@@ -243,8 +239,8 @@ text-align: center;
           </div>
       <nav class="post-nav">
         
-        <a class="next" href="/post/2019-07-15-bai-toan-brackets/">
-            <span class="next-text nav-default">Bài toán brackets</span>
+        <a class="next" href="/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/">
+            <span class="next-text nav-default">A Simple ORM</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

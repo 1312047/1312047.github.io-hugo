@@ -12,40 +12,14 @@
     
     
     <item>
-      <title>Terminal macOS tricks</title>
+      <title>Terminal macOS Tricks</title>
       <link>https://1312047.github.io/post/2019-08-05-setup-terminal-macos/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-08-05-setup-terminal-macos/</guid>
-      <description>1️⃣ Config to show branch in Terminal
-Open .bash_profile file then add:
-1 2 3 4 5  parse_git_branch() { git branch 2&amp;gt; /dev/null | sed -e &amp;#39;/^[^*]/d&amp;#39; -e &amp;#39;s/* \(.*\)/ (\1)/&amp;#39; } export PS1=&amp;#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&amp;#34;   2️⃣ Setup to use subl command in macOS
-Run:
-1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   References:
-[1]https://stackoverflow.com/questions/17333531/how-can-i-display-the-current-branch-and-folder-path-in-terminal
-[2]https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/</description>
-    </item>
-    
-    <item>
-      <title>Bài toán brackets</title>
-      <link>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/post/2019-07-15-bai-toan-brackets/</guid>
-      <description>Yêu cầu Input Đầu vào là 1 chuỗi chỉ chứa các ký tự nằm trong mảng sau:
-1  [&amp;#39;{&amp;#39;, &amp;#39;}&amp;#39;, &amp;#39;[&amp;#39;, &amp;#39;]&amp;#39;, &amp;#39;(&amp;#39;, &amp;#39;)&amp;#39;]   Ex: &amp;quot;{{}}&amp;quot;, &amp;quot;[(})&amp;quot; &amp;hellip;
-Output Trả về kết quả liệu chuỗi đầu vào có phải là một brackets hợp lệ hay không.
-➡️ Một chuỗi hợp lệ là một chuỗi dấu ngoặc có thể sử dụng trong một phép toán hợp lệ.</description>
-    </item>
-    
-    <item>
-      <title>[NEWS] Thay đổi đổi Platform</title>
-      <link>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</link>
-      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/post/2019-07-09-thong-bao-ve-thay-doi-blog/</guid>
-      <description> Hiện mình đã chuyển sự lựa chọn, từ Jekyll sang Hugo trong vai trò làm platform chính để viết blog. Trang cũ vẫn được host tại địa chỉ hdchinh.github.io. Many thanks!
- </description>
+      <description>1. Config to show branch in Terminal Open .bash_profile file then add:
+1 2 3 4 5  parse_git_branch() { git branch 2&amp;gt; /dev/null | sed -e &amp;#39;/^[^*]/d&amp;#39; -e &amp;#39;s/* \(.*\)/ (\1)/&amp;#39; } export PS1=&amp;#34;\u@\h \[\033[32m\]\w - \$(parse_git_branch)\[\033[00m\] $&amp;#34;   2. Setup to use subl command in macOS Run:
+1  sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl   3. Setup to use code command in macOS In VSCode Window, press command + shift + P to open package install.</description>
     </item>
     
     <item>
@@ -54,7 +28,7 @@ Output Trả về kết quả liệu chuỗi đầu vào có phải là một br
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-06-25-xay-dung-mot-orm-don-gian-bang-ruby/</guid>
-      <description>1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi(quá) chậm, mọi thứ khác thật sự tuyệt vời.
+      <description>1. Đặt vấn đề Rails có phải là một framework tuyệt vời hay không? Chắc chắn là có rồi, với tôi là như vậy, mặc dù nó tốn Ram quá nhiều và chạy cũng hơi chậm, mọi thứ khác thật sự tuyệt vời.
 Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là một lựa chọn hàng đầu, vì thời gian xây dựng nhanh chóng để cho ra một sản phẩm tuy không phải là &amp;ldquo;ích seo lừn&amp;rdquo; nhưng cũng đủ good để work production.</description>
     </item>
     
@@ -68,7 +42,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
     </item>
     
     <item>
-      <title>Từ khoá super trong Ruby là gì?</title>
+      <title>Từ Khoá Super Trong Ruby?</title>
       <link>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -78,7 +52,7 @@ Trong ngôn ngữ ruby có một từ khoá thường xuyên xuất hiện khi c
     </item>
     
     <item>
-      <title>Public, private và protected</title>
+      <title>Public, Private Và Protected</title>
       <link>https://1312047.github.io/post/2019-06-11-public-private-va-protected-method-trong-ruby/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -89,7 +63,7 @@ Trong ngôn ngữ ruby có một từ khoá thường xuyên xuất hiện khi c
     </item>
     
     <item>
-      <title>Exception trong Rails</title>
+      <title>Exception Trong Rails</title>
       <link>https://1312047.github.io/post/2019-06-10-xu-ly-ngoai-le-trong-rails/</link>
       <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -99,7 +73,7 @@ Nhưng bỗng một ngày con mèo stupid của tôi bị &amp;ldquo;người ng
     </item>
     
     <item>
-      <title>So sánh Class Method và Scope</title>
+      <title>So Sánh Class Method Và Scope</title>
       <link>https://1312047.github.io/post/2019-06-09-luu-y-ngan-gon-ve-scope-va-class-method/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -109,7 +83,7 @@ Nhưng rõ ràng đấy là một suy nghĩ chưa đúng, dưới đây là đi�
     </item>
     
     <item>
-      <title>Symbol và String trong Ruby</title>
+      <title>Symbol Và String Trong Ruby</title>
       <link>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -119,7 +93,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
     </item>
     
     <item>
-      <title>Tấn công SQL injection</title>
+      <title>Tấn Công SQL Jnjection</title>
       <link>https://1312047.github.io/post/2019-06-08-tan-cong-sql-injection-va-cach-phong-chong-trong-rails/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -130,7 +104,7 @@ Luận bàn 1. Tìm hiểu về Sql Injection Quay lại ví dụ bên trên, n�
     </item>
     
     <item>
-      <title>Quy tắc viết code Ruby có thể tốt!</title>
+      <title>Quy Tắc Viết Code Ruby Có Thể Tốt!</title>
       <link>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</link>
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
@@ -141,7 +115,7 @@ Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau to�
     </item>
     
     <item>
-      <title>Tổng quan nguyên lý SOLID</title>
+      <title>Tổng Quan Nguyên Lý SOLID</title>
       <link>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       
@@ -151,7 +125,7 @@ Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, r
     </item>
     
     <item>
-      <title>Require và Load trong Ruby</title>
+      <title>Require Và Load Trong Ruby</title>
       <link>https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
@@ -161,7 +135,7 @@ Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, r
     </item>
     
     <item>
-      <title>Cập nhật dữ liệu với ActiveRecord</title>
+      <title>Cập Nhật Dữ Liệu Với ActiveRecord</title>
       <link>https://1312047.github.io/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/</link>
       <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
       
@@ -173,7 +147,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>Tìm hiểu về chữ S trong https</title>
+      <title>Tìm Hiểu Về Chữ S Trong Https</title>
       <link>https://1312047.github.io/post/2019-05-04-https-vai-dieu-can-nho/</link>
       <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
       
@@ -182,7 +156,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>Cơ chế Autoloading và Reloading</title>
+      <title>Cơ Chế Autoloading Và Reloading</title>
       <link>https://1312047.github.io/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -191,7 +165,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>Session vs Cookies trong Rails</title>
+      <title>Session Vs Cookies Trong Rails</title>
       <link>https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -200,7 +174,7 @@ Luận bàn Chuẩn bị:
     </item>
     
     <item>
-      <title>Sử dụng carrierwave với S3</title>
+      <title>Sử Dụng Carrierwave Với S3</title>
       <link>https://1312047.github.io/post/2019-04-11-su-dung-carrierwave-voi-s3/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -225,7 +199,7 @@ Mua một căn nhà đã có một số tiện ích cơ bản để sống, mìn
     </item>
     
     <item>
-      <title>Upload với S3 trong rails</title>
+      <title>Upload Với S3 Trong Rails</title>
       <link>https://1312047.github.io/post/2019-04-10-upload-file-len-aws-s3-va-nhung-van-de-can-luu-y/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -235,7 +209,7 @@ Bài toán: Hiện tại tôi đang cần tìm một dịch vụ lưu trữ file
     </item>
     
     <item>
-      <title>Immutable vs Mutable</title>
+      <title>Immutable Vs Mutable</title>
       <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -245,7 +219,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     </item>
     
     <item>
-      <title>Cục nợ N &#43; 1 và hướng xử lý</title>
+      <title>Cục Nợ N &#43; 1 Và Hướng Xử Lý</title>
       <link>https://1312047.github.io/post/2019-02-25-van-de-n&#43;1-trong-rails/</link>
       <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -256,7 +230,7 @@ Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nh
     </item>
     
     <item>
-      <title>Ruby method lookup</title>
+      <title>Ruby Method Lookup</title>
       <link>https://1312047.github.io/post/2019-02-24-ruby-method-lookup/</link>
       <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -265,7 +239,7 @@ Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nh
     </item>
     
     <item>
-      <title>Lưu trữ thông tin bảo mật?</title>
+      <title>Lưu Trữ Thông Tin Bảo Mật?</title>
       <link>https://1312047.github.io/post/2019-02-22-xu-ly-thong-tin-quan-trong-trong-rails/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -274,7 +248,7 @@ Tôi có một ứng dụng đơn giản, với hai bảng csdl, bảng thứ nh
     </item>
     
     <item>
-      <title>Quy luật 80/20</title>
+      <title>Quy Luật 80/20</title>
       <link>https://1312047.github.io/post/2019-02-22-quy-luat-80-20/</link>
       <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -287,7 +261,7 @@ Chính 20% giá trị còn lại mới tạo nên 80% khác biệt.</description
     </item>
     
     <item>
-      <title>Vài trình thông dịch cho Ruby</title>
+      <title>Vài Trình Thông Dịch Cho Ruby</title>
       <link>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -297,7 +271,7 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
     </item>
     
     <item>
-      <title>Pass Reference vs Pass Value, Ruby!</title>
+      <title>Pass Reference Vs Pass Value, Ruby!</title>
       <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -306,7 +280,7 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
     </item>
     
     <item>
-      <title>Giải thuật, bằng cấp và thái độ</title>
+      <title>Giải Thuật, Bằng Cấp Và Thái Độ</title>
       <link>https://1312047.github.io/post/2019-02-15-thuat-toan-tam-quan-trong-toi-dau/</link>
       <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -315,7 +289,7 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
     </item>
     
     <item>
-      <title>Root, sudo và package management</title>
+      <title>Root, Sudo Và Package Management</title>
       <link>https://1312047.github.io/post/2019-02-05-root-sudo-and-package-management-system/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -325,7 +299,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
     </item>
     
     <item>
-      <title>Bash file trên Unix</title>
+      <title>Bash File Trên Unix</title>
       <link>https://1312047.github.io/post/2019-01-30-bash-file-in-macos-and-linux/</link>
       <pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -343,7 +317,7 @@ Luận bàn 1.Root Xin được nhắc lại một câu chuyện cũ tôi đã k
     </item>
     
     <item>
-      <title>Lệnh open trên Unix, hữu dụng hơn bạn nghĩ</title>
+      <title>Lệnh Open Trên Unix, Hữu Dụng Hơn Bạn Nghĩ</title>
       <link>https://1312047.github.io/post/2019-01-23-open-command-in-macos/</link>
       <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
       
@@ -353,7 +327,7 @@ Luận bàn 1.Folders Ngoài việc có thể mở được thư mục bạn đa
     </item>
     
     <item>
-      <title>File permission trong Unix là gì?</title>
+      <title>Permission Trong Unix Là Gì?</title>
       <link>https://1312047.github.io/post/2018-01-01-file-permission-in-linux/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       

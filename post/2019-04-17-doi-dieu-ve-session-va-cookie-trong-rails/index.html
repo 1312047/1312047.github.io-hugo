@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Session vs Cookies trong Rails - The more your try, the more your learn</title>
+  <title>Session Vs Cookies Trong Rails - The more your try, the more your learn</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -38,14 +38,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Session vs Cookies trong Rails" />
+<meta property="og:title" content="Session Vs Cookies Trong Rails" />
 <meta property="og:description" content="Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-04-17-doi-dieu-ve-session-va-cookie-trong-rails/" />
 <meta property="article:published_time" content="2019-04-17T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-04-17T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="Session vs Cookies trong Rails">
+<meta itemprop="name" content="Session Vs Cookies Trong Rails">
 <meta itemprop="description" content="Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ">
 
 
@@ -57,7 +57,7 @@
 
 <meta itemprop="keywords" content="rails,secure," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Session vs Cookies trong Rails"/>
+<meta name="twitter:title" content="Session Vs Cookies Trong Rails"/>
 <meta name="twitter:description" content="Đặt vấn đề session[:user_id] = @user.id, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳ"/>
 
 <!--[if lte IE 9]>
@@ -88,7 +88,7 @@
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a><a href="/about-me/">
-        <li class="mobile-menu-item">About me</li>
+        <li class="mobile-menu-item">About Me</li>
       </a>
   </ul>
 </nav>
@@ -100,7 +100,7 @@
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #c05a4d; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -111,7 +111,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Session vs Cookies trong Rails</h1>
+      <h1 class="post-title" style="font-size: 33px;">Session Vs Cookies Trong Rails</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-04-17 </span>
@@ -129,17 +129,12 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
-<li><a href="#luận-bàn">Luận bàn</a>
-<ul>
+<li><a href="#luận-bàn">Luận bàn</a></li>
 <li><a href="#1-flow-hoạt-động">1. Flow hoạt động</a></li>
 <li><a href="#2-một-vài-loại-cookies-quan-trọng-trong-rails">2. Một vài loại cookies quan trọng trong rails</a></li>
 <li><a href="#3-giải-mã-cookies-và-tìm-hiểu-về-session-trong-rails">3. Giải mã cookies và tìm hiểu về session trong rails</a></li>
-</ul></li>
 <li><a href="#kết-luận">Kết luận</a></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -147,7 +142,7 @@
     <div class="post-content">
       
 
-<h2 id="đặt-vấn-đề">Đặt vấn đề</h2>
+<h1 id="đặt-vấn-đề">Đặt vấn đề</h1>
 
 <p><code>session[:user_id] = @user.id</code>, dòng code này thật quen thuộc? khi làm chức năng đăng nhập trong những ngày nhập môn, hẳn ai cũng đã từng làm qua hoặc làm gần giống như vậy, ta được dạy rằng, <code>http</code> là 1 giao thức không có trạng thái nên request thứ <code>N + 1</code> sẽ chẳng thể biết được request thứ <code>N</code> đã làm gì, vậy nếu ở lần request thứ <code>N</code> chúng ta đã thực hiện hành vi đăng nhập, và <code>http</code> thì không có lưu vết lại điều đó, hệ quả là ở lần request tiếp theo, website hiểu như bạn chưa đăng nhập, rất đáng buồn.</p>
 
@@ -155,9 +150,9 @@
 
 <p>Quá mơ hồ? đúng vậy, khi được dạy điều này tôi cũng thấy thật mơ hồ, wth is trạng thái? phi trạng thái? lưu vết?&hellip; Hy vọng bài viết này sẽ giúp người đọc có 1 cái nhìn dễ hiểu hơn về 2 đối tượng này trong ruby on rails.</p>
 
-<h2 id="luận-bàn">Luận bàn</h2>
+<h1 id="luận-bàn">Luận bàn</h1>
 
-<h3 id="1-flow-hoạt-động">1. Flow hoạt động</h3>
+<h1 id="1-flow-hoạt-động">1. Flow hoạt động</h1>
 
 <p>Một cách ngắn gọn cookies sẽ được vận hành như sau:</p>
 
@@ -169,7 +164,7 @@
 
 <p><strong>Step 4</strong>: ABC.com lại nhận được request của bạn, và lần này nó đã thấy bạn mang cookies của ABC.com nên nó sẽ đọc nội dung trong cookies đó (nếu cần).</p>
 
-<h3 id="2-một-vài-loại-cookies-quan-trọng-trong-rails">2. Một vài loại cookies quan trọng trong rails</h3>
+<h1 id="2-một-vài-loại-cookies-quan-trọng-trong-rails">2. Một vài loại cookies quan trọng trong rails</h1>
 
 <ol>
 <li><p><code>Normal cookies</code>: Một dạng cookie mà dữ liệu được lưu trữ dưới dạng text.</p></li>
@@ -224,7 +219,7 @@
 <p>Việc sử dụng loại cookies nào sẽ đúng trong những trường hợp cụ thể, với những dữ liệu vô hại và không hề quan trọng thì sử dụng cookies thông thường và lưu mọi thứ dưới dạng text là khả dĩ hơn cả. Bỏ qua các bước mã hóa giúp nó hoạt động với performance tốt hơn hẳn 2 dạng cookies còn lại.<br />
 Ngược lại, encrypted cookies là dạng cookies tốn công sức để xử lý nhất, vì vậy hãy chỉ sử dụng nó cho những thông tin thực sự quan trọng và không thể để lộ (những thông tin bớt quan trọng hơn và chỉ cần đảm bảo tính toàn vẹn của dữ liệu chứ không cần bảo mật thông tin thì hãy dùng signed cookies).</p>
 
-<h3 id="3-giải-mã-cookies-và-tìm-hiểu-về-session-trong-rails">3. Giải mã cookies và tìm hiểu về session trong rails</h3>
+<h1 id="3-giải-mã-cookies-và-tìm-hiểu-về-session-trong-rails">3. Giải mã cookies và tìm hiểu về session trong rails</h1>
 
 <p>Sau khá nhiều công sức tìm kiếm, tôi đã tìm ra cách để giải mã cookies trong rails 5.2, nội dung đơn giản như sau:</p>
 <div class="highlight"><div class="chroma">
@@ -334,7 +329,7 @@ Ngược lại, encrypted cookies là dạng cookies tốn công sức để x�
 </div>
 <p>Session bây giờ đã có thêm một key mới là <code>user_id</code> với giá trị là <code>1</code>. À vậy cuối cùng thì session cũng là 1 <code>hash</code> thôi nhỉ.</p>
 
-<h2 id="kết-luận">Kết luận</h2>
+<h1 id="kết-luận">Kết luận</h1>
 
 <p>Để phân biệt các client khác nhau, server sẽ dựa vào <code>session_id</code> được lưu trong cookies, vì vậy nếu chiếm được cookies đăng nhập trên website ABC.com của bạn, các hacker có thể dùng nó để giả mạo bạn và request lên server, đáng buồn thay server sẽ đọc cookies được hacker request lên, sử dụng <code>secret_key_base</code> để giải mã cookies và đọc nội dung bên trong, đoạn code xử lý login lại đọc từ session[:user_id], lúc này thì cookies kia có giá trị <code>session[:user_id] = 1</code> và thế là server đã tưởng rằng hacker chính là bạn.</p>
 
@@ -394,11 +389,11 @@ text-align: center;
       <nav class="post-nav">
         <a class="prev" href="/post/2019-05-16-autoloading-va-reloading-constants-trong-rails/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Cơ chế Autoloading và Reloading</span>
+            <span class="prev-text nav-default">Cơ Chế Autoloading Và Reloading</span>
             <span class="prev-text nav-mobile">Bài trước</span>
           </a>
         <a class="next" href="/post/2019-04-11-su-dung-carrierwave-voi-s3/">
-            <span class="next-text nav-default">Sử dụng carrierwave với S3</span>
+            <span class="next-text nav-default">Sử Dụng Carrierwave Với S3</span>
             <span class="next-text nav-mobile">Bài sau</span>
             <i class="iconfont icon-right"></i>
           </a>

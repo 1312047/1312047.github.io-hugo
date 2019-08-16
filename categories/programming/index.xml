@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Tổng quan nguyên lý SOLID</title>
+      <title>Tổng Quan Nguyên Lý SOLID</title>
       <link>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,7 @@ Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, r
     </item>
     
     <item>
-      <title>Immutable vs Mutable</title>
+      <title>Immutable Vs Mutable</title>
       <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -32,7 +32,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     </item>
     
     <item>
-      <title>Pass Reference vs Pass Value, Ruby!</title>
+      <title>Pass Reference Vs Pass Value, Ruby!</title>
       <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       

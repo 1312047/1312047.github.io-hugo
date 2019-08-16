@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Từ khoá super trong Ruby là gì?</title>
+      <title>Từ Khoá Super Trong Ruby?</title>
       <link>https://1312047.github.io/post/2019-06-16-tu-khoa-super-trong-ruby/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,7 @@ Trong ngôn ngữ ruby có một từ khoá thường xuyên xuất hiện khi c
     </item>
     
     <item>
-      <title>Public, private và protected</title>
+      <title>Public, Private Và Protected</title>
       <link>https://1312047.github.io/post/2019-06-11-public-private-va-protected-method-trong-ruby/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -33,7 +33,7 @@ Trong ngôn ngữ ruby có một từ khoá thường xuyên xuất hiện khi c
     </item>
     
     <item>
-      <title>Symbol và String trong Ruby</title>
+      <title>Symbol Và String Trong Ruby</title>
       <link>https://1312047.github.io/post/2019-06-09-so-sanh-symbol-va-string-trong-ruby/</link>
       <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -43,7 +43,7 @@ Khi tôi là thực tập sinh, tôi nhận được nhiều lời khuyên về 
     </item>
     
     <item>
-      <title>Quy tắc viết code Ruby có thể tốt!</title>
+      <title>Quy Tắc Viết Code Ruby Có Thể Tốt!</title>
       <link>https://1312047.github.io/post/2019-05-18-mot-so-cach-viet-code-ruby-duoc-xem-la-tot/</link>
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
@@ -54,7 +54,7 @@ Luận bàn Đặt khoảng trắng Đặt khoảng trắng trước và sau to�
     </item>
     
     <item>
-      <title>Tổng quan nguyên lý SOLID</title>
+      <title>Tổng Quan Nguyên Lý SOLID</title>
       <link>https://1312047.github.io/post/2019-05-17-nguyen-ly-solid-trong-code-ruby/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       
@@ -64,7 +64,7 @@ Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, r
     </item>
     
     <item>
-      <title>Require và Load trong Ruby</title>
+      <title>Require Và Load Trong Ruby</title>
       <link>https://1312047.github.io/post/2019-05-15-require-load-include-va-extend-trong-ruby/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
       
@@ -74,7 +74,7 @@ Một thời gian sau, tôi cần mở rộng thêm 1 vài chức năng nữa, r
     </item>
     
     <item>
-      <title>Immutable vs Mutable</title>
+      <title>Immutable Vs Mutable</title>
       <link>https://1312047.github.io/post/2019-04-08-immutable-va-mutable-trong-ruby/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -84,7 +84,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     </item>
     
     <item>
-      <title>Ruby method lookup</title>
+      <title>Ruby Method Lookup</title>
       <link>https://1312047.github.io/post/2019-02-24-ruby-method-lookup/</link>
       <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -93,7 +93,7 @@ Luận bàn 1. Khái niệm mutable, immutable và ruby Đi thẳng vào vấn �
     </item>
     
     <item>
-      <title>Vài trình thông dịch cho Ruby</title>
+      <title>Vài Trình Thông Dịch Cho Ruby</title>
       <link>https://1312047.github.io/post/2019-02-20-cac-trinh-thong-dich-trong-ruby/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -103,7 +103,7 @@ Luận bàn 1. Ruby chạy code của bạn như nào? Trước khi nói về c�
     </item>
     
     <item>
-      <title>Pass Reference vs Pass Value, Ruby!</title>
+      <title>Pass Reference Vs Pass Value, Ruby!</title>
       <link>https://1312047.github.io/post/2019-02-19-truyen-tham-tri-va-truyen-tham-chieu/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
