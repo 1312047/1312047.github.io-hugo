@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-05-04T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-05-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1457">
+<meta itemprop="wordCount" content="1007">
 
 
 
@@ -73,7 +73,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">Chinh&#39;s notes</a>
+    <a href="/" class="logo" style="font-family: Open Sans;">Chinh&#39;s notes</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -118,15 +118,15 @@
         <div class="post-category">
             <a href="/categories/rails-notes/"> rails notes </a>
             </div>
-          <span class="more-meta"> 1457 words </span>
-          <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 7 Mins Read </span>
+          <span class="more-meta"> 1007 words </span>
+          <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 5 Mins Read </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content always-active">
+  <div style="font-family: Open Sans;" class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
 <li><a href="#đặt-vấn-đề">Đặt vấn đề</a></li>
@@ -134,7 +134,6 @@
 <li><a href="#1-http-hiểu-đơn-giản-thì-hoạt-động-thế-nào">1. Http hiểu đơn giản thì hoạt động thế nào?</a></li>
 <li><a href="#2-https-khắc-phục-vấn-đề-của-http-như-thế-nào">2. Https khắc phục vấn đề của http như thế nào?</a></li>
 <li><a href="#3-https-và-vấn-đề-mã-hoá-dữ-liệu">3. Https và vấn đề mã hoá dữ liệu</a></li>
-<li><a href="#4-áp-dụng-https-trong-dự-án-như-thế-nào">4. Áp dụng https trong dự án như thế nào?</a></li>
 <li><a href="#kết-luận">Kết luận</a></li>
 </ul>
 </nav>
@@ -151,8 +150,6 @@
 
 <h1 id="1-http-hiểu-đơn-giản-thì-hoạt-động-thế-nào">1. Http hiểu đơn giản thì hoạt động thế nào?</h1>
 
-<p><img src="/images/ssl1.png" alt="hoa" /></p>
-
 <p>Mục đích cuối cùng của mớ hỗn độn rối rắm này cũng là truyền nhận thông tin, tôi có một website tôi muốn gửi nó lên mạng internet để bạn, một ai đó mà tôi không quen có thể vô tình lướt qua đọc được.
 Http là một giao thức, hiểu đơn giản là một bộ quy tắc để chung để người sử dụng dùng trình duyệt có thể truy cập tới 1 trang web, và trang web đó hiểu được yêu cầu đó rồi trả về nội dung mà trình duyệt có thể hiểu được, ví như có nhiều ngôn ngữ trên thế giới, vậy giữa 2 người có 2 tiếng nói khác nhau để giao tiếp được họ phải cùng nhau sử dụng một bộ ngôn ngữ chung mà cả hai cùng hiểu được.</p>
 
@@ -164,15 +161,15 @@ Http là một giao thức, hiểu đơn giản là một bộ quy tắc để c
 
 <h1 id="2-https-khắc-phục-vấn-đề-của-http-như-thế-nào">2. Https khắc phục vấn đề của http như thế nào?</h1>
 
-<p>Chúng ta đã nắm được khái quát vấn đề bảo mật gặp phải khi sử dụng <code>http</code>. Với những website giải trí thuần tuý với nội dung chủ yếu là hình ảnh âm thanh và không có thông tin cần bảo mật khi không thành vấn đề khi dùng http. Nhưng nếu bạn sử dụng internet banking với http, khi bạn đăng nhập vào tài khoản của mình, gửi một gói tin lên server với username/id và mật khẩu được gửi dưới dạng text trần trụi, bạn thì lại đang truy cập 1 điểm wifi ở 1 cafe house nào đó, nếu có kẻ gian đã có tính toán bủa vây quanh bạn nơi đó, thì còn gì ngăn cản chúng có thể lấy được thông tin đăng nhập của bạn ngay sau khi chúng bắt được gói tin bạn request gửi đi? 😞</p>
+<p>Chúng ta đã nắm được khái quát vấn đề bảo mật gặp phải khi sử dụng <code>http</code>. Với những website giải trí thuần tuý với nội dung chủ yếu là hình ảnh, âm thanh và không có thông tin cần bảo mật thì sử dụng https hình như cũng chỉ để tốt cho SEO, ngoài ra cũng không còn giá trị gì. Nhưng nếu bạn sử dụng <strong>Internet Banking</strong> với http, rồi bạn đăng nhập với tài khoản ngân hàng của mình trên đó, mọi thông tin bạn gửi đi đều dưới dạng những gói tin có nội dung plain/text trần trụi, vậy điều gì bảo vệ được tài khoản của bạn nếu request kể trên bị những kẻ xấu dùng những thủ thuật hay phần mềm chuyên dụng để bắt được?</p>
 
-<p>Https giải bài toán trên bằng cách, dùng một cách nào đó mã hoá giữ liệu cần <code>gửi đi/trả về</code>. Và như vậy là xong, tên hacker xấu xa bỉ bổi vô sỉ (có thể tên là Nhật Duy) trong quán cafe kia sẽ lặng lẽ buồn rầu bỏ cuộc vì dù hắn có bắt được gói tin của bạn thì nó cũng được mã hoá, hắn gãi đầu, gãi tai làm sao để giải mã, làm sao để lấy được thông tin đăng nhập của bạn, cứ thế hắn cứ gãi cứ gãi, còn bạn thì vẫn an toàn (tạm thời).</p>
+<p>Https giải bài toán trên bằng cách rất đơn giản, nội dung dạng plain/text giúp kẻ gian có thể bắt và đọc dễ dàng, vậy chúng ta hãy mã hoá nội dung để kẻ gian đó không thể hiểu được, và có bắt được gói tin cũng vô dụng?.</p>
 
 <h1 id="3-https-và-vấn-đề-mã-hoá-dữ-liệu">3. Https và vấn đề mã hoá dữ liệu</h1>
 
 <p>Trước tiên phải làm rõ là:</p>
 
-<p>| https = http + ssl</p>
+<p><strong><code>https = http + ssl</code></strong></p>
 
 <p>Trong đó:</p>
 
@@ -182,43 +179,31 @@ Http là một giao thức, hiểu đơn giản là một bộ quy tắc để c
 <li><p>ssl là cơ chế bảo mật thông tin.</p></li>
 </ol>
 
-<p>Note: Sẽ là một bài vietsub rất dài nếu liệt kê mọi điều liên quan về 2 khái niệm này, thay vào đó tôi muốn một cái nhìn khái quát nhanh chóng và dễ tiếp cận. Nếu bạn cần những hiểu biết sâu sắc hơn hãy tìm đến các tài liệu chính thông được những nhà phát triển công bố.</p>
+<p><img src="/images/7.gif" alt="tam the tu tin" /></p>
 
-<p>Hãy bắt đầu với một câu chuyện thủa học trò: Tôi là A, tôi thích B, hiện giờ đang trong giờ học môn XYZ nào đó, chúng tôi không có điện thoại, tôi sẽ lựa chọn cách thức khá sơ khai để gửi gắm tình yêu trong sáng của tôi đến B đó là viết ra giấy rồi ném cho B đọc 😘</p>
-
-<p>Với http, tôi sẽ viết ra giấy &ldquo;i love diu&rdquo; rồi ném cho B, mọi việc đều êm xuôi trừ phi cô giáo (ở đây đóng vai trò là hacker) bắt được mẩu giấy đó và đọc được nội dung, ok fine, tôi sẽ xuống đứng góc lớp mà chả thế biện bạch gì thêm 😫</p>
-
-<p>Với <strong>tư tưởng</strong> https, tôi sẽ viết ra giấy nội dung &ldquo;i love diu&rdquo; dưới dạng mã hoá, cô giáo nếu bắt được cũng chỉ nhìn đoạn chữ giun dế mà không hiểu gì, có lẽ tôi vẫn sẽ phải đứng góc lớp nhưng chắc chắn sẽ nhẹ nhàng hơn trường hợp trên 😃</p>
-
-<p>Tuy nhiên bên trên chỉ là tư tưởng của https mà thôi, thực tế thì sẽ phức tạp hơn thế.</p>
-
-<p>Các bước tối thiểu cần có như sau:</p>
+<p>Flow tối thiểu của <code>https</code> sẽ như sau:</p>
 
 <ol>
-<li><p><code>client hello</code>, người dùng sử dụng browser sẽ request tới server, đây là tín hiệu để khởi tạo kết nối ssl.</p></li>
+<li><p><code>Client hello</code>, người dùng sử dụng trình duyệt sẽ request tới google.com.</p></li>
 
-<li><p><code>server hello</code>, khi mà request ở bước một đã tới nơi, server sẽ gửi trả client 2 thông tin quan trọng đó là <code>ssl certificate</code> và <code>public key</code>.</p></li>
+<li><p><code>Server hello</code>, request ở bước một đã tới nơi, server sẽ gửi trả client 2 thông tin quan trọng đó là <strong>ssl certificate</strong> (Để chứng minh &ldquo;Ê, tao là google.com thật nha, not fake&rdquo;) và 1 <strong>Public key</strong> (Gọi là Public-key-1. <em>Vậy ta có thể hiểu là ở Server google.com nó đang giữ Private key 1 ứng với Public key 1 kia</em>).</p></li>
 
-<li><p>Sau khi kết thúc 2 bước đầu mang tính xã giao để khởi tạo kết nối. Client lúc này đã nhận được dữ liệu từ server ở bước 2, browser sẽ xác minh <code>ssl certificate</code>.</p></li>
+<li><p>Browser sẽ xác minh <strong>ssl certificate</strong> nhận được để xem nó có phải là hàng real hay không. Vậy còn làm sao mà browser có thể phân định thật giả? Chúng ta sẽ tìm hiểu trong 1 bài viết khác.</p></li>
 
-<li><p>Browser sau khi xác minh thành công ở bước 3, sẽ sinh ra một <code>khoá</code>, khoá này sau đó sẽ được mã hoá tiếp bằng <code>public key</code> đã nhận được từ bước 2 (khi gửi lên server thì khoá này đang tồn tại dưới dạng được mã hoá bởi <code>public key</code>).</p></li>
+<li><p>Sau khi browser xác minh và đã tin tưởng máy chủ google.com, browser sẽ tạo 1 cặp khoá bảo mật RSA thứ 2, ta gọi là <strong>Public key 2 và Private key 2</strong>.</p></li>
 
-<li><p>Toàn bộ nội dung của request đều sẽ được mã hoá bằng <code>khoá</code> ở bước 4, kẻ gian nếu đánh cắp được gói tin này thì sẽ cần có giá trị <code>khoá</code> để giải mã, tuy nhiên đáng buồn thay là lúc này khi được gửi đi thì <code>khoá</code> đã được mã hoá bằng <code>public key</code> vì vậy không thể giải mã được nếu thiếu <code>private key</code> được lưu ở server.</p></li>
+<li><p>Browser dùng <strong>Public key 1</strong> đã nhận được từ bước 3, để mã hoá <em>Public key 2 và Private key 2</em> sinh ra trong bước 4, rồi gửi cặp khoá này dưới dạng đã mã hoá tới máy chủ google.com.</p></li>
 
-<li><p>Request tới server, giá trị <code>khoá</code> sẽ được giải mã ra nhanh chóng vì server đang có <code>private key</code>. từ giá trị <code>khoá</code> này, server sẽ giải mã ra nội dung của request.</p></li>
+<li><p>Như bạn nhớ, thì máy chủ google.com đang giữ <strong>Private key 1</strong> và thế là nó có thể giải mã và lấy được cặp key ở bước 5.</p></li>
+
+<li><p>Vậy là cả máy chủ google.com và client đều có cặp khoá RSA thứ 2, mọi thông tin truyền gửi từ cả 2 phía bây giờ đều được mã hoá bằng Public key 2.</p></li>
 </ol>
 
-<p>Note: Trong nội dung trên có đề cập đến vấn đề mã hoá rất nhiều, nhưng không hề đề cập đến việc sử dụng thuật toán nào để mã hoá, tôi nghĩ rằng chúng ta nên đọc những tài liệu chính thông để có thông tin xác thực nhất, cá nhân tôi, tôi cũng chưa tìm hiểu 😘</p>
-
-<h1 id="4-áp-dụng-https-trong-dự-án-như-thế-nào">4. Áp dụng https trong dự án như thế nào?</h1>
-
-<p>Như đã trình bày ở mục số 3, https là http có thêm cơ chế ssl, cơ chế ssl bạn có thể sử dụng bởi 1 nhà cung cấp bên thứ 3 (Certificate Authority) ví dụ như GoDaddy, Comodo hay 1 dịch vụ miễn phí như Let’s Encrypt.</p>
-
-<p>Nói chung là vì sử dụng dịch vụ bên thứ 3 nên không thể miêu tả phần này được, mỗi dịch vụ sẽ có những tuỳ biến riêng, âu thì mình cứ follow theo trang chủ cho an tâm nhỉ.</p>
+<p>Note: Nhờ cơ chế mã hoá RSA (Chỉ có thể mã hoá bằng public key và giải mã nội dung bằng private key) kể trên. Server và client đã có thể liên lạc với nhau một cách an toàn. Trong quá trình trên, kể cả kẻ thủ ác có bắt được gói tin ở bước 2, bên trong có public key 1, thì cũng không phải vấn đề, bởi vì với public key đó thì hắn không thể đọc được thông tin mà client gửi ở bước 5.</p>
 
 <h1 id="kết-luận">Kết luận</h1>
 
-<p>Nói mới nhớ thì thấy mấy anh công ty cũ từng bảo <code>ranking</code> google giờ có ảnh hưởng bởi việc bạn sử dụng https hay không, nghe đâu thì việc sử dụng https sẽ giúp bạn có cơ hội bay cao hơn trong bảng rank website của google, có lẽ tôi cũng phải trích rút thời gian sao mà update cái blog nhỏ này lên https, với hi vọng bớt cảnh vắng tanh như chùa bà đanh 😔</p>
+<p>Không có kết luận :)</p>
 
     </div>
 
@@ -271,7 +256,7 @@ text-align: center;
           <a href="/tags/https/">https</a>
           <a href="/tags/secure/">secure</a>
           </div>
-      <nav class="post-nav">
+      <nav class="post-nav" style="font-family: Open Sans;">
         <a class="prev" href="/post/2019-05-08-phan-biet-update-update-column-va-update-attribute-trong-rails/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Cập Nhật Dữ Liệu Với ActiveRecord</span>
