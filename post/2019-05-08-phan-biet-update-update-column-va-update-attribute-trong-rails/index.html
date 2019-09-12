@@ -330,7 +330,7 @@ Luận bàn Chuẩn bị:
 
 <p>Cách đây ít lâu tôi có làm 1 ứng dụng nhỏ, trong đó có một model chính gọi là X, trong model này tôi có viết một callback tên Y được thực hiện sau khi record được save (với method after_save). Trong callback Y tôi sử dụng method <code>update</code>.</p>
 
-<p>Đáng buồn thay là đoạn code của tôi không hoạt động một cách bình thường, sau khi save record thì terminal bị crash với một vòng lặp bất tận, chợt nhận ra là khi sử dụng <code>update</code> thì callback được gọi lại, vậy là nó tạo ra một vòng lặp vĩnh viễn, save record(1) -&gt; callback được gọi(2) -&gt; trong callback có phương thức update(3) -&gt; update được gọi(4) -&gt; update lại gọi lại callback(2).<br />
+<p>Đáng buồn thay là đoạn code của tôi không hoạt động một cách bình thường, sau khi save record thì terminal bị crash với một vòng lặp bất tận, chợt nhận ra là khi sử dụng <code>update</code> thì callback được gọi lại, vậy là nó tạo ra một vòng lặp vĩnh viễn, save record(1) -&gt; callback được gọi(2) -&gt; trong callback có phương thức update(3) -&gt; update được gọi(4) -&gt; update lại gọi lại callback(2).
 Để khắc phục thì cần chuyển <code>update</code> thành <code>update_column</code> hoặc <code>update_columns</code>.</p>
 
 <p>Đây là một ví dụ nhỏ về việc cần thiết cuả những phương thức kể trên, mỗi phương thức sẽ là tốt hoặc là duy nhất có thể trong từng trường hợp. Hãy cân nhắc kỹ.</p>
