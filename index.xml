@@ -6,10 +6,19 @@
     <description>Recent content on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Favourite Vscode Extensions</title>
+      <link>https://1312047.github.io/post/2019-09-20-vscode-extension/</link>
+      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-09-20-vscode-extension/</guid>
+      <description> Leetcode (https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-leetcode) Turbo console log ( https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log) Polacode ( https://marketplace.visualstudio.com/items?itemName=pnp.polacode) Path intellisence (https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) Vscode-iocns (https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) Ident-rainbow (https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) Bracket Pair Colorizer 2 (https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) Markdown preview (https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)  </description>
+    </item>
     
     <item>
       <title>Terminal macOS Tricks</title>

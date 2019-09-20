@@ -104,7 +104,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
-    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/" style="font-weight: bold; background-color: #34495e; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;">About Me</a></li>
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
   </ul>
 </nav>
     </header>
@@ -233,10 +233,10 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 </span><span class="lnt">4
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">-- simple-orm  
-  -- Gemfile  
-  -- Gemfile.lock (sinh ra sau lệnh `bundle install`)  
-  -- connection.rb  </pre></td></tr></table>
+<pre class="chroma">-- simple-orm
+  -- Gemfile
+  -- Gemfile.lock (sinh ra sau lệnh `bundle install`)
+  -- connection.rb</pre></td></tr></table>
 </div>
 </div>
 <p>Note: Trong file <code>connection.rb</code> tôi khai báo biến conn dưới dạng biến toàn cục, để dễ ràng require trong các file khác trong project.</p>
@@ -296,7 +296,7 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 
 <p>Trong class này xây dựng 2 class method là <code>all</code> và <code>find</code>, ứng với 2 phương thức trong ActiveRecord.</p>
 
-<p><code>all</code>: Trả về toàn bộ record trong table.<br />
+<p><code>all</code>: Trả về toàn bộ record trong table.
 <code>find</code>: Trả về record ứng với id được truyền vào.</p>
 
 <p><strong>STEP 4: Xây dựng class con kế thừa lớp Base ở bước 3 và sử dụng</strong></p>
@@ -343,12 +343,12 @@ Nếu cần phải xây dựng một ứng dụng CRUD, có lẽ Rails sẽ là 
 </span><span class="lnt">6
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">-- simple-orm  
-  -- Gemfile  
-  -- Gemfile.lock (sinh ra sau lệnh `bundle install`)  
-  -- connection.rb  
-  -- mybase.rb (main chính chứa các phương thức)  
-  -- comics.rb (class ứng với table comics trong csdl, kế thừa MyBase)  </pre></td></tr></table>
+<pre class="chroma">-- simple-orm
+  -- Gemfile
+  -- Gemfile.lock (sinh ra sau lệnh `bundle install`)
+  -- connection.rb
+  -- mybase.rb (main chính chứa các phương thức)
+  -- comics.rb (class ứng với table comics trong csdl, kế thừa MyBase)</pre></td></tr></table>
 </div>
 </div>
 <p>Chạy file <code>comics.rb</code> với lệnh chạy ruby <code>ruby comics.rb</code> ta sẽ xem được thành quả nhỏ của quá trình xây dựng kể trên.</p>
