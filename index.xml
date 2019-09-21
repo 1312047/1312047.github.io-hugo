@@ -6,10 +6,20 @@
     <description>Recent content on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Book Notes: Mateprograming Ruby 2</title>
+      <link>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</link>
+      <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</guid>
+      <description>IMAGES RUBY OBJECT MODEL rails g model Movie title:string director:string
+1  class Movie &amp;lt; ActiveRecord:Base; end   What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name.</description>
+    </item>
     
     <item>
       <title>Basic Vim Setup</title>
@@ -18,16 +28,6 @@
       
       <guid>https://1312047.github.io/post/2019-09-20-basic-vim-config/</guid>
       <description>Plugin management: https://github.com/junegunn/vim-plug#installation Tree project: https://github.com/scrooloose/nerdtree Code complete: https://github.com/ycm-core/YouCompleteMe#installation Control + P: https://github.com/ctrlpvim/ctrlp.vim Monakai theme: https://github.com/sickill/vim-monokai Vimfile:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47  call plug#begin(&amp;#39;~/.vim/plugged&amp;#39;)Plug &amp;#39;https://github.com/scrooloose/nerdtree.git&amp;#39;Plug &amp;#39;morhetz/gruvbox&amp;#39;Plug &amp;#39;vim-airline/vim-airline&amp;#39;Plug &amp;#39;scrooloose/nerdcommenter&amp;#39;&amp;#34; Plug &amp;#39;dracula/vim&amp;#39;, { &amp;#39;as&amp;#39;: &amp;#39;dracula&amp;#39; } &amp;#34; Initialize plugin systemcall plug#end()&amp;#34; Set colorscheme &amp;#34; colorscheme gruvbox &amp;#34; Set dark background &amp;#34;set background=dark &amp;#34; Use monokai &amp;#34; syntax enablecolorscheme monokai&amp;#34; Copy clibboardset clipboard=unnamedplus&amp;#34; Use ctrlpset runtimepath^=~/.</description>
-    </item>
-    
-    <item>
-      <title>Book Notes: Mateprograming Ruby 2</title>
-      <link>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</link>
-      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</guid>
-      <description>RUBY OBJECT MODEL rails g model Movie title:string director:string
-1  class Movie &amp;lt; ActiveRecord:Base; end   What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name.</description>
     </item>
     
     <item>
