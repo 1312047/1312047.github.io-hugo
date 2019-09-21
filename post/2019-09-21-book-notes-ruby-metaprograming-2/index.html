@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Book Notes: Mateprograming Ruby 2 - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="RUBY OBJECT MODEL rails g model Movie title:string director:string
+1  class Movie &amp;lt; ActiveRecord:Base; end   What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name." /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Book Notes: Mateprograming Ruby 2" />
+<meta property="og:description" content="RUBY OBJECT MODEL rails g model Movie title:string director:string
+1  class Movie &lt; ActiveRecord:Base; end   What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/" />
+<meta property="article:published_time" content="2019-09-20T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-09-20T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Book Notes: Mateprograming Ruby 2">
+<meta itemprop="description" content="RUBY OBJECT MODEL rails g model Movie title:string director:string
+1  class Movie &lt; ActiveRecord:Base; end   What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name.">
+
+
+<meta itemprop="datePublished" content="2019-09-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1581">
+
+
+
+<meta itemprop="keywords" content="ruby," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Book Notes: Mateprograming Ruby 2"/>
+<meta name="twitter:description" content="RUBY OBJECT MODEL rails g model Movie title:string director:string
+1  class Movie &lt; ActiveRecord:Base; end   What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo" style="font-family: Open Sans;">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about-me/">
+        <li class="mobile-menu-item">About Me</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo" style="font-family: Open Sans;">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header"><h1 class="post-title" style="font-size: 33px; font-family: Open Sans;">
+          Book Notes: Mateprograming Ruby 2
+          <span style="border: 1px solid red; color: red; padding: 1px 6px 1px 6px; border-radius: 5px;">
+            #TIL</span>
+        </h1><div class="post-meta">
+        <span class="post-time"> 2019-09-20 </span>
+        <div class="post-category">
+            <a href="/categories/til/"> til </a>
+            </div>
+          <span class="more-meta"> 1581 words </span>
+          <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 8 Mins Read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div style="font-family: Open Sans;" class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ruby-object-model">RUBY OBJECT MODEL</a></li>
+<li><a href="#methods">METHODS</a>
+<ul>
+<li><a href="#dynamic-method">Dynamic method</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content" style="font-family: Open Sans; font-size: larger;">
+      
+
+<h2 id="ruby-object-model">RUBY OBJECT MODEL</h2>
+
+<p><code>rails g model Movie title:string director:string</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Movie</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="no">Base</span><span class="p">;</span> <span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>What about methods such as <code>title=</code> and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name. This means that Active Record defines methods such as <code>Movie#title</code> and <code>Movie#director=</code> out of thin air while the program runs.</p>
+
+<p>Open Class</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Numeric</span>
+  <span class="k">def</span> <span class="nf">to_money</span><span class="p">(</span><span class="n">currency</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+    <span class="no">Money</span><span class="o">.</span><span class="n">from_numeric</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">currency</span> <span class="o">||</span> <span class="no">Money</span><span class="o">.</span><span class="n">default_currency</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>As cool as they are, however, Open Classes have a dark side—one that you’re about to experience.</p>
+
+<p>| This can override the method of superclass and make wrong result in somewhere (monkeypath). So we need be careful when set the name for the override method.</p>
+
+<p>Objects that share the same class also share the same methods, so the methods must be stored in the class, not the object.</p>
+
+<p>The &ldquo;false&rdquo; argument here means: ignore inherited methods Class.instance_methods(false) # =&gt; [:allocate, :new, :superclass]</p>
+
+<p>The superclass of Class is Module—which is to say, every class is also a module.
+To be precise, a class is a module with three additional instance methods (new, allocate, and superclass)</p>
+
+<p>All the constants in a program are arranged in a tree similar to a file system.</p>
+
+<p>The Module class also provides an instance method and a class method that, confusingly, are both called constants.</p>
+
+<p>What’s an object? It’s a bunch of instance variables, plus a link to a class. The object’s methods don’t live in the object—they live in the object’s class, where they’re called the instance methods of the class.</p>
+
+<p>What’s a class? It’s an object (an instance of Class), plus a list of instance methods and a link to a superclass. Class is a subclass of Module, so a class is also a module</p>
+
+<p>These are instance methods of the Class class. Like any object, a class has its own methods, such as new. Also like any object, classes must be accessed through references. You already have a constant reference to each class: the class’s name.</p>
+
+<p>Using load, however, has a side effect. The motd.rb file probably defines variables and classes. Although variables fall out of scope when the file has finished loading, constants don’t. As a result, motd.rb can pollute your program with the names of its own constants—in particular, class names. You can force motd.rb to keep its constants to itself by passing a second, optional argument to load: <code>load('motd.rb', true)</code> If you load a file this way, Ruby creates <strong>an anonymous module</strong>, uses that module as a Namespace to contain all the constants from motd.rb, and then destroys the module. The require method is quite similar to load, but it’s meant for a different purpose. You use load to execute code, and you use require to import libraries. That’s why require has no second argument: those leftover class names are probably the reason why you imported the file in the first place. Also, that’s why require tries only once to load each file, while load executes the file again every time you call it.</p>
+
+<p>What’s the class of Object?
+What’s the superclass of Module?
+What’s the class of Class?</p>
+
+<p>When you call a method, Ruby does two things:
+1. It finds the method. This is a process called method lookup.
+2. It executes the method. To do that, Ruby needs something called self.</p>
+
+<p>Before you look at a more complicated example, though, you need to know about two new concepts: the receiver and the ancestors chain.The receiver is the object that you call a method on. For example, if you write <code>my_string.reverse()</code>, then <code>my_string</code> is the receiver. To understand the concept of an ancestors chain, look at any Ruby class. Then imagine moving from the class into its superclass, then into the superclass’s superclass, and so on, until you reach BasicObject, the root of the Ruby class hierarchy. The path of classes you just traversed is the ancestors chain of the class.
+MySubclass.ancestors # =&gt; [MySubclass, MyClass, Object, Kernel, BasicObject]</p>
+
+<p>When you include a module in a class (or even in another module), Ruby inserts the module in the ancestors chain, right above the including class itself:</p>
+
+<p>Starting from Ruby 2.0, you also have a second way to insert a module in a class’s chain of ancestors: <strong>the prepend method</strong>. It works like include, but it inserts the module below the including class (sometimes called the includer).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">C2</span>
+ <span class="n">prepend</span> <span class="no">M2</span>
+<span class="k">end</span>
+<span class="k">class</span> <span class="nc">D2</span> <span class="o">&lt;</span> <span class="no">C2</span><span class="p">;</span> <span class="k">end</span>
+<span class="no">D2</span><span class="o">.</span><span class="n">ancestors</span> <span class="c1"># =&gt; [D2, M2, C2, Object, Kernel, BasicObject]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>This is true every time you include or prepend a module: if that module is already in the chain, Ruby silently ignores the second inclusion.</p>
+
+<p>Kernel.private_instance_methods.grep(/^pr/) # =&gt; [:printf, :print, :proc]</p>
+
+<p>The trick here is that class Object includes Kernel, so Kernel gets into every object’s ancestors chain. Every line of Ruby is always executed inside an object, so you can call the instance methods in Kernel from anywhere.</p>
+
+<p>You can take advantage of this mechanism yourself: if you add a method to Spell: Kernel Method Kernel, this Kernel Method will be available to all objects. To prove that Kernel Methods are actually useful, you can look at the way some Ruby libraries use them.</p>
+
+<p>Every line of Ruby code is executed inside an object—the so-called current object. The current object is also known as self, because you can access it with the self keyword.</p>
+
+<p>Only one object can take the role of self at a given time, but no object holds that role for a long time. In particular, when you call a method, the receiver becomes self. From that moment on, all instance variables are instance variables of self, and all methods called without an explicit receiver are called on self.</p>
+
+<p>As soon as you start a Ruby program, you’re sitting within an object named main that the Ruby interpreter created for you. This object is sometimes called the top-level context, because it’s the object you’re in when you’re at the top level of the call stack: either you haven’t called any method yet or all the methods that you called have returned.</p>
+
+<p>This code refines the String class with a new to_alphanumeric method. Differently from a regular Open Class, however, a Refinement is not active by default. If you try to call   <code>String#to_alphanumeric</code>, you’ll get an error: <code>&quot;my *1st* refinement!&quot;.to_alphanumeric ❮ NoMethodError: undefined method 'to_alphanumeric' [...]</code> To activate the changes, you have to do so explicitly, with the using method: using StringExtensions</p>
+
+<p>you can call refine in a regular module, but you cannot call it in a class, even if a class is itself a module.</p>
+
+<h2 id="methods">METHODS</h2>
+
+<h3 id="dynamic-method">Dynamic method</h3>
+
+<p>If that kind of breaching of encapsulation makes you uneasy, you can use public_send instead. It’s like send, but it makes a point of respecting the receiver’s privacy. Be prepared, however, for the fact that Ruby code in the wild rarely bothers with this concern. If anything, a lot of Ruby programmers use send exactly because it allows calling private methods, not in spite of that</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">DS</span>
+  <span class="k">def</span> <span class="nf">initialize</span> <span class="c1"># connect to data source...</span>
+  <span class="k">def</span> <span class="nf">get_cpu_info</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">get_cpu_price</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">get_mouse_info</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">get_mouse_price</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">get_keyboard_info</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">get_keyboard_price</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">get_display_info</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">get_display_price</span><span class="p">(</span><span class="n">workstation_id</span><span class="p">)</span> <span class="c1"># ...</span>
+  <span class="c1"># ...and so on</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Computer</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">computer_id</span><span class="p">,</span> <span class="n">data_source</span><span class="p">)</span>
+    <span class="vi">@id</span> <span class="o">=</span> <span class="n">computer_id</span>
+    <span class="vi">@data_source</span> <span class="o">=</span> <span class="n">data_source</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">mouse</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">get_mouse_info</span><span class="p">(</span><span class="vi">@id</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">get_mouse_price</span><span class="p">(</span><span class="vi">@id</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;Mouse: </span><span class="si">#{</span><span class="n">info</span><span class="si">}</span><span class="s2"> ($</span><span class="si">#{</span><span class="n">price</span><span class="si">}</span><span class="s2">)&#34;</span>
+    <span class="k">return</span> <span class="s2">&#34;* </span><span class="si">#{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+   
+  <span class="k">def</span> <span class="nf">cpu</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">get_cpu_info</span><span class="p">(</span><span class="vi">@id</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">get_cpu_price</span><span class="p">(</span><span class="vi">@id</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;Cpu: </span><span class="si">#{</span><span class="n">info</span><span class="si">}</span><span class="s2"> ($</span><span class="si">#{</span><span class="n">price</span><span class="si">}</span><span class="s2">)&#34;</span>
+    <span class="k">return</span> <span class="s2">&#34;* </span><span class="si">#{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+    
+  <span class="k">def</span> <span class="nf">keyboard</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">get_keyboard_info</span><span class="p">(</span><span class="vi">@id</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">get_keyboard_price</span><span class="p">(</span><span class="vi">@id</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;Keyboard: </span><span class="si">#{</span><span class="n">info</span><span class="si">}</span><span class="s2"> ($</span><span class="si">#{</span><span class="n">price</span><span class="si">}</span><span class="s2">)&#34;</span>
+    <span class="k">return</span> <span class="s2">&#34;* </span><span class="si">#{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+   <span class="c1"># ...</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>DYNAMIC DISPATCH</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Computer</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">computer_id</span><span class="p">,</span> <span class="n">data_source</span><span class="p">)</span>
+  <span class="vi">@id</span> <span class="o">=</span> <span class="n">computer_id</span>
+  <span class="vi">@data_source</span> <span class="o">=</span> <span class="n">data_source</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">mouse</span>
+    <span class="n">component</span> <span class="ss">:mouse</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">cpu</span>
+    <span class="n">component</span> <span class="ss">:cpu</span>
+  <span class="k">end</span>
+    
+  <span class="k">def</span> <span class="nf">keyboard</span>
+    <span class="n">component</span> <span class="ss">:keyboard</span>
+  <span class="k">end</span>
+    
+  <span class="k">def</span> <span class="nf">component</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">send</span> <span class="s2">&#34;get_</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_info&#34;</span><span class="p">,</span> <span class="vi">@id</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">send</span> <span class="s2">&#34;get_</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_price&#34;</span><span class="p">,</span> <span class="vi">@id</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">name</span><span class="o">.</span><span class="n">capitalize</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">info</span><span class="si">}</span><span class="s2"> ($</span><span class="si">#{</span><span class="n">price</span><span class="si">}</span><span class="s2">)&#34;</span>
+    <span class="k">return</span> <span class="s2">&#34;* </span><span class="si">#{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>DYNAMIC METHOD</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Computer</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">computer_id</span><span class="p">,</span> <span class="n">data_source</span><span class="p">)</span>
+    <span class="vi">@id</span> <span class="o">=</span> <span class="n">computer_id</span>
+    <span class="vi">@data_source</span> <span class="o">=</span> <span class="n">data_source</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">define_component</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="n">define_method</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">info</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">send</span> <span class="s2">&#34;get_</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_info&#34;</span><span class="p">,</span> <span class="vi">@id</span>
+      <span class="n">price</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">send</span> <span class="s2">&#34;get_</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_price&#34;</span><span class="p">,</span> <span class="vi">@id</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">name</span><span class="o">.</span><span class="n">capitalize</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">info</span><span class="si">}</span><span class="s2"> ($</span><span class="si">#{</span><span class="n">price</span><span class="si">}</span><span class="s2">)&#34;</span>
+      <span class="k">return</span> <span class="s2">&#34;* </span><span class="si">#{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+      <span class="n">result</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+     
+  <span class="n">define_component</span> <span class="ss">:mouse</span>
+  <span class="n">define_component</span> <span class="ss">:cpu</span>
+  <span class="n">define_component</span> <span class="ss">:keyboard</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>BEST WAY</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Computer</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">computer_id</span><span class="p">,</span> <span class="n">data_source</span><span class="p">)</span>
+    <span class="vi">@id</span> <span class="o">=</span> <span class="n">computer_id</span>
+    <span class="vi">@data_source</span> <span class="o">=</span> <span class="n">data_source</span>
+    <span class="n">data_source</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">grep</span><span class="p">(</span><span class="sr">/^get_(.*)_info$/</span><span class="p">)</span> <span class="p">{</span> <span class="no">Computer</span><span class="o">.</span><span class="n">define_component</span> <span class="vg">$1</span> <span class="p">}</span>
+  <span class="k">end</span>
+    
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">define_component</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="n">define_method</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <span class="k">do</span>
+      <span class="c1"># ...</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+
+
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+position: relative;
+text-align: left; 
+height: 36px; 
+width: 32px; 
+float: left; 
+text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/1312047.github.io\/post\/2019-09-21-book-notes-ruby-metaprograming-2\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/1312047.github.io\/post\/2019-09-21-book-notes-ruby-metaprograming-2\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/1312047.github.io\/post\/2019-09-21-book-notes-ruby-metaprograming-2\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/1312047.github.io\/post\/2019-09-21-book-notes-ruby-metaprograming-2\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/1312047.github.io\/post\/2019-09-21-book-notes-ruby-metaprograming-2\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ruby/">ruby</a>
+          </div>
+      <nav class="post-nav" style="font-family: Open Sans;">
+        <a class="prev" href="/post/2019-09-20-basic-vim-config/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Basic Vim Setup</span>
+            <span class="prev-text nav-mobile">Bài trước</span>
+          </a>
+        <a class="next" href="/post/2019-09-20-vscode-extension/">
+            <span class="next-text nav-default">My Favourite Vscode Extensions</span>
+            <span class="next-text nav-mobile">Bài sau</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = '1312047-github-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+      Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    </span>
+    <span class="division">|</span>
+    <span class="theme-info">
+      Theme - 
+      <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+    </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-141114443-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

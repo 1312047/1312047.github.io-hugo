@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Basic Vim Setup - The more your try, the more your learn</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Duy Chinh" /><meta name="description" content="Plugin management: https://github.com/junegunn/vim-plug#installation Tree project: https://github.com/scrooloose/nerdtree Code complete: https://github.com/ycm-core/YouCompleteMe#installation Control &#43; P: https://github.com/ctrlpvim/ctrlp.vim Monakai theme: https://github.com/sickill/vim-monokai Vimfile:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47  call plug#begin(&amp;#39;~/.vim/plugged&amp;#39;)Plug &amp;#39;https://github.com/scrooloose/nerdtree.git&amp;#39;Plug &amp;#39;morhetz/gruvbox&amp;#39;Plug &amp;#39;vim-airline/vim-airline&amp;#39;Plug &amp;#39;scrooloose/nerdcommenter&amp;#39;&amp;#34; Plug &amp;#39;dracula/vim&amp;#39;, { &amp;#39;as&amp;#39;: &amp;#39;dracula&amp;#39; } &amp;#34; Initialize plugin systemcall plug#end()&amp;#34; Set colorscheme &amp;#34; colorscheme gruvbox &amp;#34; Set dark background &amp;#34;set background=dark &amp;#34; Use monokai &amp;#34; syntax enablecolorscheme monokai&amp;#34; Copy clibboardset clipboard=unnamedplus&amp;#34; Use ctrlpset runtimepath^=~/." /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://1312047.github.io/post/2019-09-20-basic-vim-config/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Basic Vim Setup" />
+<meta property="og:description" content="Plugin management: https://github.com/junegunn/vim-plug#installation Tree project: https://github.com/scrooloose/nerdtree Code complete: https://github.com/ycm-core/YouCompleteMe#installation Control &#43; P: https://github.com/ctrlpvim/ctrlp.vim Monakai theme: https://github.com/sickill/vim-monokai Vimfile:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47  call plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;https://github.com/scrooloose/nerdtree.git&#39;Plug &#39;morhetz/gruvbox&#39;Plug &#39;vim-airline/vim-airline&#39;Plug &#39;scrooloose/nerdcommenter&#39;&#34; Plug &#39;dracula/vim&#39;, { &#39;as&#39;: &#39;dracula&#39; } &#34; Initialize plugin systemcall plug#end()&#34; Set colorscheme &#34; colorscheme gruvbox &#34; Set dark background &#34;set background=dark &#34; Use monokai &#34; syntax enablecolorscheme monokai&#34; Copy clibboardset clipboard=unnamedplus&#34; Use ctrlpset runtimepath^=~/." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1312047.github.io/post/2019-09-20-basic-vim-config/" />
+<meta property="article:published_time" content="2019-09-20T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-09-20T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Basic Vim Setup">
+<meta itemprop="description" content="Plugin management: https://github.com/junegunn/vim-plug#installation Tree project: https://github.com/scrooloose/nerdtree Code complete: https://github.com/ycm-core/YouCompleteMe#installation Control &#43; P: https://github.com/ctrlpvim/ctrlp.vim Monakai theme: https://github.com/sickill/vim-monokai Vimfile:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47  call plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;https://github.com/scrooloose/nerdtree.git&#39;Plug &#39;morhetz/gruvbox&#39;Plug &#39;vim-airline/vim-airline&#39;Plug &#39;scrooloose/nerdcommenter&#39;&#34; Plug &#39;dracula/vim&#39;, { &#39;as&#39;: &#39;dracula&#39; } &#34; Initialize plugin systemcall plug#end()&#34; Set colorscheme &#34; colorscheme gruvbox &#34; Set dark background &#34;set background=dark &#34; Use monokai &#34; syntax enablecolorscheme monokai&#34; Copy clibboardset clipboard=unnamedplus&#34; Use ctrlpset runtimepath^=~/.">
+
+
+<meta itemprop="datePublished" content="2019-09-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="148">
+
+
+
+<meta itemprop="keywords" content="TIl," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Basic Vim Setup"/>
+<meta name="twitter:description" content="Plugin management: https://github.com/junegunn/vim-plug#installation Tree project: https://github.com/scrooloose/nerdtree Code complete: https://github.com/ycm-core/YouCompleteMe#installation Control &#43; P: https://github.com/ctrlpvim/ctrlp.vim Monakai theme: https://github.com/sickill/vim-monokai Vimfile:  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47  call plug#begin(&#39;~/.vim/plugged&#39;)Plug &#39;https://github.com/scrooloose/nerdtree.git&#39;Plug &#39;morhetz/gruvbox&#39;Plug &#39;vim-airline/vim-airline&#39;Plug &#39;scrooloose/nerdcommenter&#39;&#34; Plug &#39;dracula/vim&#39;, { &#39;as&#39;: &#39;dracula&#39; } &#34; Initialize plugin systemcall plug#end()&#34; Set colorscheme &#34; colorscheme gruvbox &#34; Set dark background &#34;set background=dark &#34; Use monokai &#34; syntax enablecolorscheme monokai&#34; Copy clibboardset clipboard=unnamedplus&#34; Use ctrlpset runtimepath^=~/."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo" style="font-family: Open Sans;">Chinh&#39;s notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about-me/">
+        <li class="mobile-menu-item">About Me</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo" style="font-family: Open Sans;">Chinh&#39;s notes</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item"><a class="menu-item-link" href="/">Home</a></li><li class="menu-item"><a class="menu-item-link" href="/categories/">Categories</a></li><li class="menu-item"><a class="menu-item-link" href="/about-me/">About Me</a></li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header"><h1 class="post-title" style="font-size: 33px; font-family: Open Sans;">
+          Basic Vim Setup
+          <span style="border: 1px solid red; color: red; padding: 1px 6px 1px 6px; border-radius: 5px;">
+            #TIL</span>
+        </h1><div class="post-meta">
+        <span class="post-time"> 2019-09-20 </span>
+        <div class="post-category">
+            <a href="/categories/til/"> til </a>
+            </div>
+          <span class="more-meta"> 148 words </span>
+          <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 1 Min Read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div style="font-family: Open Sans;" class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content" style="font-family: Open Sans; font-size: larger;">
+      <ol>
+<li>Plugin management: <a href="https://github.com/junegunn/vim-plug#installation">https://github.com/junegunn/vim-plug#installation</a></li>
+<li>Tree project: <a href="https://github.com/scrooloose/nerdtree">https://github.com/scrooloose/nerdtree</a></li>
+<li>Code complete: <a href="https://github.com/ycm-core/YouCompleteMe#installation">https://github.com/ycm-core/YouCompleteMe#installation</a></li>
+<li>Control + P: <a href="https://github.com/ctrlpvim/ctrlp.vim">https://github.com/ctrlpvim/ctrlp.vim</a></li>
+<li>Monakai theme: <a href="https://github.com/sickill/vim-monokai">https://github.com/sickill/vim-monokai</a></li>
+<li>Vimfile:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">begin</span><span class="p">(</span><span class="s1">&#39;~/.vim/plugged&#39;</span><span class="p">)</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;https://github.com/scrooloose/nerdtree.git&#39;</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;morhetz/gruvbox&#39;</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;vim-airline/vim-airline&#39;</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;scrooloose/nerdcommenter&#39;</span><span class="c">
+</span><span class="c">&#34; Plug &#39;dracula/vim&#39;, { &#39;as&#39;: &#39;dracula&#39; }
+</span><span class="c">
+</span><span class="c">&#34; Initialize plugin system</span><span class="err">
+</span><span class="err"></span><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">end</span><span class="p">()</span><span class="c">
+</span><span class="c">
+</span><span class="c">&#34; Set colorscheme
+</span><span class="c">&#34; colorscheme gruvbox
+</span><span class="c">
+</span><span class="c">&#34; Set dark background
+</span><span class="c">&#34;set background=dark
+</span><span class="c">
+</span><span class="c">&#34; Use monokai
+</span><span class="c">&#34; syntax enable</span><span class="err">
+</span><span class="err"></span><span class="nx">colorscheme</span> <span class="nx">monokai</span><span class="c">
+</span><span class="c">
+</span><span class="c">&#34; Copy clibboard</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">clipboard</span><span class="p">=</span><span class="nx">unnamedplus</span><span class="c">
+</span><span class="c">
+</span><span class="c">&#34; Use ctrlp</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">runtimepath</span>^<span class="p">=~</span><span class="sr">/.vim/</span><span class="nx">bundle</span>/<span class="nx">ctrlp</span>.<span class="nx">vim</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">if</span> <span class="nx">has</span><span class="p">(</span><span class="s1">&#39;mouse&#39;</span><span class="p">)</span><span class="err">
+</span><span class="err"></span>  <span class="nx">set</span> <span class="nx">mouse</span><span class="p">=</span><span class="nx">a</span><span class="err">
+</span><span class="err"></span><span class="k">endif</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">nu</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">autoindent</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">si</span><span class="c"> &#34;smart indent&#34;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nx">syntax</span> <span class="nx">on</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nx">autocmd</span> <span class="nx">StdinReadPre</span> * <span class="k">let</span> <span class="nx">s</span><span class="p">:</span><span class="nx">std_in</span><span class="p">=</span><span class="m">1</span><span class="err">
+</span><span class="err"></span><span class="nx">autocmd</span> <span class="nx">VimEnter</span> * <span class="k">if</span> <span class="nx">argc</span><span class="p">()</span> <span class="p">==</span> <span class="m">0</span> &amp;&amp; <span class="p">!</span><span class="nx">exists</span><span class="p">(</span><span class="c">&#34;s:std_in&#34;) | NERDTree | endif</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nx">autocmd</span> <span class="nx">bufenter</span> * <span class="k">if</span> <span class="p">(</span><span class="nx">winnr</span><span class="p">(</span><span class="c">&#34;$&#34;) == 1 &amp;&amp; exists(&#34;b:NERDTree&#34;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</span><span class="err">
+</span><span class="err"></span><span class="nx">map</span> <span class="p">&lt;</span><span class="nx">C</span><span class="p">-</span><span class="nx">n</span><span class="p">&gt;</span> <span class="p">:</span><span class="nx">NERDTreeToggle</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">expandtab</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">tabstop</span><span class="p">=</span><span class="m">2</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">softtabstop</span><span class="p">=</span><span class="m">2</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+
+
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+position: relative;
+text-align: left; 
+height: 36px; 
+width: 32px; 
+float: left; 
+text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/1312047.github.io\/post\/2019-09-20-basic-vim-config\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/1312047.github.io\/post\/2019-09-20-basic-vim-config\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/1312047.github.io\/post\/2019-09-20-basic-vim-config\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/1312047.github.io\/post\/2019-09-20-basic-vim-config\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/1312047.github.io\/post\/2019-09-20-basic-vim-config\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/til/">TIl</a>
+          </div>
+      <nav class="post-nav" style="font-family: Open Sans;">
+        
+        <a class="next" href="/post/2019-09-21-book-notes-ruby-metaprograming-2/">
+            <span class="next-text nav-default">Book Notes: Mateprograming Ruby 2</span>
+            <span class="next-text nav-mobile">Bài sau</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = '1312047-github-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hduychinh@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://facebook.com/hoangduychinh1995" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/chinhhd308/" class="iconfont icon-linkedin" title="linkedin"></a>
+  <a href="https://1312047.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+      Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    </span>
+    <span class="division">|</span>
+    <span class="theme-info">
+      Theme - 
+      <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+    </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Duy Chinh</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-141114443-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

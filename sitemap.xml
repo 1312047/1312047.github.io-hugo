@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://1312047.github.io/post/2019-09-20-basic-vim-config/</loc>
+    <lastmod>2019-09-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</loc>
+    <lastmod>2019-09-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://1312047.github.io/categories/</loc>
     <lastmod>2019-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -39,6 +53,12 @@
   </url>
   
   <url>
+    <loc>https://1312047.github.io/tags/ruby/</loc>
+    <lastmod>2019-09-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://1312047.github.io/categories/til/</loc>
     <lastmod>2019-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -66,12 +86,6 @@
   
   <url>
     <loc>https://1312047.github.io/categories/rails-notes/</loc>
-    <lastmod>2019-06-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://1312047.github.io/tags/ruby/</loc>
     <lastmod>2019-06-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

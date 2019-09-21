@@ -6,10 +6,20 @@
     <description>Recent content in ruby on The more your try, the more your learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://1312047.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Book Notes: Mateprograming Ruby 2</title>
+      <link>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</link>
+      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</guid>
+      <description>RUBY OBJECT MODEL rails g model Movie title:string director:string
+1  class Movie &amp;lt; ActiveRecord:Base; end   What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name.</description>
+    </item>
     
     <item>
       <title>A Simple ORM</title>
