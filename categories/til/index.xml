@@ -17,7 +17,7 @@
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/</guid>
-      <description>IMAGES RUBY OBJECT MODEL rails g model Movie title:string director:string
+      <description>IMAGES RUBY OBJECT MODEL Open Classes rails g model Movie title:string director:string
 1  class Movie &amp;lt; ActiveRecord:Base; end   1) What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name.</description>
     </item>
     

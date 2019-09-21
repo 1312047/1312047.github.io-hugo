@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Duy Chinh" /><meta name="description" content="IMAGES RUBY OBJECT MODEL rails g model Movie title:string director:string
+<meta name="author" content="Duy Chinh" /><meta name="description" content="IMAGES RUBY OBJECT MODEL Open Classes rails g model Movie title:string director:string
 1  class Movie &amp;lt; ActiveRecord:Base; end   1) What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name." /><meta name="keywords" content="ruby, rails, lap trinh, lam web, bao mat, hoc javascript, docker, postgresql, mysql" />
 
 
@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Book Notes: Mateprograming Ruby 2" />
-<meta property="og:description" content="IMAGES RUBY OBJECT MODEL rails g model Movie title:string director:string
+<meta property="og:description" content="IMAGES RUBY OBJECT MODEL Open Classes rails g model Movie title:string director:string
 1  class Movie &lt; ActiveRecord:Base; end   1) What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://1312047.github.io/post/2019-09-21-book-notes-ruby-metaprograming-2/" />
@@ -48,20 +48,20 @@
 <meta property="article:modified_time" content="2019-09-21T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Book Notes: Mateprograming Ruby 2">
-<meta itemprop="description" content="IMAGES RUBY OBJECT MODEL rails g model Movie title:string director:string
+<meta itemprop="description" content="IMAGES RUBY OBJECT MODEL Open Classes rails g model Movie title:string director:string
 1  class Movie &lt; ActiveRecord:Base; end   1) What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name.">
 
 
 <meta itemprop="datePublished" content="2019-09-21T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-09-21T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1604">
+<meta itemprop="wordCount" content="3255">
 
 
 
 <meta itemprop="keywords" content="ruby," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Book Notes: Mateprograming Ruby 2"/>
-<meta name="twitter:description" content="IMAGES RUBY OBJECT MODEL rails g model Movie title:string director:string
+<meta name="twitter:description" content="IMAGES RUBY OBJECT MODEL Open Classes rails g model Movie title:string director:string
 1  class Movie &lt; ActiveRecord:Base; end   1) What about methods such as title= and title, which access object attributes (accessor methods for short)? This is where metaprogramming comes in: Bob doesn’t have to write those methods. Active Record defines them automatically, after inferring their names from the database schema. ActiveRecord::Base reads the schema at runtime, discovers that the movies table has two columns named title and director, and defines accessor methods for two attributes of the same name."/>
 
 <!--[if lte IE 9]>
@@ -123,8 +123,8 @@
         <div class="post-category">
             <a href="/categories/til/"> til </a>
             </div>
-          <span class="more-meta"> 1604 words </span>
-          <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 8 Mins Read </span>
+          <span class="more-meta"> 3255 words </span>
+          <span style="background-color: #a1a1a1; color: white; border-radius: 2px; padding-left: 3px; padding-right: 3px; padding-bottom: 1px;"> 16 Mins Read </span>
         
       </div>
     </header>
@@ -137,8 +137,32 @@
 <li>
 <ul>
 <li><a href="#images">IMAGES</a></li>
-<li><a href="#ruby-object-model">RUBY OBJECT MODEL</a></li>
-<li><a href="#methods">METHODS</a></li>
+<li><a href="#ruby-object-model">RUBY OBJECT MODEL</a>
+<ul>
+<li><a href="#open-classes">Open Classes</a></li>
+<li><a href="#inside-the-object-model">Inside the Object Model</a></li>
+<li><a href="#what-happens-when-you-call-a-method">What Happens When You Call a Method?</a></li>
+</ul></li>
+<li><a href="#methods">METHODS</a>
+<ul>
+<li><a href="#dynamic-methods">Dynamic Methods</a></li>
+<li><a href="#method-missing">method_missing</a></li>
+<li><a href="#blank-slates">Blank Slates</a></li>
+</ul></li>
+<li><a href="#blocks">BLOCKS</a>
+<ul>
+<li><a href="#blocks-are-closures">Blocks Are Closures</a></li>
+<li><a href="#instance-eval">instance_eval()</a></li>
+<li><a href="#callable-objects">Callable Objects</a></li>
+<li><a href="#writing-a-domain-specific-language">Writing a Domain-Specific Language</a></li>
+</ul></li>
+<li><a href="#class-definitions">CLASS DEFINITIONS</a>
+<ul>
+<li><a href="#class-definitions-demystified">Class Definitions Demystified</a></li>
+<li><a href="#singleton-methods">Singleton Methods</a></li>
+<li><a href="#singleton-classes">Singleton Classes</a></li>
+<li><a href="#method-wrappers">Method Wrappers</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -168,6 +192,8 @@
 <p><img src="/images/meta2/9.png" alt="hoa" /></p>
 
 <h2 id="ruby-object-model">RUBY OBJECT MODEL</h2>
+
+<h3 id="open-classes">Open Classes</h3>
 
 <p><code>rails g model Movie title:string director:string</code></p>
 <div class="highlight"><div class="chroma">
@@ -201,6 +227,8 @@
 
 <p>| This can override the method of superclass and make wrong result in somewhere (monkeypath). So we need be careful when set the name for the override method.</p>
 
+<h3 id="inside-the-object-model">Inside the Object Model</h3>
+
 <p>3) Objects that share the same class also share the same methods, so the methods must be stored in the class, not the object.</p>
 
 <p>4) The &ldquo;false&rdquo; argument here means: ignore inherited methods Class.instance_methods(false) # =&gt; [:allocate, :new, :superclass]</p>
@@ -223,6 +251,8 @@ To be precise, a class is a module with three additional instance methods (new, 
 <p>What’s the class of Object?
 What’s the superclass of Module?
 What’s the class of Class?</p>
+
+<h3 id="what-happens-when-you-call-a-method">What Happens When You Call a Method?</h3>
 
 <p>12) When you call a method, Ruby does two things:
 1. It finds the method. This is a process called method lookup.
@@ -269,6 +299,8 @@ MySubclass.ancestors # =&gt; [MySubclass, MyClass, Object, Kernel, BasicObject]<
 <p>23) you can call refine in a regular module, but you cannot call it in a class, even if a class is itself a module.</p>
 
 <h2 id="methods">METHODS</h2>
+
+<h3 id="dynamic-methods">Dynamic Methods</h3>
 
 <p>24) If that kind of breaching of encapsulation makes you uneasy, you can use public_send instead. It’s like send, but it makes a point of respecting the receiver’s privacy. Be prepared, however, for the fact that Ruby code in the wild rarely bothers with this concern. If anything, a lot of Ruby programmers use send exactly because it allows calling private methods, not in spite of that</p>
 <div class="highlight"><div class="chroma">
@@ -507,6 +539,459 @@ MySubclass.ancestors # =&gt; [MySubclass, MyClass, Object, Kernel, BasicObject]<
 <span class="k">end</span></code></pre></td></tr></table>
 </div>
 </div>
+<h3 id="method-missing">method_missing</h3>
+
+<p>25) The Hashie gem contains a little bit of magic called Hashie::Mash. A Mash is a more powerful version of Ruby’s standard OpenStruct class: a hash-like object whose attributes work like Ruby variables. If you want a new attribute, just assign a value to the attribute, and it will spring into existence:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;hashie&#39;</span>
+<span class="n">icecream</span> <span class="o">=</span> <span class="no">Hashie</span><span class="o">::</span><span class="no">Mash</span><span class="o">.</span><span class="n">new</span>
+<span class="n">icecream</span><span class="o">.</span><span class="n">flavor</span> <span class="o">=</span> <span class="s2">&#34;strawberry&#34;</span>
+<span class="n">icecream</span><span class="o">.</span><span class="n">flavor</span> <span class="c1"># =&gt; &#34;strawberry&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>What hanppen inside?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">Hashie</span>
+  <span class="k">class</span> <span class="nc">Mash</span> <span class="o">&lt;</span> <span class="no">Hashie</span><span class="o">::</span><span class="no">Hash</span>
+    <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+      <span class="k">return</span> <span class="nb">self</span><span class="o">.</span><span class="n">[]</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span> <span class="k">if</span> <span class="n">key?</span><span class="p">(</span><span class="n">method_name</span><span class="p">)</span>
+      <span class="n">match</span> <span class="o">=</span> <span class="n">method_name</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/(.*?)([?=!]?)$/</span><span class="p">)</span>
+      <span class="k">case</span> <span class="n">match</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+      <span class="k">when</span> <span class="s2">&#34;=&#34;</span>
+      <span class="nb">self</span><span class="o">[</span><span class="n">match</span><span class="o">[</span><span class="mi">1</span><span class="o">]]</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">first</span>
+      <span class="c1"># ...</span>
+      <span class="k">else</span>
+      <span class="n">default</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>26) <strong>Ghost Methods</strong> (57) are usually icing on the cake, but some objects actually rely almost exclusively on them. These objects are often wrappers for something else—maybe another object, a web service, or code written in a different language. They collect method calls through method_missing and forward them to the wrapped object. Let’s look at a complex real-life example.</p>
+
+<p>Refactor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Computer</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">computer_id</span><span class="p">,</span> <span class="n">data_source</span><span class="p">)</span>
+    <span class="vi">@id</span> <span class="o">=</span> <span class="n">computer_id</span>
+    <span class="vi">@data_source</span> <span class="o">=</span> <span class="n">data_source</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="k">super</span> <span class="k">if</span> <span class="o">!</span><span class="vi">@data_source</span><span class="o">.</span><span class="n">respond_to?</span><span class="p">(</span><span class="s2">&#34;get_</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_info&#34;</span><span class="p">)</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&#34;get_</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_info&#34;</span><span class="p">,</span> <span class="vi">@id</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="vi">@data_source</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&#34;get_</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_price&#34;</span><span class="p">,</span> <span class="vi">@id</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="nb">name</span><span class="o">.</span><span class="n">capitalize</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">info</span><span class="si">}</span><span class="s2"> ($</span><span class="si">#{</span><span class="n">price</span><span class="si">}</span><span class="s2">)&#34;</span>
+    <span class="k">return</span> <span class="s2">&#34;* </span><span class="si">#{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+    <span class="n">result</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>27) Khi dùng ghost method, giả sử trong method_missing chúng ta muốn tạo ra 1 method x, tuy nhiên x lại có trong cây kế thừa =&gt; x trong method missing sẽ không được gọi. Lúc này ta cần Blank Slates.</p>
+
+<h3 id="blank-slates">Blank Slates</h3>
+
+<p>28) If you don’t need the inherited method, you can fix the problem by removing it. While you’re at it, you might want to remove most methods from the class, preventing such name clashes from ever happening again. A skinny class Spell: Blank Slate with a minimal number of methods is called a Blank Slate. As it turns out, Ruby has a ready-made Blank Slate for you to use</p>
+
+<p>29) If you don’t specify a superclass, your classes inherit by default from Object, which is itself a subclass of BasicObject. If you want a Blank Slate (66), you can inherit directly from BasicObject instead. For example, if Computer inherited directly from BasicObject, then it wouldn’t have a problematic display method.
+=&gt; không lấy nhầm method trong class Object, vì lớp Computer được kế thừa trực tiếp từ BasicObject</p>
+
+<p>30) Inheriting from BasicObject is the quicker way to define a Blank Slate in Ruby.
+<code>class Computer &lt; BasicObject</code></p>
+
+<p>31) You can remove a method from a class by using either Module#undef_method or Module#remove_method. The drastic undef_method removes any method, including the inherited ones. The kinder remove_method removes the method from the receiver, but it leaves inherited methods alone. Let’s look at a real-life library that uses undef_method to create a Blank Slate.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">BlankSlate</span>
+  <span class="c1"># Hide the method named +name+ in the BlankSlate class. Don&#39;t</span>
+  <span class="c1"># hide +instance_eval+ or any method beginning with &#34;__&#34;.</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">hide</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="c1"># ...</span>
+    <span class="k">if</span> <span class="nb">instance_methods</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="nb">name</span><span class="o">.</span><span class="n">_blankslate_as_name</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+      <span class="nb">name</span> <span class="o">!~</span> <span class="sr">/^(__|instance_eval$)/</span>
+      <span class="n">undef_method</span> <span class="nb">name</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="c1"># ...</span>
+  <span class="nb">instance_methods</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="n">hide</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>32) <strong>use Dynamic Methods if you can and Ghost Methods if you have to</strong></p>
+
+<h2 id="blocks">BLOCKS</h2>
+
+<h3 id="blocks-are-closures">Blocks Are Closures</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">my_method</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;Goodbye&#34;</span>
+  <span class="k">yield</span><span class="p">(</span><span class="s2">&#34;cruel&#34;</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&#34;Hello&#34;</span>
+<span class="n">my_method</span> <span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="o">|</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2"> world&#34;</span> <span class="p">}</span> <span class="c1"># =&gt; &#34;Hello, cruel world&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>33) When you create the block, you capture the local bindings, such as x. Then you pass the block to a method that has its own separate set of bindings. In the previous example, those bindings also include a variable named x. Still, the code in the block sees the x that was around when the block was defined, not the method’s x, which is not visible at all in the block.</p>
+
+<p>34) khi gọi 1 block, nó lưu vết lại các ràng buộc cục bộ nơi block được gọi, sau đó block được truyền cho 1 method, mà method đó sẽ có các ràng cuộc cục bộ của riêng nó, và block sẽ sử dụng ràng buộc của mình (ví dụ như biến x ở trên).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">just_yield</span>
+  <span class="k">yield</span>
+<span class="k">end</span>
+
+<span class="n">top_level_variable</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">just_yield</span> <span class="k">do</span>
+  <span class="n">top_level_variable</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="n">local_to_block</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="n">top_level_variable</span> <span class="c1"># =&gt; 2</span>
+<span class="n">local_to_block</span> <span class="c1"># =&gt; Error!</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Trong ví dụ này thì local_to_block là 1 binding thuộc block, và ra ngoài ngữ cảnh block nó không có giá trị.</p>
+
+<p>35) This example shows how scope changes as your program runs, tracking the names of bindings with the Kernel#local_variables method:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">class</span> <span class="nc">MyClass</span>
+  <span class="n">v2</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="nb">local_variables</span> <span class="c1"># =&gt; [:v2]</span>
+  <span class="k">def</span> <span class="nf">my_method</span>
+    <span class="n">v3</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="nb">local_variables</span>
+  <span class="k">end</span>
+  <span class="nb">local_variables</span> <span class="c1"># =&gt; [:v2]</span>
+<span class="k">end</span>
+  
+<span class="n">obj</span> <span class="o">=</span> <span class="no">MyClass</span><span class="o">.</span><span class="n">new</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">my_method</span> <span class="c1"># =&gt; [:v3]</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">my_method</span> <span class="c1"># =&gt; [:v3]</span>
+<span class="nb">local_variables</span> <span class="c1"># =&gt; [:v1, :obj]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>36) There are exactly three places where a program leaves the previous scope behind and opens a new one:
+Class definitions
+Module definitions
+Methods</p>
+
+<p>37) Scope changes whenever the program enters (or exits) a class or module definition or a method. These three borders are marked by the keywords class, module, and def, respectively. Each of these keywords acts like a <strong>Scope Gate</strong>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">class</span> <span class="nc">MyClass</span> <span class="c1"># SCOPE GATE: entering class</span>
+  <span class="n">v2</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="nb">local_variables</span> <span class="c1"># =&gt; [&#34;v2&#34;]</span>
+  <span class="k">def</span> <span class="nf">my_method</span> <span class="c1"># SCOPE GATE: entering def</span>
+    <span class="n">v3</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="nb">local_variables</span>
+  <span class="k">end</span> <span class="c1"># SCOPE GATE: leaving def</span>
+  
+  <span class="nb">local_variables</span> <span class="c1"># =&gt; [&#34;v2&#34;]</span>
+<span class="k">end</span> <span class="c1"># SCOPE GATE: leaving class</span>
+  
+<span class="n">obj</span> <span class="o">=</span> <span class="no">MyClass</span><span class="o">.</span><span class="n">new</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">my_method</span> <span class="c1"># =&gt; [:v3]</span>
+<span class="nb">local_variables</span> <span class="c1"># =&gt; [:v1, :obj]</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">my_var</span> <span class="o">=</span> <span class="s2">&#34;Success&#34;</span>
+  
+<span class="no">MyClass</span> <span class="o">=</span> <span class="no">Class</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span>
+  <span class="s2">&#34;</span><span class="si">#{</span><span class="n">my_var</span><span class="si">}</span><span class="s2"> in the class definition&#34;</span>
+  
+  <span class="n">define_method</span> <span class="ss">:my_method</span> <span class="k">do</span>
+    <span class="s2">&#34;</span><span class="si">#{</span><span class="n">my_var</span><span class="si">}</span><span class="s2"> in the method&#34;</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>khai báo thông thường thì my_var không thể sử dụng trong class hoặc def (vì nó mở ra  1 scope mới). Nên dùng call method gọi là <strong>flat scope</strong>.</p>
+
+<p>38) If you replace Scope Gates with method calls, you allow one scope to see variables from another scope. Technically, this trick should be called nested lexical scopes, but many Ruby coders refer to it simply as “flattening the scope,” meaning that the two scopes share variables as if the scopes were squeezed together. For short, you can call this spell a Flat Scope.</p>
+
+<p>39) Once you know about Flat Scopes (83), you can do pretty much whatever you want with scopes. For example, assume that you want to share a variable among a few methods, and you don’t want anybody else to see that variable. You can do that by defining all the methods in the same Flat Scope as the variable:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">define_methods</span>
+  <span class="n">shared</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="no">Kernel</span><span class="o">.</span><span class="n">send</span> <span class="ss">:define_method</span><span class="p">,</span> <span class="ss">:counter</span> <span class="k">do</span>
+    <span class="n">shared</span>
+  <span class="k">end</span>
+
+  <span class="no">Kernel</span><span class="o">.</span><span class="n">send</span> <span class="ss">:define_method</span><span class="p">,</span> <span class="ss">:inc</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+    <span class="n">shared</span> <span class="o">+=</span> <span class="n">x</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Muốn</span> <span class="n">chỉ</span> <span class="n">share</span> <span class="n">variable</span> <span class="n">cho</span> <span class="mi">1</span> <span class="n">vài</span> <span class="nb">method</span> <span class="n">nhất</span> <span class="err">đị</span><span class="n">nh</span><span class="p">,</span> <span class="n">dùng</span> <span class="n">các</span> <span class="n">phương</span> <span class="n">thức</span> <span class="n">support</span> <span class="n">bởi</span> <span class="n">kernel</span> <span class="n">và</span> <span class="n">gọi</span> <span class="err">đâ</span><span class="n">y</span> <span class="n">là</span> <span class="o">**</span><span class="no">Flat</span> <span class="no">Scope</span><span class="o">**.</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="instance-eval">instance_eval()</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">v</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">instance_eval</span> <span class="p">{</span> <span class="vi">@v</span> <span class="o">=</span> <span class="n">v</span> <span class="p">}</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">instance_eval</span> <span class="p">{</span> <span class="vi">@v</span> <span class="p">}</span> <span class="c1"># =&gt; 2</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>40) The three lines in the previous example are evaluated in the same Flat Scope (83), so they can all access the local variable v—but the blocks are evaluated with the object as self, so they can also access obj’s instance variable @v. In all these cases, you can call the block that you pass to instance_eval a Context Probe, because it’s like a snippet of code that you dip inside an object to do Spell: Context Probe something in there</p>
+
+<p>41) To solve this problem Ruby provides the standard library class Proc. 
+A Proc isa block that has been turned into an object. You can create a Proc by passing
+the block to Proc.new</p>
+
+<h3 id="callable-objects">Callable Objects</h3>
+
+<p>42) To attach a binding to the block, you can add one special argument to the method. This argument must be the last in the list of arguments and prefixed by an &amp; sign.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="o">&amp;</span><span class="n">the_proc</span><span class="p">)</span>
+  <span class="n">the_proc</span>
+<span class="k">end</span>
+    
+<span class="nb">p</span> <span class="o">=</span> <span class="n">my_method</span> <span class="p">{</span><span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="s2">&#34;Hello, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">!&#34;</span> <span class="p">}</span>
+<span class="nb">p</span><span class="o">.</span><span class="n">class</span> <span class="c1"># =&gt; Proc</span>
+<span class="nb">p</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&#34;Bill&#34;</span><span class="p">)</span> <span class="c1"># =&gt; &#34;Hello, Bill!&#34;</span>
+
+
+<span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+  <span class="s2">&#34;</span><span class="si">#{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="k">yield</span><span class="si">}</span><span class="s2">!&#34;</span>
+<span class="k">end</span>
+    
+<span class="n">my_proc</span> <span class="o">=</span> <span class="nb">proc</span> <span class="p">{</span> <span class="s2">&#34;Bill&#34;</span> <span class="p">}</span>
+<span class="n">my_method</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">my_proc</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>When you call my_method, the &amp; converts my_proc to a block and passes that block to the method.</p>
+
+<p>43) There are two differences between procs and lambdas. One has to do with the return keyword, and the other concerns the checking of arguments.</p>
+
+<p>In a lambda, return just returns from the lambda.
+In a proc, return behaves differently. Rather than return from the proc, it returns from the scope where the proc itself was defined:</p>
+
+<p>lambdas tend to be less tolerant than procs (and regular blocks) when it comes to arguments. Call a lambda with the wrong arity, and it fails with an ArgumentError. On the other hand, a proc fits the argument list to its own expectations:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">MyClass</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="vi">@x</span> <span class="o">=</span> <span class="n">value</span>
+  <span class="k">end</span>
+    
+  <span class="k">def</span> <span class="nf">my_method</span>
+    <span class="vi">@x</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+    
+<span class="n">object</span> <span class="o">=</span> <span class="no">MyClass</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">object</span><span class="o">.</span><span class="n">method</span> <span class="ss">:my_method</span>
+<span class="n">m</span><span class="o">.</span><span class="n">call</span> <span class="c1"># =&gt; 1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>44) By calling Kernel#method, you get the method itself as a Method object, which you can later execute with Method#call.</p>
+
+<h3 id="writing-a-domain-specific-language">Writing a Domain-Specific Language</h3>
+
+<p>N/A</p>
+
+<h2 id="class-definitions">CLASS DEFINITIONS</h2>
+
+<h3 id="class-definitions-demystified">Class Definitions Demystified</h3>
+
+<h3 id="singleton-methods">Singleton Methods</h3>
+
+<h3 id="singleton-classes">Singleton Classes</h3>
+
+<h3 id="method-wrappers">Method Wrappers</h3>
+
     </div>
 
     
